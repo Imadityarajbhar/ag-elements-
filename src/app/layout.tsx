@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import dynamic from 'next/dynamic';
 
 const CartDrawer = dynamic(() => import('@/components/shared/CartDrawer').then(m => m.CartDrawer));
+const MobileMenu = dynamic(() => import('@/components/layout/MobileMenu').then(m => m.MobileMenu));
 const SearchOverlay = dynamic(() => import('@/components/shared/SearchOverlay').then(m => m.SearchOverlay));
 const WhatsAppButton = dynamic(() => import('@/components/shared/WhatsAppButton').then(m => m.WhatsAppButton));
 const SocialProofToast = dynamic(() => import('@/components/shared/SocialProofToast').then(m => m.SocialProofToast));
@@ -85,6 +86,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </AuthProvider>
+        <MobileMenu />
         <CartDrawer />
         <SearchOverlay />
         <WhatsAppButton />

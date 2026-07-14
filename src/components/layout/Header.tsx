@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 
 export function Header() {
   const openSearch = useUIStore((state) => state.openSearch);
+  const setMobileMenuOpen = useUIStore((state) => state.setMobileMenuOpen);
   const wishlistItems = useWishlistStore((state) => state.items);
   const { isAuthenticated, user } = useAuthStore();
   const [mounted, setMounted] = useState(false);
@@ -36,7 +37,7 @@ export function Header() {
       <nav className="flex flex-col items-center bg-pearl-white/95 backdrop-blur-md text-ag-purple font-label-md editorial-shadow">
         <div className="w-full max-w-[1440px] px-margin-mobile tablet:px-margin-desktop py-4 flex justify-between items-center">
           {/* Mobile Menu Icon */}
-          <button className="tablet:hidden p-2 -ml-2 text-primary">
+          <button onClick={() => setMobileMenuOpen(true)} className="tablet:hidden p-2 -ml-2 text-primary">
             <span className="material-symbols-outlined">menu</span>
           </button>
           
