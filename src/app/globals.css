@@ -1,0 +1,214 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-heading);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  
+  /* Brand colors */
+  --color-ag-purple: #723f8c;
+  --color-lavender-blush: #F7EAF9;
+  --color-charcoal-navy: #23213A;
+  --color-pearl-white: #FFFFFF;
+  --color-surface-dim: #e0d7df;
+  --color-surface-container-low: #fbf1f8;
+  --color-surface-container: #f5ebf3;
+  --color-surface-variant: #e9e0e7;
+  --color-outline-variant: #cfc3d0;
+
+  /* Typography extensions */
+  --font-headline-md: Playfair Display;
+  --font-display-lg: Playfair Display;
+  --font-label-md: Hanken Grotesk;
+  --font-body-md: Hanken Grotesk;
+  --font-label-sm: Hanken Grotesk;
+  --font-headline-lg-mobile: Playfair Display;
+  --font-body-lg: Hanken Grotesk;
+  --font-headline-sm: Playfair Display;
+  --font-headline-lg: Playfair Display;
+
+  /* Spacing */
+  --spacing-margin-desktop: 80px;
+  --spacing-section-v-padding: 120px;
+  --spacing-section-v-padding-mobile: 64px;
+  --spacing-unit: 8px;
+  --spacing-gutter: 24px;
+  --spacing-margin-mobile: 20px;
+  /* Breakpoints */
+  --breakpoint-xs: 360px;
+  --breakpoint-sm: 390px;
+  --breakpoint-msm: 430px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-laptop: 1024px;
+  --breakpoint-desktop: 1280px;
+  --breakpoint-xl: 1440px;
+  --breakpoint-2xl: 1920px;
+}
+
+:root {
+  /* AG Elements Luxury Design System mapping */
+  --background: #FFFFFF;
+  --foreground: #23213A;
+  
+  --card: #FFFFFF;
+  --card-foreground: #23213A;
+  
+  --popover: #FFFFFF;
+  --popover-foreground: #23213A;
+  
+  --primary: #723f8c; /* ag-purple */
+  --primary-foreground: #FFFFFF;
+  
+  --secondary: #F7EAF9;
+  --secondary-foreground: #723f8c;
+  
+  --muted: #fbf1f8;
+  --muted-foreground: #7e7480;
+  
+  --accent: #f5ebf3;
+  --accent-foreground: #23213A;
+  
+  --destructive: #ba1a1a;
+  
+  --border: #e9e0e7;
+  --input: #e9e0e7;
+  --ring: #723f8c;
+  
+  /* Custom Radius from design-system.ts */
+  --radius-sm: 0.125rem;
+  --radius: 0.125rem; /* 2px */
+  --radius-md: 0.25rem;
+  --radius-lg: 0.25rem; /* 4px */
+  --radius-xl: 0.5rem; /* 8px */
+  
+  /* Sidebar placeholders */
+  --sidebar: #fbf1f8;
+  --sidebar-foreground: #1e1a1f;
+  --sidebar-primary: #592773;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f5ebf3;
+  --sidebar-accent-foreground: #1e1a1f;
+  --sidebar-border: #cfc3d0;
+  --sidebar-ring: #723f8c;
+}
+
+.dark {
+  /* Dark mode mappings would go here - using standard inverse for now */
+  --background: #1A1A1C;
+  --foreground: #FCFBFA;
+  
+  --card: #2A2A2C;
+  --card-foreground: #FCFBFA;
+  
+  --popover: #2A2A2C;
+  --popover-foreground: #FCFBFA;
+  
+  --primary: #e7b3ff;
+  --primary-foreground: #300248;
+  
+  --secondary: #dec48a;
+  --secondary-foreground: #251a00;
+  
+  --muted: #332f34;
+  --muted-foreground: #cfc3cf;
+  
+  --accent: #332f34;
+  --accent-foreground: #f7eef5;
+  
+  --destructive: #ffdad6;
+  
+  --border: #4c444e;
+  --input: #4c444e;
+  --ring: #e7b3ff;
+  
+  --sidebar: #1A1A1C;
+  --sidebar-foreground: #FCFBFA;
+  --sidebar-primary: #e7b3ff;
+  --sidebar-primary-foreground: #300248;
+  --sidebar-accent: #332f34;
+  --sidebar-accent-foreground: #FCFBFA;
+  --sidebar-border: #4c444e;
+  --sidebar-ring: #e7b3ff;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  
+  /* Adding typography classes from design system */
+  .display-lg {
+    @apply font-heading text-[64px] leading-[72px] tracking-[-0.02em];
+  }
+  .headline-lg {
+    @apply font-heading text-[32px] md:text-[48px] leading-[56px];
+  }
+  .headline-md {
+    @apply font-heading text-[32px] leading-[40px];
+  }
+  .headline-sm {
+    @apply font-heading text-[24px] leading-[32px];
+  }
+  .body-lg {
+    @apply font-sans text-[18px] leading-[28px];
+  }
+  .body-md {
+    @apply font-sans text-[16px] leading-[24px];
+  }
+  .label-md {
+    @apply font-sans text-[14px] leading-[20px] tracking-[0.05em] uppercase font-semibold;
+  }
+  .label-sm {
+    @apply font-sans text-[12px] leading-[16px] tracking-[0.02em] uppercase font-medium;
+  }
+  .editorial-shadow {
+    box-shadow: 0px 4px 20px rgba(35, 33, 58, 0.05);
+  }
+  .hide-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

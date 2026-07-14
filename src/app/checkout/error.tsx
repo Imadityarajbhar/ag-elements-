@@ -1,0 +1,46 @@
+"use client";
+
+import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
+export default function CheckoutError({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
+  useEffect(() => {
+    console.error("Checkout Error Boundary caught an error:", error);
+  }, [error]);
+
+  return (
+    <main className="w-full min-h-[60vh] flex flex-col items-center justify-center px-margin-mobile tablet:px-margin-desktop py-16 text-center">
+      <div className="w-16 h-16 rounded-full bg-surface-lavender flex items-center justify-center text-primary mb-6">
+        <span className="material-symbols-outlined text-[32px]">shopping_cart_checkout</span>
+      </div>
+      <h1 className="font-headline-lg text-[40px] tablet:text-[48px] text-charcoal-navy mb-4">
+        Checkout Interrupted
+      </h1>
+      <p className="font-body-lg text-[18px] text-on-surface-variant max-w-lg mb-8">
+        Don't worry—your cart hasn't been lost, and no payment was processed. Please try loading the checkout again.
+      </p>
+      
+      <div className="flex flex-col sm:flex-row gap-4 items-center">
+        <Button 
+          onClick={reset} 
+          className="uppercase tracking-widest font-label-md px-8 py-4 w-full sm:w-auto"
+        >
+          Try Again
+        </Button>
+        <Link 
+          href="/cart" 
+          className="font-label-md uppercase tracking-widest text-primary underline underline-offset-4 hover:brightness-90 transition-all py-4 px-4"
+        >
+          Return to Cart
+        </Link>
+      </div>
+    </main>
+  );
+}
