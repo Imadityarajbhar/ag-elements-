@@ -1,3 +1,4 @@
+
 # AG Elements - Headless E-commerce Storefront
 
 A premium, headless WooCommerce storefront built with Next.js App Router, TypeScript, Tailwind CSS, and Framer Motion. The design is strictly aligned with the Stitch design system.
@@ -57,4 +58,5 @@ WOOCOMMERCE_CONSUMER_SECRET=cs_your_consumer_secret_here
 - `pnpm run dev`: Starts the development server.
 - `pnpm run build`: Creates an optimized production build.
 - `pnpm run start`: Starts a production server from the built files.
+- `pnpm run lint`: Runs ESLint for code quality checks.
 - `pnpm run lint`: Runs ESLint for code quality checks.
