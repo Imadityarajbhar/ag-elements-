@@ -13,18 +13,27 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { TrustBadges } from "@/components/shared/TrustBadges";
 import { trackPurchase } from "@/lib/analytics";
+import { getAvailableShippingMethods, FREE_SHIPPING_THRESHOLD, calculateDeliveryEstimate } from "@/services/shipping";
+import { ShippingMethod } from "@/types/shipping";
+
+import { validateCoupon } from "@/services/coupon";
 
 function CheckoutContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const isBuyNow = searchParams.get("mode") === "buynow";
   
-  const { items: cartItems, clearCart, buyNowItem, clearBuyNowItem } = useCartStore();
+  const { 
+    items: cartItems, clearCart, buyNowItem, clearBuyNowItem,
+    availableShippingMethods, setAvailableShippingMethods,
+    selectedShippingMethod, setSelectedShippingMethod,
+    appliedCoupon, setAppliedCoupon
+  } = useCartStore();
   const { user, isAuthenticated } = useAuthStore();
 
   // Resolve data based on mode
   const items = isBuyNow ? (buyNowItem ? [buyNowItem] : []) : cartItems;
-  const { subtotal, itemCount } = calculateCartTotals(items);
+  const { subtotal, itemCount, shippingCost, newSubtotal, discountAmount } = calculateCartTotals(items, selectedShippingMethod, appliedCoupon);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -65,8 +74,8 @@ function CheckoutContent() {
   const [giftWrap, setGiftWrap] = useState(false);
   const [giftMessage, setGiftMessage] = useState("");
   
-  const [couponCode, setCouponCode] = useState("");
-  const [appliedCoupon, setAppliedCoupon] = useState<{ code: string; discount: number } | null>(null);
+  const [couponCodeInput, setCouponCodeInput] = useState("");
+  const [isApplyingCoupon, setIsApplyingCoupon] = useState(false);
   const [couponError, setCouponError] = useState("");
 
   // Pincode validation effect
@@ -87,18 +96,28 @@ function CheckoutContent() {
         city: prev.city || resolvedCity,
         state: prev.state || resolvedState,
       }));
+
+      // Fetch Shipping Methods
+      getAvailableShippingMethods(formData.pincode).then(methods => {
+        setAvailableShippingMethods(methods);
+        if (methods.length > 0) {
+          if (!selectedShippingMethod || !methods.find(m => m.id === selectedShippingMethod.id)) {
+            setSelectedShippingMethod(methods[0]);
+          }
+        } else {
+          setSelectedShippingMethod(null);
+        }
+      });
     }
-  }, [formData.pincode]);
+  }, [formData.pincode, selectedShippingMethod, setAvailableShippingMethods, setSelectedShippingMethod]);
 
   // Derived Values
   const giftWrapFee = giftWrap ? 100 : 0;
-  const discountAmount = appliedCoupon ? (subtotal * appliedCoupon.discount) : 0;
-  const newSubtotal = subtotal - discountAmount;
   
-  const shippingFee = newSubtotal >= 2000 ? 0 : 150;
-  const amountToFreeShipping = 2000 - newSubtotal;
+  // Shipping cost is now determined by calculateCartTotals
+  const amountToFreeShipping = FREE_SHIPPING_THRESHOLD - newSubtotal;
   
-  const total = newSubtotal + shippingFee + giftWrapFee;
+  const total = newSubtotal + shippingCost + giftWrapFee;
 
   // Simple Validation
   const isValid = 
@@ -109,23 +128,28 @@ function CheckoutContent() {
     formData.address.length > 0 &&
     formData.city.length > 0 &&
     formData.state.length > 0 &&
-    formData.pincode.length >= 6;
+    formData.pincode.length >= 6 &&
+    selectedShippingMethod !== null;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const applyCoupon = () => {
-    setCouponError("");
-    const code = couponCode.trim().toUpperCase();
-    if (!code) return;
-
-    if (code === "WELCOME10") {
-      setAppliedCoupon({ code, discount: 0.1 });
-      setCouponCode("");
+  const applyCoupon = async () => {
+    if (!couponCodeInput.trim()) return;
+    setIsApplyingCoupon(true);
+    setCouponError('');
+    
+    const result = await validateCoupon(couponCodeInput, subtotal, items);
+    
+    if (result.isValid && result.coupon) {
+      setAppliedCoupon(result.coupon);
+      setCouponCodeInput('');
     } else {
-      setCouponError("Invalid or expired coupon code.");
+      setCouponError(result.error || 'Invalid coupon.');
     }
+    
+    setIsApplyingCoupon(false);
   };
 
   const removeCoupon = () => {
@@ -187,8 +211,14 @@ function CheckoutContent() {
       },
       line_items: items.map(i => ({
         product_id: parseInt(i.product.id),
-        quantity: i.quantity
-      }))
+        quantity: i.quantity,
+        ...(i.variationId && { variation_id: parseInt(i.variationId) })
+      })),
+      shipping_lines: selectedShippingMethod ? [{
+        method_id: selectedShippingMethod.methodId,
+        method_title: selectedShippingMethod.title,
+        total: shippingCost.toString()
+      }] : []
     };
 
     if (appliedCoupon) {
@@ -231,19 +261,28 @@ function CheckoutContent() {
         {items.map((item) => (
           <div key={item.id} className="flex gap-4 items-center">
             <div className="relative w-16 h-16 bg-surface-dim rounded overflow-hidden flex-shrink-0 border border-outline-variant/30">
-              {item.product.images?.[0] && (
-                <Image fill sizes="64px" src={item.product.images[0].url} alt={item.product.name} className="object-cover" />
+              {(item.image || item.product.images?.[0]?.url) && (
+                <Image fill sizes="64px" src={item.image || item.product.images[0].url} alt={item.product.name} className="object-cover" />
               )}
               <div className="absolute -top-2 -right-2 bg-charcoal-navy text-pearl-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full z-10">
                 {item.quantity}
               </div>
             </div>
             <div className="flex-grow">
-              <h4 className="font-body-md font-medium text-charcoal-navy line-clamp-1">{item.product.name}</h4>
+              <h4 className="font-body-md font-medium text-charcoal-navy line-clamp-1">{item.title || item.product.name}</h4>
               <p className="font-label-sm text-on-surface-variant uppercase tracking-widest">{item.product.categories?.[0]?.name || "Jewelry"}</p>
+              {item.selectedOptions && Object.keys(item.selectedOptions).length > 0 && (
+                <p className="font-sans text-on-surface-variant text-[11px] mt-0.5 capitalize">
+                  {Object.entries(item.selectedOptions).map(([k, v]) => `${k}: ${v}`).join(' | ')}
+                </p>
+              )}
+              <div className="flex gap-4 mt-1 font-sans text-[12px] text-on-surface-variant">
+                <span>Qty: {item.quantity}</span>
+                <span>@ ₹{(item.price ?? (item.product.price || 0)).toLocaleString('en-IN')} each</span>
+              </div>
             </div>
             <div className="text-right flex-shrink-0">
-              <PriceDisplay regularPrice={item.product.price * item.quantity} salePrice={item.product.salePrice ? item.product.salePrice * item.quantity : undefined} />
+              <PriceDisplay regularPrice={(item.price ?? (item.product.price || 0)) * item.quantity} salePrice={item.product.salePrice ? item.product.salePrice * item.quantity : undefined} />
             </div>
           </div>
         ))}
@@ -268,11 +307,13 @@ function CheckoutContent() {
               type="text" 
               placeholder="Discount code (try WELCOME10)" 
               className={inputClass} 
-              value={couponCode}
-              onChange={(e) => setCouponCode(e.target.value)}
+              value={couponCodeInput}
+              onChange={(e) => setCouponCodeInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), applyCoupon())}
             />
-            <Button onClick={applyCoupon} type="button" variant="outline" className="border-outline-variant text-charcoal-navy hover:bg-surface-variant h-auto px-6">Apply</Button>
+            <Button disabled={isApplyingCoupon || !couponCodeInput.trim()} onClick={applyCoupon} type="button" variant="outline" className="border-outline-variant text-charcoal-navy hover:bg-surface-variant h-auto px-6">
+              {isApplyingCoupon ? '...' : 'Apply'}
+            </Button>
           </div>
         )}
         {couponError && <p className="text-red-500 text-xs font-semibold">{couponError}</p>}
@@ -283,26 +324,59 @@ function CheckoutContent() {
           <span className="text-on-surface-variant">Subtotal</span>
           <span className={appliedCoupon ? "line-through text-on-surface-variant/60" : ""}>₹{subtotal.toLocaleString('en-IN')}</span>
         </div>
-        {appliedCoupon && (
+        {appliedCoupon && discountAmount > 0 && (
           <div className="flex justify-between text-ag-purple font-semibold">
             <span>Discount ({appliedCoupon.code})</span>
             <span>-₹{discountAmount.toLocaleString('en-IN')}</span>
           </div>
         )}
-        <div className="flex justify-between">
+        
+        {/* Shipping Methods Selection */}
+        {formData.pincode.length >= 6 && availableShippingMethods.length > 0 && (
+          <div className="mt-4 flex flex-col gap-2">
+            <p className="font-label-sm font-semibold uppercase tracking-widest text-on-surface-variant mb-1 border-b border-outline-variant/30 pb-2">Shipping Method</p>
+            {availableShippingMethods.map(method => (
+              <label key={method.id} className="flex items-center gap-3 cursor-pointer p-2 border border-outline-variant/30 rounded hover:bg-surface-variant/30">
+                <input 
+                  type="radio" 
+                  name="checkoutShippingMethod" 
+                  className="accent-brand-amethyst w-4 h-4"
+                  checked={selectedShippingMethod?.id === method.id}
+                  onChange={() => setSelectedShippingMethod(method)}
+                />
+                <div className="flex-1 flex justify-between items-center">
+                  <span className="font-body-sm text-charcoal-navy">{method.title}</span>
+                  <span className="font-label-sm font-bold uppercase tracking-widest text-ag-purple">
+                    {appliedCoupon?.free_shipping || newSubtotal >= FREE_SHIPPING_THRESHOLD ? 'FREE' : (method.price === 0 ? 'FREE' : `₹${method.price}`)}
+                  </span>
+                </div>
+              </label>
+            ))}
+            {selectedShippingMethod && (
+              <div className="mt-1 flex gap-2 items-start bg-surface-lavender p-3 rounded text-xs text-brand-amethyst">
+                <span className="material-symbols-outlined text-[16px]">calendar_today</span>
+                <p>Delivery: <span className="font-bold">{calculateDeliveryEstimate(selectedShippingMethod).estimatedDateRange}</span></p>
+              </div>
+            )}
+          </div>
+        )}
+
+        <div className="flex justify-between mt-4">
           <span className="text-on-surface-variant">Shipping</span>
           <div className="text-right">
-            <span>{shippingFee === 0 ? 'Free' : `₹${shippingFee.toLocaleString('en-IN')}`}</span>
+            <span>
+              {!selectedShippingMethod ? 'Enter address' : (shippingCost === 0 ? 'Free' : `₹${shippingCost.toLocaleString('en-IN')}`)}
+            </span>
           </div>
         </div>
         
         {/* Shipping Calculator UI */}
-        {shippingFee > 0 && (
+        {shippingCost > 0 && (
           <div className="mt-1 flex items-center gap-2">
             <div className="flex-grow h-1.5 bg-outline-variant/30 rounded-full overflow-hidden">
               <div 
                 className="h-full bg-ag-purple rounded-full" 
-                style={{ width: `${Math.min(100, (newSubtotal / 2000) * 100)}%` }}
+                style={{ width: `${Math.min(100, (newSubtotal / FREE_SHIPPING_THRESHOLD) * 100)}%` }}
               />
             </div>
             <span className="text-[11px] font-semibold text-ag-purple whitespace-nowrap">Add ₹{amountToFreeShipping.toLocaleString('en-IN')} for Free Shipping</span>

@@ -2,29 +2,37 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/store/authStore';
 import { Button } from '@/components/ui/button';
 
 export default function AccountDashboardPage() {
-  const { user, token } = useAuthStore();
+  const { user, logout } = useAuthStore();
+  const router = useRouter();
   const [data, setData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!token) return;
-
-    fetch('/api/auth/me', {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-      .then(res => res.json())
+    fetch('/api/auth/me')
+      .then(res => {
+        if (!res.ok) throw new Error('Unauthorized');
+        return res.json();
+      })
       .then(resData => {
         setData(resData);
         setIsLoading(false);
       })
-      .catch(() => setIsLoading(false));
-  }, [token]);
+      .catch(() => {
+        setIsLoading(false);
+        router.push('/account/login');
+      });
+  }, [router]);
+
+  const handleLogout = async () => {
+    await fetch('/api/auth/logout', { method: 'POST' });
+    logout();
+    router.push('/account/login');
+  };
 
   if (isLoading) {
     return (
@@ -38,11 +46,16 @@ export default function AccountDashboardPage() {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="font-headline-md text-[32px] font-medium text-charcoal-navy">My Dashboard</h1>
-        <p className="font-body-md text-on-surface-variant mt-2">
-          From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.
-        </p>
+      <div className="flex justify-between items-start">
+        <div>
+          <h1 className="font-headline-md text-[32px] font-medium text-charcoal-navy">My Dashboard</h1>
+          <p className="font-body-md text-on-surface-variant mt-2">
+            From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.
+          </p>
+        </div>
+        <Button variant="outline" onClick={handleLogout} className="border-ag-purple text-ag-purple">
+          Logout
+        </Button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

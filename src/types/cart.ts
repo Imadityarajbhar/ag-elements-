@@ -6,6 +6,10 @@ export interface CartItem {
   product: Product;
   quantity: number;
   variationId?: string;
+  selectedOptions?: Record<string, string>;
+  price?: number; // Snapshot of the price at the time of adding (variation price)
+  image?: string; // Snapshot of the variation image
+  title?: string;
 }
 
 export interface Cart {

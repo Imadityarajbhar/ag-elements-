@@ -46,6 +46,14 @@ function mapWcProduct(wcProd: WooCommerceProduct): Product {
     relatedIds: wcProd.related_ids || [],
     crossSellIds: wcProd.cross_sell_ids || [],
     upsellIds: wcProd.upsell_ids || [],
+    type: wcProd.type,
+    attributes: wcProd.attributes
+      ?.filter((attr: any) => attr.variation)
+      .map((attr: any) => ({
+        name: attr.name,
+        options: attr.options,
+        variation: attr.variation,
+      })),
   };
 }
 
@@ -91,7 +99,27 @@ export const getProductBySlug = cache(async (slug: string): Promise<Product | nu
   try {
     const data = await wcClient.fetch<WooCommerceProduct[]>(`/products?slug=${slug}&status=publish`);
     if (data.length > 0) {
-      return mapWcProduct(data[0]);
+      const product = mapWcProduct(data[0]);
+      
+      // Fetch variations if it's a variable product
+      if (product.type === 'variable') {
+        const variationsData = await wcClient.fetch<any[]>(`/products/${product.id}/variations?status=publish`);
+        product.variations = variationsData.map((v: any) => ({
+          id: v.id.toString(),
+          price: parseFloat(v.price || '0'),
+          regularPrice: v.regular_price ? parseFloat(v.regular_price) : undefined,
+          salePrice: v.sale_price ? parseFloat(v.sale_price) : undefined,
+          stockStatus: v.stock_status,
+          stockQuantity: v.stock_quantity ?? null,
+          image: v.image ? { id: v.image.id?.toString(), url: v.image.src, alt: v.image.alt } : undefined,
+          attributes: v.attributes.reduce((acc: any, attr: any) => {
+            acc[attr.name] = attr.option;
+            return acc;
+          }, {}),
+        }));
+      }
+
+      return product;
     }
     return null;
   } catch (error) {

@@ -1,7 +1,19 @@
+export interface ProductVariation {
+  id: string;
+  price: number;
+  regularPrice?: number;
+  salePrice?: number;
+  stockStatus: 'instock' | 'outofstock' | 'onbackorder';
+  stockQuantity: number | null;
+  image?: { id: string; url: string; alt: string };
+  attributes: Record<string, string>;
+}
+
 export interface Product {
   id: string;
   name: string;
   slug: string;
+  type?: 'simple' | 'variable' | 'grouped' | 'external';
   price: number;
   regularPrice?: number;
   salePrice?: number;
@@ -26,4 +38,6 @@ export interface Product {
   relatedIds?: number[];
   crossSellIds?: number[];
   upsellIds?: number[];
+  attributes?: { name: string; options: string[]; variation: boolean }[];
+  variations?: ProductVariation[];
 }

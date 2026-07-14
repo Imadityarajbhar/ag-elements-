@@ -43,7 +43,7 @@ export function StickyAddToCart({ product }: { product: Product }) {
 
         {/* Action Button */}
         <div className="flex-1 sm:flex-none sm:w-[300px]">
-          <AddToCartButton product={product} />
+          <AddToCartButton product={product} compact />
         </div>
 
       </div>

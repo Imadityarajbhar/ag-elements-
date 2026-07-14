@@ -13,6 +13,18 @@ interface CartState {
   setIsOpen: (isOpen: boolean) => void;
   setBuyNowItem: (item: CartItem) => void;
   clearBuyNowItem: () => void;
+  
+  // Shipping State
+  shippingAddress: import('../types/shipping').ShippingAddress | null;
+  availableShippingMethods: import('../types/shipping').ShippingMethod[];
+  selectedShippingMethod: import('../types/shipping').ShippingMethod | null;
+  setShippingAddress: (address: import('../types/shipping').ShippingAddress) => void;
+  setAvailableShippingMethods: (methods: import('../types/shipping').ShippingMethod[]) => void;
+  setSelectedShippingMethod: (method: import('../types/shipping').ShippingMethod | null) => void;
+  
+  // Coupon State
+  appliedCoupon: import('../types/coupon').WooCommerceCoupon | null;
+  setAppliedCoupon: (coupon: import('../types/coupon').WooCommerceCoupon | null) => void;
 }
 
 export const useCartStore = create<CartState>()(
@@ -43,10 +55,26 @@ export const useCartStore = create<CartState>()(
       setIsOpen: (isOpen) => set({ isOpen }),
       setBuyNowItem: (item) => set({ buyNowItem: item }),
       clearBuyNowItem: () => set({ buyNowItem: null }),
+      
+      shippingAddress: null,
+      availableShippingMethods: [],
+      selectedShippingMethod: null,
+      setShippingAddress: (address) => set({ shippingAddress: address }),
+      setAvailableShippingMethods: (methods) => set({ availableShippingMethods: methods }),
+      setSelectedShippingMethod: (method) => set({ selectedShippingMethod: method }),
+      
+      appliedCoupon: null,
+      setAppliedCoupon: (coupon) => set({ appliedCoupon: coupon }),
     }),
     {
       name: 'ag-cart-storage',
-      partialize: (state) => ({ items: state.items, buyNowItem: state.buyNowItem }),
+      partialize: (state) => ({ 
+        items: state.items, 
+        buyNowItem: state.buyNowItem,
+        shippingAddress: state.shippingAddress,
+        selectedShippingMethod: state.selectedShippingMethod,
+        appliedCoupon: state.appliedCoupon
+      }),
     }
   )
 );

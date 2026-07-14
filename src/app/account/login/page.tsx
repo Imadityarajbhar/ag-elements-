@@ -34,7 +34,7 @@ export default function LoginPage() {
         throw new Error(data.error || 'Failed to login');
       }
 
-      login(data.user, data.token);
+      login(data.user);
       router.push('/account');
     } catch (err: any) {
       setError(err.message);

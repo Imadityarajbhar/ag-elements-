@@ -2,7 +2,7 @@ import { getProductBySlug, getProducts, getProductsByIds, getRecommendations } f
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { AddToCartButton } from "@/components/shared/AddToCartButton";
+import { AddToCartButton, ProductGallery } from "@/components/shared/AddToCartButton";
 import { BuyNowButton } from "@/components/shared/BuyNowButton";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { ProductCarousel } from "@/components/shop/ProductCarousel";
@@ -12,6 +12,7 @@ import { TrustBadges } from "@/components/shared/TrustBadges";
 import { ProductViewTracker } from "@/components/shop/ProductViewTracker";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
 export const runtime = 'edge';
 
@@ -166,33 +167,16 @@ export default async function ProductDetailPage({ params }: PDPProps) {
       </nav>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-        {/* Left: Sticky Gallery */}
-        <div className="lg:col-span-7 flex flex-col md:flex-row gap-4 relative items-start">
-          {/* Thumbnails (Desktop) */}
-          <div className="hidden md:flex flex-col gap-4 w-[100px] sticky top-[120px]">
-            {thumbnails.map((thumb, idx) => (
-              <button key={thumb.id} className={`relative w-full aspect-[4/5] bg-surface-lavender rounded overflow-hidden transition-opacity ${idx === 0 ? 'border border-primary opacity-100' : 'opacity-60 hover:opacity-100'}`}>
-                <Image fill sizes="100px" className="object-cover" alt={thumb.alt} src={thumb.url} />
-              </button>
-            ))}
-          </div>
-          {/* Main Image */}
-          <div className="relative w-full flex-1 rounded bg-surface-container-lowest overflow-hidden shadow-[0px_4px_20px_rgba(35,33,58,0.05)]">
-            <Image priority fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" alt={product.name} src={mainImage} />
-          </div>
-          {/* Thumbnails (Mobile) */}
-          <div className="flex md:hidden gap-4 w-full overflow-x-auto hide-scrollbar snap-x py-2">
-            {thumbnails.map((thumb, idx) => (
-              <div key={thumb.id} className={`relative snap-start min-w-[80px] aspect-[4/5] bg-surface-lavender rounded overflow-hidden ${idx === 0 ? 'border border-primary opacity-100' : 'opacity-60'}`}>
-                <Image fill sizes="80px" className="object-cover" alt={thumb.alt} src={thumb.url} />
-              </div>
-            ))}
-          </div>
+        {/* Left: Interactive Gallery */}
+        <div className="lg:col-span-7 flex flex-col md:flex-row gap-4 relative items-start h-full">
+          <Suspense fallback={<div className="h-[600px] w-full bg-surface-container-lowest animate-pulse rounded" />}>
+            <ProductGallery product={product} />
+          </Suspense>
         </div>
 
         {/* Right: Product Details */}
         <div className="lg:col-span-5 flex flex-col gap-8 lg:sticky lg:top-[120px] h-fit">
-          {/* Title & Price */}
+          {/* Title */}
           <div className="flex flex-col gap-2">
             <div className="inline-flex items-center gap-2 bg-secondary text-on-secondary-container px-3 py-1 rounded text-[12px] font-label-sm font-semibold w-fit mb-2 uppercase tracking-widest">
               <span className="material-symbols-outlined text-[16px]">verified</span>
@@ -200,17 +184,9 @@ export default async function ProductDetailPage({ params }: PDPProps) {
             </div>
             <h1 className="font-headline-lg text-[48px] leading-[56px] font-medium text-charcoal-navy">{product.name}</h1>
             <p className="font-body-lg text-[18px] text-on-surface-variant">Handcrafted Silver Jewelry</p>
-            
-            <div className="flex gap-4 items-center mt-2">
-              <p className="font-headline-md text-[32px] font-medium text-primary">₹ {product.price.toLocaleString('en-IN')}</p>
-              {product.salePrice && product.regularPrice && (
-                <p className="font-body-md text-[16px] text-on-surface-variant line-through">₹ {product.regularPrice.toLocaleString('en-IN')}</p>
-              )}
-            </div>
-            <p className="text-label-sm text-[12px] font-semibold text-outline uppercase tracking-widest mt-1">Inclusive of all taxes</p>
           </div>
 
-          {/* Add to Cart & Buy Now CTAs */}
+          {/* Add to Cart & Actions (includes price, variants, buttons) */}
           <div className="flex flex-col gap-4">
             
             {/* Urgency / Scarcity Message */}
@@ -222,10 +198,9 @@ export default async function ProductDetailPage({ params }: PDPProps) {
               <span className="font-label-sm font-bold uppercase tracking-widest text-[12px]">High Demand: Only 2 left in stock!</span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Suspense fallback={<div className="h-12 bg-surface-container-lowest animate-pulse rounded" />}>
               <AddToCartButton product={product} />
-              <BuyNowButton product={product} />
-            </div>
+            </Suspense>
 
             <div className="flex justify-center mt-2">
               <WishlistButton product={product} withText className="hover:scale-100" />

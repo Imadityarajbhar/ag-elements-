@@ -36,7 +36,7 @@ export default function RegisterPage() {
         throw new Error(data.error || 'Failed to register');
       }
 
-      login(data.user, data.token);
+      login(data.user);
       router.push('/account');
     } catch (err: any) {
       setError(err.message);

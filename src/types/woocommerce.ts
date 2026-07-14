@@ -102,6 +102,12 @@ export interface WooCommerceOrderShipping {
   country: string;
 }
 
+export interface WooCommerceOrderShippingLine {
+  method_id: string;
+  method_title: string;
+  total: string;
+}
+
 export interface WooCommerceOrderPayload {
   payment_method: string;
   payment_method_title: string;
@@ -112,6 +118,7 @@ export interface WooCommerceOrderPayload {
   customer_note?: string;
   meta_data?: Array<{ key: string; value: string }>;
   coupon_lines?: Array<{ code: string }>;
+  shipping_lines?: WooCommerceOrderShippingLine[];
 }
 
 export interface WooCommerceReview {
@@ -129,4 +136,32 @@ export interface WooCommerceReview {
     '48': string;
     '96': string;
   };
+}
+
+export interface WooCommerceVariation {
+  id: number;
+  date_created: string;
+  permalink: string;
+  sku: string;
+  price: string;
+  regular_price: string;
+  sale_price: string;
+  on_sale: boolean;
+  status: 'publish' | 'draft' | 'pending' | 'private';
+  purchasable: boolean;
+  manage_stock: boolean;
+  stock_quantity: number | null;
+  stock_status: 'instock' | 'outofstock' | 'onbackorder';
+  weight: string;
+  dimensions: {
+    length: string;
+    width: string;
+    height: string;
+  };
+  image: WooCommerceImage;
+  attributes: Array<{
+    id: number;
+    name: string;
+    option: string;
+  }>;
 }
