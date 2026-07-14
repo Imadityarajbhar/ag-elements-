@@ -6,16 +6,16 @@ import { X } from "lucide-react";
 const CITIES = ["Mumbai", "Delhi", "Bengaluru", "Chennai", "Kolkata", "Hyderabad", "Pune", "Ahmedabad", "Surat", "Jaipur"];
 const NAMES = ["Priya", "Rahul", "Anjali", "Vikram", "Sneha", "Rohan", "Neha", "Amit", "Kavita", "Suresh"];
 const PRODUCTS = [
-  "Silver Eternity Ring",
-  "Pearl Drop Earrings",
-  "Classic Minimalist Kada",
-  "Oxidized Statement Necklace",
-  "Silver Infinity Bracelet",
-  "Traditional Mangalsutra",
-  "Rose Gold Plated Silver Studs",
-  "Vintage Silver Jhumkas",
-  "Evil Eye Pendant",
-  "Silver Charm Anklet"
+  "Minimal Silver Box Chain Necklace",
+  "Luxury Gold Cuban Link Chain Necklace",
+  "Classic Silver Cable Chain Necklace",
+  "Classic Silver Ball Chain Necklace",
+  "Modern Silver Link Chain Necklace",
+  "Elegant Textured Silver Chain Necklace",
+  "Classic Silver Figaro Chain Necklace",
+  "Minimal Silver Oval Link Chain Necklace",
+  "Bold Silver Double Link Chain Necklace",
+  "Classic Gold Rope Chain Necklace"
 ];
 
 interface ToastData {
@@ -30,35 +30,53 @@ export function SocialProofToast() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Show a toast every 30 to 45 seconds
-    const scheduleNextToast = () => {
-      const delay = Math.floor(Math.random() * 15000) + 30000; // 30s to 45s
-      
-      setTimeout(() => {
-        const newToast = {
-          name: NAMES[Math.floor(Math.random() * NAMES.length)],
-          city: CITIES[Math.floor(Math.random() * CITIES.length)],
-          product: PRODUCTS[Math.floor(Math.random() * PRODUCTS.length)],
-          timeAgo: `${Math.floor(Math.random() * 59) + 1} mins ago`
-        };
-        
-        setToast(newToast);
-        setIsVisible(true);
+    let active = true;
 
-        // Hide after 6 seconds
-        setTimeout(() => {
-          setIsVisible(false);
+    const startToasts = async () => {
+      try {
+        const res = await fetch('/api/products?per_page=15');
+        const products = await res.json();
+        const productNames = products.items?.map((p: any) => p.name) || [
+          "925 Silver Minimal Ring", "Classic Silver Chain", "Silver Stud Earrings"
+        ];
+
+        if (!active) return;
+
+        const scheduleNextToast = () => {
+          const delay = Math.floor(Math.random() * 15000) + 30000; // 30s to 45s
+          
+          setTimeout(() => {
+            if (!active) return;
+            const newToast = {
+              name: NAMES[Math.floor(Math.random() * NAMES.length)],
+              city: CITIES[Math.floor(Math.random() * CITIES.length)],
+              product: productNames[Math.floor(Math.random() * productNames.length)],
+              timeAgo: `${Math.floor(Math.random() * 59) + 1} mins ago`
+            };
+            
+            setToast(newToast);
+            setIsVisible(true);
+
+            setTimeout(() => {
+              if (!active) return;
+              setIsVisible(false);
+              scheduleNextToast();
+            }, 6000);
+          }, delay);
+        };
+
+        const initialTimer = setTimeout(() => {
+          if (!active) return;
           scheduleNextToast();
-        }, 6000);
-      }, delay);
+        }, 15000); // 15 seconds after initial load
+      } catch (err) {
+        console.error("Failed to load products for social proof");
+      }
     };
 
-    // Start the cycle after initial delay
-    const initialTimer = setTimeout(() => {
-      scheduleNextToast();
-    }, 15000); // 15 seconds after initial load
+    startToasts();
 
-    return () => clearTimeout(initialTimer);
+    return () => { active = false; };
   }, []);
 
   if (!toast) return null;

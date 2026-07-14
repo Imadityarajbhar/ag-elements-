@@ -1,79 +1,224 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { CartItem } from '../types/cart';
+import { CartItem, WcStoreCart } from '../types/cart';
+import { ApiResult } from '../types/api';
 
 interface CartState {
-  items: CartItem[];
-  buyNowItem: CartItem | null;
   isOpen: boolean;
-  addItem: (item: CartItem) => void;
-  removeItem: (id: string) => void;
-  updateQuantity: (id: string, quantity: number) => void;
-  clearCart: () => void;
   setIsOpen: (isOpen: boolean) => void;
-  setBuyNowItem: (item: CartItem) => void;
-  clearBuyNowItem: () => void;
   
-  // Shipping State
-  shippingAddress: import('../types/shipping').ShippingAddress | null;
-  availableShippingMethods: import('../types/shipping').ShippingMethod[];
-  selectedShippingMethod: import('../types/shipping').ShippingMethod | null;
-  setShippingAddress: (address: import('../types/shipping').ShippingAddress) => void;
-  setAvailableShippingMethods: (methods: import('../types/shipping').ShippingMethod[]) => void;
-  setSelectedShippingMethod: (method: import('../types/shipping').ShippingMethod | null) => void;
+  // Remote WooCommerce Store Cart State
+  cart: WcStoreCart | null;
+  isSyncing: boolean;
   
-  // Coupon State
-  appliedCoupon: import('../types/coupon').WooCommerceCoupon | null;
-  setAppliedCoupon: (coupon: import('../types/coupon').WooCommerceCoupon | null) => void;
+  // Actions to interact with remote cart
+  fetchCart: () => Promise<ApiResult<void>>;
+  addItem: (productId: number, quantity: number, variation?: Array<{attribute: string, value: string}>) => Promise<ApiResult<void>>;
+  updateItem: (key: string, quantity: number) => Promise<ApiResult<void>>;
+  removeItem: (key: string) => Promise<ApiResult<void>>;
+  applyCoupon: (code: string) => Promise<ApiResult<void>>;
+  removeCoupon: (code: string) => Promise<ApiResult<void>>;
+  updateShippingAddress: (address: any) => Promise<ApiResult<void>>;
+  selectShippingRate: (packageId: number, rateId: string) => Promise<ApiResult<void>>;
 }
 
 export const useCartStore = create<CartState>()(
   persist(
     (set, get) => ({
-      items: [],
-      buyNowItem: null,
       isOpen: false,
-      addItem: (newItem) => {
-        set((state) => {
-          const existing = state.items.find((i) => i.productId === newItem.productId && i.variationId === newItem.variationId);
-          if (existing) {
-            return {
-              items: state.items.map((i) =>
-                i.id === existing.id ? { ...i, quantity: i.quantity + newItem.quantity } : i
-              ),
-            };
-          }
-          return { items: [...state.items, { ...newItem, id: crypto.randomUUID() }] };
-        });
-      },
-      removeItem: (id) => set((state) => ({ items: state.items.filter((i) => i.id !== id) })),
-      updateQuantity: (id, quantity) =>
-        set((state) => ({
-          items: state.items.map((i) => (i.id === id ? { ...i, quantity } : i)),
-        })),
-      clearCart: () => set({ items: [] }),
       setIsOpen: (isOpen) => set({ isOpen }),
-      setBuyNowItem: (item) => set({ buyNowItem: item }),
-      clearBuyNowItem: () => set({ buyNowItem: null }),
       
-      shippingAddress: null,
-      availableShippingMethods: [],
-      selectedShippingMethod: null,
-      setShippingAddress: (address) => set({ shippingAddress: address }),
-      setAvailableShippingMethods: (methods) => set({ availableShippingMethods: methods }),
-      setSelectedShippingMethod: (method) => set({ selectedShippingMethod: method }),
+      cart: null,
+      isSyncing: false,
       
-      appliedCoupon: null,
-      setAppliedCoupon: (coupon) => set({ appliedCoupon: coupon }),
+      fetchCart: async () => {
+        set({ isSyncing: true });
+        try {
+          const res = await fetch('/api/cart');
+          if (res.ok) {
+            const data = await res.json();
+            set({ cart: data });
+            return { success: true, data: undefined };
+          } else {
+            const err = await res.json();
+            return { success: false, error: err.message || 'Failed to fetch cart', code: err.code };
+          }
+        } catch (error: any) {
+          console.error("Failed to fetch cart", error);
+          return { success: false, error: error.message || 'Failed to fetch cart' };
+        } finally {
+          set({ isSyncing: false });
+        }
+      },
+      
+      addItem: async (productId, quantity, variation) => {
+        set({ isSyncing: true });
+        try {
+          const res = await fetch('/api/cart', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              id: productId,
+              quantity,
+              variation
+            })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            set({ cart: data, isOpen: true }); // Open drawer on success
+            return { success: true, data: undefined };
+          } else {
+            const err = await res.json();
+            return { success: false, error: err.message || 'Failed to add item', code: err.code };
+          }
+        } catch (error: any) {
+          console.error("Failed to add item", error);
+          return { success: false, error: error.message || 'Failed to add item' };
+        } finally {
+          set({ isSyncing: false });
+        }
+      },
+      
+      updateItem: async (key, quantity) => {
+        set({ isSyncing: true });
+        try {
+          const res = await fetch(`/api/cart/items/${key}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ quantity })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            set({ cart: data });
+            return { success: true, data: undefined };
+          } else {
+            const err = await res.json();
+            return { success: false, error: err.message || 'Failed to update item', code: err.code };
+          }
+        } catch (error: any) {
+          console.error("Failed to update item", error);
+          return { success: false, error: error.message || 'Failed to update item' };
+        } finally {
+          set({ isSyncing: false });
+        }
+      },
+      
+      removeItem: async (key) => {
+        set({ isSyncing: true });
+        try {
+          const res = await fetch(`/api/cart/items/${key}`, {
+            method: 'DELETE'
+          });
+          if (res.ok) {
+            const data = await res.json();
+            set({ cart: data });
+            return { success: true, data: undefined };
+          } else {
+            const err = await res.json();
+            return { success: false, error: err.message || 'Failed to remove item', code: err.code };
+          }
+        } catch (error: any) {
+          console.error("Failed to remove item", error);
+          return { success: false, error: error.message || 'Failed to remove item' };
+        } finally {
+          set({ isSyncing: false });
+        }
+      },
+      
+      applyCoupon: async (code) => {
+        set({ isSyncing: true });
+        try {
+          const res = await fetch('/api/cart/coupons', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ code })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            set({ cart: data });
+            return { success: true, data: undefined };
+          } else {
+            const err = await res.json();
+            return { success: false, error: err.message || 'Failed to apply coupon', code: err.code };
+          }
+        } catch (error: any) {
+          return { success: false, error: error.message || 'Failed to apply coupon' };
+        } finally {
+          set({ isSyncing: false });
+        }
+      },
+      
+      removeCoupon: async (code) => {
+        set({ isSyncing: true });
+        try {
+          const res = await fetch(`/api/cart/coupons?code=${encodeURIComponent(code)}`, {
+            method: 'DELETE'
+          });
+          if (res.ok) {
+            const data = await res.json();
+            set({ cart: data });
+            return { success: true, data: undefined };
+          } else {
+            const err = await res.json();
+            return { success: false, error: err.message || 'Failed to remove coupon', code: err.code };
+          }
+        } catch (error: any) {
+          return { success: false, error: error.message || 'Failed to remove coupon' };
+        } finally {
+          set({ isSyncing: false });
+        }
+      },
+      
+      updateShippingAddress: async (address) => {
+        set({ isSyncing: true });
+        try {
+          const res = await fetch('/api/cart/shipping', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ address })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            set({ cart: data });
+            return { success: true, data: undefined };
+          } else {
+            const err = await res.json();
+            return { success: false, error: err.message || 'Failed to update address', code: err.code };
+          }
+        } catch (error: any) {
+          return { success: false, error: error.message || 'Failed to update address' };
+        } finally {
+          set({ isSyncing: false });
+        }
+      },
+      
+      selectShippingRate: async (packageId, rateId) => {
+        set({ isSyncing: true });
+        try {
+          const res = await fetch('/api/cart/shipping', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ packageId, rateId })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            set({ cart: data });
+            return { success: true, data: undefined };
+          } else {
+            const err = await res.json();
+            return { success: false, error: err.message || 'Failed to select shipping rate', code: err.code };
+          }
+        } catch (error: any) {
+          return { success: false, error: error.message || 'Failed to select shipping rate' };
+        } finally {
+          set({ isSyncing: false });
+        }
+      }
     }),
     {
-      name: 'ag-cart-storage',
+      name: 'ag-cart-storage-v2',
       partialize: (state) => ({ 
-        items: state.items, 
-        buyNowItem: state.buyNowItem,
-        shippingAddress: state.shippingAddress,
-        selectedShippingMethod: state.selectedShippingMethod,
-        appliedCoupon: state.appliedCoupon
+        cart: state.cart, // Cache the cart to prevent layout shifts on load
       }),
     }
   )

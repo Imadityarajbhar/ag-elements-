@@ -9,7 +9,7 @@ import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import Image from 'next/image';
 
 export function AddToCartButton({ product, compact = false }: { product: Product, compact?: boolean }) {
-  const { addItem, setBuyNowItem, setIsOpen } = useCartStore();
+  const { addItem, setIsOpen } = useCartStore();
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -70,44 +70,44 @@ export function AddToCartButton({ product, compact = false }: { product: Product
     return true;
   };
 
-  const handleAddToCart = () => {
+  const handleAddToCart = async () => {
     if (!validateSelection()) return;
 
-    const cartItem = {
-      id: crypto.randomUUID(),
-      productId: product.id,
-      product,
-      quantity,
-      title: product.name,
-      variationId: activeVariation?.id,
-      selectedOptions: isVariable ? selectedOptions : undefined,
-      price: displayPrice,
-      image: activeVariation?.image?.url || product.images[0]?.url,
-    };
+    let variationPayload;
+    if (isVariable && selectedOptions) {
+      // The Store API expects variation: [ { attribute: 'pa_color', value: 'silver' } ]
+      // WooCommerce attributes prefixed with pa_ if global, or just the name if custom.
+      // We'll pass them down. For safety, we match WooCommerce format.
+      variationPayload = Object.entries(selectedOptions).map(([key, value]) => ({
+        attribute: key,
+        value: value
+      }));
+    }
 
-    addItem(cartItem);
+    await addItem(parseInt(product.id), quantity, variationPayload);
     trackAddToCart(product, quantity);
-    setIsOpen(true);
   };
 
-  const handleBuyNow = () => {
+  const handleBuyNow = async () => {
     if (!validateSelection()) return;
 
-    const cartItem = {
-      id: crypto.randomUUID(),
-      productId: product.id,
-      product,
-      quantity,
-      title: product.name,
-      variationId: activeVariation?.id,
-      selectedOptions: isVariable ? selectedOptions : undefined,
-      price: displayPrice,
-      image: activeVariation?.image?.url || product.images[0]?.url,
-    };
+    let variationPayload;
+    if (isVariable && selectedOptions) {
+      variationPayload = Object.entries(selectedOptions).map(([key, value]) => ({
+        attribute: key,
+        value: value
+      }));
+    }
 
-    setBuyNowItem(cartItem);
-    router.push('/checkout?mode=buynow');
+    const res = await addItem(parseInt(product.id), quantity, variationPayload);
+    trackAddToCart(product, quantity);
+    
+    if (res.success) {
+      router.push('/checkout');
+    }
   };
+
+
 
   if (compact) {
     return (

@@ -39,14 +39,8 @@ function WishlistContent() {
   const isSharedView = !!shareIds;
   const displayItems = isSharedView && sharedProducts ? sharedProducts : items;
 
-  const handleMoveToCart = (product: Product) => {
-    cartStore.addItem({
-      id: crypto.randomUUID(),
-      productId: product.id,
-      product,
-      quantity: 1,
-    });
-    cartStore.setIsOpen(true);
+  const handleMoveToCart = async (product: Product) => {
+    await cartStore.addItem(parseInt(product.id), 1);
     if (!isSharedView) {
       removeItem(product.id);
     }

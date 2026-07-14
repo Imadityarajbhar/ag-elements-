@@ -1,11 +1,10 @@
 "use client";
 
 import { useCartStore } from '@/store/cart';
-import { calculateCartTotals } from '@/lib/cart-utils';
 
 export function CartIcon() {
-  const { items, setIsOpen } = useCartStore();
-  const { itemCount } = calculateCartTotals(items);
+  const { cart, setIsOpen } = useCartStore();
+  const itemCount = cart?.items_count || 0;
 
   return (
     <button 

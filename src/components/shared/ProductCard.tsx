@@ -16,15 +16,9 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   const { addItem, setIsOpen } = useCartStore();
 
-  const handleAddToCart = (e: React.MouseEvent) => {
+  const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
-    addItem({
-      id: crypto.randomUUID(),
-      productId: product.id,
-      product,
-      quantity: 1,
-    });
-    setIsOpen(true);
+    await addItem(parseInt(product.id), 1);
   };
 
   return (

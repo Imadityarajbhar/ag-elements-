@@ -1,6 +1,5 @@
-import { wcClient } from './woocommerce/client';
 import { Product } from '@/types/product';
-import { WooCommerceProduct, WooCommerceCategory, WooCommerceTag } from '@/types/woocommerce';
+import { WooCommerceCategory, WooCommerceTag, WooCommerceProduct } from '@/types/woocommerce';
 
 // Note: Re-using the mapper from products.ts to ensure identical formatting
 function mapWcProduct(wcProd: WooCommerceProduct): Product {
@@ -52,32 +51,22 @@ export async function getSearchSuggestions(query: string): Promise<SearchSuggest
   try {
     const encodedQuery = encodeURIComponent(query.trim());
     
-    // We run the requests in parallel for maximum speed
-    const [productsRes, skuProductsRes, categoriesRes, tagsRes] = await Promise.all([
-      // Search by title/description
-      wcClient.fetch<WooCommerceProduct[]>(`/products?search=${encodedQuery}&per_page=5&status=publish`).catch(() => []),
-      // Search specifically by SKU
-      wcClient.fetch<WooCommerceProduct[]>(`/products?sku=${encodedQuery}&per_page=5&status=publish`).catch(() => []),
-      // Search Categories
-      wcClient.fetch<WooCommerceCategory[]>(`/products/categories?search=${encodedQuery}&per_page=3`).catch(() => []),
-      // Search Tags
-      wcClient.fetch<WooCommerceTag[]>(`/products/tags?search=${encodedQuery}&per_page=3`).catch(() => []),
-    ]);
+    // Fetch from our Next.js API proxy to keep WooCommerce credentials safe on the server
+    const response = await fetch(`/api/products/search?q=${encodedQuery}`);
+    
+    if (!response.ok) {
+      throw new Error(`Search API failed with status: ${response.status}`);
+    }
 
-    // Merge and deduplicate products (SKU matches + Title/Content matches)
-    const productMap = new Map<number, WooCommerceProduct>();
-    
-    skuProductsRes.forEach(p => productMap.set(p.id, p));
-    productsRes.forEach(p => productMap.set(p.id, p));
-    
-    const mergedProducts = Array.from(productMap.values())
-      .slice(0, 6) // Return maximum 6 products overall
-      .map(mapWcProduct);
+    const data = await response.json();
+
+    // Map WooCommerce products to our frontend Product type
+    const mappedProducts = (data.products || []).map(mapWcProduct);
 
     return {
-      products: mergedProducts,
-      categories: categoriesRes || [],
-      tags: tagsRes || []
+      products: mappedProducts,
+      categories: data.categories || [],
+      tags: data.tags || []
     };
   } catch (error) {
     console.error("Failed to fetch search suggestions", error);

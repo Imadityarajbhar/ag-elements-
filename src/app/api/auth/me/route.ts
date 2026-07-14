@@ -28,10 +28,10 @@ export async function GET(request: Request) {
     const userId = wpUser.id;
 
     // 2. Fetch Customer from WooCommerce
-    const customer = await wcClient.fetch(`/customers/${userId}`);
+    const customer = await wcClient.fetch(`/customers/${userId}`) as any;
 
     // 3. Fetch Orders from WooCommerce
-    const orders = await wcClient.fetch(`/orders?customer=${userId}`);
+    const orders = await wcClient.fetch(`/orders?customer=${userId}`) as any;
 
     return NextResponse.json({
       user: {

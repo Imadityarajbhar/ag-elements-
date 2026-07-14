@@ -6,25 +6,21 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 export default function AddressesPage() {
-  const { token } = useAuthStore();
+  const { isAuthenticated } = useAuthStore();
   const [data, setData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!token) return;
+    if (!isAuthenticated) return;
 
-    fetch('/api/auth/me', {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
+    fetch('/api/auth/me')
       .then(res => res.json())
       .then(resData => {
         setData(resData);
         setIsLoading(false);
       })
       .catch(() => setIsLoading(false));
-  }, [token]);
+  }, [isAuthenticated]);
 
   if (isLoading) {
     return (

@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { AddToCartButton, ProductGallery } from "@/components/shared/AddToCartButton";
-import { BuyNowButton } from "@/components/shared/BuyNowButton";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { ProductCarousel } from "@/components/shop/ProductCarousel";
 import { WishlistButton } from "@/components/shared/WishlistButton";
@@ -377,8 +376,6 @@ export default async function ProductDetailPage({ params }: PDPProps) {
         />
       </section>
 
-      {/* Sticky Bottom Bar */}
-      <StickyAddToCart product={product} />
     </main>
   );
 }

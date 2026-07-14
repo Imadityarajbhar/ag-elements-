@@ -5,25 +5,21 @@ import Link from 'next/link';
 import { useAuthStore } from '@/store/authStore';
 
 export default function OrdersPage() {
-  const { token } = useAuthStore();
+  const { isAuthenticated } = useAuthStore();
   const [orders, setOrders] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!token) return;
+    if (!isAuthenticated) return;
 
-    fetch('/api/auth/me', {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
+    fetch('/api/auth/me')
       .then(res => res.json())
       .then(data => {
         setOrders(data.orders || []);
         setIsLoading(false);
       })
       .catch(() => setIsLoading(false));
-  }, [token]);
+  }, [isAuthenticated]);
 
   if (isLoading) {
     return (

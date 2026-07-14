@@ -33,6 +33,7 @@ export interface Product {
   finish?: string;
   stone?: string;
   stockStatus?: 'instock' | 'outofstock' | 'onbackorder';
+  stockQuantity?: number | null;
   averageRating?: string;
   ratingCount?: number;
   relatedIds?: number[];

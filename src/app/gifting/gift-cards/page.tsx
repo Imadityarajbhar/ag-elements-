@@ -18,28 +18,11 @@ export default function GiftCardPage() {
   const addItem = useCartStore(state => state.addItem);
   const setIsOpen = useCartStore(state => state.setIsOpen);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = async () => {
     // Add mock gift card item to cart
-    addItem({
-      id: crypto.randomUUID(),
-      productId: "99999", // Mock ID for gift card
-      quantity: 1,
-      product: {
-        id: "99999",
-        name: `Digital Gift Card - ₹${selectedAmount.toLocaleString()}`,
-        slug: "digital-gift-card",
-        price: selectedAmount,
-        regularPrice: selectedAmount,
-        images: [{ id: "gc-1", url: "https://lh3.googleusercontent.com/aida-public/AB6AXuDPPmdoIQY2dETKqp7gluGbmwPtyZS53-eQzFIoxDSeP1q85Dvcad4wjxKdr-gx6ECF2EKloDg3EF5RCnLD_iuqGIZFp6BbCDmKUy8Wh2cqeJ_qpFZGTS6M7uePf76pYT2HzIfM3srVgganSFtYqBn2EI4eafaR2bMfmLWIZlz_QJoK9DNtfgyll3TzG6jztpTXiGbIt92nmH0F4UQHG1L0cs3KRYhMcGWcnX8tGjcjLErESEEWo6qeHQ", alt: "Gift Card" }],
-        categories: [],
-        inStock: true,
-        description: "Digital Gift Card",
-        sku: "GIFT-CARD"
-      }
-    });
+    await addItem(99999, 1);
     
     toast.success("Gift Card added to cart");
-    setIsOpen(true);
   };
 
   return (
