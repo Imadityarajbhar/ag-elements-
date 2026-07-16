@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { TrustBadges } from "@/components/shared/TrustBadges";
 import { mapWooCommerceError } from "@/lib/error-mapper";
+import { PAYMENT_METHODS } from "@/config/payment-methods";
 
 function CheckoutContent() {
   const router = useRouter();
@@ -29,10 +30,8 @@ function CheckoutContent() {
         if (res.ok) {
           const data = await res.json();
           setCheckoutData(data);
-          
-          // Auto-select first payment method if available
-          const methods = data.payment_methods || [];
-          setPaymentMethod('razorpay'); // Auto-select Razorpay by default
+          const defaultMethod = PAYMENT_METHODS.find(m => m.enabled)?.id || 'razorpay';
+          setPaymentMethod(defaultMethod); // Auto-select default
         }
       } catch (error) {
         console.error("Failed to initialize checkout", error);
@@ -41,7 +40,9 @@ function CheckoutContent() {
       }
     };
     initCheckout();
-    
+  }, []);
+
+  useEffect(() => {
     if (!cart) {
       fetchCart();
     }
@@ -80,15 +81,18 @@ function CheckoutContent() {
   // Use cart from store for items and totals
   const items = cart?.items || [];
   const totals: any = cart?.totals || {};
-  // Force Razorpay to always be available, plus any others from WC
-  const paymentMethods = [
-    { 
-      id: 'razorpay', 
-      title: 'Pay Online (UPI, Cards, Netbanking)', 
-      description: 'Safe and secure payments powered by Razorpay.' 
-    },
-    ...(checkoutData?.payment_methods || []).filter((m: any) => m.id !== 'razorpay')
-  ];
+  // Use frontend configured payment methods first
+  const activeConfigMethods = PAYMENT_METHODS.filter(m => m.enabled);
+  
+  // Combine with any backend-provided methods (fallback flexibility)
+  const backendMethods = checkoutData?.payment_methods || [];
+  const paymentMethods = [...activeConfigMethods];
+  
+  for (const bm of backendMethods) {
+    if (!paymentMethods.some(pm => pm.id === bm.id)) {
+      paymentMethods.push(bm);
+    }
+  }
 
   const totalRaw = parseInt(totals?.total_price || '0', 10) / (10 ** (totals?.currency_minor_unit || 2));
   const subtotalRaw = parseInt(totals?.total_items || '0', 10) / (10 ** (totals?.currency_minor_unit || 2));

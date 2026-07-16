@@ -2,15 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
-import { ProductCarousel } from "@/components/shared/ProductCarousel";
-import { getProducts } from "@/services/products";
 import dynamic from "next/dynamic";
-
-const RecentlyViewed = dynamic(() => import("@/components/shop/RecentlyViewed").then(m => m.RecentlyViewed));
-const InstagramFeed = dynamic(() => import("@/components/home/InstagramFeed").then(m => m.InstagramFeed));
-
+import { Suspense } from "react";
+import { getProducts } from "@/services/products";
 import { generateMetadata } from "@/lib/seo/generateMetadata";
 import { HOMEPAGE_LINKS } from "@/config/homepage-links";
+
+const ProductCarousel = dynamic(() => import("@/components/shared/ProductCarousel").then(m => m.ProductCarousel));
+const RecentlyViewed = dynamic(() => import("@/components/shop/RecentlyViewed").then(m => m.RecentlyViewed));
+const InstagramFeed = dynamic(() => import("@/components/home/InstagramFeed").then(m => m.InstagramFeed));
 
 export const metadata = generateMetadata({
   title: "AG Elements | Timeless Elegance",
@@ -18,12 +18,17 @@ export const metadata = generateMetadata({
 });
 
 export default async function Home() {
-  const products = await getProducts();
-  
-  const bestSellers = products.slice(4, 8); // Mock curation
-  const trending = products.filter(p => p.isNewArrival).slice(0, 4);
-  const finalTrending = trending.length >= 4 ? trending : products.slice(0, 4);
-  const customerFavorites = products.slice(8, 12); // Mock curation
+  // Parallelize the data fetching to avoid waterfalls and fetch-all anti-patterns
+  const [bestSellers, trendingInitial, customerFavorites] = await Promise.all([
+    getProducts('per_page=4&page=2'), // Mock curation: Page 2
+    getProducts('per_page=4&featured=true'), // Trending
+    getProducts('per_page=4&page=3'), // Mock curation: Page 3
+  ]);
+
+  let finalTrending = trendingInitial;
+  if (finalTrending.length < 4) {
+    finalTrending = await getProducts('per_page=4');
+  }
 
   return (
     <div className="flex flex-col w-full bg-pearl-white">

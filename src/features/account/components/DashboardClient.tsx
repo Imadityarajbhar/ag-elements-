@@ -113,8 +113,8 @@ export default function DashboardClient({ initialData }: DashboardProps) {
                 {wishlistItems.slice(0, 4).map((item) => (
                   <Link href={`/product/${item.slug}`} key={item.id} className="block group">
                     <div className="relative aspect-square rounded-lg overflow-hidden bg-surface-lavender mb-2">
-                      {item.images?.[0]?.src && (
-                        <Image src={item.images[0].src} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform" />
+                      {item.images?.[0]?.url && (
+                        <Image src={item.images[0].url} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform" />
                       )}
                     </div>
                     <p className="font-body-sm text-xs truncate text-charcoal-navy">{item.name}</p>
@@ -137,8 +137,8 @@ export default function DashboardClient({ initialData }: DashboardProps) {
                 {recentlyViewed.map((item) => (
                   <Link href={`/product/${item.slug}`} key={item.id} className="block group">
                     <div className="relative aspect-square rounded-lg overflow-hidden bg-surface-lavender mb-2">
-                      {item.images?.[0]?.src && (
-                        <Image src={item.images[0].src} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform" />
+                      {item.images?.[0]?.url && (
+                        <Image src={item.images[0].url} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform" />
                       )}
                     </div>
                     <p className="font-body-sm text-xs truncate text-charcoal-navy">{item.name}</p>
@@ -161,8 +161,8 @@ export default function DashboardClient({ initialData }: DashboardProps) {
                 {recommended.map((item: any) => (
                   <Link href={`/product/${item.slug}`} key={item.id} className="block group">
                     <div className="relative aspect-square rounded-lg overflow-hidden bg-surface-lavender mb-2">
-                      {item.images?.[0]?.src && (
-                        <Image src={item.images[0].src} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform" />
+                      {item.images?.[0]?.url && (
+                        <Image src={item.images[0].url} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform" />
                       )}
                     </div>
                     <p className="font-body-sm text-xs truncate text-charcoal-navy">{item.name}</p>

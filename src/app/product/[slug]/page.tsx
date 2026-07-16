@@ -47,35 +47,47 @@ export default async function ProductDetailPage({ params }: PDPProps) {
     notFound();
   }
 
-  // Fetch reviews in parallel with other data or just await here
-  const initialReviews = await getProductReviews(Number(product.id));
+async function ReviewsSection({ productId, averageRating, ratingCount }: { productId: number, averageRating: string, ratingCount: number }) {
+  const initialReviews = await getProductReviews(productId);
+  return (
+    <section className="mt-section-v-padding pt-16 border-t border-outline-variant/30">
+      <h2 className="font-headline-md text-[32px] font-medium text-center text-charcoal-navy mb-12">Customer Reviews</h2>
+      <ProductReviews 
+        productId={productId}
+        initialReviews={initialReviews}
+        averageRating={averageRating}
+        ratingCount={ratingCount}
+      />
+    </section>
+  );
+}
 
-  // 1. Related Products (Same category + material, or WooCommerce related_ids)
-  let relatedProducts: any[] = [];
-  if (product.relatedIds && product.relatedIds.length > 0) {
-    relatedProducts = await getProductsByIds(product.relatedIds.slice(0, 8));
-  }
-  if (relatedProducts.length === 0) {
-    relatedProducts = await getRecommendations(product, 8, 'material');
-  }
+async function RecommendationsSection({ product }: { product: any }) {
+  const relatedPromise = product.relatedIds && product.relatedIds.length > 0
+    ? getProductsByIds(product.relatedIds.slice(0, 8))
+    : getRecommendations(product, 8, 'material');
 
-  // 2. Complete The Look (cross_sell_ids or category complement)
-  let completeTheLook: any[] = [];
-  if (product.crossSellIds && product.crossSellIds.length > 0) {
-    completeTheLook = await getProductsByIds(product.crossSellIds.slice(0, 8));
-  }
-  if (completeTheLook.length === 0) {
-    completeTheLook = await getRecommendations(product, 8, 'category');
-  }
+  const completePromise = product.crossSellIds && product.crossSellIds.length > 0
+    ? getProductsByIds(product.crossSellIds.slice(0, 8))
+    : getRecommendations(product, 8, 'category');
 
-  // 3. Customers Also Bought (upsell_ids or price proximity)
-  let customersAlsoBought: any[] = [];
-  if (product.upsellIds && product.upsellIds.length > 0) {
-    customersAlsoBought = await getProductsByIds(product.upsellIds.slice(0, 8));
-  }
-  if (customersAlsoBought.length === 0) {
-    customersAlsoBought = await getRecommendations(product, 8, 'price');
-  }
+  const upsellPromise = product.upsellIds && product.upsellIds.length > 0
+    ? getProductsByIds(product.upsellIds.slice(0, 8))
+    : getRecommendations(product, 8, 'price');
+
+  const [relatedProducts, completeTheLook, customersAlsoBought] = await Promise.all([relatedPromise, completePromise, upsellPromise]);
+
+  return (
+    <div className="flex flex-col gap-8">
+      {relatedProducts.length > 0 && <ProductCarousel title="Related Products" products={relatedProducts} />}
+      {completeTheLook.length > 0 && <ProductCarousel title="Complete The Look" products={completeTheLook} />}
+      {customersAlsoBought.length > 0 && <ProductCarousel title="Customers Also Bought" products={customersAlsoBought} />}
+      
+      {/* Client-side Recently Viewed */}
+      <RecentlyViewed currentProductId={Number(product.id)} />
+    </div>
+  );
+}
 
   // We ensure there's at least one image
   const mainImage = product.images[0]?.url || "https://lh3.googleusercontent.com/aida-public/AB6AXuDUJcDFZ4gfxtgf5QZ4A3vCMYjs1GNnlSvqwfSOFoUudjcqTEFGwyItsyiomIUMhVYrv8zbpUSghtF9q1KKoc05XwxQFeuo5Sjas05jBNlpzK487FACTxY_qeNUFAxWuMANmTPUhuZSFcUoWkUrCE8DKXvnxlU6TKwOq6yoSV1S_2mqi8HMXJZHR8FFCCoouBwu5a_a9ZmgvYm_LiGhKoM5OZGcuA2XONxOC-52soC1NTKIGl--7f8k3w";
@@ -356,25 +368,18 @@ export default async function ProductDetailPage({ params }: PDPProps) {
       </section>
 
       {/* Recommendations Sections */}
-      <div className="flex flex-col gap-8">
-        {relatedProducts.length > 0 && <ProductCarousel title="Related Products" products={relatedProducts} />}
-        {completeTheLook.length > 0 && <ProductCarousel title="Complete The Look" products={completeTheLook} />}
-        {customersAlsoBought.length > 0 && <ProductCarousel title="Customers Also Bought" products={customersAlsoBought} />}
-        
-        {/* Client-side Recently Viewed */}
-        <RecentlyViewed currentProductId={Number(product.id)} />
-      </div>
+      <Suspense fallback={<div className="h-[400px] w-full bg-surface-container-lowest animate-pulse rounded my-8" />}>
+        <RecommendationsSection product={product} />
+      </Suspense>
 
       {/* Product Reviews Section */}
-      <section className="mt-section-v-padding pt-16 border-t border-outline-variant/30">
-        <h2 className="font-headline-md text-[32px] font-medium text-center text-charcoal-navy mb-12">Customer Reviews</h2>
-        <ProductReviews 
-          productId={Number(product.id)}
-          initialReviews={initialReviews}
-          averageRating={product.averageRating || '0'}
-          ratingCount={product.ratingCount || 0}
+      <Suspense fallback={<div className="h-[300px] w-full bg-surface-container-lowest animate-pulse rounded my-8" />}>
+        <ReviewsSection 
+          productId={Number(product.id)} 
+          averageRating={product.averageRating || '0'} 
+          ratingCount={product.ratingCount || 0} 
         />
-      </section>
+      </Suspense>
 
     </main>
   );

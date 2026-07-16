@@ -20,11 +20,16 @@ export class WooCommerceClient {
     }
     headers.set('Content-Type', 'application/json');
 
-    const response = await fetch(url.toString(), {
-      next: { revalidate: 3600 },
+    const fetchOptions: RequestInit = {
       ...options,
       headers,
-    });
+    };
+
+    if (!fetchOptions.cache && !fetchOptions.next && options.method !== 'POST' && options.method !== 'PUT' && options.method !== 'DELETE') {
+      fetchOptions.next = { revalidate: 60, tags: ['woocommerce'] };
+    }
+
+    const response = await fetch(url.toString(), fetchOptions);
 
     if (!response.ok) {
       let errorMessage = response.statusText;
