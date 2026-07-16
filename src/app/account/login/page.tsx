@@ -2,17 +2,20 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuthStore } from '@/store/authStore';
+import { wishlistService } from '@/services/wishlist/WishlistService';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const login = useAuthStore((state) => state.login);
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -35,7 +38,12 @@ export default function LoginPage() {
       }
 
       login(data.user);
-      router.push('/account');
+      
+      // Merge guest wishlist
+      await wishlistService.mergeGuestWishlist();
+
+      const redirectUrl = searchParams.get('redirect') || '/account';
+      router.push(redirectUrl);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -59,32 +67,49 @@ export default function LoginPage() {
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
-            <div className="bg-red-50 text-red-500 p-3 rounded font-body-sm text-center">
+            <div className="bg-red-50 text-red-600 p-3 rounded-lg font-body-sm text-center flex items-center justify-center gap-2">
+              <span className="material-symbols-outlined text-[16px]">error</span>
               {error}
             </div>
           )}
           <div className="space-y-4">
-            <div>
-              <label className="sr-only">Email address</label>
+            <div className="space-y-2">
+              <label htmlFor="login-email" className="font-label-md text-charcoal-navy">Email Address</label>
               <Input
+                id="login-email"
                 type="email"
                 required
-                placeholder="Email address"
+                placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full"
+                autoComplete="email"
               />
             </div>
-            <div>
-              <label className="sr-only">Password</label>
-              <Input
-                type="password"
-                required
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full"
-              />
+            <div className="space-y-2">
+              <label htmlFor="login-password" className="font-label-md text-charcoal-navy">Password</label>
+              <div className="relative">
+                <Input
+                  id="login-password"
+                  type={showPassword ? 'text' : 'password'}
+                  required
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full pr-12"
+                  autoComplete="current-password"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-charcoal-navy transition-colors"
+                  tabIndex={-1}
+                >
+                  <span className="material-symbols-outlined text-[20px]">
+                    {showPassword ? 'visibility_off' : 'visibility'}
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -102,9 +127,9 @@ export default function LoginPage() {
             </div>
 
             <div className="text-sm">
-              <a href="#" className="font-medium text-ag-purple hover:text-ag-purple/80">
+              <Link href="/account/forgot-password" className="font-medium text-ag-purple hover:text-ag-purple/80">
                 Forgot your password?
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -112,9 +137,14 @@ export default function LoginPage() {
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full font-label-md uppercase tracking-widest"
+              className="w-full font-label-md uppercase tracking-widest h-12"
             >
-              {isLoading ? 'Signing in...' : 'Sign in'}
+              {isLoading ? (
+                <span className="flex items-center gap-2">
+                  <span className="material-symbols-outlined animate-spin text-[18px]">progress_activity</span>
+                  Signing in...
+                </span>
+              ) : 'Sign in'}
             </Button>
           </div>
         </form>

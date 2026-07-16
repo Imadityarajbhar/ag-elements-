@@ -43,7 +43,7 @@ function OrderSuccessContent() {
             </div>
             <div>
               <p className="text-on-surface-variant mb-1">Payment Method</p>
-              <p className="text-charcoal-navy font-medium">UPI</p>
+              <p className="text-charcoal-navy font-medium">Online Payment</p>
             </div>
             <div>
               <p className="text-on-surface-variant mb-1">Shipping Options</p>

@@ -165,3 +165,11 @@ export interface WooCommerceVariation {
     option: string;
   }>;
 }
+
+export interface WooCommerceOrder {
+  id: number;
+  status: string;
+  total: string;
+  meta_data?: WooCommerceMetaData[];
+  [key: string]: any;
+}

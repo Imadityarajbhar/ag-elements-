@@ -4,6 +4,7 @@ import { useState, FormEvent, Suspense, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import { useAuthStore } from "@/store/authStore";
 import { useCartStore } from "@/store/cart";
 import { Button } from "@/components/ui/button";
@@ -139,7 +140,7 @@ function CheckoutContent() {
     };
 
     try {
-      const res = await fetch('/api/checkout', {
+      const res = await fetch('/api/payment/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -147,20 +148,76 @@ function CheckoutContent() {
       const data = await res.json();
       
       if (!res.ok) {
-        setCheckoutError(mapWooCommerceError(data.code || '', data.message || "Order failed"));
+        setCheckoutError(mapWooCommerceError(data.code || '', data.message || data.error || "Order failed"));
+        setIsSubmitting(false);
         return;
       }
       
-      // Store API Checkout Response contains the order_id
-      const orderId = data.order_id || `AG${Math.floor(100000 + Math.random() * 900000)}`;
-      
-      // Force refresh cart state in client (it's empty now)
-      fetchCart();
-      router.push(`/order-success?orderId=${orderId}&email=${encodeURIComponent(formData.email)}`);
+      if (data.razorpay_order_id && data.key_id) {
+        // Open Razorpay Modal
+        const options = {
+          key: data.key_id,
+          amount: data.amount,
+          currency: data.currency,
+          name: "AG Elements",
+          description: `Order #${data.wc_order_id}`,
+          order_id: data.razorpay_order_id,
+          handler: async function (response: any) {
+             try {
+               const verifyRes = await fetch('/api/payment/verify', {
+                 method: 'POST',
+                 headers: { 'Content-Type': 'application/json' },
+                 body: JSON.stringify({
+                   razorpay_order_id: response.razorpay_order_id,
+                   razorpay_payment_id: response.razorpay_payment_id,
+                   razorpay_signature: response.razorpay_signature,
+                   wc_order_id: data.wc_order_id
+                 })
+               });
+               
+               if (verifyRes.ok) {
+                 fetchCart();
+                 router.push(`/payment-processing?orderId=${data.wc_order_id}&email=${encodeURIComponent(formData.email)}`);
+               } else {
+                 setCheckoutError("Payment verification failed. Please contact support.");
+                 setIsSubmitting(false);
+               }
+             } catch (err) {
+                 setCheckoutError("Payment verification failed. Please contact support.");
+                 setIsSubmitting(false);
+             }
+          },
+          prefill: {
+            name: `${formData.firstName} ${formData.lastName}`,
+            email: formData.email,
+            contact: formData.phone
+          },
+          theme: {
+            color: "#6B5B95" // ag-purple
+          },
+          modal: {
+            ondismiss: function() {
+              setIsSubmitting(false);
+              setCheckoutError("Payment cancelled. You can retry the payment from your Account dashboard, or try again here.");
+            }
+          }
+        };
+
+        const rzp = new (window as any).Razorpay(options);
+        rzp.on('payment.failed', function (response: any){
+           setCheckoutError(`Payment failed: ${response.error.description}`);
+           setIsSubmitting(false);
+        });
+        rzp.open();
+      } else {
+        // Fallback for non-razorpay/COD methods
+        const orderId = data.order_id || data.wc_order_id || `AG${Math.floor(100000 + Math.random() * 900000)}`;
+        fetchCart();
+        router.push(`/order-success?orderId=${orderId}&email=${encodeURIComponent(formData.email)}`);
+      }
     } catch (error: any) {
       console.error(error);
       setCheckoutError(mapWooCommerceError('', error.message || "An unexpected error occurred."));
-    } finally {
       setIsSubmitting(false);
     }
   };
@@ -391,6 +448,7 @@ function CheckoutContent() {
 export default function CheckoutPage() {
   return (
     <Suspense fallback={<div className="min-h-screen bg-pearl-white flex items-center justify-center">Loading checkout...</div>}>
+      <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
       <CheckoutContent />
     </Suspense>
   );

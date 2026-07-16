@@ -17,20 +17,12 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
     setMounted(true);
   }, []);
 
-  useEffect(() => {
-    if (mounted && !isAuthenticated && !pathname.includes('/login') && !pathname.includes('/register')) {
-      router.push('/account/login');
-    }
-  }, [mounted, isAuthenticated, pathname, router]);
-
   if (!mounted) return <div className="min-h-screen" />;
 
-  // Don't show sidebar on login/register pages
-  if (pathname.includes('/login') || pathname.includes('/register')) {
+  // Don't show sidebar on login/register/forgot-password pages
+  if (pathname.includes('/login') || pathname.includes('/register') || pathname.includes('/forgot-password')) {
     return <>{children}</>;
   }
-
-  if (!isAuthenticated) return null;
 
   const navItems = [
     { name: 'Dashboard', href: '/account', icon: 'dashboard' },
@@ -40,7 +32,8 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
     { name: 'Wishlist', href: '/wishlist', icon: 'favorite' },
   ];
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await fetch('/api/auth/logout', { method: 'POST' });
     logout();
     router.push('/account/login');
   };

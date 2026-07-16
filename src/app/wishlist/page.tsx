@@ -4,6 +4,7 @@ import React, { useEffect, useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useWishlistStore } from '@/store/wishlistStore';
+import { wishlistService } from '@/services/wishlist/WishlistService';
 import { useCartStore } from '@/store/cart';
 import { Product } from '@/types/product';
 import { PriceDisplay } from '@/components/shared/PriceDisplay';
@@ -11,7 +12,7 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
 function WishlistContent() {
-  const { items, removeItem, addItem } = useWishlistStore();
+  const { items } = useWishlistStore();
   const cartStore = useCartStore();
   const searchParams = useSearchParams();
   const shareIds = searchParams.get('share');
@@ -42,7 +43,7 @@ function WishlistContent() {
   const handleMoveToCart = async (product: Product) => {
     await cartStore.addItem(parseInt(product.id), 1);
     if (!isSharedView) {
-      removeItem(product.id);
+      await wishlistService.remove(product.id);
     }
   };
 
@@ -57,8 +58,8 @@ function WishlistContent() {
     });
   };
 
-  const handleSaveSharedItem = (product: Product) => {
-    addItem(product);
+  const handleSaveSharedItem = async (product: Product) => {
+    await wishlistService.add(product);
   };
 
   return (
@@ -100,7 +101,7 @@ function WishlistContent() {
             <div key={product.id} className="group relative flex flex-col bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden hover:shadow-[0px_4px_20px_rgba(35,33,58,0.05)] transition-all">
               {!isSharedView && (
                 <button 
-                  onClick={() => removeItem(product.id)}
+                  onClick={() => wishlistService.remove(product.id)}
                   className="absolute top-3 right-3 z-20 w-8 h-8 flex items-center justify-center bg-pearl-white/80 hover:bg-pearl-white text-on-surface-variant hover:text-red-500 rounded-full backdrop-blur transition-colors"
                   aria-label="Remove from wishlist"
                 >

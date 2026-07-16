@@ -27,7 +27,16 @@ export class WooCommerceClient {
     });
 
     if (!response.ok) {
-      throw new Error(`WooCommerce API Error: ${response.statusText}`);
+      let errorMessage = response.statusText;
+      try {
+        const errData = await response.json();
+        if (errData.message) {
+          errorMessage = errData.message;
+        }
+      } catch (e) {
+        // Fallback to status text
+      }
+      throw new Error(`WooCommerce API Error: ${errorMessage}`);
     }
 
     const data = await response.json();

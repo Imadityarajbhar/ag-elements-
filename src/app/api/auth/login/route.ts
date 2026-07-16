@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server';
+import { wcClient } from '@/services/woocommerce/client';
+import { mapAuthError } from '@/lib/error-mapper';
 
 export async function POST(request: Request) {
   try {
@@ -6,35 +8,77 @@ export async function POST(request: Request) {
     const { email, password } = body;
 
     if (!email || !password) {
-      return NextResponse.json({ error: 'Email and password are required' }, { status: 400 });
+      return NextResponse.json({ error: 'Email and password are required.' }, { status: 400 });
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_WC_API_URL || '';
+    const baseUrl = (process.env.NEXT_PUBLIC_WP_URL || '').replace(/\/$/, '');
+
+    // 1. Authenticate via JWT
     const res = await fetch(`${baseUrl}/wp-json/jwt-auth/v1/token`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username: email,
-        password: password,
-      }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: email, password }),
     });
 
     const data = await res.json();
 
     if (!res.ok) {
-      return NextResponse.json({ error: data.message || 'Invalid credentials' }, { status: res.status });
+      const code = data.code || '';
+      const message = data.message || 'Invalid credentials';
+      return NextResponse.json({ error: mapAuthError(code, message) }, { status: 401 });
     }
 
-    // Success response contains token, user_email, user_nicename, user_display_name
     const token = data.token;
-    const user = {
-      id: data.user_id?.toString() || data.id?.toString() || '0',
+
+    // 2. Get WP User ID from the token
+    const wpRes = await fetch(`${baseUrl}/wp-json/wp/v2/users/me`, {
+      headers: { 'Authorization': `Bearer ${token}` },
+    });
+
+    let user = {
+      id: data.user_id?.toString() || '0',
       email: data.user_email || email,
-      firstName: data.user_nicename || data.user_display_name || email.split('@')[0],
-      lastName: '', // We might need to fetch full profile later in /me
+      firstName: email.split('@')[0],
+      lastName: '',
+      phone: '',
     };
+
+    if (wpRes.ok) {
+      const wpUser = await wpRes.json();
+      try {
+        // 3. Fetch full WooCommerce customer for accurate name/phone
+        const customer = await wcClient.fetch(`/customers/${wpUser.id}`) as any;
+        user = {
+          id: customer.id.toString(),
+          email: customer.email,
+          firstName: customer.first_name || user.firstName,
+          lastName: customer.last_name || '',
+          phone: customer.billing?.phone || '',
+        };
+      } catch {
+        // If WC customer fetch fails, fall back to WP user data
+        user.id = wpUser.id.toString();
+      }
+    }
+
+    // 4. Merge Guest Cart (if any)
+    const cookieStore = request.headers.get('cookie') || '';
+    const cartCookieMatch = cookieStore.match(/wc_cart_token=([^;]+)/);
+    if (cartCookieMatch) {
+      const cartToken = cartCookieMatch[1];
+      try {
+        await fetch(`${baseUrl}/wp-json/wc/store/v1/cart`, {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Cart-Token': cartToken,
+          }
+        });
+        console.log('Guest cart merged successfully.');
+      } catch (err) {
+        console.warn('Failed to merge guest cart during login:', err);
+      }
+    }
 
     const response = NextResponse.json({ token, user });
 
@@ -52,6 +96,6 @@ export async function POST(request: Request) {
     return response;
   } catch (error: any) {
     console.error('Login error:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json({ error: 'Something went wrong. Please try again.' }, { status: 500 });
   }
 }

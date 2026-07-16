@@ -1,3 +1,45 @@
+// ---- Auth Error Mapper ----
+
+export function mapAuthError(code: string, rawMessage: string): string {
+  const lowerCode = code.toLowerCase();
+  const lowerMsg = rawMessage.toLowerCase();
+
+  // JWT Auth errors
+  if (lowerCode.includes('incorrect_password') || lowerCode === '[jwt_auth] incorrect_password') {
+    return 'Incorrect email or password.';
+  }
+  if (lowerCode.includes('invalid_email') || lowerCode.includes('invalid_username')) {
+    return 'No account found with this email address.';
+  }
+  if (lowerCode.includes('jwt_auth_bad_config') || lowerCode.includes('jwt_auth_bad_request')) {
+    return 'Authentication service is temporarily unavailable. Please try again.';
+  }
+  if (lowerCode.includes('jwt_auth_expired_token') || lowerCode.includes('jwt_auth_invalid_token')) {
+    return 'Your session has expired. Please log in again.';
+  }
+
+  // Registration errors
+  if (lowerMsg.includes('email already exists') || lowerMsg.includes('already registered') || lowerCode.includes('registration-error-email-exists')) {
+    return 'An account already exists with this email address.';
+  }
+  if (lowerMsg.includes('invalid email')) {
+    return 'Please enter a valid email address.';
+  }
+  if (lowerMsg.includes('username already exists') || lowerMsg.includes('username is already taken')) {
+    return 'An account already exists with this email address.';
+  }
+
+  // WP HTML tag stripping — WordPress sometimes wraps errors in <strong> tags
+  const stripped = rawMessage.replace(/<[^>]*>/g, '').trim();
+  if (stripped && stripped !== rawMessage) {
+    return stripped;
+  }
+
+  return rawMessage || 'An unexpected error occurred. Please try again.';
+}
+
+// ---- WooCommerce Error Mapper ----
+
 export function mapWooCommerceError(code: string, rawMessage: string): string {
   // Coupon errors
   if (code === 'woocommerce_rest_invalid_coupon') return "The coupon code you entered is invalid or expired.";

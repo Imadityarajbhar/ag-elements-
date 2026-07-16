@@ -4,11 +4,11 @@ import { useEffect } from 'react';
 import { useAuthStore } from '@/store/authStore';
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const { login, logout } = useAuthStore();
+  const { login, logout, setLoading } = useAuthStore();
 
   useEffect(() => {
-    // Check if we are still authenticated on mount
-    fetch('/api/auth/me')
+    // Validate session on mount
+    fetch('/api/account/profile')
       .then(res => {
         if (!res.ok) {
           throw new Error('Unauthorized');
@@ -18,13 +18,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       .then(data => {
         if (data.user) {
           login(data.user);
+        } else {
+          setLoading(false);
         }
       })
-      .catch(() => {
-        // If unauthorized, silently logout to clear state
+      .catch(async () => {
+        // Clear server-side cookie if token is invalid/expired
+        try {
+          await fetch('/api/auth/logout', { method: 'POST' });
+        } catch {
+          // Ignore logout errors
+        }
         logout();
       });
-  }, [login, logout]);
+  }, [login, logout, setLoading]);
 
   return <>{children}</>;
 }
