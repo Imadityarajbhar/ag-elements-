@@ -32,9 +32,7 @@ function CheckoutContent() {
           
           // Auto-select first payment method if available
           const methods = data.payment_methods || [];
-          if (methods.length > 0) {
-            setPaymentMethod(methods[0].id);
-          }
+          setPaymentMethod('razorpay'); // Auto-select Razorpay by default
         }
       } catch (error) {
         console.error("Failed to initialize checkout", error);
@@ -82,7 +80,15 @@ function CheckoutContent() {
   // Use cart from store for items and totals
   const items = cart?.items || [];
   const totals: any = cart?.totals || {};
-  const paymentMethods = checkoutData?.payment_methods || [];
+  // Force Razorpay to always be available, plus any others from WC
+  const paymentMethods = [
+    { 
+      id: 'razorpay', 
+      title: 'Pay Online (UPI, Cards, Netbanking)', 
+      description: 'Safe and secure payments powered by Razorpay.' 
+    },
+    ...(checkoutData?.payment_methods || []).filter((m: any) => m.id !== 'razorpay')
+  ];
 
   const totalRaw = parseInt(totals?.total_price || '0', 10) / (10 ** (totals?.currency_minor_unit || 2));
   const subtotalRaw = parseInt(totals?.total_items || '0', 10) / (10 ** (totals?.currency_minor_unit || 2));
