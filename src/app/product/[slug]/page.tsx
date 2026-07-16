@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PDPProps) {
   return getSeoMetadata({
     title: product.name,
     description: product.description || `Buy ${product.name} at AG Elements.`,
-    image: product.images[0]?.url,
+    image: product.images[0]?.src,
   });
 }
 
@@ -90,7 +90,7 @@ async function RecommendationsSection({ product }: { product: any }) {
 }
 
   // We ensure there's at least one image
-  const mainImage = product.images[0]?.url || "https://lh3.googleusercontent.com/aida-public/AB6AXuDUJcDFZ4gfxtgf5QZ4A3vCMYjs1GNnlSvqwfSOFoUudjcqTEFGwyItsyiomIUMhVYrv8zbpUSghtF9q1KKoc05XwxQFeuo5Sjas05jBNlpzK487FACTxY_qeNUFAxWuMANmTPUhuZSFcUoWkUrCE8DKXvnxlU6TKwOq6yoSV1S_2mqi8HMXJZHR8FFCCoouBwu5a_a9ZmgvYm_LiGhKoM5OZGcuA2XONxOC-52soC1NTKIGl--7f8k3w";
+  const mainImage = product.images[0]?.src || "https://lh3.googleusercontent.com/aida-public/AB6AXuDUJcDFZ4gfxtgf5QZ4A3vCMYjs1GNnlSvqwfSOFoUudjcqTEFGwyItsyiomIUMhVYrv8zbpUSghtF9q1KKoc05XwxQFeuo5Sjas05jBNlpzK487FACTxY_qeNUFAxWuMANmTPUhuZSFcUoWkUrCE8DKXvnxlU6TKwOq6yoSV1S_2mqi8HMXJZHR8FFCCoouBwu5a_a9ZmgvYm_LiGhKoM5OZGcuA2XONxOC-52soC1NTKIGl--7f8k3w";
   
   // Use images 1, 2, 3 for thumbnails, fallback to main if less
   const thumbnails = product.images.length > 1 

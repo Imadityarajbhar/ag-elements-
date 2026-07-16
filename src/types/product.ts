@@ -5,7 +5,7 @@ export interface ProductVariation {
   salePrice?: number;
   stockStatus: 'instock' | 'outofstock' | 'onbackorder';
   stockQuantity: number | null;
-  image?: { id: string; url: string; alt: string };
+  image?: { id: string; src: string; alt: string };
   attributes: Record<string, string>;
 }
 
@@ -19,7 +19,7 @@ export interface Product {
   salePrice?: number;
   description: string;
   shortDescription?: string;
-  images: { id: string; url: string; alt: string }[];
+  images: { id: string; src: string; alt: string }[];
   categories: { id: string; name: string; slug: string }[];
   inStock: boolean;
   sku: string;

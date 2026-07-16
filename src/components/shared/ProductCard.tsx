@@ -40,7 +40,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <Image
             fill
             sizes="(max-width: 768px) 50vw, 25vw"
-            src={product.images[0].url}
+            src={product.images[0].src}
             alt={product.images[0].alt || product.name}
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />

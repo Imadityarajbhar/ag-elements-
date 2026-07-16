@@ -189,7 +189,7 @@ export function SearchOverlay() {
                       >
                         <div className="relative w-16 h-16 rounded-md overflow-hidden bg-surface-container shrink-0">
                           <Image
-                            src={product.images[0]?.url || '/placeholder.png'}
+                            src={product.images[0]?.src || '/placeholder.png'}
                             alt={product.name}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-500"

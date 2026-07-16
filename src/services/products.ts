@@ -17,12 +17,12 @@ function mapWcProduct(wcProd: WooCommerceProduct): Product {
     images: wcProd.images && wcProd.images.length > 0 
       ? wcProd.images.map((img: any) => ({
           id: img.id?.toString() || Math.random().toString(),
-          url: img.src,
+          src: img.src,
           alt: img.alt || wcProd.name,
         }))
       : [{
           id: 'fallback',
-          url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDUJcDFZ4gfxtgf5QZ4A3vCMYjs1GNnlSvqwfSOFoUudjcqTEFGwyItsyiomIUMhVYrv8zbpUSghtF9q1KKoc05XwxQFeuo5Sjas05jBNlpzK487FACTxY_qeNUFAxWuMANmTPUhuZSFcUoWkUrCE8DKXvnxlU6TKwOq6yoSV1S_2mqi8HMXJZHR8FFCCoouBwu5a_a9ZmgvYm_LiGhKoM5OZGcuA2XONxOC-52soC1NTKIGl--7f8k3w',
+          src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDUJcDFZ4gfxtgf5QZ4A3vCMYjs1GNnlSvqwfSOFoUudjcqTEFGwyItsyiomIUMhVYrv8zbpUSghtF9q1KKoc05XwxQFeuo5Sjas05jBNlpzK487FACTxY_qeNUFAxWuMANmTPUhuZSFcUoWkUrCE8DKXvnxlU6TKwOq6yoSV1S_2mqi8HMXJZHR8FFCCoouBwu5a_a9ZmgvYm_LiGhKoM5OZGcuA2XONxOC-52soC1NTKIGl--7f8k3w',
           alt: wcProd.name,
         }],
     categories: wcProd.categories?.map((cat: any) => ({
@@ -111,7 +111,7 @@ export const getProductBySlug = cache(async (slug: string): Promise<Product | nu
           salePrice: v.sale_price ? parseFloat(v.sale_price) : undefined,
           stockStatus: v.stock_status,
           stockQuantity: v.stock_quantity ?? null,
-          image: v.image ? { id: v.image.id?.toString(), url: v.image.src, alt: v.image.alt } : undefined,
+          image: v.image ? { id: v.image.id?.toString(), src: v.image.src, alt: v.image.alt } : undefined,
           attributes: v.attributes.reduce((acc: any, attr: any) => {
             acc[attr.name] = attr.option;
             return acc;

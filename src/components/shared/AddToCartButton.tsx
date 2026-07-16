@@ -308,21 +308,21 @@ export function ProductGallery({ product }: { product: Product }) {
     });
   }, [isVariable, product.variations, product.attributes, searchParams]);
 
-  const activeImage = activeVariation?.image?.url;
+  const activeImage = activeVariation?.image?.src;
   const fallbackImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuDUJcDFZ4gfxtgf5QZ4A3vCMYjs1GNnlSvqwfSOFoUudjcqTEFGwyItsyiomIUMhVYrv8zbpUSghtF9q1KKoc05XwxQFeuo5Sjas05jBNlpzK487FACTxY_qeNUFAxWuMANmTPUhuZSFcUoWkUrCE8DKXvnxlU6TKwOq6yoSV1S_2mqi8HMXJZHR8FFCCoouBwu5a_a9ZmgvYm_LiGhKoM5OZGcuA2XONxOC-52soC1NTKIGl--7f8k3w";
   
-  const mainImage = activeImage || product.images[0]?.url || fallbackImage;
+  const mainImage = activeImage || product.images[0]?.src || fallbackImage;
 
   const baseThumbnails = product.images.length > 0 
     ? product.images 
-    : [{ id: 'fallback', url: mainImage, alt: product.name }];
+    : [{ id: 'fallback', src: mainImage, alt: product.name }];
     
   let thumbnails = [...baseThumbnails];
-  if (activeVariation?.image && !thumbnails.find(t => t.url === activeVariation.image!.url)) {
+  if (activeVariation?.image && !thumbnails.find(t => t.src === activeVariation.image!.src)) {
      thumbnails.unshift(activeVariation.image);
   }
 
-  thumbnails = thumbnails.filter((v, i, a) => a.findIndex(t => t.url === v.url) === i).slice(0, 5);
+  thumbnails = thumbnails.filter((v, i, a) => a.findIndex(t => t.src === v.src) === i).slice(0, 5);
 
   const [displayImage, setDisplayImage] = useState(mainImage);
 
@@ -336,10 +336,10 @@ export function ProductGallery({ product }: { product: Product }) {
         {thumbnails.map((thumb) => (
           <button 
             key={thumb.id} 
-            onClick={() => setDisplayImage(thumb.url)}
-            className={`relative w-full aspect-[4/5] bg-surface-lavender rounded overflow-hidden transition-all ${displayImage === thumb.url ? 'ring-2 ring-primary opacity-100' : 'ring-1 ring-outline-variant/30 opacity-60 hover:opacity-100'}`}
+            onClick={() => setDisplayImage(thumb.src)}
+            className={`relative w-full aspect-[4/5] bg-surface-lavender rounded overflow-hidden transition-all ${displayImage === thumb.src ? 'ring-2 ring-primary opacity-100' : 'ring-1 ring-outline-variant/30 opacity-60 hover:opacity-100'}`}
           >
-            <Image fill sizes="100px" className="object-cover" alt={thumb.alt} src={thumb.url} />
+            <Image fill sizes="100px" className="object-cover" alt={thumb.alt} src={thumb.src} />
           </button>
         ))}
       </div>
@@ -350,10 +350,10 @@ export function ProductGallery({ product }: { product: Product }) {
         {thumbnails.map((thumb) => (
           <button 
             key={thumb.id} 
-            onClick={() => setDisplayImage(thumb.url)}
-            className={`relative snap-start min-w-[80px] aspect-[4/5] bg-surface-lavender rounded overflow-hidden ${displayImage === thumb.url ? 'ring-2 ring-primary opacity-100' : 'ring-1 ring-outline-variant/30 opacity-60'}`}
+            onClick={() => setDisplayImage(thumb.src)}
+            className={`relative snap-start min-w-[80px] aspect-[4/5] bg-surface-lavender rounded overflow-hidden ${displayImage === thumb.src ? 'ring-2 ring-primary opacity-100' : 'ring-1 ring-outline-variant/30 opacity-60'}`}
           >
-            <Image fill sizes="80px" className="object-cover" alt={thumb.alt} src={thumb.url} />
+            <Image fill sizes="80px" className="object-cover" alt={thumb.alt} src={thumb.src} />
           </button>
         ))}
       </div>
