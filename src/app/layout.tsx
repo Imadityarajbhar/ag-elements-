@@ -39,6 +39,8 @@ metadata.verification = {
 
 import { AuthProvider } from "@/components/shared/AuthProvider";
 
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -89,6 +91,7 @@ export default function RootLayout({
         <WhatsAppButton />
         <SocialProofToast />
         <AnalyticsProvider />
+        <SpeedInsights />
       </body>
     </html>
   );
