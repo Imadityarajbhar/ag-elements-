@@ -20,13 +20,13 @@ export function mapAuthError(code: string, rawMessage: string): string {
 
   // Registration errors
   if (lowerMsg.includes('email already exists') || lowerMsg.includes('already registered') || lowerCode.includes('registration-error-email-exists')) {
-    return 'An account already exists with this email address.';
+    return 'An account is already registered with this email. Please log in, or uncheck \'Create an account\' to continue as a guest.';
   }
   if (lowerMsg.includes('invalid email')) {
     return 'Please enter a valid email address.';
   }
   if (lowerMsg.includes('username already exists') || lowerMsg.includes('username is already taken')) {
-    return 'An account already exists with this email address.';
+    return 'An account is already registered with this email. Please log in, or uncheck \'Create an account\' to continue as a guest.';
   }
 
   // WP HTML tag stripping — WordPress sometimes wraps errors in <strong> tags
@@ -55,6 +55,10 @@ export function mapWooCommerceError(code: string, rawMessage: string): string {
   if (code === 'woocommerce_rest_checkout_missing_billing_address') return "Please fill in all required billing address fields.";
   if (code === 'woocommerce_rest_checkout_missing_shipping_address') return "Please fill in all required shipping address fields.";
   if (code === 'woocommerce_rest_missing_nonce') return "Your session has expired. Please refresh the page and try again.";
+  
+  if (code === 'woocommerce_checkout_registration_required' || rawMessage.toLowerCase().includes('registration is required')) {
+    return "Guest checkout is disabled. Please log in or create an account to continue.";
+  }
   
   // Stock errors
   if (code === 'woocommerce_rest_product_out_of_stock') return "One or more items in your cart are currently out of stock.";

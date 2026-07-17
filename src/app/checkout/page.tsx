@@ -30,8 +30,10 @@ function CheckoutContent() {
         if (res.ok) {
           const data = await res.json();
           setCheckoutData(data);
-          const defaultMethod = PAYMENT_METHODS.find(m => m.enabled)?.id || 'razorpay';
-          setPaymentMethod(defaultMethod); // Auto-select default
+          const availableMethods = data.payment_methods || [];
+          if (availableMethods.length > 0) {
+            setPaymentMethod(availableMethods[0].id);
+          }
         }
       } catch (error) {
         console.error("Failed to initialize checkout", error);
@@ -74,6 +76,7 @@ function CheckoutContent() {
 
   const [sameAsShipping, setSameAsShipping] = useState(true);
   const [paymentMethod, setPaymentMethod] = useState("");
+  const [createAccount, setCreateAccount] = useState(false);
   
   // New Features State
   const [orderNotes, setOrderNotes] = useState("");
@@ -81,15 +84,18 @@ function CheckoutContent() {
   // Use cart from store for items and totals
   const items = cart?.items || [];
   const totals: any = cart?.totals || {};
-  // Use frontend configured payment methods first
-  const activeConfigMethods = PAYMENT_METHODS.filter(m => m.enabled);
-  
-  // Combine with any backend-provided methods (fallback flexibility)
+  // Hybrid Payment Gateway Architecture:
+  // 1. The frontend registry (PAYMENT_METHODS) defines which gateways are supported and enabled in the headless UI.
+  // 2. We use this as the base, because the WooCommerce Store API often omits gateways (like Razorpay) due to plugin incompatibilities or pending shipping calculations.
+  // 3. We merge any *additional* gateways provided by WooCommerce, unless explicitly disabled in the frontend config.
   const backendMethods = checkoutData?.payment_methods || [];
-  const paymentMethods = [...activeConfigMethods];
+  const paymentMethods = PAYMENT_METHODS.filter(m => m.enabled);
   
   for (const bm of backendMethods) {
-    if (!paymentMethods.some(pm => pm.id === bm.id)) {
+    const existing = paymentMethods.find(pm => pm.id === bm.id);
+    const explicitlyDisabled = PAYMENT_METHODS.find(pm => pm.id === bm.id && pm.enabled === false);
+    
+    if (!existing && !explicitlyDisabled) {
       paymentMethods.push(bm);
     }
   }
@@ -146,7 +152,8 @@ function CheckoutContent() {
       },
       customer_note: orderNotes,
       payment_method: paymentMethod,
-      payment_data: []
+      payment_data: [],
+      create_account: createAccount
     };
 
     try {
@@ -352,6 +359,18 @@ function CheckoutContent() {
                 <div className="flex flex-col gap-3">
                   <input required name="email" type="email" placeholder="Email address" value={formData.email} onChange={handleInputChange} className={inputClass} />
                   <input required name="phone" type="tel" placeholder="Phone number (for shipping updates)" value={formData.phone} onChange={handleInputChange} className={inputClass} />
+                  
+                  {!isAuthenticated && (
+                    <label className="flex items-center gap-3 cursor-pointer mt-1 w-fit">
+                      <input 
+                        type="checkbox" 
+                        checked={createAccount} 
+                        onChange={(e) => setCreateAccount(e.target.checked)} 
+                        className="w-4 h-4 accent-primary rounded" 
+                      />
+                      <span className="font-body-sm text-charcoal-navy">Create an account for faster checkout next time</span>
+                    </label>
+                  )}
                 </div>
               </section>
 

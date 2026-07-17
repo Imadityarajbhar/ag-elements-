@@ -38,6 +38,10 @@ export async function GET() {
       };
     }
 
+    if (process.env.NODE_ENV !== 'production') {
+      console.log(`[Auth] Profile API succeeded for user ID: ${userId}`);
+    }
+
     return NextResponse.json({
       user: mapWooCommerceCustomer(customer)
     });

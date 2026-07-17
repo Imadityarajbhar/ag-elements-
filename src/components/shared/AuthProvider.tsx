@@ -23,13 +23,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }
       })
       .catch(async () => {
-        // Clear server-side cookie if token is invalid/expired
-        try {
-          await fetch('/api/auth/logout', { method: 'POST' });
-        } catch {
-          // Ignore logout errors
+        // Only clear state if we previously thought we were authenticated
+        const wasAuthenticated = useAuthStore.getState().isAuthenticated;
+        if (wasAuthenticated) {
+          try {
+            await fetch('/api/auth/logout', { method: 'POST' });
+          } catch {
+            // Ignore logout errors
+          }
+          logout();
+        } else {
+          setLoading(false);
         }
-        logout();
       });
   }, [login, logout, setLoading]);
 

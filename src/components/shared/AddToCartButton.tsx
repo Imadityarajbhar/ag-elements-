@@ -7,6 +7,8 @@ import { useCartStore } from '@/store/cart';
 import { trackAddToCart } from '@/lib/analytics';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import Image from 'next/image';
+import { toast } from 'sonner';
+import { mapWooCommerceError } from '@/lib/error-mapper';
 
 export function AddToCartButton({ product, compact = false }: { product: Product, compact?: boolean }) {
   const { addItem, setIsOpen } = useCartStore();
@@ -84,7 +86,11 @@ export function AddToCartButton({ product, compact = false }: { product: Product
       }));
     }
 
-    await addItem(parseInt(product.id), quantity, variationPayload);
+    const res = await addItem(parseInt(product.id), quantity, variationPayload);
+    if (!res.success) {
+      toast.error(mapWooCommerceError(res.code || '', res.error));
+      return;
+    }
     trackAddToCart(product, quantity);
   };
 
@@ -100,11 +106,13 @@ export function AddToCartButton({ product, compact = false }: { product: Product
     }
 
     const res = await addItem(parseInt(product.id), quantity, variationPayload);
-    trackAddToCart(product, quantity);
-    
-    if (res.success) {
-      router.push('/checkout');
+    if (!res.success) {
+      toast.error(mapWooCommerceError(res.code || '', res.error));
+      return;
     }
+    
+    trackAddToCart(product, quantity);
+    router.push('/checkout');
   };
 
 

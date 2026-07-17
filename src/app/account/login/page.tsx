@@ -43,6 +43,7 @@ export default function LoginPage() {
       await wishlistService.mergeGuestWishlist();
 
       const redirectUrl = searchParams.get('redirect') || '/account';
+      router.refresh();
       router.push(redirectUrl);
     } catch (err: any) {
       setError(err.message);

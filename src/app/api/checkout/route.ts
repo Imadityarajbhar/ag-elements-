@@ -7,6 +7,7 @@ const CART_TOKEN_COOKIE = 'wc_cart_token';
 async function storeApiRequest(endpoint: string, method = 'POST', body?: any) {
   const cookieStore = await cookies();
   const token = cookieStore.get(CART_TOKEN_COOKIE)?.value;
+  const authToken = cookieStore.get('ag_auth_token')?.value;
 
   const headers: HeadersInit = {
     'Content-Type': 'application/json',
@@ -14,6 +15,10 @@ async function storeApiRequest(endpoint: string, method = 'POST', body?: any) {
 
   if (token) {
     headers['Cart-Token'] = token;
+  }
+  
+  if (authToken) {
+    headers['Authorization'] = `Bearer ${authToken}`;
   }
 
   const res = await fetch(`${WC_STORE_URL}${endpoint}`, {

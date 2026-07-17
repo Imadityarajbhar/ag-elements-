@@ -11,6 +11,7 @@ import { Product } from '@/types/product';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { mapWooCommerceError } from '@/lib/error-mapper';
+import { toast } from 'sonner';
 
 export function CartDrawer() {
   const { 
@@ -121,15 +122,25 @@ export function CartDrawer() {
                       <div className="flex justify-between items-center mt-4">
                         <div className="flex items-center border border-outline-variant rounded">
                           <button 
-                            className="px-2 py-1 text-on-surface-variant hover:text-brand-amethyst"
-                            onClick={() => updateItem(item.key, Math.max(1, item.quantity - 1))}
+                            className="px-2 py-1 text-on-surface-variant hover:text-brand-amethyst disabled:opacity-50"
+                            onClick={async () => {
+                              const res = await updateItem(item.key, Math.max(1, item.quantity - 1));
+                              if (!res.success) toast.error(mapWooCommerceError(res.code || '', res.error));
+                            }}
+                            disabled={item.quantity <= 1}
                           >
                             -
                           </button>
                           <span className="px-2 font-sans text-[14px] min-w-[24px] text-center">{item.quantity}</span>
                           <button 
-                            className="px-2 py-1 text-on-surface-variant hover:text-brand-amethyst"
-                            onClick={() => updateItem(item.key, item.quantity + 1)}
+                            className="px-2 py-1 text-on-surface-variant hover:text-brand-amethyst disabled:opacity-50"
+                            onClick={async () => {
+                              const max = item.quantity_limits?.maximum ?? 9999;
+                              if (item.quantity >= max) return;
+                              const res = await updateItem(item.key, item.quantity + 1);
+                              if (!res.success) toast.error(mapWooCommerceError(res.code || '', res.error));
+                            }}
+                            disabled={item.quantity_limits ? item.quantity >= item.quantity_limits.maximum : false}
                           >
                             +
                           </button>

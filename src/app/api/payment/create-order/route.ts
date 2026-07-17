@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import Razorpay from 'razorpay';
 import { wcClient } from '@/services/woocommerce/client';
 import { PAYMENT_METHODS } from '@/config/payment-methods';
+import { getWpUserIdFromToken } from '@/lib/auth-helpers';
 
 const WC_STORE_URL = process.env.NEXT_PUBLIC_WP_URL + 'wp-json/wc/store/v1';
 const CART_TOKEN_COOKIE = 'wc_cart_token';
@@ -14,6 +15,7 @@ const key_secret = process.env.RAZORPAY_KEY_SECRET;
 async function storeApiRequest(endpoint: string, method = 'POST', body?: any) {
   const cookieStore = await cookies();
   const token = cookieStore.get(CART_TOKEN_COOKIE)?.value;
+  const authToken = cookieStore.get('ag_auth_token')?.value;
 
   const headers: HeadersInit = {
     'Content-Type': 'application/json',
@@ -21,6 +23,10 @@ async function storeApiRequest(endpoint: string, method = 'POST', body?: any) {
 
   if (token) {
     headers['Cart-Token'] = token;
+  }
+  
+  if (authToken) {
+    headers['Authorization'] = `Bearer ${authToken}`;
   }
 
   const res = await fetch(`${WC_STORE_URL}${endpoint}`, {
@@ -78,6 +84,64 @@ export async function POST(request: Request) {
     } else {
        return NextResponse.json({ error: 'Failed to fetch order total' }, { status: 500 });
     }
+
+    // --- CUSTOMER ATTACHMENT LOGIC ---
+    const cookieStore = await cookies();
+    const authToken = cookieStore.get('ag_auth_token')?.value;
+
+    if (authToken) {
+      if (process.env.NODE_ENV !== 'production') console.log('[Checkout] JWT found. Attempting to attach customer to guest order.');
+      try {
+        const baseUrl = (process.env.NEXT_PUBLIC_WP_URL || '').replace(/\/$/, '');
+        const userId = await getWpUserIdFromToken(authToken, baseUrl);
+        
+        if (userId) {
+          // Verify order eligibility
+          if (orderData.status === 'pending' && orderData.customer_id === 0) {
+            // Verify email matches
+            const customerData = await wcClient.fetch<any>(`/customers/${userId}`);
+            const customerEmail = customerData?.email;
+            const orderEmail = orderData.billing?.email;
+
+            if (customerEmail && orderEmail && customerEmail.toLowerCase() === orderEmail.toLowerCase()) {
+              if (process.env.NODE_ENV !== 'production') {
+                console.log(`[Checkout] Emails match (${orderEmail}). Attaching customer_id ${userId} to order ${wcOrderId}`);
+              }
+              
+              // Attach customer
+              await wcClient.fetch(`/orders/${wcOrderId}`, {
+                method: 'PUT',
+                body: JSON.stringify({ customer_id: userId })
+              });
+
+              // Add audit note
+              await wcClient.fetch(`/orders/${wcOrderId}/notes`, {
+                method: 'POST',
+                body: JSON.stringify({
+                  note: `Customer linked through Headless Authentication.\nCustomer ID: ${userId}\nJWT verified successfully.\nLinked by AG Elements API.`,
+                  customer_note: false
+                })
+              });
+            } else {
+              console.warn(`[Checkout] JWT user email (${customerEmail}) does not match order billing email (${orderEmail}). Rejecting attachment.`);
+              await wcClient.fetch(`/orders/${wcOrderId}/notes`, {
+                method: 'POST',
+                body: JSON.stringify({
+                  note: `Failed to link customer via Headless Auth. Email mismatch between JWT user and billing address.`,
+                  customer_note: false
+                })
+              });
+            }
+          } else {
+             console.warn(`[Checkout] Order ${wcOrderId} is not eligible for customer attachment. Status: ${orderData.status}, Customer ID: ${orderData.customer_id}`);
+          }
+        }
+      } catch (err: any) {
+        console.error('[Checkout] Failed to attach customer to order:', err);
+        // We do NOT return an error response here, because the order is created and we should proceed with payment.
+      }
+    }
+    // --- END CUSTOMER ATTACHMENT LOGIC ---
 
     // 3. Payment Gateway specific logic
     let razorpayOrderId = null;
@@ -142,6 +206,6 @@ export async function POST(request: Request) {
     
   } catch (error: any) {
     console.error("Razorpay Create Order Error:", error);
-    return NextResponse.json({ error: 'Failed to initialize payment' }, { status: 500 });
+    return NextResponse.json({ error: `Failed to initialize payment: ${error.message || JSON.stringify(error)}` }, { status: 500 });
   }
 }

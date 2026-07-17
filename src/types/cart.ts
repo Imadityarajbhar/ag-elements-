@@ -66,6 +66,12 @@ export interface WcStoreCartItem {
     currency_prefix: string;
     currency_suffix: string;
   };
+  quantity_limits: {
+    minimum: number;
+    maximum: number;
+    multiple_of: number;
+    is_multiple_of: boolean;
+  };
   variation: Array<{ attribute: string; value: string }>;
   item_data: any[];
 }

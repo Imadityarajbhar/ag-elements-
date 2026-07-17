@@ -16,20 +16,35 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   const { addItem, setIsOpen } = useCartStore();
 
+  const isOutOfStock = product.stockStatus === 'outofstock' || product.inStock === false;
+  const isBackorder = product.stockStatus === 'onbackorder';
+  const showLowStock = product.stockQuantity !== null && product.stockQuantity !== undefined && product.stockQuantity > 0 && product.stockQuantity <= 5;
+
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
+    if (isOutOfStock) return;
     await addItem(parseInt(product.id), 1);
   };
 
   return (
     <Link href={`/product/${product.slug}`} className="flex flex-col group cursor-pointer w-full">
       <div className="relative aspect-[4/5] bg-surface-dim mb-4 rounded overflow-hidden">
-        {/* Replace isNewArrival with badgeType when types are updated */}
-        {product.isNewArrival && (
-          <div className="absolute top-2 left-2 z-10 scale-90 tablet:scale-100 origin-top-left">
+        {/* Badges */}
+        <div className="absolute top-2 left-2 z-10 flex flex-col gap-1.5 scale-90 tablet:scale-100 origin-top-left">
+          {product.isNewArrival && (
             <Badge variant="new">New In</Badge>
-          </div>
-        )}
+          )}
+          {isOutOfStock ? (
+            <Badge className="bg-red-500 text-white border-red-600">Out of Stock</Badge>
+          ) : isBackorder ? (
+            <Badge className="bg-yellow-500 text-white border-yellow-600">Backorder</Badge>
+          ) : showLowStock ? (
+            <Badge className="bg-red-50 text-red-700 border-red-200 shadow-sm animate-pulse flex items-center gap-1">
+              <span className="material-symbols-outlined text-[12px]">local_fire_department</span>
+              Only {product.stockQuantity} left
+            </Badge>
+          ) : null}
+        </div>
         
         {/* Wishlist Button Overlay */}
         <div className="absolute top-2 right-2 z-20">
@@ -49,9 +64,10 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Quick Add Button on Hover (hidden on mobile) */}
         <Button 
           onClick={handleAddToCart}
-          className="hidden tablet:flex absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] opacity-0 group-hover:opacity-100 transition-opacity bg-pearl-white/95 text-ag-purple hover:bg-pearl-white font-label-md"
+          disabled={isOutOfStock}
+          className="hidden tablet:flex absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] opacity-0 group-hover:opacity-100 transition-opacity bg-pearl-white/95 text-ag-purple hover:bg-pearl-white font-label-md disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Quick Add
+          {isOutOfStock ? 'Out of Stock' : 'Quick Add'}
         </Button>
       </div>
       
@@ -65,10 +81,11 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Mobile Quick Add Button (hidden on tablet/desktop) */}
         <Button 
           onClick={handleAddToCart}
-          className="flex tablet:hidden h-8 w-8 p-0 rounded bg-ag-purple text-pearl-white flex-shrink-0 hover:brightness-90 transition-all items-center justify-center"
+          disabled={isOutOfStock}
+          className="flex tablet:hidden h-8 w-8 p-0 rounded bg-ag-purple text-pearl-white flex-shrink-0 hover:brightness-90 transition-all items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="Add to cart"
         >
-          <span className="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+          <span className="material-symbols-outlined text-[18px]">{isOutOfStock ? 'remove_shopping_cart' : 'add_shopping_cart'}</span>
         </Button>
       </div>
     </Link>

@@ -29,6 +29,10 @@ export async function POST(request: Request) {
     }
 
     const token = data.token;
+    
+    if (process.env.NODE_ENV !== 'production') {
+      console.log(`[Auth] JWT issued successfully for email: ${email}`);
+    }
 
     // 2. Get WP User ID from the token
     const wpRes = await fetch(`${baseUrl}/wp-json/wp/v2/users/me`, {
@@ -67,14 +71,11 @@ export async function POST(request: Request) {
     if (cartCookieMatch) {
       const cartToken = cartCookieMatch[1];
       try {
-        await fetch(`${baseUrl}/wp-json/wc/store/v1/cart`, {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Cart-Token': cartToken,
-          }
-        });
-        console.log('Guest cart merged successfully.');
+        // Store API does not accept JWT, so we just maintain the cart-token cookie
+        // The frontend will continue to use this Cart-Token as a "guest" cart
+        if (process.env.NODE_ENV !== 'production') {
+          console.log(`[Auth] Guest cart token found: ${cartToken}. Proceeding with guest cart for Store API.`);
+        }
       } catch (err) {
         console.warn('Failed to merge guest cart during login:', err);
       }
@@ -92,6 +93,10 @@ export async function POST(request: Request) {
       path: '/',
       maxAge: 60 * 60 * 24 * 7, // 1 week
     });
+
+    if (process.env.NODE_ENV !== 'production') {
+      console.log(`[Auth] Cookie ag_auth_token stored securely.`);
+    }
 
     return response;
   } catch (error: any) {

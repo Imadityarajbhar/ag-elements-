@@ -27,6 +27,10 @@ export function middleware(request: NextRequest) {
       loginUrl.searchParams.set('redirect', pathname + search);
       return NextResponse.redirect(loginUrl);
     }
+
+    if (process.env.NODE_ENV !== 'production') {
+      console.log(`[Auth] Middleware intercepted protected path ${pathname} and validated cookie presence.`);
+    }
   }
 
   return NextResponse.next();
