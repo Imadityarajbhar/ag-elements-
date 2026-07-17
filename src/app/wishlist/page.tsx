@@ -1,4 +1,5 @@
 "use client";
+import { Share2, Heart, Trash2 } from 'lucide-react';
 
 import React, { useEffect, useState, Suspense } from 'react';
 import Link from 'next/link';
@@ -80,7 +81,7 @@ function WishlistContent() {
             variant="outline"
             className="flex items-center gap-2 border-ag-purple text-ag-purple hover:bg-ag-purple hover:text-pearl-white transition-colors"
           >
-            <span className="material-symbols-outlined text-[18px]">share</span>
+            <Share2 className="text-[18px]" />
             {copyStatus === 'copied' ? 'Link Copied!' : 'Share Wishlist'}
           </Button>
         )}
@@ -88,7 +89,7 @@ function WishlistContent() {
 
       {displayItems.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-20 text-center bg-surface-container-lowest rounded-xl border border-outline-variant/30">
-          <span className="material-symbols-outlined text-[64px] text-outline-variant mb-4">favorite_border</span>
+          <Heart className="text-[64px] text-outline-variant mb-4" />
           <h2 className="font-headline-md text-[28px] text-charcoal-navy mb-4">Your wishlist is empty</h2>
           <p className="font-body-md text-on-surface-variant max-w-md mb-8">Save your favorite pieces here to view them later or share them with friends.</p>
           <Link href="/shop" className="bg-charcoal-navy text-pearl-white px-8 py-4 rounded uppercase font-label-md tracking-widest font-semibold hover:bg-charcoal-navy/90 transition-colors">
@@ -105,7 +106,7 @@ function WishlistContent() {
                   className="absolute top-3 right-3 z-20 w-8 h-8 flex items-center justify-center bg-pearl-white/80 hover:bg-pearl-white text-on-surface-variant hover:text-red-500 rounded-full backdrop-blur transition-colors"
                   aria-label="Remove from wishlist"
                 >
-                  <span className="material-symbols-outlined text-[18px]">delete</span>
+                  <Trash2 className="text-[18px]" />
                 </button>
               )}
               
@@ -140,7 +141,7 @@ function WishlistContent() {
                       className="border-ag-purple text-ag-purple hover:bg-ag-purple hover:text-pearl-white"
                       title="Save to your Wishlist"
                     >
-                      <span className="material-symbols-outlined text-[18px]">favorite</span>
+                      <Heart className="text-[18px]" />
                     </Button>
                   )}
                 </div>

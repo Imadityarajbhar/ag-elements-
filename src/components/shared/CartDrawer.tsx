@@ -1,4 +1,5 @@
 "use client";
+import { ShoppingBag, Truck, Tag, AlertCircle } from 'lucide-react';
 
 import { useCartStore } from '@/store/cart';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
@@ -89,7 +90,7 @@ export function CartDrawer() {
         <div className="flex-1 overflow-y-auto p-6 pt-4">
           {items.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-on-surface-variant gap-4">
-              <span className="material-symbols-outlined text-[48px] opacity-20">shopping_bag</span>
+              <ShoppingBag className="text-[48px] opacity-20" />
               <p className="font-sans text-[16px]">Your cart is empty.</p>
               <Button variant="outline" onClick={() => setIsOpen(false)}>Continue Shopping</Button>
             </div>
@@ -163,7 +164,7 @@ export function CartDrawer() {
                   <AccordionItem value="estimate" className="border-none">
                     <AccordionTrigger className="px-4 py-4 hover:no-underline">
                       <div className="flex items-center gap-2">
-                        <span className="material-symbols-outlined text-[20px]">local_shipping</span>
+                        <Truck className="text-[20px]" />
                         <span className="font-label-md font-bold uppercase tracking-widest text-charcoal-navy">Estimate Shipping</span>
                       </div>
                     </AccordionTrigger>
@@ -238,7 +239,7 @@ export function CartDrawer() {
                   {cart.coupons.map(coupon => (
                     <div key={coupon.code} className="flex justify-between items-center bg-green-50/50 p-2 rounded border border-green-200">
                       <div className="flex items-center gap-2 text-green-700 font-sans text-sm">
-                        <span className="material-symbols-outlined text-[16px]">local_offer</span>
+                        <Tag className="text-[16px]" />
                         <span className="font-semibold uppercase">{coupon.code}</span>
                       </div>
                       <button 
@@ -276,7 +277,7 @@ export function CartDrawer() {
               )}
               {couponError && (
                 <p className="text-red-500 font-sans text-xs mt-1 bg-red-50 p-2 rounded border border-red-100 flex items-start gap-1.5">
-                  <span className="material-symbols-outlined text-[14px]">error</span>
+                  <AlertCircle className="text-[14px]" />
                   {couponError}
                 </p>
               )}

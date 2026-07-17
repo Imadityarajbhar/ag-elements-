@@ -1,4 +1,5 @@
 "use client";
+import { Search, Loader2, Receipt } from 'lucide-react';
 
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
@@ -74,7 +75,7 @@ export default function OrdersPage() {
           </select>
         </div>
         <div className="relative w-full sm:w-64">
-          <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant">search</span>
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant" />
           <Input 
             placeholder="Search order number..." 
             className="pl-10"
@@ -86,11 +87,11 @@ export default function OrdersPage() {
 
       {isLoading ? (
         <div className="flex justify-center py-12">
-          <span className="material-symbols-outlined animate-spin text-3xl text-ag-purple">progress_activity</span>
+          <Loader2 className="animate-spin text-3xl text-ag-purple" />
         </div>
       ) : orders.length === 0 ? (
         <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-12 text-center shadow-sm">
-          <span className="material-symbols-outlined text-5xl text-outline-variant mb-4">receipt_long</span>
+          <Receipt className="text-5xl text-outline-variant mb-4" />
           <h2 className="font-headline-sm text-xl text-charcoal-navy mb-2">No orders found</h2>
           <p className="font-body-sm text-on-surface-variant mb-6">We couldn't find any orders matching your criteria.</p>
           {(status !== 'all' || search) ? (

@@ -64,8 +64,22 @@ export async function POST(request: Request) {
     }
     
     // 2. Submit to WooCommerce Store API to create the Pending Order
-    const wcResponse = await storeApiRequest('/checkout', 'POST', body);
+    let wcResponse = await storeApiRequest('/checkout', 'POST', body);
     
+    // 2.5 Seamless Fallback for Existing Accounts
+    // If the user requested account creation but the email already exists, 
+    // the Store API rejects the entire checkout. We catch this and retry as a guest.
+    if (!wcResponse.ok && (
+      wcResponse.data?.code === 'registration-error-email-exists' || 
+      (wcResponse.data?.message && typeof wcResponse.data.message === 'string' && wcResponse.data.message.toLowerCase().includes('already registered'))
+    )) {
+      if (body.create_account) {
+        console.warn(`[Checkout] Email exists. Retrying order for ${body.billing_address?.email} without account creation.`);
+        body.create_account = false;
+        wcResponse = await storeApiRequest('/checkout', 'POST', body);
+      }
+    }
+
     if (!wcResponse.ok) {
       return NextResponse.json(wcResponse.data, { status: wcResponse.status });
     }

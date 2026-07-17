@@ -1,4 +1,5 @@
 "use client";
+import { BellRing } from 'lucide-react';
 
 import Link from 'next/link';
 
@@ -13,7 +14,7 @@ export default function NotificationsPage() {
       </div>
 
       <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-12 text-center shadow-sm">
-        <span className="material-symbols-outlined text-5xl text-outline-variant mb-4">notifications_active</span>
+        <BellRing className="text-5xl text-outline-variant mb-4" />
         <h2 className="font-headline-sm text-xl text-charcoal-navy mb-2">No new notifications</h2>
         <p className="font-body-sm text-on-surface-variant mb-6">
           You're all caught up! We'll notify you when there's an update on your orders or new exclusive offers.

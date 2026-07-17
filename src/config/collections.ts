@@ -104,7 +104,7 @@ export const COLLECTION_CONFIG: Record<string, CollectionConfig> = {
     seoDescription: 'Discover our exclusive 925 sterling silver Men\'s bracelet collection. Shop bold chains and premium styles.',
   },
   'mens-necklace': {
-    id: SHOP_FILTERS.categories.necklaces || SHOP_FILTERS.categories.necklace || 68,
+    id: (SHOP_FILTERS.categories as any).necklaces || SHOP_FILTERS.categories.necklace || 68,
     attribute: 'pa_gender',
     attribute_term: SHOP_FILTERS.attributes?.pa_gender?.terms?.men?.toString() || '557',
     title: "Men's Necklace",

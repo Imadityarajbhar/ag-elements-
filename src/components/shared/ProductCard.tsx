@@ -1,4 +1,5 @@
 "use client";
+import { Flame } from 'lucide-react';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -40,7 +41,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <Badge className="bg-yellow-500 text-white border-yellow-600">Backorder</Badge>
           ) : showLowStock ? (
             <Badge className="bg-red-50 text-red-700 border-red-200 shadow-sm animate-pulse flex items-center gap-1">
-              <span className="material-symbols-outlined text-[12px]">local_fire_department</span>
+              <Flame className="text-[12px]" />
               Only {product.stockQuantity} left
             </Badge>
           ) : null}

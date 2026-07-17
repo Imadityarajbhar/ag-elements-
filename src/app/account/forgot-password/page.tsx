@@ -1,4 +1,5 @@
 "use client";
+import { MailCheck, AlertCircle, Loader2 } from 'lucide-react';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -43,7 +44,7 @@ export default function ForgotPasswordPage() {
         {submitted ? (
           <div className="text-center space-y-6">
             <div className="mx-auto w-16 h-16 bg-green-50 rounded-full flex items-center justify-center">
-              <span className="material-symbols-outlined text-green-600 text-[32px]">mark_email_read</span>
+              <MailCheck className="text-green-600 text-[32px]" />
             </div>
             <div>
               <h2 className="font-headline-md text-2xl font-medium text-charcoal-navy">
@@ -80,7 +81,7 @@ export default function ForgotPasswordPage() {
             <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
               {error && (
                 <div className="bg-red-50 text-red-600 p-3 rounded-lg font-body-sm text-center flex items-center justify-center gap-2">
-                  <span className="material-symbols-outlined text-[16px]">error</span>
+                  <AlertCircle className="text-[16px]" />
                   {error}
                 </div>
               )}
@@ -106,7 +107,7 @@ export default function ForgotPasswordPage() {
                 >
                   {isLoading ? (
                     <span className="flex items-center gap-2">
-                      <span className="material-symbols-outlined animate-spin text-[18px]">progress_activity</span>
+                      <Loader2 className="animate-spin text-[18px]" />
                       Sending...
                     </span>
                   ) : 'Send Reset Link'}

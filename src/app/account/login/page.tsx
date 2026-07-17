@@ -1,6 +1,7 @@
 "use client";
+import { AlertCircle, Loader2 } from 'lucide-react';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuthStore } from '@/store/authStore';
@@ -8,7 +9,7 @@ import { wishlistService } from '@/services/wishlist/WishlistService';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
-export default function LoginPage() {
+function LoginContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const login = useAuthStore((state) => state.login);
@@ -43,8 +44,7 @@ export default function LoginPage() {
       await wishlistService.mergeGuestWishlist();
 
       const redirectUrl = searchParams.get('redirect') || '/account';
-      router.refresh();
-      router.push(redirectUrl);
+      window.location.href = redirectUrl;
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -69,7 +69,7 @@ export default function LoginPage() {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
             <div className="bg-red-50 text-red-600 p-3 rounded-lg font-body-sm text-center flex items-center justify-center gap-2">
-              <span className="material-symbols-outlined text-[16px]">error</span>
+              <AlertCircle className="text-[16px]" />
               {error}
             </div>
           )}
@@ -142,7 +142,7 @@ export default function LoginPage() {
             >
               {isLoading ? (
                 <span className="flex items-center gap-2">
-                  <span className="material-symbols-outlined animate-spin text-[18px]">progress_activity</span>
+                  <Loader2 className="animate-spin text-[18px]" />
                   Signing in...
                 </span>
               ) : 'Sign in'}
@@ -151,5 +151,17 @@ export default function LoginPage() {
         </form>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-[70vh] flex items-center justify-center bg-surface-lavender">
+        <Loader2 className="animate-spin text-3xl text-ag-purple" />
+      </div>
+    }>
+      <LoginContent />
+    </Suspense>
   );
 }

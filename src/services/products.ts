@@ -60,7 +60,7 @@ function mapWcProduct(wcProd: WooCommerceProduct): Product {
 export const getProducts = cache(async (params?: string): Promise<Product[]> => {
   try {
     const queryString = params ? `&${params}` : '';
-    const data = await wcClient.fetch<WooCommerceProduct[]>(`/products?status=publish${queryString}`);
+    const data = await wcClient.fetch<WooCommerceProduct[]>(`/products?status=publish${queryString}`, { next: { revalidate: 300, tags: ['products'] } });
     return data.map(mapWcProduct);
   } catch (error) {
     console.error("Failed to fetch products from WooCommerce", error);
@@ -87,7 +87,7 @@ export async function getProductsByCategory(frontendSlug: string): Promise<Produ
     }
     
     const categoryId = categories[0].id;
-    const data = await wcClient.fetch<WooCommerceProduct[]>(`/products?category=${categoryId}&status=publish`);
+    const data = await wcClient.fetch<WooCommerceProduct[]>(`/products?category=${categoryId}&status=publish`, { next: { revalidate: 300, tags: ['products', `category-${categorySlug}`] } });
     return data.map(mapWcProduct);
   } catch (error) {
     console.error(`Failed to fetch products for category ${categorySlug} from WooCommerce`, error);
@@ -97,13 +97,13 @@ export async function getProductsByCategory(frontendSlug: string): Promise<Produ
 
 export const getProductBySlug = cache(async (slug: string): Promise<Product | null> => {
   try {
-    const data = await wcClient.fetch<WooCommerceProduct[]>(`/products?slug=${slug}&status=publish`);
+    const data = await wcClient.fetch<WooCommerceProduct[]>(`/products?slug=${slug}&status=publish`, { next: { revalidate: 60, tags: ['product', `product-${slug}`] } });
     if (data.length > 0) {
       const product = mapWcProduct(data[0]);
       
       // Fetch variations if it's a variable product
       if (product.type === 'variable') {
-        const variationsData = await wcClient.fetch<any[]>(`/products/${product.id}/variations?status=publish`);
+        const variationsData = await wcClient.fetch<any[]>(`/products/${product.id}/variations?status=publish`, { next: { revalidate: 60, tags: [`variations-${product.id}`] } });
         product.variations = variationsData.map((v: any) => ({
           id: v.id.toString(),
           price: parseFloat(v.price || '0'),
@@ -131,7 +131,7 @@ export const getProductBySlug = cache(async (slug: string): Promise<Product | nu
 export const getProductsByIds = cache(async (ids: number[]): Promise<Product[]> => {
   if (!ids || ids.length === 0) return [];
   try {
-    const data = await wcClient.fetch<WooCommerceProduct[]>(`/products?include=${ids.join(',')}&status=publish`);
+    const data = await wcClient.fetch<WooCommerceProduct[]>(`/products?include=${ids.join(',')}&status=publish`, { next: { revalidate: 300, tags: ['products', `products-by-id`] } });
     return data.map(mapWcProduct);
   } catch (error) {
     console.error(`Failed to fetch products by IDs from WooCommerce`, error);
@@ -191,7 +191,7 @@ export async function getPaginatedProducts(params: GetProductsParams): Promise<P
       }
     }
 
-    const { data, headers } = await wcClient.fetchWithHeaders<WooCommerceProduct[]>(`/products?${query.toString()}`);
+    const { data, headers } = await wcClient.fetchWithHeaders<WooCommerceProduct[]>(`/products?${query.toString()}`, { next: { revalidate: 300, tags: ['products'] } });
     
     return {
       products: data.map(mapWcProduct),
@@ -228,12 +228,12 @@ export async function getRecommendations(
       }
     }
 
-    const { data } = await wcClient.fetchWithHeaders<WooCommerceProduct[]>(`/products?${query}`);
+    const { data } = await wcClient.fetchWithHeaders<WooCommerceProduct[]>(`/products?${query}`, { next: { revalidate: 300, tags: ['products'] } });
     let results = data.map(mapWcProduct).filter(p => p.id !== product.id);
     
     // Fallback if strict criteria returns nothing
     if (results.length === 0 && product.categories.length > 0) {
-      const fallbackData = await wcClient.fetch<WooCommerceProduct[]>(`/products?category=${product.categories[0].id}&status=publish&per_page=${limit + 1}`);
+      const fallbackData = await wcClient.fetch<WooCommerceProduct[]>(`/products?category=${product.categories[0].id}&status=publish&per_page=${limit + 1}`, { next: { revalidate: 300, tags: ['products'] } });
       results = fallbackData.map(mapWcProduct).filter(p => p.id !== product.id);
     }
 

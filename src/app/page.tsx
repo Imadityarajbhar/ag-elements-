@@ -1,3 +1,4 @@
+import { BadgeCheck, ShieldCheck, Truck, RefreshCw, Star } from 'lucide-react';
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -34,18 +35,27 @@ export default async function Home() {
     <div className="flex flex-col w-full bg-pearl-white">
       {/* 1. Cinematic Video Hero Banner */}
       <section className="relative w-full h-[90vh] min-h-[600px] flex items-center justify-center tablet:justify-start overflow-hidden bg-surface-variant">
-        {/* Placeholder Luxury Video (A beautiful, slow moving texture or abstract video until a real brand video is added) */}
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline 
-          className="absolute inset-0 w-full h-full object-cover z-0"
-          poster="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ1bPW5lb8cWYkCstsu-pp4Ik_9gj7tZv11n0CdJUf2jLWXzbzS8J12xqSiIknx2jnzhV7Lzn2gy22xJ4HQzp3-Cqo4HgQvaPbD21GiZEiLC_9rgRDhXxlRhQq23crWrByAYZ-Ec8ZIN6QQPl-4IF41iEi6AtKTxM49mtykHFmucgBZm5DAqfElBwNVejzazMU4kDHGlyZMqtYcGVhI6HROyvbSgXktmauXu27vLd87uS0OJrnbV7ZuQ=s0"
-        >
-          {/* A generic royalty-free placeholder video link */}
-          <source src="https://cdn.pixabay.com/video/2016/09/21/5361-183787508_large.mp4" type="video/mp4" />
-        </video>
+        {/* LCP Optimized Poster Image */}
+        <div className="absolute inset-0 w-full h-full z-0 bg-surface-variant">
+          <Image
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ1bPW5lb8cWYkCstsu-pp4Ik_9gj7tZv11n0CdJUf2jLWXzbzS8J12xqSiIknx2jnzhV7Lzn2gy22xJ4HQzp3-Cqo4HgQvaPbD21GiZEiLC_9rgRDhXxlRhQq23crWrByAYZ-Ec8ZIN6QQPl-4IF41iEi6AtKTxM49mtykHFmucgBZm5DAqfElBwNVejzazMU4kDHGlyZMqtYcGVhI6HROyvbSgXktmauXu27vLd87uS0OJrnbV7ZuQ=s0"
+            alt="New Collection Banner"
+            fill
+            priority
+            fetchPriority="high"
+            className="object-cover"
+          />
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline 
+            preload="metadata"
+            className="absolute inset-0 w-full h-full object-cover mix-blend-normal"
+          >
+            <source src="https://cdn.pixabay.com/video/2016/09/21/5361-183787508_large.mp4" type="video/mp4" />
+          </video>
+        </div>
         
         {/* Elegant Gradient Overlay */}
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-charcoal-navy/90 via-charcoal-navy/30 to-charcoal-navy/10"></div>
@@ -76,19 +86,19 @@ export default async function Home() {
         <div className="max-w-[1440px] mx-auto px-margin-mobile tablet:px-margin-desktop">
           <div className="grid grid-cols-2 tablet:grid-cols-4 gap-8 text-center text-charcoal-navy">
             <div className="flex flex-col items-center gap-3">
-              <span className="material-symbols-outlined text-[32px] text-ag-purple font-light">verified</span>
+              <BadgeCheck className="text-[32px] text-ag-purple font-light" />
               <span className="font-label-sm uppercase tracking-widest text-[11px] font-semibold">925 Certified Silver</span>
             </div>
             <div className="flex flex-col items-center gap-3">
-              <span className="material-symbols-outlined text-[32px] text-ag-purple font-light">history_edu</span>
-              <span className="font-label-sm uppercase tracking-widest text-[11px] font-semibold">Legacy Since 1954</span>
+              <ShieldCheck className="text-[32px] text-ag-purple font-light" />
+              <span className="font-label-sm uppercase tracking-widest text-[11px] font-semibold">100% Secure Payments</span>
             </div>
             <div className="flex flex-col items-center gap-3">
-              <span className="material-symbols-outlined text-[32px] text-ag-purple font-light">local_shipping</span>
+              <Truck className="text-[32px] text-ag-purple font-light" />
               <span className="font-label-sm uppercase tracking-widest text-[11px] font-semibold">Free Delivery Above ₹2000</span>
             </div>
             <div className="flex flex-col items-center gap-3">
-              <span className="material-symbols-outlined text-[32px] text-ag-purple font-light">sync</span>
+              <RefreshCw className="text-[32px] text-ag-purple font-light" />
               <span className="font-label-sm uppercase tracking-widest text-[11px] font-semibold">7-Day Easy Returns</span>
             </div>
           </div>
@@ -210,7 +220,7 @@ export default async function Home() {
             <div className="bg-pearl-white p-10 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col gap-6 relative">
               <span className="absolute top-6 right-8 text-6xl text-outline-variant/20 font-serif leading-none">"</span>
               <div className="flex text-ag-purple">
-                {Array(5).fill(0).map((_, i) => <span key={i} className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>)}
+                {Array(5).fill(0).map((_, i) => <Star key={i} />)}
               </div>
               <p className="font-body-md text-[16px] text-on-surface-variant leading-relaxed">"Absolutely stunning! The detailing on the stars is incredible. It feels substantial but looks so delicate on the wrist. I haven't taken it off since it arrived."</p>
               <div className="mt-auto pt-4 border-t border-outline-variant/30">
@@ -220,7 +230,7 @@ export default async function Home() {
             <div className="bg-pearl-white p-10 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col gap-6 relative">
               <span className="absolute top-6 right-8 text-6xl text-outline-variant/20 font-serif leading-none">"</span>
               <div className="flex text-ag-purple">
-                {Array(5).fill(0).map((_, i) => <span key={i} className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>)}
+                {Array(5).fill(0).map((_, i) => <Star key={i} />)}
               </div>
               <p className="font-body-md text-[16px] text-on-surface-variant leading-relaxed">"Perfect gift. Bought this for my sister's birthday and she loves it. The premium packaging made the unboxing experience feel so luxurious and special."</p>
               <div className="mt-auto pt-4 border-t border-outline-variant/30">
@@ -230,7 +240,7 @@ export default async function Home() {
             <div className="bg-pearl-white p-10 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col gap-6 relative">
               <span className="absolute top-6 right-8 text-6xl text-outline-variant/20 font-serif leading-none">"</span>
               <div className="flex text-ag-purple">
-                {Array(5).fill(0).map((_, i) => <span key={i} className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>)}
+                {Array(5).fill(0).map((_, i) => <Star key={i} />)}
               </div>
               <p className="font-body-md text-[16px] text-on-surface-variant leading-relaxed">"Elegant and versatile. It pairs beautifully with my watch and other bracelets. The silver has a lovely shine that doesn't tarnish with everyday wear."</p>
               <div className="mt-auto pt-4 border-t border-outline-variant/30">
@@ -244,31 +254,44 @@ export default async function Home() {
       {/* 11. FAQ */}
       <section className="py-24 px-margin-mobile tablet:px-margin-desktop max-w-3xl mx-auto w-full">
         <div className="text-center mb-12">
+          <span className="text-ag-purple font-label-md text-[13px] font-bold uppercase tracking-[0.2em] mb-4 block">Help Center</span>
           <h2 className="font-headline-lg text-[36px] tablet:text-[48px] font-medium text-charcoal-navy">Frequently Asked Questions</h2>
         </div>
         <Accordion className="w-full border-t border-outline-variant/30">
           <AccordionItem value="item-1">
-            <AccordionTrigger className="font-label-md text-[14px] font-semibold uppercase tracking-widest text-charcoal-navy py-6">Is AG Elements silver certified 925?</AccordionTrigger>
-            <AccordionContent className="font-body-md text-[16px] text-on-surface-variant pb-6">
-              Yes, every piece of AG Elements jewelry is crafted from authentic 925 Sterling Silver and comes with a certificate of authenticity.
+            <AccordionTrigger className="font-label-md text-[14px] font-semibold uppercase tracking-widest text-charcoal-navy py-6 text-left">Is the jewellery 925 silver?</AccordionTrigger>
+            <AccordionContent className="font-body-md text-[16px] text-on-surface-variant pb-6 leading-relaxed">
+              Yes, every piece of AG Elements jewelry is crafted from authentic 925 Sterling Silver. Each piece is hallmarked to guarantee its purity and comes with a certificate of authenticity.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger className="font-label-md text-[14px] font-semibold uppercase tracking-widest text-charcoal-navy py-6">Do you deliver across India?</AccordionTrigger>
-            <AccordionContent className="font-body-md text-[16px] text-on-surface-variant pb-6">
-              Yes, we offer pan-India delivery. Shipping is completely free on all orders above ₹2000.
+            <AccordionTrigger className="font-label-md text-[14px] font-semibold uppercase tracking-widest text-charcoal-navy py-6 text-left">How long does shipping take?</AccordionTrigger>
+            <AccordionContent className="font-body-md text-[16px] text-on-surface-variant pb-6 leading-relaxed">
+              We process all orders within 24 hours. Standard delivery takes 3-5 business days across most of India. Express shipping is available at checkout for 1-2 day delivery in metro cities.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
-            <AccordionTrigger className="font-label-md text-[14px] font-semibold uppercase tracking-widest text-charcoal-navy py-6">What is your return policy?</AccordionTrigger>
-            <AccordionContent className="font-body-md text-[16px] text-on-surface-variant pb-6">
-              We offer a 7-day easy return policy for all unused items in their original packaging.
+            <AccordionTrigger className="font-label-md text-[14px] font-semibold uppercase tracking-widest text-charcoal-navy py-6 text-left">Can I return products?</AccordionTrigger>
+            <AccordionContent className="font-body-md text-[16px] text-on-surface-variant pb-6 leading-relaxed">
+              Yes, we offer a hassle-free 7-day return policy. If you're not completely satisfied, you can return unused items in their original packaging for a full refund or exchange.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4">
-            <AccordionTrigger className="font-label-md text-[14px] font-semibold uppercase tracking-widest text-charcoal-navy py-6">How do I care for my silver jewellery?</AccordionTrigger>
-            <AccordionContent className="font-body-md text-[16px] text-on-surface-variant pb-6">
-              Store your silver in a cool, dry place, preferably in an airtight pouch. Avoid contact with perfumes, lotions, and water to maintain its luster.
+            <AccordionTrigger className="font-label-md text-[14px] font-semibold uppercase tracking-widest text-charcoal-navy py-6 text-left">Is Cash on Delivery (COD) available?</AccordionTrigger>
+            <AccordionContent className="font-body-md text-[16px] text-on-surface-variant pb-6 leading-relaxed">
+              Yes, we offer Cash on Delivery across 15,000+ pin codes in India. We also accept all major credit/debit cards, UPI, and net banking for prepaid orders.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-5">
+            <AccordionTrigger className="font-label-md text-[14px] font-semibold uppercase tracking-widest text-charcoal-navy py-6 text-left">Do products tarnish?</AccordionTrigger>
+            <AccordionContent className="font-body-md text-[16px] text-on-surface-variant pb-6 leading-relaxed">
+              All sterling silver naturally oxidizes over time when exposed to air and moisture. However, our jewelry is rhodium-plated to provide an extra layer of protection, significantly delaying the tarnishing process.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-6">
+            <AccordionTrigger className="font-label-md text-[14px] font-semibold uppercase tracking-widest text-charcoal-navy py-6 text-left">How do I care for my silver jewellery?</AccordionTrigger>
+            <AccordionContent className="font-body-md text-[16px] text-on-surface-variant pb-6 leading-relaxed">
+              Store your silver in the provided airtight AG Elements pouch when not in use. Avoid direct contact with perfumes, lotions, and harsh chemicals. Gently wipe with a soft polishing cloth to maintain its brilliant shine.
             </AccordionContent>
           </AccordionItem>
         </Accordion>

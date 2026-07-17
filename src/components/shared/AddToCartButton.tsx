@@ -1,4 +1,5 @@
 "use client";
+import { Flame, ShoppingBag, Zap } from 'lucide-react';
 
 import { useState, useMemo, useEffect } from 'react';
 import { Product, ProductVariation } from '@/types/product';
@@ -97,6 +98,15 @@ export function AddToCartButton({ product, compact = false }: { product: Product
 
   const handleBuyNow = async () => {
     if (!validateSelection()) return;
+
+    // Clear existing cart to start a fresh checkout session for this specific item
+    const currentCart = useCartStore.getState().cart;
+    if (currentCart && currentCart.items && currentCart.items.length > 0) {
+      const { removeItem } = useCartStore.getState();
+      for (const item of currentCart.items) {
+        await removeItem(item.key);
+      }
+    }
 
     let variationPayload;
     if (isVariable && selectedOptions) {
@@ -242,7 +252,7 @@ export function AddToCartButton({ product, compact = false }: { product: Product
         {/* Low Stock Warning */}
         {activeVariation?.stockQuantity !== null && activeVariation?.stockQuantity !== undefined && activeVariation.stockQuantity > 0 && activeVariation.stockQuantity < 5 && (
           <div className="inline-flex items-center gap-1.5 bg-red-50 text-red-700 px-3 py-1.5 rounded text-[11px] font-bold uppercase tracking-widest border border-red-100 w-fit animate-pulse">
-            <span className="material-symbols-outlined text-[14px]">local_fire_department</span>
+            <Flame className="text-[14px]" />
             Hurry! Only {activeVariation.stockQuantity} left in stock
           </div>
         )}
@@ -278,7 +288,7 @@ export function AddToCartButton({ product, compact = false }: { product: Product
           className="w-full bg-primary text-primary-foreground font-label-md text-[14px] font-semibold py-6 rounded hover:brightness-90 transition-all flex justify-center items-center gap-2"
         >
           <span>Add to Cart</span>
-          <span className="material-symbols-outlined text-[18px]">shopping_bag</span>
+          <ShoppingBag className="text-[18px]" />
         </Button>
         <Button 
           onClick={handleBuyNow} 
@@ -287,7 +297,7 @@ export function AddToCartButton({ product, compact = false }: { product: Product
           className="w-full border-ag-purple text-ag-purple font-label-md text-[14px] font-semibold py-6 rounded hover:bg-ag-purple/5 transition-all flex justify-center items-center gap-2"
         >
           <span>Buy Now</span>
-          <span className="material-symbols-outlined text-[18px]">bolt</span>
+          <Zap className="text-[18px]" />
         </Button>
       </div>
     </div>

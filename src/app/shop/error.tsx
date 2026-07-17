@@ -1,4 +1,5 @@
 "use client";
+import { AlertCircle } from 'lucide-react';
 
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -17,9 +18,7 @@ export default function ShopError({
 
   return (
     <div className="container mx-auto px-4 py-24 flex flex-col items-center justify-center text-center min-h-[50vh]">
-      <span className="material-symbols-outlined text-[64px] text-red-500/80 mb-6">
-        error
-      </span>
+      <AlertCircle className="text-[64px] text-red-500/80 mb-6" />
       <h2 className="font-heading-md text-charcoal-navy mb-4">
         Something went wrong!
       </h2>

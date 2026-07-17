@@ -1,4 +1,5 @@
 "use client";
+import { LogOut } from 'lucide-react';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -75,7 +76,7 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
                 onClick={handleLogout}
                 className="flex items-center gap-3 px-4 py-3 rounded-lg font-label-md tracking-wider text-red-500 hover:bg-red-50 transition-colors mt-4 text-left w-full"
               >
-                <span className="material-symbols-outlined text-[20px]">logout</span>
+                <LogOut className="text-[20px]" />
                 Logout
               </button>
             </nav>

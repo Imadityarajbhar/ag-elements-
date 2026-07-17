@@ -1,4 +1,5 @@
 "use client";
+import { Download, History, CreditCard, Trash2 } from 'lucide-react';
 
 import { useEffect, useState } from 'react';
 import { useAuthStore } from '@/store/authStore';
@@ -248,19 +249,19 @@ export default function ProfilePage() {
             <h2 className="font-headline-sm text-[18px] font-semibold text-charcoal-navy mb-4">Security & Data</h2>
             <div className="space-y-3">
               <button className="flex items-center gap-3 w-full text-left p-2 rounded-lg hover:bg-surface-lavender transition-colors group">
-                <span className="material-symbols-outlined text-outline-variant group-hover:text-ag-purple">download</span>
+                <Download className="text-outline-variant group-hover:text-ag-purple" />
                 <span className="font-label-md text-sm text-charcoal-navy">Download Personal Data</span>
               </button>
               <button className="flex items-center gap-3 w-full text-left p-2 rounded-lg hover:bg-surface-lavender transition-colors group">
-                <span className="material-symbols-outlined text-outline-variant group-hover:text-ag-purple">history</span>
+                <History className="text-outline-variant group-hover:text-ag-purple" />
                 <span className="font-label-md text-sm text-charcoal-navy">Login History</span>
               </button>
               <button className="flex items-center gap-3 w-full text-left p-2 rounded-lg hover:bg-surface-lavender transition-colors group">
-                <span className="material-symbols-outlined text-outline-variant group-hover:text-ag-purple">credit_card</span>
+                <CreditCard className="text-outline-variant group-hover:text-ag-purple" />
                 <span className="font-label-md text-sm text-charcoal-navy">Saved Payment Methods</span>
               </button>
               <button className="flex items-center gap-3 w-full text-left p-2 rounded-lg hover:bg-red-50 transition-colors group">
-                <span className="material-symbols-outlined text-red-400 group-hover:text-red-600">delete_forever</span>
+                <Trash2 className="text-red-400 group-hover:text-red-600" />
                 <span className="font-label-md text-sm text-red-600">Delete Account</span>
               </button>
             </div>

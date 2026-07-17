@@ -1,4 +1,5 @@
 "use client";
+import { AlertCircle, Award, ShoppingCart, Truck, Zap, ShieldCheck, RefreshCw, Loader2 } from 'lucide-react';
 
 import { useState, FormEvent, Suspense, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -12,6 +13,28 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import { TrustBadges } from "@/components/shared/TrustBadges";
 import { mapWooCommerceError } from "@/lib/error-mapper";
 import { PAYMENT_METHODS } from "@/config/payment-methods";
+
+const INDIAN_STATES = [
+  "Andaman and Nicobar Islands", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", 
+  "Chandigarh", "Chhattisgarh", "Dadra and Nagar Haveli", "Daman and Diu", "Delhi", 
+  "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir", "Jharkhand", 
+  "Karnataka", "Kerala", "Ladakh", "Lakshadweep", "Madhya Pradesh", "Maharashtra", 
+  "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Puducherry", "Punjab", 
+  "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", 
+  "Uttarakhand", "West Bengal"
+];
+
+const InputWrapper = ({ children, error, show }: { children: React.ReactNode, error?: string, show?: boolean }) => (
+  <div className="flex flex-col gap-1 w-full">
+    {children}
+    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${show && error ? 'max-h-10 opacity-100' : 'max-h-0 opacity-0'}`}>
+      <p className="text-red-500 font-sans text-xs pt-1 flex items-center gap-1">
+        <AlertCircle className="text-[14px]" />
+        {error}
+      </p>
+    </div>
+  </div>
+);
 
 function CheckoutContent() {
   const router = useRouter();
@@ -56,11 +79,14 @@ function CheckoutContent() {
     phone: "",
     firstName: "",
     lastName: "",
-    address: "",
+    address1: "",
+    address2: "",
     city: "",
     state: "",
     pincode: "",
   });
+
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
 
   // Auto-fill from user
   useEffect(() => {
@@ -78,16 +104,10 @@ function CheckoutContent() {
   const [paymentMethod, setPaymentMethod] = useState("");
   const [createAccount, setCreateAccount] = useState(false);
   
-  // New Features State
-  const [orderNotes, setOrderNotes] = useState("");
-  
   // Use cart from store for items and totals
   const items = cart?.items || [];
   const totals: any = cart?.totals || {};
-  // Hybrid Payment Gateway Architecture:
-  // 1. The frontend registry (PAYMENT_METHODS) defines which gateways are supported and enabled in the headless UI.
-  // 2. We use this as the base, because the WooCommerce Store API often omits gateways (like Razorpay) due to plugin incompatibilities or pending shipping calculations.
-  // 3. We merge any *additional* gateways provided by WooCommerce, unless explicitly disabled in the frontend config.
+  
   const backendMethods = checkoutData?.payment_methods || [];
   const paymentMethods = PAYMENT_METHODS.filter(m => m.enabled);
   
@@ -105,34 +125,93 @@ function CheckoutContent() {
   const shippingRaw = parseInt(totals?.total_shipping || '0', 10) / (10 ** (totals?.currency_minor_unit || 2));
   const discountRaw = parseInt(totals?.total_discount || '0', 10) / (10 ** (totals?.currency_minor_unit || 2));
 
-  // Simple Validation
-  const isValid = 
-    formData.email.includes("@") &&
-    formData.phone.length >= 10 &&
-    formData.firstName.length > 0 &&
-    formData.lastName.length > 0 &&
-    formData.address.length > 0 &&
-    formData.city.length > 0 &&
-    formData.state.length > 0 &&
-    formData.pincode.length >= 6;
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  // Validation Logic
+  const validateField = (name: string, value: string) => {
+    switch (name) {
+      case "email":
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? "" : "Please enter a valid email address.";
+      case "phone":
+        const digits = value.replace(/\D/g, '');
+        return digits.length >= 10 && digits.length <= 15 ? "" : "Please enter a valid phone number.";
+      case "pincode":
+        return /^\d{6}$/.test(value) ? "" : "Please enter a valid 6-digit PIN code.";
+      case "firstName":
+      case "lastName":
+      case "address1":
+      case "city":
+        return value.trim().length > 0 ? "" : "This field is required.";
+      case "state":
+        return value !== "" ? "" : "Please select a state.";
+      default:
+        return "";
+    }
   };
 
+  const getErrors = () => {
+    const errs: Record<string, string> = {};
+    Object.keys(formData).forEach((key) => {
+      const error = validateField(key, formData[key as keyof typeof formData]);
+      if (error) errs[key] = error;
+    });
+    return errs;
+  };
+
+  const errors = getErrors();
+  const isValid = Object.keys(errors).length === 0;
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    // Clear error immediately when user fixes it, but don't show new errors until blur
+    if (touched[e.target.name]) {
+      const error = validateField(e.target.name, e.target.value);
+      if (!error) {
+        setTouched(prev => ({ ...prev, [e.target.name]: false }));
+      }
+    }
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setTouched(prev => ({ ...prev, [e.target.name]: true }));
+  };
+
+  const scrollToFirstError = () => {
+    const errorKeys = Object.keys(errors);
+    if (errorKeys.length > 0) {
+      const firstErrorField = document.querySelector(`[name="${errorKeys[0]}"]`) as HTMLElement;
+      if (firstErrorField) {
+        firstErrorField.scrollIntoView({ behavior: "smooth", block: "center" });
+        firstErrorField.focus();
+      }
+    }
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!isValid) return;
+    
+    // Mark all fields as touched
+    const allTouched: Record<string, boolean> = {};
+    Object.keys(formData).forEach(key => allTouched[key] = true);
+    setTouched(allTouched);
+
+    if (!isValid) {
+      scrollToFirstError();
+      return;
+    }
+    if (!paymentMethod) {
+      setCheckoutError("Please select a payment method.");
+      return;
+    }
 
     setCheckoutError(null);
     setIsSubmitting(true);
     
+    const addressString = [formData.address1, formData.address2].filter(Boolean).join(", ");
+
     const payload = {
       billing_address: {
         first_name: formData.firstName,
         last_name: formData.lastName,
-        address_1: formData.address,
+        address_1: addressString,
         city: formData.city,
         state: formData.state,
         postcode: formData.pincode,
@@ -143,17 +222,17 @@ function CheckoutContent() {
       shipping_address: {
         first_name: formData.firstName,
         last_name: formData.lastName,
-        address_1: formData.address,
+        address_1: addressString,
         city: formData.city,
         state: formData.state,
         postcode: formData.pincode,
         country: "IN",
         phone: formData.phone
       },
-      customer_note: orderNotes,
       payment_method: paymentMethod,
       payment_data: [],
-      create_account: createAccount
+      customer_id: 0,
+      ...(createAccount ? { create_account: true } : {})
     };
 
     try {
@@ -165,6 +244,12 @@ function CheckoutContent() {
       const data = await res.json();
       
       if (!res.ok) {
+        if (data.code === 'registration-error-email-exists' || (data.message && data.message.toLowerCase().includes('already registered'))) {
+          setCheckoutError("This email is already registered to an account. For security, WooCommerce requires you to log in to use this email address.");
+          setIsSubmitting(false);
+          return;
+        }
+
         setCheckoutError(mapWooCommerceError(data.code || '', data.message || data.error || "Order failed"));
         setIsSubmitting(false);
         return;
@@ -239,7 +324,7 @@ function CheckoutContent() {
     }
   };
 
-  const inputClass = "w-full bg-transparent border border-outline-variant focus:border-primary focus:ring-0 px-4 py-3 rounded outline-none transition-colors font-body-md text-charcoal-navy placeholder:text-on-surface-variant/60";
+  const getInputClass = (name: string) => `w-full bg-transparent border ${touched[name] && errors[name] ? 'border-red-400 focus:border-red-500 focus:ring-red-500/20' : 'border-outline-variant focus:border-primary'} focus:ring-0 px-4 py-3 rounded outline-none transition-colors font-body-md text-charcoal-navy placeholder:text-on-surface-variant/60 aria-invalid:${touched[name] && !!errors[name]}`;
 
   const OrderSummaryContent = () => (
     <div className="flex flex-col gap-6">
@@ -274,6 +359,14 @@ function CheckoutContent() {
         {items.length === 0 && (
           <p className="text-on-surface-variant text-sm py-4">Your cart is empty.</p>
         )}
+      </div>
+
+      <div className="bg-surface-lavender/50 p-4 rounded-lg flex gap-3 items-start border border-ag-purple/20">
+        <Award className="text-ag-purple mt-0.5" />
+        <div>
+          <p className="font-label-md text-charcoal-navy font-semibold text-[13px]">Complimentary Certificate of Authenticity</p>
+          <p className="font-sans text-[12px] text-on-surface-variant mt-1">Every AG Elements piece includes a certified guarantee of 925 sterling silver purity.</p>
+        </div>
       </div>
 
       <div className="flex flex-col gap-3 font-body-md text-charcoal-navy border-t border-outline-variant/30 pt-6">
@@ -314,7 +407,6 @@ function CheckoutContent() {
 
   return (
     <div className="min-h-screen bg-pearl-white">
-      {/* Checkout Header */}
       <header className="border-b border-outline-variant/30 bg-pearl-white py-6">
         <div className="max-w-[1440px] mx-auto px-margin-mobile tablet:px-margin-desktop flex justify-center tablet:justify-start">
           <Link href="/">
@@ -326,15 +418,13 @@ function CheckoutContent() {
       <div className="max-w-[1440px] mx-auto px-margin-mobile tablet:px-margin-desktop py-8 tablet:py-12">
         <div className="flex flex-col-reverse tablet:grid tablet:grid-cols-12 gap-8 tablet:gap-16">
           
-          {/* Left Column: Forms */}
           <div className="tablet:col-span-7">
-
             <div className="block tablet:hidden mb-8 border border-outline-variant rounded-lg bg-surface-container-low overflow-hidden">
-              <Accordion>
+              <Accordion className="w-full">
                 <AccordionItem value="summary" className="border-0">
                   <AccordionTrigger className="px-4 py-4 hover:no-underline flex justify-between bg-surface-container-low">
                     <span className="font-label-md text-primary font-semibold flex items-center gap-2">
-                      <span className="material-symbols-outlined text-[18px]">shopping_cart</span>
+                      <ShoppingCart className="text-[18px]" />
                       Show order summary
                     </span>
                     <span className="font-headline-sm text-charcoal-navy font-semibold">₹{totalRaw.toLocaleString('en-IN')}</span>
@@ -346,7 +436,16 @@ function CheckoutContent() {
               </Accordion>
             </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-10">
+            <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-10">
+              {Object.keys(touched).length > 0 && !isValid && (
+                <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg flex gap-3 items-start mb-[-1rem]">
+                  <AlertCircle  />
+                  <div className="font-sans text-sm mt-0.5">
+                    <strong>Please review the highlighted fields before continuing.</strong>
+                  </div>
+                </div>
+              )}
+
               <section className="flex flex-col gap-4">
                 <div className="flex justify-between items-baseline">
                   <h2 className="font-headline-sm text-[24px] font-medium text-charcoal-navy">Contact Information</h2>
@@ -356,38 +455,80 @@ function CheckoutContent() {
                     </Link>
                   )}
                 </div>
-                <div className="flex flex-col gap-3">
-                  <input required name="email" type="email" placeholder="Email address" value={formData.email} onChange={handleInputChange} className={inputClass} />
-                  <input required name="phone" type="tel" placeholder="Phone number (for shipping updates)" value={formData.phone} onChange={handleInputChange} className={inputClass} />
+                <div className="flex flex-col gap-4">
+                  <InputWrapper error={errors.email} show={touched.email}>
+                    <input name="email" type="email" autoComplete="email" placeholder="Email address" value={formData.email} onChange={handleInputChange} onBlur={handleBlur} className={getInputClass('email')} aria-invalid={touched.email && !!errors.email} />
+                  </InputWrapper>
+                  <InputWrapper error={errors.phone} show={touched.phone}>
+                    <input name="phone" type="tel" autoComplete="tel" placeholder="Phone number (for shipping updates)" value={formData.phone} onChange={handleInputChange} onBlur={handleBlur} className={getInputClass('phone')} aria-invalid={touched.phone && !!errors.phone} />
+                  </InputWrapper>
                   
                   {!isAuthenticated && (
-                    <label className="flex items-center gap-3 cursor-pointer mt-1 w-fit">
-                      <input 
-                        type="checkbox" 
-                        checked={createAccount} 
-                        onChange={(e) => setCreateAccount(e.target.checked)} 
-                        className="w-4 h-4 accent-primary rounded" 
-                      />
-                      <span className="font-body-sm text-charcoal-navy">Create an account for faster checkout next time</span>
-                    </label>
+                    <div className="mt-4 border border-outline-variant/50 rounded-lg p-5 bg-surface-container-low transition-colors hover:border-ag-purple/30">
+                      <label className="flex items-start gap-3 cursor-pointer">
+                        <input 
+                          type="checkbox" 
+                          checked={createAccount} 
+                          onChange={(e) => setCreateAccount(e.target.checked)} 
+                          className="w-5 h-5 accent-primary rounded mt-0.5" 
+                        />
+                        <div className="flex flex-col">
+                          <span className="font-label-md text-charcoal-navy font-semibold text-[14px]">Create your AG Elements Account</span>
+                          <span className="font-sans text-sm text-on-surface-variant mt-1 mb-2">Track orders easily, save addresses, and enjoy a faster checkout next time.</span>
+                          <div className="flex items-center gap-4 text-xs font-semibold text-ag-purple uppercase tracking-widest">
+                            <span className="flex items-center gap-1"><Truck className="text-[14px]" /> Track Orders</span>
+                            <span className="flex items-center gap-1"><Zap className="text-[14px]" /> Faster Checkout</span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
                   )}
                 </div>
               </section>
 
               <section className="flex flex-col gap-4">
                 <h2 className="font-headline-sm text-[24px] font-medium text-charcoal-navy">Shipping Address</h2>
-                <div className="flex flex-col gap-3">
-                  <div className="grid grid-cols-2 gap-3">
-                    <input required name="firstName" type="text" placeholder="First name" value={formData.firstName} onChange={handleInputChange} className={inputClass} />
-                    <input required name="lastName" type="text" placeholder="Last name" value={formData.lastName} onChange={handleInputChange} className={inputClass} />
+                <div className="flex flex-col gap-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <InputWrapper error={errors.firstName} show={touched.firstName}>
+                      <input name="firstName" type="text" autoComplete="given-name" placeholder="First name" value={formData.firstName} onChange={handleInputChange} onBlur={handleBlur} className={getInputClass('firstName')} />
+                    </InputWrapper>
+                    <InputWrapper error={errors.lastName} show={touched.lastName}>
+                      <input name="lastName" type="text" autoComplete="family-name" placeholder="Last name" value={formData.lastName} onChange={handleInputChange} onBlur={handleBlur} className={getInputClass('lastName')} />
+                    </InputWrapper>
                   </div>
-                  <input required name="address" type="text" placeholder="Address" value={formData.address} onChange={handleInputChange} className={inputClass} />
-                  <div className="grid grid-cols-2 tablet:grid-cols-3 gap-3">
-                    <input required name="pincode" type="text" maxLength={6} placeholder="PIN code" value={formData.pincode} onChange={handleInputChange} className={`${inputClass} col-span-2 tablet:col-span-1 border-ag-purple focus:ring-1 focus:ring-ag-purple`} />
-                    <input required name="city" type="text" placeholder="City" value={formData.city} onChange={handleInputChange} className={inputClass} />
-                    <input required name="state" type="text" placeholder="State" value={formData.state} onChange={handleInputChange} className={inputClass} />
+                  
+                  <InputWrapper error={errors.address1} show={touched.address1}>
+                    <input name="address1" type="text" autoComplete="address-line1" placeholder="Address" value={formData.address1} onChange={handleInputChange} onBlur={handleBlur} className={getInputClass('address1')} />
+                  </InputWrapper>
+                  
+                  <InputWrapper>
+                    <input name="address2" type="text" autoComplete="address-line2" placeholder="Apartment, Suite, Landmark (Optional)" value={formData.address2} onChange={handleInputChange} className={getInputClass('address2')} />
+                  </InputWrapper>
+
+                  <div className="grid grid-cols-2 tablet:grid-cols-3 gap-4">
+                    <div className="col-span-2 tablet:col-span-1">
+                      <InputWrapper error={errors.pincode} show={touched.pincode}>
+                        <input name="pincode" type="text" inputMode="numeric" autoComplete="postal-code" maxLength={6} placeholder="PIN code" value={formData.pincode} onChange={handleInputChange} onBlur={handleBlur} className={getInputClass('pincode')} />
+                      </InputWrapper>
+                    </div>
+                    <div className="col-span-1 tablet:col-span-1">
+                      <InputWrapper error={errors.city} show={touched.city}>
+                        <input name="city" type="text" autoComplete="address-level2" placeholder="City" value={formData.city} onChange={handleInputChange} onBlur={handleBlur} className={getInputClass('city')} />
+                      </InputWrapper>
+                    </div>
+                    <div className="col-span-1 tablet:col-span-1">
+                      <InputWrapper error={errors.state} show={touched.state}>
+                        <select name="state" autoComplete="address-level1" value={formData.state} onChange={handleInputChange} onBlur={handleBlur} className={getInputClass('state') + ' appearance-none cursor-pointer'}>
+                          <option value="" disabled>Select State</option>
+                          {INDIAN_STATES.map(state => (
+                            <option key={state} value={state}>{state}</option>
+                          ))}
+                        </select>
+                      </InputWrapper>
+                    </div>
                   </div>
-                  <input disabled value="India" className={`${inputClass} bg-surface-variant/30 text-on-surface-variant`} />
+                  <input disabled value="India" autoComplete="country-name" className="w-full bg-surface-variant/30 border border-outline-variant/30 px-4 py-3 rounded font-body-md text-on-surface-variant cursor-not-allowed" />
                 </div>
               </section>
 
@@ -398,11 +539,6 @@ function CheckoutContent() {
                     <input type="checkbox" checked={sameAsShipping} onChange={(e) => setSameAsShipping(e.target.checked)} className="w-4 h-4 accent-primary" />
                     <span className="font-body-md text-charcoal-navy">Same as shipping address</span>
                   </label>
-                  {!sameAsShipping && (
-                    <div className="p-4 bg-surface-container-low/50 text-on-surface-variant font-body-sm italic">
-                      Billing address fields would expand here.
-                    </div>
-                  )}
                 </div>
               </section>
 
@@ -435,24 +571,49 @@ function CheckoutContent() {
                 </div>
               </section>
 
-              <div className="pt-4 pb-12 tablet:pb-0">
+              <div className="pt-2 pb-12 tablet:pb-0 flex flex-col gap-6">
+                
+                {/* Reassurance Section */}
+                <div className="grid grid-cols-2 gap-4 pt-6 border-t border-outline-variant/30 font-sans text-[12px] font-medium text-charcoal-navy">
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="text-[16px] text-green-600" />
+                    100% Secure Payment
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Award className="text-[16px] text-green-600" />
+                    Included Certificate
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Truck className="text-[16px] text-green-600" />
+                    Insured Shipping
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <RefreshCw className="text-[16px] text-green-600" />
+                    Easy Returns Policy
+                  </div>
+                </div>
+
                 {checkoutError && (
-                  <div className="mb-6 p-4 rounded bg-red-50 border border-red-200 flex items-start gap-3">
-                    <span className="material-symbols-outlined text-red-500 mt-0.5">error</span>
+                  <div className="p-4 rounded bg-red-50 border border-red-200 flex items-start gap-3">
+                    <AlertCircle className="text-red-500 mt-0.5" />
                     <p className="font-sans text-sm text-red-700">{checkoutError}</p>
                   </div>
                 )}
                 
                 <Button 
                   type="submit" 
-                  disabled={!isValid || isSubmitting || items.length === 0 || !paymentMethod} 
-                  className="w-full h-14 font-label-lg text-[16px] tracking-wider uppercase disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={isSubmitting || items.length === 0} 
+                  className="w-full h-14 font-label-lg text-[16px] tracking-wider uppercase disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  {isSubmitting ? 'Processing...' : `Pay ₹${totalRaw.toLocaleString('en-IN')}`}
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="animate-spin text-[20px]" />
+                      Processing Payment...
+                    </>
+                  ) : (
+                    `Pay ₹${totalRaw.toLocaleString('en-IN')}`
+                  )}
                 </Button>
-                {!isValid && items.length > 0 && (
-                  <p className="text-center font-label-sm text-charcoal-navy/60 mt-4">Please fill in all required fields to continue.</p>
-                )}
               </div>
             </form>
           </div>

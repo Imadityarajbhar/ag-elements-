@@ -1,4 +1,5 @@
 "use client";
+import { Phone, Mail, MapPin, Camera, PlayCircle, BadgeCheck, History, Truck } from 'lucide-react';
 
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Button } from "@/components/ui/button";
@@ -65,21 +66,21 @@ export default function ContactPage() {
               <h3 className="font-headline-sm text-[24px] text-charcoal-navy mb-8 border-b border-primary/10 pb-4">Contact Information</h3>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <span className="material-symbols-outlined text-primary mt-1">call</span>
+                  <Phone className="text-primary mt-1" />
                   <div>
                     <p className="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1 text-[12px]">Call Us</p>
                     <p className="font-body-lg text-charcoal-navy">+91 7152 245000</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <span className="material-symbols-outlined text-primary mt-1">mail</span>
+                  <Mail className="text-primary mt-1" />
                   <div>
                     <p className="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1 text-[12px]">Email Us</p>
                     <p className="font-body-lg text-charcoal-navy">concierge@agelements.com</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <span className="material-symbols-outlined text-primary mt-1">location_on</span>
+                  <MapPin className="text-primary mt-1" />
                   <div>
                     <p className="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1 text-[12px]">Visit Studio</p>
                     <p className="font-body-lg text-charcoal-navy">Shriram Govind Kathane Jewellers,<br />c/o Sarafa Line, opp. Balaji Mandir,<br />Kapada Line, Mahadevpura, Nagpur,<br />Wardha, Maharashtra 442001</p>
@@ -99,8 +100,8 @@ export default function ContactPage() {
             <div className="pt-6 border-t border-primary/10">
               <p className="font-label-sm text-on-surface-variant uppercase mb-4 tracking-widest text-[12px]">Follow Our Journey</p>
               <div className="flex gap-6 text-primary">
-                <a className="hover:opacity-70 transition-all" href="#"><span className="material-symbols-outlined">camera</span></a>
-                <a className="hover:opacity-70 transition-all" href="#"><span className="material-symbols-outlined">play_circle</span></a>
+                <a className="hover:opacity-70 transition-all" href="#"><Camera  /></a>
+                <a className="hover:opacity-70 transition-all" href="#"><PlayCircle  /></a>
               </div>
             </div>
           </div>
@@ -151,21 +152,21 @@ export default function ContactPage() {
       <section className="py-16 border-t border-outline-variant/30">
         <div className="max-w-[1440px] mx-auto px-margin-mobile tablet:px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           <div className="flex flex-col items-center gap-4">
-            <span className="material-symbols-outlined text-primary scale-125">verified</span>
+            <BadgeCheck className="text-primary scale-125" />
             <div>
               <h5 className="font-label-md text-charcoal-navy uppercase tracking-widest">925 Certified</h5>
               <p className="font-label-sm text-on-surface-variant mt-1">Guaranteed purity in every piece</p>
             </div>
           </div>
           <div className="flex flex-col items-center gap-4 border-y md:border-y-0 md:border-x border-outline-variant/30 py-8 md:py-0">
-            <span className="material-symbols-outlined text-primary scale-125">history</span>
+            <History className="text-primary scale-125" />
             <div>
               <h5 className="font-label-md text-charcoal-navy uppercase tracking-widest">Since 1954</h5>
               <p className="font-label-sm text-on-surface-variant mt-1">Decades of heritage & expertise</p>
             </div>
           </div>
           <div className="flex flex-col items-center gap-4">
-            <span className="material-symbols-outlined text-primary scale-125">local_shipping</span>
+            <Truck className="text-primary scale-125" />
             <div>
               <h5 className="font-label-md text-charcoal-navy uppercase tracking-widest">Free Delivery</h5>
               <p className="font-label-sm text-on-surface-variant mt-1">Insured shipping on all orders</p>

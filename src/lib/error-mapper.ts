@@ -60,6 +60,10 @@ export function mapWooCommerceError(code: string, rawMessage: string): string {
     return "Guest checkout is disabled. Please log in or create an account to continue.";
   }
   
+  if (code === 'registration-error-email-exists' || rawMessage.toLowerCase().includes('account is already registered')) {
+    return "An account is already registered with this email. Please log in, or uncheck 'Create an account' to continue as a guest.";
+  }
+  
   // Stock errors
   if (code === 'woocommerce_rest_product_out_of_stock') return "One or more items in your cart are currently out of stock.";
   if (code.includes('stock')) return rawMessage; // Usually WC provides a good stock error like "You cannot add that amount..."

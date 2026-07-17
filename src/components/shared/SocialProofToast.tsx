@@ -1,4 +1,5 @@
 "use client";
+import { ShoppingBag } from 'lucide-react';
 
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
@@ -51,11 +52,13 @@ export function SocialProofToast() {
         const products = await res.json();
         const validProducts = Array.isArray(products) && products.length > 0
           ? products.map((p: any) => ({ name: p.name, slug: p.slug }))
-          : [ 
-              { name: "Classic Gold Rope Chain Necklace", slug: "classic-gold-rope-chain-necklace" },
-              { name: "Classic Silver Curb Chain Necklace", slug: "classic-silver-curb-chain-necklace" },
-              { name: "Elegant Gold Pearl Station Necklace", slug: "elegant-gold-pearl-station-necklace" }
-            ];
+          : [];
+
+        if (validProducts.length === 0) {
+          // If no products were returned from the API, silently fail
+          // Do not show fake toasts.
+          return;
+        }
 
         const shuffledProducts = shuffleArray(validProducts);
         let currentIndex = 0;
@@ -113,7 +116,7 @@ export function SocialProofToast() {
         <>
           <Link href={`/product/${toast.slug}`} className="flex gap-4 cursor-pointer" onClick={() => setIsVisible(false)}>
             <div className="w-12 h-12 bg-surface-lavender rounded-md flex items-center justify-center flex-shrink-0 text-ag-purple group-hover:scale-105 transition-transform">
-              <span className="material-symbols-outlined text-[24px]">shopping_bag</span>
+              <ShoppingBag className="text-[24px]" />
             </div>
             <div className="flex flex-col pr-6">
               <p className="font-body-sm text-[13px] text-on-surface-variant leading-tight mb-1">

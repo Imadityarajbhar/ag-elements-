@@ -1,4 +1,5 @@
 "use client"; // Error components must be Client Components
+import { AlertCircle } from 'lucide-react';
 
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -19,7 +20,7 @@ export default function RootError({
   return (
     <main className="w-full min-h-[60vh] flex flex-col items-center justify-center px-margin-mobile tablet:px-margin-desktop py-16 text-center">
       <div className="w-16 h-16 rounded-full bg-surface-lavender flex items-center justify-center text-primary mb-6">
-        <span className="material-symbols-outlined text-[32px]">error</span>
+        <AlertCircle className="text-[32px]" />
       </div>
       <h1 className="font-headline-lg text-[40px] tablet:text-[48px] text-charcoal-navy mb-4">
         Something Went Wrong

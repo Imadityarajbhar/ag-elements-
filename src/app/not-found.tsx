@@ -1,3 +1,4 @@
+import { SearchX } from 'lucide-react';
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { generateMetadata } from "@/lib/seo/generateMetadata";
@@ -12,7 +13,7 @@ export default function NotFound() {
   return (
     <main className="w-full flex flex-col items-center justify-center px-margin-mobile tablet:px-margin-desktop py-16 text-center">
       <div className="w-16 h-16 rounded-full bg-surface-lavender flex items-center justify-center text-primary mb-6">
-        <span className="material-symbols-outlined text-[32px]">search_off</span>
+        <SearchX className="text-[32px]" />
       </div>
       <h1 className="font-headline-lg text-[40px] tablet:text-[48px] text-charcoal-navy mb-4">
         We Couldn't Find That Page

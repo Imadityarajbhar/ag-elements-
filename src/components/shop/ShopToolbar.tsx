@@ -1,4 +1,5 @@
 "use client";
+import { Search } from 'lucide-react';
 
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
@@ -107,9 +108,7 @@ export function ShopToolbar({ totalCount }: ShopToolbarProps) {
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-9 h-10 w-full"
           />
-          <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">
-            search
-          </span>
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]" />
         </div>
 
         <Select value={currentSort} onValueChange={(val: string | null) => val && handleSortChange(val)}>

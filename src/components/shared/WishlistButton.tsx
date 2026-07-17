@@ -1,4 +1,5 @@
 "use client";
+import { Heart } from 'lucide-react';
 
 import React, { useEffect, useState } from 'react';
 import { useWishlistStore } from '@/store/wishlistStore';
@@ -24,7 +25,7 @@ export function WishlistButton({ product, className, iconClassName, withText }: 
     // Render an empty un-clickable heart before hydration to avoid hydration mismatch
     return (
       <button className={cn("text-on-surface-variant", className)} disabled>
-        <span className={cn("material-symbols-outlined", iconClassName)}>favorite</span>
+        <Heart className={cn("", iconClassName)} />
         {withText && <span className="font-label-md uppercase tracking-widest font-semibold ml-2">Add to Wishlist</span>}
       </button>
     );
@@ -53,12 +54,7 @@ export function WishlistButton({ product, className, iconClassName, withText }: 
       )}
       aria-label={inWishlist ? "Remove from wishlist" : "Add to wishlist"}
     >
-      <span 
-        className={cn("material-symbols-outlined", iconClassName)} 
-        style={{ fontVariationSettings: inWishlist ? "'FILL' 1" : "'FILL' 0" }}
-      >
-        favorite
-      </span>
+      <Heart className={cn("", iconClassName)} />
       {withText && (
         <span className="font-label-md uppercase tracking-widest font-semibold ml-2">
           {inWishlist ? "Remove from Wishlist" : "Add to Wishlist"}

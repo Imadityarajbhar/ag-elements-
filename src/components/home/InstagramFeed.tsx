@@ -1,3 +1,4 @@
+import { ArrowRight, ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { HOMEPAGE_LINKS } from '@/config/homepage-links';
@@ -18,7 +19,7 @@ export function InstagramFeed() {
         <p className="font-body-md text-on-surface-variant mb-6">Tag @AGElements to be featured on our feed.</p>
         <Link href={HOMEPAGE_LINKS.instagram.profile} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-label-md text-[14px] uppercase tracking-widest font-semibold text-charcoal-navy hover:text-ag-purple transition-colors">
           <span>Follow Us on Instagram</span>
-          <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+          <ArrowRight className="text-[18px]" />
         </Link>
       </div>
 
@@ -34,7 +35,7 @@ export function InstagramFeed() {
               />
               <div className="absolute inset-0 bg-charcoal-navy/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <div className="flex items-center gap-2 text-pearl-white">
-                  <span className="material-symbols-outlined font-light text-3xl">shopping_bag</span>
+                  <ShoppingBag className="font-light text-3xl" />
                   <span className="font-label-md uppercase tracking-widest text-sm font-semibold">Shop Look</span>
                 </div>
               </div>

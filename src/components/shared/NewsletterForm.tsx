@@ -1,4 +1,5 @@
 "use client";
+import { CheckCircle2, ArrowRight } from 'lucide-react';
 
 import { useState } from "react";
 
@@ -18,7 +19,7 @@ export function NewsletterForm({ variant = "desktop" }: { variant?: "mobile" | "
   if (status === "success") {
     return (
       <div className={`flex flex-col items-center justify-center p-4 rounded bg-surface-lavender border border-primary/20 ${variant === "desktop" ? "mt-2" : ""}`}>
-        <span className="material-symbols-outlined text-primary mb-2">check_circle</span>
+        <CheckCircle2 className="text-primary mb-2" />
         <p className="font-label-md text-charcoal-navy uppercase tracking-widest text-[12px] text-center">
           Thank you for subscribing!
         </p>
@@ -69,7 +70,7 @@ export function NewsletterForm({ variant = "desktop" }: { variant?: "mobile" | "
         {status === "loading" ? (
           <span className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin inline-block"></span>
         ) : (
-          <span className="material-symbols-outlined">arrow_forward</span>
+          <ArrowRight  />
         )}
       </button>
     </form>

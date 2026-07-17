@@ -1,4 +1,5 @@
 "use client";
+import { Star, BadgeCheck, ThumbsUp, ThumbsDown } from 'lucide-react';
 
 import React, { useState } from 'react';
 import { WooCommerceReview } from '@/types/woocommerce';
@@ -15,13 +16,7 @@ function StarRating({ rating }: { rating: number }) {
   return (
     <div className="flex text-primary">
       {Array.from({ length: 5 }).map((_, i) => (
-        <span 
-          key={i} 
-          className="material-symbols-outlined text-[18px]" 
-          style={{ fontVariationSettings: i < rating ? "'FILL' 1" : "'FILL' 0" }}
-        >
-          star
-        </span>
+        <Star className="text-[18px]" />
       ))}
     </div>
   );
@@ -91,7 +86,7 @@ export function ProductReviews({ productId, initialReviews, averageRating, ratin
                     <span className="font-headline-sm text-[18px] font-semibold text-charcoal-navy">{review.reviewer}</span>
                     {review.verified && (
                       <span className="inline-flex items-center gap-1 text-ag-purple bg-ag-purple/10 px-2 py-0.5 rounded font-label-sm text-[10px] uppercase tracking-widest font-semibold">
-                        <span className="material-symbols-outlined text-[14px]">verified</span>
+                        <BadgeCheck className="text-[14px]" />
                         Verified Purchase
                       </span>
                     )}
@@ -111,11 +106,11 @@ export function ProductReviews({ productId, initialReviews, averageRating, ratin
               {/* Helpful Votes Placeholder */}
               <div className="flex items-center gap-4 mt-2">
                 <button className="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-sm font-medium">
-                  <span className="material-symbols-outlined text-[18px]">thumb_up</span>
+                  <ThumbsUp className="text-[18px]" />
                   Helpful
                 </button>
                 <button className="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-sm font-medium">
-                  <span className="material-symbols-outlined text-[18px]">thumb_down</span>
+                  <ThumbsDown className="text-[18px]" />
                 </button>
               </div>
             </div>

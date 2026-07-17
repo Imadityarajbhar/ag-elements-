@@ -1,4 +1,5 @@
 "use client";
+import { Receipt, Heart, History, Star, MapPin, Mail, HelpCircle, Award, Gift } from 'lucide-react';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -67,7 +68,7 @@ export default function DashboardClient({ initialData }: DashboardProps) {
           <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
             <div className="flex justify-between items-center mb-4">
               <h2 className="font-headline-sm text-[20px] font-semibold text-charcoal-navy flex items-center gap-2">
-                <span className="material-symbols-outlined text-ag-purple">receipt_long</span>
+                <Receipt className="text-ag-purple" />
                 Recent Order
               </h2>
               <Link href="/account/orders" className="text-ag-purple text-sm font-semibold hover:underline">View All</Link>
@@ -103,7 +104,7 @@ export default function DashboardClient({ initialData }: DashboardProps) {
           <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
             <div className="flex justify-between items-center mb-4">
               <h2 className="font-headline-sm text-[20px] font-semibold text-charcoal-navy flex items-center gap-2">
-                <span className="material-symbols-outlined text-ag-purple">favorite</span>
+                <Heart className="text-ag-purple" />
                 Wishlist Preview
               </h2>
               <Link href="/wishlist" className="text-ag-purple text-sm font-semibold hover:underline">View All ({wishlistItems.length})</Link>
@@ -129,7 +130,7 @@ export default function DashboardClient({ initialData }: DashboardProps) {
           {/* 5. Recently Viewed */}
           <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
             <h2 className="font-headline-sm text-[20px] font-semibold text-charcoal-navy mb-4 flex items-center gap-2">
-              <span className="material-symbols-outlined text-ag-purple">history</span>
+              <History className="text-ag-purple" />
               Recently Viewed
             </h2>
             {recentlyViewed.length > 0 ? (
@@ -154,7 +155,7 @@ export default function DashboardClient({ initialData }: DashboardProps) {
           {recommended?.length > 0 && (
             <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
               <h2 className="font-headline-sm text-[20px] font-semibold text-charcoal-navy mb-4 flex items-center gap-2">
-                <span className="material-symbols-outlined text-ag-purple">star</span>
+                <Star className="text-ag-purple" />
                 Recommended For You
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -193,7 +194,7 @@ export default function DashboardClient({ initialData }: DashboardProps) {
           <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
             <div className="flex justify-between items-center mb-4">
               <h2 className="font-headline-sm text-[18px] font-semibold text-charcoal-navy flex items-center gap-2">
-                <span className="material-symbols-outlined text-ag-purple">location_on</span>
+                <MapPin className="text-ag-purple" />
                 Default Address
               </h2>
               <Link href="/account/addresses" className="text-ag-purple text-xs font-semibold hover:underline">Manage</Link>
@@ -216,7 +217,7 @@ export default function DashboardClient({ initialData }: DashboardProps) {
           {/* 8. Newsletter */}
           <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
             <h2 className="font-headline-sm text-[18px] font-semibold text-charcoal-navy flex items-center gap-2 mb-2">
-              <span className="material-symbols-outlined text-ag-purple">mail</span>
+              <Mail className="text-ag-purple" />
               Newsletter
             </h2>
             <p className="font-body-sm text-xs text-on-surface-variant mb-4">Stay updated with our latest collections and exclusive offers.</p>
@@ -226,7 +227,7 @@ export default function DashboardClient({ initialData }: DashboardProps) {
           {/* 9. Support */}
           <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
             <h2 className="font-headline-sm text-[18px] font-semibold text-charcoal-navy flex items-center gap-2 mb-2">
-              <span className="material-symbols-outlined text-ag-purple">help</span>
+              <HelpCircle className="text-ag-purple" />
               Support
             </h2>
             <p className="font-body-sm text-xs text-on-surface-variant mb-4">Need help with an order or have a question?</p>
@@ -236,12 +237,12 @@ export default function DashboardClient({ initialData }: DashboardProps) {
           {/* Placeholders */}
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-4 text-center opacity-60">
-              <span className="material-symbols-outlined text-outline-variant mb-1">loyalty</span>
+              <Award className="text-outline-variant mb-1" />
               <p className="font-label-sm text-[10px] uppercase tracking-widest text-on-surface-variant">Reward Points</p>
               <p className="font-semibold text-charcoal-navy text-lg">0</p>
             </div>
             <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-4 text-center opacity-60">
-              <span className="material-symbols-outlined text-outline-variant mb-1">redeem</span>
+              <Gift className="text-outline-variant mb-1" />
               <p className="font-label-sm text-[10px] uppercase tracking-widest text-on-surface-variant">Store Credit</p>
               <p className="font-semibold text-charcoal-navy text-lg">₹0</p>
             </div>

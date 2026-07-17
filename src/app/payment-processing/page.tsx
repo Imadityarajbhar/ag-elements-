@@ -1,4 +1,5 @@
 "use client";
+import { Loader2, AlertCircle } from 'lucide-react';
 
 import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -69,7 +70,7 @@ function PaymentProcessingContent() {
         {!error ? (
           <>
             <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8">
-              <span className="material-symbols-outlined text-[40px] text-primary animate-spin">progress_activity</span>
+              <Loader2 className="text-[40px] text-primary animate-spin" />
             </div>
             
             <h1 className="font-headline-lg text-[32px] tablet:text-[40px] leading-tight font-medium text-charcoal-navy mb-4">
@@ -87,7 +88,7 @@ function PaymentProcessingContent() {
         ) : (
           <>
             <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-8">
-              <span className="material-symbols-outlined text-[40px] text-red-600">error</span>
+              <AlertCircle className="text-[40px] text-red-600" />
             </div>
             <h1 className="font-headline-lg text-[32px] tablet:text-[40px] leading-tight font-medium text-charcoal-navy mb-4">
               Payment Status Unconfirmed
@@ -109,7 +110,7 @@ export default function PaymentProcessingPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center bg-pearl-white">
-        <span className="material-symbols-outlined animate-spin text-3xl text-ag-purple">progress_activity</span>
+        <Loader2 className="animate-spin text-3xl text-ag-purple" />
       </div>
     }>
       <PaymentProcessingContent />

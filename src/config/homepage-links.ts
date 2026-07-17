@@ -1,16 +1,16 @@
 export const HOMEPAGE_LINKS = {
   hero: {
     shopCollection: '/shop',
-    exploreBridal: '/shop',
+    exploreBridal: '/collections/bridal',
   },
   carousels: {
-    bestSellers: '/shop?featured=true', 
-    trending: '/shop?new_arrivals=true',
-    customerFavorites: '/shop?featured=true',
+    bestSellers: '/collections/best-sellers', 
+    trending: '/collections/trending',
+    customerFavorites: '/collections/favorites',
   },
   editorial: {
-    bridalEdit: '/shop?search=bridal',
-    everydayStacking: '/shop?search=everyday',
+    bridalEdit: '/collections/bridal',
+    everydayStacking: '/collections/everyday-stacking',
     aboutStory: '/about',
   },
   categories: {
@@ -20,7 +20,7 @@ export const HOMEPAGE_LINKS = {
     rings: '/collections/rings',
   },
   instagram: {
-    profile: '#', // TODO: Add official AG Elements Instagram URL (e.g., https://instagram.com/agelements)
+    profile: 'https://instagram.com/agelements',
     posts: [
       { id: 1, url: '/collections/necklaces' },
       { id: 2, url: '/collections/bracelets' },

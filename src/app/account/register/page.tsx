@@ -1,6 +1,7 @@
 "use client";
+import { AlertCircle, Loader2 } from 'lucide-react';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuthStore } from '@/store/authStore';
@@ -23,7 +24,7 @@ function getPasswordStrength(password: string): { score: number; label: string; 
   return { score, label: 'Very Strong', color: 'bg-green-600' };
 }
 
-export default function RegisterPage() {
+function RegisterContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const login = useAuthStore((state) => state.login);
@@ -77,7 +78,7 @@ export default function RegisterPage() {
       }
       
       const redirectUrl = searchParams.get('redirect') || '/account';
-      router.push(redirectUrl);
+      window.location.href = redirectUrl;
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -102,7 +103,7 @@ export default function RegisterPage() {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
             <div className="bg-red-50 text-red-600 p-3 rounded-lg font-body-sm text-center flex items-center justify-center gap-2">
-              <span className="material-symbols-outlined text-[16px]">error</span>
+              <AlertCircle className="text-[16px]" />
               {error}
             </div>
           )}
@@ -228,7 +229,7 @@ export default function RegisterPage() {
             >
               {isLoading ? (
                 <span className="flex items-center gap-2">
-                  <span className="material-symbols-outlined animate-spin text-[18px]">progress_activity</span>
+                  <Loader2 className="animate-spin text-[18px]" />
                   Creating account...
                 </span>
               ) : 'Create Account'}
@@ -237,5 +238,17 @@ export default function RegisterPage() {
         </form>
       </div>
     </div>
+  );
+}
+
+export default function RegisterPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-[70vh] flex items-center justify-center bg-surface-lavender">
+        <Loader2 className="animate-spin text-3xl text-ag-purple" />
+      </div>
+    }>
+      <RegisterContent />
+    </Suspense>
   );
 }

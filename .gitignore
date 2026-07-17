@@ -13,14 +13,27 @@
 # testing
 /coverage
 
-# next.js
+# Next.js
 /.next/
 /out/
 
-# production
+# Production
 /build
+*.log
 
-# misc
+# Catalog Management CLI artifacts
+backup_*.json
+batch_*.json
+validated_*.json
+dry_run_payload_*.json
+products_dump.json
+pilot_20.json
+state_tracker*.json
+*_report.md
+*.log
+rollback_*.js
+
+# Misc
 .DS_Store
 *.pem
 

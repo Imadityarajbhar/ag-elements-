@@ -1,4 +1,5 @@
 "use client";
+import { Menu, ChevronDown, Search, User, Heart, Home } from 'lucide-react';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -38,7 +39,7 @@ export function Header() {
         <div className="w-full max-w-[1440px] px-margin-mobile tablet:px-margin-desktop py-4 flex justify-between items-center">
           {/* Mobile Menu Icon */}
           <button onClick={() => setMobileMenuOpen(true)} className="tablet:hidden p-2 -ml-2 text-primary">
-            <span className="material-symbols-outlined">menu</span>
+            <Menu  />
           </button>
           
           {/* Brand Logo */}
@@ -61,7 +62,7 @@ export function Header() {
             <div className="relative group/dropdown h-full flex items-center py-2">
               <Link href="/collections/bracelets" className="text-charcoal-navy group-hover/dropdown:text-ag-purple transition-colors duration-300 relative flex items-center gap-1 cursor-pointer">
                 Bracelets
-                <span className="material-symbols-outlined text-[16px] transition-transform duration-300 group-hover/dropdown:rotate-180">expand_more</span>
+                <ChevronDown className="text-[16px] transition-transform duration-300 group-hover/dropdown:rotate-180" />
                 <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-ag-purple scale-x-0 group-hover/dropdown:scale-x-100 transition-transform origin-left"></span>
               </Link>
               <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 z-50">
@@ -99,7 +100,7 @@ export function Header() {
             <div className="relative group/dropdown h-full flex items-center py-2">
               <span className="text-charcoal-navy group-hover/dropdown:text-ag-purple transition-colors duration-300 relative flex items-center gap-1 cursor-pointer">
                 Men's
-                <span className="material-symbols-outlined text-[16px] transition-transform duration-300 group-hover/dropdown:rotate-180">expand_more</span>
+                <ChevronDown className="text-[16px] transition-transform duration-300 group-hover/dropdown:rotate-180" />
                 <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-ag-purple scale-x-0 group-hover/dropdown:scale-x-100 transition-transform origin-left"></span>
               </span>
               <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 z-50">
@@ -126,16 +127,16 @@ export function Header() {
           {/* Trailing Icons */}
           <div className="flex items-center gap-4 text-charcoal-navy">
             <button onClick={openSearch} className="scale-95 hover:text-ag-purple transition-colors">
-              <span className="material-symbols-outlined">search</span>
+              <Search  />
             </button>
             <Link href={mounted && isAuthenticated ? "/account" : "/account/login"} className="hidden tablet:block scale-95 hover:text-ag-purple transition-colors relative">
-              <span className="material-symbols-outlined">person</span>
+              <User  />
               {mounted && isAuthenticated && (
                 <span className="absolute -top-1 -right-1 flex h-3 w-3 items-center justify-center rounded-full bg-green-500 border-2 border-pearl-white"></span>
               )}
             </Link>
             <Link href="/wishlist" className="scale-95 hover:text-ag-purple transition-colors relative flex items-center justify-center">
-              <span className="material-symbols-outlined">favorite</span>
+              <Heart  />
               {mounted && wishlistItems.length > 0 && (
                 <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-ag-purple text-[9px] font-bold text-pearl-white">
                   {wishlistItems.length}
@@ -159,13 +160,13 @@ export function Header() {
       {/* Mobile Bottom Navigation */}
       <nav className="fixed bottom-0 left-0 w-full z-50 bg-pearl-white/90 backdrop-blur-md border-t border-outline-variant/30 flex tablet:hidden justify-around items-center h-16 px-4 shadow-[0px_-4px_20px_rgba(35,33,58,0.05)]">
         <Link className="flex flex-col items-center justify-center text-primary bg-secondary/30 rounded-full p-2" href="/">
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>home</span>
+          <Home  />
         </Link>
         <button onClick={openSearch} className="flex flex-col items-center justify-center text-on-surface-variant p-2">
-          <span className="material-symbols-outlined">search</span>
+          <Search  />
         </button>
         <Link className="flex flex-col items-center justify-center text-on-surface-variant p-2 relative" href="/wishlist">
-          <span className="material-symbols-outlined">favorite</span>
+          <Heart  />
           {mounted && wishlistItems.length > 0 && (
             <span className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-ag-purple text-[9px] font-bold text-pearl-white">
               {wishlistItems.length}
@@ -173,7 +174,7 @@ export function Header() {
           )}
         </Link>
         <Link className="flex flex-col items-center justify-center text-on-surface-variant p-2 relative" href={mounted && isAuthenticated ? "/account" : "/account/login"}>
-          <span className="material-symbols-outlined">person</span>
+          <User  />
           {mounted && isAuthenticated && (
             <span className="absolute top-1 right-1 flex h-3 w-3 items-center justify-center rounded-full bg-green-500 border-2 border-pearl-white"></span>
           )}

@@ -1,9 +1,11 @@
+import { Wand2 } from 'lucide-react';
 import { getPaginatedProducts } from "@/services/products";
 import { ShopArchive } from "@/components/shop/ShopArchive";
 import { ProductCarousel } from "@/components/shared/ProductCarousel";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { generateMetadata as baseGenerateMetadata } from "@/lib/seo/generateMetadata";
 import { COLLECTION_CONFIG } from "@/config/collections";
 
@@ -57,8 +59,31 @@ export default async function CollectionPage({
   const on_sale = resolvedParams.on_sale === 'true';
   const order = typeof resolvedParams.order === 'string' ? resolvedParams.order as any : undefined;
   const orderby = typeof resolvedParams.orderby === 'string' ? resolvedParams.orderby as any : undefined;
-  const attribute = config.attribute || typeof resolvedParams.attribute === 'string' ? resolvedParams.attribute : undefined;
-  const attribute_term = config.attribute_term || (typeof resolvedParams.attribute_term === 'string' ? resolvedParams.attribute_term : undefined);
+  // Parse dynamic attributes from URL parameters
+  const attributeKeys = ['pa_gender', 'pa_material', 'pa_collection', 'pa_stone', 'pa_occasion'];
+  const activeAttributes: string[] = [];
+  const activeAttributeTerms: string[] = [];
+
+  for (const key of attributeKeys) {
+    const val = typeof resolvedParams[key] === 'string' ? resolvedParams[key] : undefined;
+    if (val) {
+      activeAttributes.push(key);
+      activeAttributeTerms.push(val);
+    }
+  }
+
+  // Handle old generic attribute_term or config-level attribute
+  const legacyAttributeTerm = typeof resolvedParams.attribute_term === 'string' ? resolvedParams.attribute_term : undefined;
+  if (legacyAttributeTerm) {
+    activeAttributes.push(config.attribute || 'pa_material,pa_gender,pa_collection');
+    activeAttributeTerms.push(legacyAttributeTerm);
+  } else if (config.attribute && config.attribute_term) {
+    activeAttributes.push(config.attribute);
+    activeAttributeTerms.push(config.attribute_term);
+  }
+
+  const attribute = activeAttributes.length > 0 ? activeAttributes.join(',') : undefined;
+  const attribute_term = activeAttributeTerms.length > 0 ? activeAttributeTerms.join(',') : undefined;
   const stock_status = typeof resolvedParams.stock_status === 'string' ? resolvedParams.stock_status as any : undefined;
   const new_arrivals = resolvedParams.new_arrivals === 'true';
 
@@ -152,7 +177,7 @@ export default async function CollectionPage({
       {/* 2. Collection Story Block */}
       <section className="py-16 tablet:py-24 px-margin-mobile tablet:px-margin-desktop max-w-[1440px] mx-auto w-full">
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
-          <span className="material-symbols-outlined text-[32px] text-ag-purple mb-6 font-light">auto_awesome</span>
+          <Wand2 className="text-[32px] text-ag-purple mb-6 font-light" />
           <h2 className="font-headline-md text-[32px] tablet:text-[40px] leading-tight font-medium text-charcoal-navy mb-6">
             {config.storyHeading}
           </h2>
@@ -178,12 +203,14 @@ export default async function CollectionPage({
             <p className="font-body-md text-on-surface-variant mt-2">Showing {total} {total === 1 ? 'result' : 'results'}</p>
           </div>
           
-          <ShopArchive 
-            products={products} 
-            total={total} 
-            totalPages={totalPages} 
-            baseCategorySlug={slug}
-          />
+          <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center">Loading products...</div>}>
+            <ShopArchive 
+              products={products} 
+              total={total} 
+              totalPages={totalPages} 
+              baseCategorySlug={slug}
+            />
+          </Suspense>
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 "use client";
+import { Clock, Infinity } from 'lucide-react';
 
 import { useState } from "react";
 import Image from "next/image";
@@ -48,12 +49,12 @@ export default function GiftCardPage() {
             
             <div className="grid grid-cols-2 gap-6 pt-8 border-t border-outline-variant/30">
               <div className="flex flex-col gap-2">
-                <span className="material-symbols-outlined text-[24px] text-ag-purple">schedule</span>
+                <Clock className="text-[24px] text-ag-purple" />
                 <span className="font-label-md text-[13px] font-bold text-charcoal-navy uppercase tracking-widest">Instant Delivery</span>
                 <span className="font-body-sm text-[14px] text-on-surface-variant">Sent straight to their inbox or yours.</span>
               </div>
               <div className="flex flex-col gap-2">
-                <span className="material-symbols-outlined text-[24px] text-ag-purple">all_inclusive</span>
+                <Infinity className="text-[24px] text-ag-purple" />
                 <span className="font-label-md text-[13px] font-bold text-charcoal-navy uppercase tracking-widest">Never Expires</span>
                 <span className="font-body-sm text-[14px] text-on-surface-variant">They can take their time finding the perfect piece.</span>
               </div>

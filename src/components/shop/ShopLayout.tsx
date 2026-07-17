@@ -1,4 +1,5 @@
 "use client";
+import { SlidersHorizontal } from 'lucide-react';
 
 import { ShopFilters } from "./ShopFilters";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet";
@@ -12,7 +13,7 @@ export function ShopLayout({ children, baseCategorySlug }: { children: React.Rea
          <h2 className="font-heading-sm">Filters</h2>
          <Sheet>
            <SheetTrigger render={<Button variant="outline" className="gap-2" />}>
-              <span className="material-symbols-outlined text-[18px]">tune</span>
+              <SlidersHorizontal className="text-[18px]" />
               Filter
            </SheetTrigger>
            <SheetContent side="left" className="w-[320px] max-w-[85vw] overflow-y-auto bg-pearl-white">

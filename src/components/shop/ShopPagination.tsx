@@ -1,4 +1,5 @@
 "use client";
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -52,7 +53,7 @@ export function ShopPagination({ totalPages }: ShopPaginationProps) {
         className="w-10 h-10 p-0"
         aria-label="Previous page"
       >
-        <span className="material-symbols-outlined text-[18px]">chevron_left</span>
+        <ChevronLeft className="text-[18px]" />
       </Button>
 
       {displayPages.map((page, index) => (
@@ -77,7 +78,7 @@ export function ShopPagination({ totalPages }: ShopPaginationProps) {
         className="w-10 h-10 p-0"
         aria-label="Next page"
       >
-        <span className="material-symbols-outlined text-[18px]">chevron_right</span>
+        <ChevronRight className="text-[18px]" />
       </Button>
     </div>
   );

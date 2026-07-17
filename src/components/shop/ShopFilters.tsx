@@ -1,11 +1,12 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useState, useTransition, useEffect } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { SHOP_FILTERS } from "@/config/shop-filters";
+import { useUIStore } from "@/store/uiStore";
 
 interface ShopFiltersProps {
   baseCategorySlug?: string;
@@ -34,6 +35,12 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
     [searchParams]
   );
 
+  const [isPending, startTransition] = useTransition();
+
+  useEffect(() => {
+    useUIStore.getState().setIsFiltering(isPending);
+  }, [isPending]);
+
   const toggleQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString());
@@ -52,7 +59,9 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
         params.set(name, newValues.join(','));
       }
       params.set('page', '1');
-      router.push(pathname + "?" + params.toString(), { scroll: false });
+      startTransition(() => {
+        router.push(pathname + "?" + params.toString(), { scroll: false });
+      });
     },
     [searchParams, pathname, router]
   );
@@ -62,11 +71,15 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
     params.set('min_price', minPrice);
     params.set('max_price', maxPrice);
     params.set('page', '1');
-    router.push(pathname + "?" + params.toString(), { scroll: false });
+    startTransition(() => {
+      router.push(pathname + "?" + params.toString(), { scroll: false });
+    });
   };
 
   const clearFilters = () => {
-    router.push(pathname, { scroll: false });
+    startTransition(() => {
+      router.push(pathname, { scroll: false });
+    });
   };
 
   const categories = [
@@ -85,13 +98,11 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
     { name: "Bangles", slug: "bangles" },
     { name: "Kids Collection", slug: "kids" },
   ];
-
-  const currentMaterial = searchParams.get('attribute_term')?.split(',') || [];
   
   // We map the UI names to the exact slugs for attribute terms
   const filters = [
     {
-      id: "gender",
+      id: "pa_gender",
       title: "Gender",
       options: [
         { label: "Men", value: SHOP_FILTERS.attributes.pa_gender.terms["men"]?.toString() },
@@ -100,7 +111,7 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
       ]
     },
     {
-      id: "material",
+      id: "pa_material",
       title: "Material",
       options: [
         { label: "925 Sterling Silver", value: SHOP_FILTERS.attributes.pa_material.terms["925-sterling-silver"]?.toString() },
@@ -109,7 +120,7 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
       ]
     },
     {
-      id: "collection",
+      id: "pa_collection",
       title: "Collection",
       options: [
         { label: "Classic", value: (SHOP_FILTERS.attributes.pa_collection?.terms as any)["classic"]?.toString() },
@@ -119,7 +130,7 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
       ]
     },
     {
-      id: "stone",
+      id: "pa_stone",
       title: "Stone",
       options: [
         { label: "AAA+ Cubic Zirconia", value: (SHOP_FILTERS.attributes.pa_stone?.terms as any)["aaa-cubic-zirconia"]?.toString() },
@@ -129,7 +140,7 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
       ]
     },
     {
-      id: "occasion",
+      id: "pa_occasion",
       title: "Occasion",
       options: [
         { label: "Casual", value: (SHOP_FILTERS.attributes.pa_occasion?.terms as any)["casual"]?.toString() },
@@ -226,32 +237,35 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
         </AccordionItem>
 
         {/* Dynamic Attribute Filters */}
-        {filters.map((filter) => (
-          <AccordionItem key={filter.id} value={filter.id} className="border-none">
-            <AccordionTrigger className="py-4 hover:no-underline">{filter.title}</AccordionTrigger>
-            <AccordionContent>
-              <div className="flex flex-col gap-3 pt-2">
-                {filter.options.map((opt) => {
-                  if (!opt.value) return null;
-                  const isSelected = currentMaterial.includes(opt.value);
-                  return (
-                    <label key={opt.label} className="flex items-center gap-3 cursor-pointer group">
-                      <input
-                        type="checkbox"
-                        checked={isSelected}
-                        onChange={() => toggleQueryString('attribute_term', opt.value!)}
-                        className="w-4 h-4 rounded border-outline-variant/50 text-ag-purple focus:ring-ag-purple"
-                      />
-                      <span className={`font-body-md ${isSelected ? 'text-charcoal-navy font-medium' : 'text-on-surface-variant group-hover:text-charcoal-navy'}`}>
-                        {opt.label}
-                      </span>
-                    </label>
-                  );
-                })}
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
+        {filters.map((filter) => {
+          const currentValues = searchParams.get(filter.id)?.split(',') || [];
+          return (
+            <AccordionItem key={filter.id} value={filter.id} className="border-none">
+              <AccordionTrigger className="py-4 hover:no-underline">{filter.title}</AccordionTrigger>
+              <AccordionContent>
+                <div className="flex flex-col gap-3 pt-2">
+                  {filter.options.map((opt) => {
+                    if (!opt.value) return null;
+                    const isSelected = currentValues.includes(opt.value);
+                    return (
+                      <label key={opt.label} className="flex items-center gap-3 cursor-pointer group">
+                        <input
+                          type="checkbox"
+                          checked={isSelected}
+                          onChange={() => toggleQueryString(filter.id, opt.value!)}
+                          className="w-4 h-4 rounded border-outline-variant/50 text-ag-purple focus:ring-ag-purple"
+                        />
+                        <span className={`font-body-md ${isSelected ? 'text-charcoal-navy font-medium' : 'text-on-surface-variant group-hover:text-charcoal-navy'}`}>
+                          {opt.label}
+                        </span>
+                      </label>
+                    );
+                  })}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          );
+        })}
 
         {/* Special Toggles */}
         <AccordionItem value="special" className="border-none">

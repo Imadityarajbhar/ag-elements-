@@ -1,4 +1,5 @@
 "use client";
+import { Search, X, Loader2, Frown, Grid, Tag, ArrowRight } from 'lucide-react';
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
@@ -6,6 +7,7 @@ import Image from "next/image";
 import { useUIStore } from "@/store/uiStore";
 import { useDebounce } from "@/hooks/useDebounce";
 import { getSearchSuggestions, SearchSuggestions } from "@/services/search";
+import { normalizeQuery, stripS, searchSynonyms } from "@/lib/search";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -19,6 +21,7 @@ export function SearchOverlay() {
   const [results, setResults] = useState<SearchSuggestions | null>(null);
   const [isSearching, setIsSearching] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const cacheRef = useRef<Record<string, SearchSuggestions>>({});
 
   // Focus input when modal opens
   useEffect(() => {
@@ -34,8 +37,16 @@ export function SearchOverlay() {
 
   // Fetch results when debounced query changes
   useEffect(() => {
-    if (!debouncedQuery.trim()) {
+    const trimmedQuery = debouncedQuery.trim();
+    if (!trimmedQuery) {
       setResults(null);
+      setIsSearching(false);
+      return;
+    }
+
+    // Check local memory cache first for immediate zero-latency results
+    if (cacheRef.current[trimmedQuery]) {
+      setResults(cacheRef.current[trimmedQuery]);
       setIsSearching(false);
       return;
     }
@@ -43,8 +54,9 @@ export function SearchOverlay() {
     let isMounted = true;
     setIsSearching(true);
 
-    getSearchSuggestions(debouncedQuery).then((data) => {
+    getSearchSuggestions(trimmedQuery).then((data) => {
       if (isMounted) {
+        cacheRef.current[trimmedQuery] = data; // Cache the result
         setResults(data);
         setIsSearching(false);
       }
@@ -61,6 +73,47 @@ export function SearchOverlay() {
 
   const handleSeeAll = () => {
     if (!query.trim()) return;
+
+    // Check if the query matches a category name in our suggestions (handling singular/plural and synonyms)
+    if (results && results.categories.length > 0) {
+      const normalizedQ = normalizeQuery(query);
+      const synonym = searchSynonyms[normalizedQ] || normalizedQ;
+      
+      const matchedCategories = results.categories.filter(c => {
+        const cName = normalizeQuery(c.name);
+        const cSlug = normalizeQuery(c.slug);
+        return cName === synonym || cSlug === synonym || stripS(cName) === stripS(synonym);
+      });
+      
+      const sortedCategories = matchedCategories.sort((a, b) => {
+        // 1. Prefer populated over empty
+        const aPopulated = (a.count || 0) > 0 ? 1 : 0;
+        const bPopulated = (b.count || 0) > 0 ? 1 : 0;
+        if (aPopulated !== bPopulated) return bPopulated - aPopulated;
+
+        // 2. Prefer exact match over stemmed
+        const aName = normalizeQuery(a.name);
+        const aSlug = normalizeQuery(a.slug);
+        const bName = normalizeQuery(b.name);
+        const bSlug = normalizeQuery(b.slug);
+        
+        const aExact = aName === synonym || aSlug === synonym ? 1 : 0;
+        const bExact = bName === synonym || bSlug === synonym ? 1 : 0;
+        if (aExact !== bExact) return bExact - aExact;
+
+        // 3. Fallback to higher count
+        return (b.count || 0) - (a.count || 0);
+      });
+
+      const exactCategory = sortedCategories[0];
+      const validCategory = exactCategory && (exactCategory.count || 0) > 0 ? exactCategory : null;
+      if (validCategory) {
+        router.push(`/collections/${validCategory.slug}`);
+        handleClose();
+        return;
+      }
+    }
+
     router.push(`/shop?search=${encodeURIComponent(query.trim())}`);
     handleClose();
   };
@@ -84,7 +137,7 @@ export function SearchOverlay() {
         
         {/* Search Input Area */}
         <div className="relative flex items-center border-b border-outline-variant/30 p-4 sm:p-6">
-          <span className="material-symbols-outlined text-on-surface-variant text-2xl mr-4">search</span>
+          <Search className="text-on-surface-variant text-2xl mr-4" />
           <Input
             ref={inputRef}
             type="text"
@@ -99,7 +152,7 @@ export function SearchOverlay() {
               onClick={() => { setQuery(""); inputRef.current?.focus(); }}
               className="ml-4 text-on-surface-variant hover:text-charcoal-navy"
             >
-              <span className="material-symbols-outlined">close</span>
+              <X  />
             </button>
           )}
           <button 
@@ -114,19 +167,19 @@ export function SearchOverlay() {
         <div className="max-h-[60vh] overflow-y-auto p-4 sm:p-6">
           {isSearching ? (
             <div className="flex flex-col items-center justify-center py-12 text-on-surface-variant">
-              <span className="material-symbols-outlined animate-spin text-3xl mb-4">progress_activity</span>
+              <Loader2 className="animate-spin text-3xl mb-4" />
               <p className="font-body-md">Searching...</p>
             </div>
           ) : query.trim() === "" ? (
             <div className="flex flex-col items-center justify-center py-12 text-on-surface-variant/70">
-              <span className="material-symbols-outlined text-4xl mb-4">search</span>
+              <Search className="text-4xl mb-4" />
               <p className="font-body-md">Start typing to search our collection</p>
             </div>
           ) : !hasResults ? (
             <div className="flex flex-col items-center justify-center py-12 text-on-surface-variant">
-              <span className="material-symbols-outlined text-4xl mb-4">sentiment_dissatisfied</span>
-              <p className="font-body-md mb-2">No results found for "{query}"</p>
-              <p className="text-sm">Try checking for typos or using different keywords</p>
+              <Frown className="text-4xl mb-4" />
+              <p className="font-body-md mb-2">No products found for "{query}"</p>
+              <p className="text-sm">Try another keyword or browse our collections.</p>
             </div>
           ) : (
             <div className="flex flex-col gap-8">
@@ -144,7 +197,7 @@ export function SearchOverlay() {
                         }}
                         className="px-4 py-2 rounded-full border border-outline-variant/50 hover:border-ag-purple hover:bg-ag-purple/5 font-body-sm text-charcoal-navy transition-colors flex items-center gap-2"
                       >
-                        <span className="material-symbols-outlined text-[16px] text-on-surface-variant">category</span>
+                        <Grid className="text-[16px] text-on-surface-variant" />
                         {cat.name}
                       </button>
                     ))}
@@ -157,7 +210,7 @@ export function SearchOverlay() {
                         }}
                         className="px-4 py-2 rounded-full border border-outline-variant/50 hover:border-ag-purple hover:bg-ag-purple/5 font-body-sm text-charcoal-navy transition-colors flex items-center gap-2"
                       >
-                        <span className="material-symbols-outlined text-[16px] text-on-surface-variant">tag</span>
+                        <Tag className="text-[16px] text-on-surface-variant" />
                         {tag.name}
                       </button>
                     ))}
@@ -174,7 +227,7 @@ export function SearchOverlay() {
                       onClick={handleSeeAll}
                       className="text-sm font-label-md text-ag-purple hover:underline flex items-center gap-1"
                     >
-                      See all <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                      See all <ArrowRight className="text-[16px]" />
                     </button>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

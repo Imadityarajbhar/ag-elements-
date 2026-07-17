@@ -1,3 +1,4 @@
+import { BadgeCheck, Package, Truck, RefreshCw, ShieldCheck, MessageCircle } from 'lucide-react';
 import { getProductBySlug, getProducts, getProductsByIds, getRecommendations } from "@/services/products";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -190,7 +191,7 @@ async function RecommendationsSection({ product }: { product: any }) {
           {/* Title */}
           <div className="flex flex-col gap-2">
             <div className="inline-flex items-center gap-2 bg-secondary text-on-secondary-container px-3 py-1 rounded text-[12px] font-label-sm font-semibold w-fit mb-2 uppercase tracking-widest">
-              <span className="material-symbols-outlined text-[16px]">verified</span>
+              <BadgeCheck className="text-[16px]" />
               {product.material || "925 Sterling Silver"}
             </div>
             <h1 className="font-headline-lg text-[48px] leading-[56px] font-medium text-charcoal-navy">{product.name}</h1>
@@ -275,21 +276,21 @@ async function RecommendationsSection({ product }: { product: any }) {
                 <AccordionContent className="font-body-md text-[16px] text-on-surface-variant leading-relaxed">
                   <div className="flex flex-col gap-4 pt-2">
                     <div className="flex items-start gap-3">
-                      <span className="material-symbols-outlined text-ag-purple mt-0.5">inventory_2</span>
+                      <Package className="text-ag-purple mt-0.5" />
                       <div>
                         <span className="block font-semibold text-charcoal-navy">Stock Status</span>
                         <span className="capitalize">{product.stockStatus === 'outofstock' ? 'Out of Stock' : product.stockStatus === 'onbackorder' ? 'On Backorder' : 'In Stock - Ready to Ship'}</span>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="material-symbols-outlined text-ag-purple mt-0.5">local_shipping</span>
+                      <Truck className="text-ag-purple mt-0.5" />
                       <div>
                         <span className="block font-semibold text-charcoal-navy">Shipping & Delivery</span>
                         <span>Free expedited shipping across India. Estimated delivery within 3-5 business days.</span>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="material-symbols-outlined text-ag-purple mt-0.5">sync_alt</span>
+                      <RefreshCw className="text-ag-purple mt-0.5" />
                       <div>
                         <span className="block font-semibold text-charcoal-navy">7-Day Returns</span>
                         <span>We accept returns and exchanges within 7 days of delivery, provided the item is unworn and in its original packaging.</span>
@@ -305,14 +306,14 @@ async function RecommendationsSection({ product }: { product: any }) {
                 <AccordionContent className="font-body-md text-[16px] text-on-surface-variant leading-relaxed">
                   <div className="flex flex-col gap-4 pt-2">
                     <div className="flex items-start gap-3">
-                      <span className="material-symbols-outlined text-ag-purple mt-0.5">verified</span>
+                      <BadgeCheck className="text-ag-purple mt-0.5" />
                       <div>
                         <span className="block font-semibold text-charcoal-navy">Authenticity Certificate</span>
                         <span>Every AG Elements piece comes with a physical Certificate of Authenticity guaranteeing the purity of the 925 Sterling Silver.</span>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="material-symbols-outlined text-ag-purple mt-0.5">security</span>
+                      <ShieldCheck className="text-ag-purple mt-0.5" />
                       <div>
                         <span className="block font-semibold text-charcoal-navy">6-Month Warranty</span>
                         <span>Enjoy a 6-month warranty against any manufacturing defects. We stand by the craftsmanship of our artisans.</span>
@@ -342,7 +343,7 @@ async function RecommendationsSection({ product }: { product: any }) {
                   <div className="flex flex-col gap-4 pt-2">
                     <p>Have questions about this piece? Our Jewellery Experts are available to assist you with styling advice, sizing, or any other inquiries.</p>
                     <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-full font-label-md uppercase tracking-widest w-fit hover:bg-[#128C7E] transition-colors">
-                      <span className="material-symbols-outlined">chat</span>
+                      <MessageCircle  />
                       WhatsApp Us
                     </a>
                   </div>

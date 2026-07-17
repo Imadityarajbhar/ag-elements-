@@ -1,3 +1,4 @@
+import { Gift, CheckCircle2 } from 'lucide-react';
 import Image from "next/image";
 import Link from "next/link";
 import { generateMetadata } from "@/lib/seo/generateMetadata";
@@ -97,22 +98,22 @@ export default function GiftingHubPage() {
       {/* 4. Service Highlights (Wrapping & Message) */}
       <section className="py-24 bg-charcoal-navy text-pearl-white text-center w-full">
         <div className="max-w-4xl mx-auto px-margin-mobile tablet:px-margin-desktop flex flex-col items-center">
-          <span className="material-symbols-outlined text-[48px] text-ag-purple mb-8 font-light">featured_seasonal_and_gifts</span>
+          <Gift className="text-[48px] text-ag-purple mb-8 font-light" />
           <h2 className="font-headline-lg text-[36px] tablet:text-[48px] font-medium mb-6">Signature Packaging</h2>
           <p className="font-body-lg text-[18px] font-light text-pearl-white/80 leading-[1.8] mb-10">
             Every AG Elements gift arrives in our signature premium packaging, completely free of charge. You can also add a luxurious gift wrap and a personalized handwritten note directly at checkout.
           </p>
           <div className="flex items-center gap-6 text-pearl-white/70 font-label-md uppercase tracking-widest text-[12px] font-semibold">
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-[18px]">check_circle</span>
+              <CheckCircle2 className="text-[18px]" />
               <span>Premium Box</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-[18px]">check_circle</span>
+              <CheckCircle2 className="text-[18px]" />
               <span>Authenticity Card</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-[18px]">check_circle</span>
+              <CheckCircle2 className="text-[18px]" />
               <span>Optional Gift Wrap</span>
             </div>
           </div>

@@ -1,3 +1,4 @@
+import { ChevronDown } from 'lucide-react';
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion"
 
 import { cn } from "@/lib/utils"
@@ -39,7 +40,7 @@ function AccordionTrigger({
         {...props}
       >
         {children}
-        <span className="material-symbols-outlined shrink-0 transition-transform duration-200 group-data-[state=open]/accordion-trigger:rotate-180">expand_more</span>
+        <ChevronDown className="shrink-0 transition-transform duration-200 group-data-[state=open]/accordion-trigger:rotate-180" />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   )

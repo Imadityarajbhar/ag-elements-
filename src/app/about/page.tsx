@@ -1,3 +1,4 @@
+import { Diamond, PenTool, Handshake, BadgeCheck, History, Truck } from 'lucide-react';
 import Image from "next/image";
 import { generateMetadata } from "@/lib/seo/generateMetadata";
 import { SectionHeading } from "@/components/shared/SectionHeading";
@@ -62,21 +63,21 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
           <div className="flex flex-col items-center gap-4">
             <div className="w-16 h-16 rounded-full bg-surface-lavender flex items-center justify-center text-primary mb-4">
-              <span className="material-symbols-outlined text-[32px]">diamond</span>
+              <Diamond className="text-[32px]" />
             </div>
             <h3 className="font-headline-sm text-[24px] text-charcoal-navy">Uncompromising Quality</h3>
             <p className="font-body-md text-on-surface-variant">Every piece is crafted from certified 925 sterling silver, ensuring durability, luster, and a standard of excellence that stands the test of time.</p>
           </div>
           <div className="flex flex-col items-center gap-4">
             <div className="w-16 h-16 rounded-full bg-surface-lavender flex items-center justify-center text-primary mb-4">
-              <span className="material-symbols-outlined text-[32px]">design_services</span>
+              <PenTool className="text-[32px]" />
             </div>
             <h3 className="font-headline-sm text-[24px] text-charcoal-navy">Timeless Design</h3>
             <p className="font-body-md text-on-surface-variant">We believe in elegant minimalism. Our jewelry is designed to be versatile—effortlessly elevating your everyday style or adding sophistication to special occasions.</p>
           </div>
           <div className="flex flex-col items-center gap-4">
             <div className="w-16 h-16 rounded-full bg-surface-lavender flex items-center justify-center text-primary mb-4">
-              <span className="material-symbols-outlined text-[32px]">handshake</span>
+              <Handshake className="text-[32px]" />
             </div>
             <h3 className="font-headline-sm text-[24px] text-charcoal-navy">Ethical Craftsmanship</h3>
             <p className="font-body-md text-on-surface-variant">We are committed to responsible sourcing and supporting our artisan communities, preserving traditional skills while prioritizing sustainable practices.</p>
@@ -97,21 +98,21 @@ export default function AboutPage() {
       <section className="py-16 border-t border-outline-variant/30">
         <div className="max-w-[1440px] mx-auto px-margin-mobile tablet:px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           <div className="flex flex-col items-center gap-4">
-            <span className="material-symbols-outlined text-primary scale-125">verified</span>
+            <BadgeCheck className="text-primary scale-125" />
             <div>
               <h5 className="font-label-md text-charcoal-navy uppercase tracking-widest">925 Certified</h5>
               <p className="font-label-sm text-on-surface-variant mt-1">Guaranteed purity in every piece</p>
             </div>
           </div>
           <div className="flex flex-col items-center gap-4 border-y md:border-y-0 md:border-x border-outline-variant/30 py-8 md:py-0">
-            <span className="material-symbols-outlined text-primary scale-125">history</span>
+            <History className="text-primary scale-125" />
             <div>
               <h5 className="font-label-md text-charcoal-navy uppercase tracking-widest">Since 1954</h5>
               <p className="font-label-sm text-on-surface-variant mt-1">Decades of heritage & expertise</p>
             </div>
           </div>
           <div className="flex flex-col items-center gap-4">
-            <span className="material-symbols-outlined text-primary scale-125">local_shipping</span>
+            <Truck className="text-primary scale-125" />
             <div>
               <h5 className="font-label-md text-charcoal-navy uppercase tracking-widest">Free Delivery</h5>
               <p className="font-label-sm text-on-surface-variant mt-1">Insured shipping on all orders</p>

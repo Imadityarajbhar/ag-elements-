@@ -1,4 +1,5 @@
 "use client";
+import { CheckCircle2 } from 'lucide-react';
 
 import { useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
@@ -19,7 +20,7 @@ function OrderSuccessContent() {
       
       <div className="max-w-2xl w-full mx-auto px-margin-mobile tablet:px-margin-desktop text-center">
         <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8">
-          <span className="material-symbols-outlined text-[40px] text-primary">check_circle</span>
+          <CheckCircle2 className="text-[40px] text-primary" />
         </div>
         
         <h1 className="font-headline-lg text-[40px] tablet:text-[48px] leading-[48px] tablet:leading-[56px] font-medium text-charcoal-navy mb-4">

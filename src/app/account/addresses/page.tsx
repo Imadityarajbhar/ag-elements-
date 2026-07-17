@@ -1,4 +1,5 @@
 "use client";
+import { Loader2, MapPin } from 'lucide-react';
 
 import { useEffect, useState } from 'react';
 import { useAuthStore } from '@/store/authStore';
@@ -108,7 +109,7 @@ function AddressForm({
         <Button type="submit" disabled={isSaving} className="font-label-md uppercase tracking-widest">
           {isSaving ? (
             <span className="flex items-center gap-2">
-              <span className="material-symbols-outlined animate-spin text-[16px]">progress_activity</span>
+              <Loader2 className="animate-spin text-[16px]" />
               Saving...
             </span>
           ) : 'Save Address'}
@@ -125,7 +126,7 @@ function AddressDisplay({ address, label }: { address: AddressData | null; label
   if (!address || !address.address1) {
     return (
       <div className="text-center py-6">
-        <span className="material-symbols-outlined text-[32px] text-outline-variant mb-2">location_on</span>
+        <MapPin className="text-[32px] text-outline-variant mb-2" />
         <p className="font-body-sm text-on-surface-variant">You have not set up your {label.toLowerCase()} yet.</p>
       </div>
     );
@@ -206,7 +207,7 @@ export default function AddressesPage() {
   if (isLoading) {
     return (
       <div className="flex justify-center py-12">
-        <span className="material-symbols-outlined animate-spin text-3xl text-ag-purple">progress_activity</span>
+        <Loader2 className="animate-spin text-3xl text-ag-purple" />
       </div>
     );
   }

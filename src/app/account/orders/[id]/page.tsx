@@ -1,4 +1,5 @@
 "use client";
+import { Loader2, AlertCircle, ArrowLeft, Receipt, Truck, Tag } from 'lucide-react';
 
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
@@ -183,7 +184,7 @@ export default function OrderDetailPage() {
   if (isLoading) {
     return (
       <div className="flex justify-center py-12">
-        <span className="material-symbols-outlined animate-spin text-3xl text-ag-purple">progress_activity</span>
+        <Loader2 className="animate-spin text-3xl text-ag-purple" />
       </div>
     );
   }
@@ -191,7 +192,7 @@ export default function OrderDetailPage() {
   if (error || !order) {
     return (
       <div className="text-center py-12 space-y-4">
-        <span className="material-symbols-outlined text-5xl text-outline-variant">error</span>
+        <AlertCircle className="text-5xl text-outline-variant" />
         <p className="font-body-md text-on-surface-variant">{error || 'Order not found.'}</p>
         <Link href="/account/orders">
           <Button variant="outline" className="border-ag-purple text-ag-purple">Back to Orders</Button>
@@ -210,7 +211,7 @@ export default function OrderDetailPage() {
         <div>
           <div className="flex items-center gap-2 mb-2">
             <button onClick={() => router.push('/account/orders')} className="text-on-surface-variant hover:text-charcoal-navy transition-colors">
-              <span className="material-symbols-outlined text-[20px]">arrow_back</span>
+              <ArrowLeft className="text-[20px]" />
             </button>
             <h1 className="font-headline-md text-[24px] sm:text-[32px] font-medium text-charcoal-navy">
               Order #{order.number}
@@ -230,7 +231,7 @@ export default function OrderDetailPage() {
       <div className="flex flex-col gap-4">
         {retryError && (
           <div className="p-4 rounded bg-red-50 border border-red-200 flex items-start gap-3">
-            <span className="material-symbols-outlined text-red-500 mt-0.5">error</span>
+            <AlertCircle className="text-red-500 mt-0.5" />
             <p className="font-sans text-sm text-red-700">{retryError}</p>
           </div>
         )}
@@ -246,13 +247,13 @@ export default function OrderDetailPage() {
           )}
           
           <Button variant="outline" className="border-outline-variant text-charcoal-navy font-label-md uppercase tracking-widest h-11 px-6" onClick={() => alert('Invoice feature coming soon!')}>
-            <span className="material-symbols-outlined mr-2 text-[18px]">receipt</span>
+            <Receipt className="mr-2 text-[18px]" />
             Download Invoice
           </Button>
           
           {['processing', 'completed'].includes(order.status) && (
             <Button variant="outline" className="border-ag-purple text-ag-purple font-label-md uppercase tracking-widest h-11 px-6" onClick={() => alert('Tracking feature coming soon!')}>
-              <span className="material-symbols-outlined mr-2 text-[18px]">local_shipping</span>
+              <Truck className="mr-2 text-[18px]" />
               Track Order
             </Button>
           )}
@@ -311,7 +312,7 @@ export default function OrderDetailPage() {
               <div className="flex flex-wrap gap-2">
                 {order.couponLines.map((c) => (
                   <span key={c.code} className="inline-flex items-center gap-1 text-xs bg-green-50 text-green-700 px-2 py-1 rounded border border-green-200">
-                    <span className="material-symbols-outlined text-[14px]">local_offer</span>
+                    <Tag className="text-[14px]" />
                     {c.code.toUpperCase()} (-₹{parseFloat(c.discount).toLocaleString('en-IN')})
                   </span>
                 ))}

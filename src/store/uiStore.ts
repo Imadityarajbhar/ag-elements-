@@ -7,6 +7,8 @@ export interface UIState {
   isMobileMenuOpen: boolean;
   setMobileMenuOpen: (isOpen: boolean) => void;
   closeAll: () => void;
+  isFiltering: boolean;
+  setIsFiltering: (isFiltering: boolean) => void;
 }
 
 export const useUIStore = create<UIState>((set) => ({
@@ -16,4 +18,6 @@ export const useUIStore = create<UIState>((set) => ({
   isMobileMenuOpen: false,
   setMobileMenuOpen: (isOpen) => set({ isMobileMenuOpen: isOpen }),
   closeAll: () => set({ isMobileMenuOpen: false, isSearchOpen: false }),
+  isFiltering: false,
+  setIsFiltering: (isFiltering) => set({ isFiltering }),
 }));
