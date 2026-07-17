@@ -65,7 +65,7 @@ export default async function Home() {
               Shop The Collection
             </Link>
             <Link href={HOMEPAGE_LINKS.hero.exploreBridal} className="w-full tablet:w-auto text-center bg-transparent border border-pearl-white text-pearl-white font-label-md text-[13px] px-12 py-4 rounded-full hover:bg-pearl-white/10 transition-colors uppercase tracking-[0.15em] font-bold shadow-xl">
-              Explore Bridal
+              Bridal Collection
             </Link>
           </div>
         </div>
@@ -163,9 +163,9 @@ export default async function Home() {
       {/* 6. Editorial Split (Luxury Grid) */}
       <section className="py-24 px-margin-mobile tablet:px-margin-desktop max-w-[1440px] mx-auto grid grid-cols-1 tablet:grid-cols-2 gap-8 w-full">
         <div className="relative group overflow-hidden rounded-2xl aspect-[4/5] tablet:aspect-[3/4] shadow-lg">
-          <Image fill sizes="(max-width: 768px) 100vw, 50vw" alt="The Bridal Edit" className="object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUJGvMSZgwIlLwahFRrdxRLmFixcgBdkuNq3df9UHJ-K8OUa4HoheieBXDpqxPjerp-dQPGsKjSf_agZAUvvC4MUShS8orWlerj4ZLkEcfstV4yii_FfGR2mMq_vHCdAF9Rw_CLrXow-CxkgL031EdkyyO1_53j78G2TEOBk7Cx0P7vSpDYY7aHY-zbcyrV0_bEccY9eRDJToErv7tsejp21p2y-pYcuRYJUGlpe-5ltfcYvCHjNoofA" />
+          <Image fill sizes="(max-width: 768px) 100vw, 50vw" alt="Bridal Collection" className="object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUJGvMSZgwIlLwahFRrdxRLmFixcgBdkuNq3df9UHJ-K8OUa4HoheieBXDpqxPjerp-dQPGsKjSf_agZAUvvC4MUShS8orWlerj4ZLkEcfstV4yii_FfGR2mMq_vHCdAF9Rw_CLrXow-CxkgL031EdkyyO1_53j78G2TEOBk7Cx0P7vSpDYY7aHY-zbcyrV0_bEccY9eRDJToErv7tsejp21p2y-pYcuRYJUGlpe-5ltfcYvCHjNoofA" />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-navy/80 via-charcoal-navy/20 to-transparent flex flex-col items-center justify-end pb-16 text-pearl-white opacity-90 group-hover:opacity-100 transition-opacity">
-            <h3 className="font-headline-md text-[36px] font-medium mb-4 drop-shadow-md tracking-tight">The Bridal Edit</h3>
+            <h3 className="font-headline-md text-[36px] font-medium mb-4 drop-shadow-md tracking-tight">Bridal Collection</h3>
             <p className="font-body-sm max-w-xs text-center mb-6 text-pearl-white/80">Elegance designed for your most unforgettable moments.</p>
             <Link className="bg-pearl-white text-charcoal-navy font-label-md text-[12px] px-8 py-3 rounded-full uppercase tracking-[0.15em] font-bold hover:bg-surface-variant transition-colors" href={HOMEPAGE_LINKS.editorial.bridalEdit}>
               Shop The Edit

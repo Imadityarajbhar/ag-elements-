@@ -47,7 +47,8 @@ export function Header() {
           </Link>
           
           {/* Desktop Navigation */}
-          <div className="hidden tablet:flex items-center gap-8 group/nav">
+          {/* Desktop Navigation */}
+          <div className="hidden tablet:flex items-center gap-6 group/nav justify-center">
             <Link className="text-charcoal-navy hover:text-ag-purple transition-colors duration-300 relative group" href="/shop">
               Shop All
               <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-ag-purple scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
@@ -55,21 +56,68 @@ export function Header() {
             <Link className="text-charcoal-navy hover:text-ag-purple transition-colors duration-300 relative group" href="/collections/necklaces">
               Necklaces
             </Link>
-            <Link className="text-charcoal-navy hover:text-ag-purple transition-colors duration-300 relative group" href="/collections/bracelets">
-              Bracelets
-            </Link>
+            
+            {/* Bracelets & Bangles Dropdown */}
+            <div className="relative group/dropdown h-full flex items-center py-2">
+              <Link href="/collections/bracelets" className="text-charcoal-navy group-hover/dropdown:text-ag-purple transition-colors duration-300 relative flex items-center gap-1 cursor-pointer">
+                Bracelets
+                <span className="material-symbols-outlined text-[16px] transition-transform duration-300 group-hover/dropdown:rotate-180">expand_more</span>
+                <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-ag-purple scale-x-0 group-hover/dropdown:scale-x-100 transition-transform origin-left"></span>
+              </Link>
+              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 z-50">
+                <div className="bg-pearl-white border border-outline-variant/30 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-md flex flex-col min-w-[160px] py-2 overflow-hidden">
+                  <Link href="/collections/bracelets" className="px-4 py-2 hover:bg-surface-lavender hover:text-ag-purple text-[13px] font-medium transition-colors">
+                    All Bracelets
+                  </Link>
+                  <Link href="/collections/bangles" className="px-4 py-2 hover:bg-surface-lavender hover:text-ag-purple text-[13px] font-medium transition-colors">
+                    Bangles
+                  </Link>
+                  <Link href="/collections/kada" className="px-4 py-2 hover:bg-surface-lavender hover:text-ag-purple text-[13px] font-medium transition-colors">
+                    Kada
+                  </Link>
+                </div>
+              </div>
+            </div>
+
             <Link className="text-charcoal-navy hover:text-ag-purple transition-colors duration-300 relative group" href="/collections/earrings">
               Earrings
             </Link>
-            <Link className="text-charcoal-navy hover:text-ag-purple transition-colors duration-300 relative group" href="/collections/kada">
-              Kada
-            </Link>
-            <Link className="text-charcoal-navy hover:text-ag-purple transition-colors duration-300 relative group" href="/collections/mangalsutra">
-              Mangalsutra
-            </Link>
+            
             <Link className="text-charcoal-navy hover:text-ag-purple transition-colors duration-300 relative group" href="/collections/rings">
               Rings
             </Link>
+
+            <Link className="text-charcoal-navy hover:text-ag-purple transition-colors duration-300 relative group" href="/collections/mangalsutra">
+              Mangalsutra
+            </Link>
+
+            <Link className="text-charcoal-navy hover:text-ag-purple transition-colors duration-300 relative group" href="/collections/payal">
+              Payal
+            </Link>
+
+            {/* Men's Dropdown */}
+            <div className="relative group/dropdown h-full flex items-center py-2">
+              <span className="text-charcoal-navy group-hover/dropdown:text-ag-purple transition-colors duration-300 relative flex items-center gap-1 cursor-pointer">
+                Men's
+                <span className="material-symbols-outlined text-[16px] transition-transform duration-300 group-hover/dropdown:rotate-180">expand_more</span>
+                <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-ag-purple scale-x-0 group-hover/dropdown:scale-x-100 transition-transform origin-left"></span>
+              </span>
+              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 z-50">
+                <div className="bg-pearl-white border border-outline-variant/30 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-md flex flex-col min-w-[160px] py-2 overflow-hidden">
+                  <Link href="/collections/mens-bracelet" className="px-4 py-2 hover:bg-surface-lavender hover:text-ag-purple text-[13px] font-medium transition-colors">
+                    Men's Bracelet
+                  </Link>
+                  <Link href="/collections/mens-necklace" className="px-4 py-2 hover:bg-surface-lavender hover:text-ag-purple text-[13px] font-medium transition-colors">
+                    Men's Necklace
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <Link className="text-charcoal-navy hover:text-ag-purple transition-colors duration-300 relative group" href="/collections/kids">
+              Kids
+            </Link>
+
             <Link className="text-ag-purple hover:text-charcoal-navy transition-colors duration-300 relative group font-bold" href="/gifting">
               Gifting
             </Link>

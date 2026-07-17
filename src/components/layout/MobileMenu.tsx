@@ -13,6 +13,11 @@ const NAV_LINKS = [
   { href: '/collections/kada', label: 'Kada' },
   { href: '/collections/mangalsutra', label: 'Mangalsutra' },
   { href: '/collections/rings', label: 'Rings' },
+  { href: '/collections/payal', label: 'Payal' },
+  { href: '/collections/mens-bracelet', label: "Men's Bracelet" },
+  { href: '/collections/mens-necklace', label: "Men's Necklace" },
+  { href: '/collections/bangles', label: 'Bangles' },
+  { href: '/collections/kids', label: 'Kids Collection' },
   { href: '/gifting', label: 'Gifting' },
 ];
 

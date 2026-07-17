@@ -79,6 +79,11 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
     { name: "Kada", slug: "kada" },
     { name: "Mangalsutra", slug: "mangalsutra" },
     { name: "Men's", slug: "mens" },
+    { name: "Payal", slug: "payal" },
+    { name: "Men's Bracelet", slug: "mens-bracelet" },
+    { name: "Men's Necklace", slug: "mens-necklace" },
+    { name: "Bangles", slug: "bangles" },
+    { name: "Kids Collection", slug: "kids" },
   ];
 
   const currentMaterial = searchParams.get('attribute_term')?.split(',') || [];

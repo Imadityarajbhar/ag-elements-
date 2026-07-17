@@ -57,7 +57,8 @@ export default async function CollectionPage({
   const on_sale = resolvedParams.on_sale === 'true';
   const order = typeof resolvedParams.order === 'string' ? resolvedParams.order as any : undefined;
   const orderby = typeof resolvedParams.orderby === 'string' ? resolvedParams.orderby as any : undefined;
-  const attribute_term = typeof resolvedParams.attribute_term === 'string' ? resolvedParams.attribute_term : undefined;
+  const attribute = config.attribute || typeof resolvedParams.attribute === 'string' ? resolvedParams.attribute : undefined;
+  const attribute_term = config.attribute_term || (typeof resolvedParams.attribute_term === 'string' ? resolvedParams.attribute_term : undefined);
   const stock_status = typeof resolvedParams.stock_status === 'string' ? resolvedParams.stock_status as any : undefined;
   const new_arrivals = resolvedParams.new_arrivals === 'true';
 
@@ -73,6 +74,7 @@ export default async function CollectionPage({
     on_sale,
     order,
     orderby,
+    attribute,
     attribute_term,
     stock_status,
     new_arrivals
@@ -83,6 +85,8 @@ export default async function CollectionPage({
     page: 1,
     per_page: 8,
     category: categoryId.toString(),
+    attribute,
+    attribute_term,
     featured: true // Just fetch top featured items for this category
   });
 

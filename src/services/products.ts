@@ -10,7 +10,7 @@ function mapWcProduct(wcProd: WooCommerceProduct): Product {
     name: wcProd.name,
     slug: wcProd.slug,
     price: parseFloat(wcProd.price || '0'),
-    regularPrice: wcProd.regular_price ? parseFloat(wcProd.regular_price) : undefined,
+    regularPrice: parseFloat(wcProd.regular_price || wcProd.price || '0'),
     salePrice: wcProd.sale_price ? parseFloat(wcProd.sale_price) : undefined,
     description: wcProd.description?.replace(/(<([^>]+)>)/gi, '') || '', // Strip HTML
     sku: wcProd.sku || '',

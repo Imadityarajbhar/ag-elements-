@@ -76,7 +76,7 @@ export function ProductCard({ product }: ProductCardProps) {
       </h3>
       
       <div className="mt-1 flex items-center justify-between gap-2">
-        <PriceDisplay regularPrice={product.price} salePrice={product.salePrice} />
+        <PriceDisplay regularPrice={product.regularPrice || product.price} salePrice={product.salePrice} />
         
         {/* Mobile Quick Add Button (hidden on tablet/desktop) */}
         <Button 

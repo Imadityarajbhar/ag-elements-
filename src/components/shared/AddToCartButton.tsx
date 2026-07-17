@@ -9,6 +9,7 @@ import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { toast } from 'sonner';
 import { mapWooCommerceError } from '@/lib/error-mapper';
+import { PriceDisplay } from '@/components/shared/PriceDisplay';
 
 export function AddToCartButton({ product, compact = false }: { product: Product, compact?: boolean }) {
   const { addItem, setIsOpen } = useCartStore();
@@ -148,17 +149,11 @@ export function AddToCartButton({ product, compact = false }: { product: Product
     <div className="flex flex-col gap-6 w-full">
       {/* Price Display & Sale Badge */}
       <div className="flex flex-col gap-1">
-        <div className="flex gap-4 items-center">
-          <p className="font-headline-md text-[32px] font-medium text-primary">₹ {displayPrice.toLocaleString('en-IN')}</p>
-          {displayRegularPrice && displayPrice < displayRegularPrice && (
-            <>
-              <p className="font-body-md text-[16px] text-on-surface-variant line-through">₹ {displayRegularPrice.toLocaleString('en-IN')}</p>
-              <span className="bg-red-50 text-red-700 px-2 py-0.5 rounded font-bold text-[12px] uppercase tracking-widest border border-red-100">
-                {Math.round(((displayRegularPrice - displayPrice) / displayRegularPrice) * 100)}% OFF
-              </span>
-            </>
-          )}
-        </div>
+        <PriceDisplay 
+          regularPrice={displayRegularPrice || displayPrice} 
+          salePrice={displayRegularPrice && displayPrice < displayRegularPrice ? displayPrice : undefined}
+          size="lg"
+        />
         <p className="text-label-sm text-[12px] font-semibold text-outline uppercase tracking-widest mt-1">Inclusive of all taxes</p>
       </div>
 

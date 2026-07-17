@@ -2,6 +2,8 @@ import { SHOP_FILTERS } from './shop-filters';
 
 export interface CollectionConfig {
   id: number;
+  attribute?: string;
+  attribute_term?: string;
   title: string;
   bannerImage: string;
   storyHeading: string;
@@ -74,6 +76,50 @@ export const COLLECTION_CONFIG: Record<string, CollectionConfig> = {
     storyHeading: 'Refined Masculinity',
     storyText: 'Bold, structured, and uncompromisingly premium. Our men\'s collection features robust silver chains, statement rings, and heavy kadas built for the modern gentleman.',
     seoDescription: 'Discover our exclusive 925 sterling silver Men\'s jewellery collection. Shop bold chains, statement rings, and premium kadas for the modern gentleman.',
+  },
+  payal: {
+    id: SHOP_FILTERS.categories.payal,
+    title: 'Payal',
+    bannerImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDGMSuTaZDwlElLilXUJ8xo7X7DtGQcpIz_Rs3jz3zbq7qsRedFc3kAEA2rqkyNOO3KRtYtFgz9EBuZ1xNzoqxjOZWZq5_ceTqGAUgHOuXN-iVQ-Gl56mr3Wnyd3g31BksWGrEGgiXYKFTodk3Rx6b_wLOKh_n5F-clqmCQVFPpW4Pgl1RTLIjexTA5tmZRwV5AoJhEwgJ9pee7-S2FolaN9EQbsXAXsey58d2lIB11Skx3-gDjBb0ikg',
+    storyHeading: 'Poetry in Motion',
+    storyText: 'Delicate details that grace your every step. Our silver payals are designed to add a touch of whimsy and elegance to your everyday journey.',
+    seoDescription: 'Explore our beautiful 925 sterling silver payal collection. Delicate, elegant designs that add a touch of luxury to your every step.',
+  },
+  bangles: {
+    id: SHOP_FILTERS.categories.bangles,
+    title: 'Bangles',
+    bannerImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAbgh3H-hSJ9jP5dEIraPESMpSZe-khIlIE0aMQergyEF_Vev3TfKeu5thuhX3uwFaN0ziIjCLqKnPBPXPAzgPR-_HNHFvr3_yClZzJo15pFfUi8xGPbGVhaYygARQWZTotpUb9YWtyTYNCvHRjdY1Gq982TfcByBgjXd7y8fRqxBW8-N18l9NuCqJGNvmOWFz8d3LnYJHFKBG3Ft3u0F4V-Iwz-V60HolpHJ35jN5iDeVy7la55ZtugQ',
+    storyHeading: 'Timeless Grace',
+    storyText: 'Traditional meets modern. Our silver bangles offer a seamless blend of cultural heritage and contemporary style.',
+    seoDescription: 'Shop our curated collection of 925 sterling silver bangles. Classic and modern designs for every occasion.',
+  },
+  'mens-bracelet': {
+    id: SHOP_FILTERS.categories.bracelets || SHOP_FILTERS.categories.bracelet || 546,
+    attribute: 'pa_gender',
+    attribute_term: SHOP_FILTERS.attributes?.pa_gender?.terms?.men?.toString() || '557',
+    title: "Men's Bracelet",
+    bannerImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBVPG_NxUQQz2Jcu8HJfHRV12nWworIMPWOwMwvagcRprZYeT3xBcfW_m56h-jz47MSacfFos8eF5cUqojKD_4Ui0IXROEqeX_jdhGR2gWp899esWEZFiQiiHoYxF8Pxxfl5sjr2empr26C_Vav7rZEOb0atBAwUYdbrdxBr-jkdrLpGWtw8OwxHGYAcXHrUnDrOJd0bUINio6hgZvL8Cl5P1RP0njtEvhdkqjpAXHKOnMCoeIrxSGYSQ',
+    storyHeading: 'Refined Masculinity',
+    storyText: 'Bold, structured, and uncompromisingly premium. Discover our collection of men\'s silver bracelets.',
+    seoDescription: 'Discover our exclusive 925 sterling silver Men\'s bracelet collection. Shop bold chains and premium styles.',
+  },
+  'mens-necklace': {
+    id: SHOP_FILTERS.categories.necklaces || SHOP_FILTERS.categories.necklace || 68,
+    attribute: 'pa_gender',
+    attribute_term: SHOP_FILTERS.attributes?.pa_gender?.terms?.men?.toString() || '557',
+    title: "Men's Necklace",
+    bannerImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBVPG_NxUQQz2Jcu8HJfHRV12nWworIMPWOwMwvagcRprZYeT3xBcfW_m56h-jz47MSacfFos8eF5cUqojKD_4Ui0IXROEqeX_jdhGR2gWp899esWEZFiQiiHoYxF8Pxxfl5sjr2empr26C_Vav7rZEOb0atBAwUYdbrdxBr-jkdrLpGWtw8OwxHGYAcXHrUnDrOJd0bUINio6hgZvL8Cl5P1RP0njtEvhdkqjpAXHKOnMCoeIrxSGYSQ',
+    storyHeading: 'Signature Statements',
+    storyText: 'Elevate your everyday style with our premium collection of men\'s silver necklaces.',
+    seoDescription: 'Shop our exclusive 925 sterling silver Men\'s necklace collection. Bold and refined pieces for the modern gentleman.',
+  },
+  kids: {
+    id: SHOP_FILTERS.categories.kids,
+    title: "Kids Collection",
+    bannerImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDYiRCc0SOXT-IyTldErTn73a7AMNwjKtfeA6qAjlNRKkflCEuJCYmv5G7MPkJOcEixO3y_InfY4EdHbRCSYjEmHnnLAIXVWP4fr35ncMCdzByzS2gbo4cva11sGetzCwvrIkkJihh-Ee0CFX-V0wak_hUweISm4jzCboLIGFMtX42uwgFxMeKHr5nnkLZ5hqABidyQMU1mt_g97E6wbxFQezC7ls_V8aXsczxyMxzKW5Wxbb5KY0xkNw',
+    storyHeading: 'Little Luxuries',
+    storyText: 'Delicate, safe, and beautifully crafted. Our kids collection features lightweight silver pieces perfect for the little ones.',
+    seoDescription: 'Explore our Kids Collection of 925 sterling silver jewellery. Safe, delicate, and elegant designs for children.',
   },
 };
 
