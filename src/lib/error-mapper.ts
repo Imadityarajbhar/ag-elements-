@@ -5,11 +5,16 @@ export function mapAuthError(code: string, rawMessage: string): string {
   const lowerMsg = rawMessage.toLowerCase();
 
   // JWT Auth errors
-  if (lowerCode.includes('incorrect_password') || lowerCode === '[jwt_auth] incorrect_password') {
+  // Incorrect password and unknown email are both mapped to the same generic
+  // message — distinguishing them lets an attacker enumerate registered
+  // accounts by testing emails against the login form.
+  if (
+    lowerCode.includes('incorrect_password') ||
+    lowerCode === '[jwt_auth] incorrect_password' ||
+    lowerCode.includes('invalid_email') ||
+    lowerCode.includes('invalid_username')
+  ) {
     return 'Incorrect email or password.';
-  }
-  if (lowerCode.includes('invalid_email') || lowerCode.includes('invalid_username')) {
-    return 'No account found with this email address.';
   }
   if (lowerCode.includes('jwt_auth_bad_config') || lowerCode.includes('jwt_auth_bad_request')) {
     return 'Authentication service is temporarily unavailable. Please try again.';

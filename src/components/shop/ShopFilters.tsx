@@ -6,7 +6,9 @@ import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { SHOP_FILTERS } from "@/config/shop-filters";
+import { COLLECTION_TITLES } from "@/config/collections";
 import { useUIStore } from "@/store/uiStore";
+import { trackFilterUse, trackFilterClear, trackCollectionClick } from "@/lib/analytics";
 
 interface ShopFiltersProps {
   baseCategorySlug?: string;
@@ -59,6 +61,7 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
         params.set(name, newValues.join(','));
       }
       params.set('page', '1');
+      trackFilterUse(name, value);
       startTransition(() => {
         router.push(pathname + "?" + params.toString(), { scroll: false });
       });
@@ -71,35 +74,30 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
     params.set('min_price', minPrice);
     params.set('max_price', maxPrice);
     params.set('page', '1');
+    trackFilterUse('price', `${minPrice}-${maxPrice}`);
     startTransition(() => {
       router.push(pathname + "?" + params.toString(), { scroll: false });
     });
   };
 
   const clearFilters = () => {
+    trackFilterClear();
     startTransition(() => {
       router.push(pathname, { scroll: false });
     });
   };
 
+  // Derived from COLLECTION_TITLES (the single source of truth for navigable
+  // collections) so this list can never drift out of sync with real routes.
   const categories = [
     { name: "All Products", slug: "all" },
-    { name: "Necklaces", slug: "necklaces" },
-    { name: "Rings", slug: "rings" },
-    { name: "Bracelets", slug: "bracelets" },
-    { name: "Earrings", slug: "earrings" },
-    { name: "Anklets", slug: "anklets" },
-    { name: "Kada", slug: "kada" },
-    { name: "Mangalsutra", slug: "mangalsutra" },
-    { name: "Men's", slug: "mens" },
-    { name: "Payal", slug: "payal" },
-    { name: "Men's Bracelet", slug: "mens-bracelet" },
-    { name: "Men's Necklace", slug: "mens-necklace" },
-    { name: "Bangles", slug: "bangles" },
-    { name: "Kids Collection", slug: "kids" },
+    ...Object.entries(COLLECTION_TITLES).map(([slug, name]) => ({ name, slug })),
   ];
   
-  // We map the UI names to the exact slugs for attribute terms
+  // Options below are pruned to attribute terms that actually have products
+  // assigned (verified against live WooCommerce term counts) — a checkbox for a
+  // zero-count term always returns an empty grid, which is a broken filter in
+  // effect even though the term technically exists.
   const filters = [
     {
       id: "pa_gender",
@@ -123,19 +121,40 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
       id: "pa_collection",
       title: "Collection",
       options: [
-        { label: "Classic", value: (SHOP_FILTERS.attributes.pa_collection?.terms as any)["classic"]?.toString() },
-        { label: "Modern", value: (SHOP_FILTERS.attributes.pa_collection?.terms as any)["modern"]?.toString() },
-        { label: "Luxury", value: (SHOP_FILTERS.attributes.pa_collection?.terms as any)["luxury"]?.toString() },
-        { label: "Minimal", value: (SHOP_FILTERS.attributes.pa_collection?.terms as any)["minimal"]?.toString() }
+        { label: "Bridal Collection", value: (SHOP_FILTERS.attributes.pa_collection?.terms as any)["bridal-collection"]?.toString() },
+        { label: "Men's Collection", value: (SHOP_FILTERS.attributes.pa_collection?.terms as any)["mens-collection"]?.toString() },
+        { label: "Party Collection", value: (SHOP_FILTERS.attributes.pa_collection?.terms as any)["party-collection"]?.toString() },
+        { label: "Rose Gold Collection", value: (SHOP_FILTERS.attributes.pa_collection?.terms as any)["rose-gold-collection"]?.toString() },
+        { label: "Office Wear", value: (SHOP_FILTERS.attributes.pa_collection?.terms as any)["office-wear"]?.toString() },
+        { label: "Festive Collection", value: (SHOP_FILTERS.attributes.pa_collection?.terms as any)["festive-collection"]?.toString() },
+        { label: "Oxidised Collection", value: (SHOP_FILTERS.attributes.pa_collection?.terms as any)["oxidised-collection"]?.toString() },
+        { label: "Classic Collection", value: (SHOP_FILTERS.attributes.pa_collection?.terms as any)["classic-collection"]?.toString() },
+        { label: "Everyday Essentials", value: (SHOP_FILTERS.attributes.pa_collection?.terms as any)["everyday-essentials"]?.toString() },
+      ]
+    },
+    {
+      id: "pa_style",
+      title: "Style",
+      options: [
+        { label: "Classic", value: (SHOP_FILTERS.attributes.pa_style?.terms as any)["classic"]?.toString() },
+        { label: "Modern", value: (SHOP_FILTERS.attributes.pa_style?.terms as any)["modern"]?.toString() },
+        { label: "Elegant", value: (SHOP_FILTERS.attributes.pa_style?.terms as any)["elegant"]?.toString() },
+        { label: "Statement", value: (SHOP_FILTERS.attributes.pa_style?.terms as any)["statement"]?.toString() },
+        { label: "Traditional", value: (SHOP_FILTERS.attributes.pa_style?.terms as any)["traditional"]?.toString() },
+        { label: "Luxury", value: (SHOP_FILTERS.attributes.pa_style?.terms as any)["luxury"]?.toString() },
+        { label: "Minimal", value: (SHOP_FILTERS.attributes.pa_style?.terms as any)["minimal"]?.toString() },
+        { label: "Vintage", value: (SHOP_FILTERS.attributes.pa_style?.terms as any)["vintage"]?.toString() },
       ]
     },
     {
       id: "pa_stone",
       title: "Stone",
       options: [
-        { label: "AAA+ Cubic Zirconia", value: (SHOP_FILTERS.attributes.pa_stone?.terms as any)["aaa-cubic-zirconia"]?.toString() },
-        { label: "Emerald", value: (SHOP_FILTERS.attributes.pa_stone?.terms as any)["emerald"]?.toString() },
+        { label: "CZ", value: (SHOP_FILTERS.attributes.pa_stone?.terms as any)["aaa-cubic-zirconia"]?.toString() },
+        { label: "Zircon", value: (SHOP_FILTERS.attributes.pa_stone?.terms as any)["zircon"]?.toString() },
         { label: "Pearl", value: (SHOP_FILTERS.attributes.pa_stone?.terms as any)["pearl"]?.toString() },
+        { label: "No Stone", value: (SHOP_FILTERS.attributes.pa_stone?.terms as any)["no-stone"]?.toString() },
+        { label: "Emerald", value: (SHOP_FILTERS.attributes.pa_stone?.terms as any)["emerald"]?.toString() },
         { label: "Ruby", value: (SHOP_FILTERS.attributes.pa_stone?.terms as any)["ruby"]?.toString() }
       ]
     },
@@ -143,10 +162,21 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
       id: "pa_occasion",
       title: "Occasion",
       options: [
+        { label: "Everyday", value: (SHOP_FILTERS.attributes.pa_occasion?.terms as any)["everyday"]?.toString() },
+        { label: "Office", value: (SHOP_FILTERS.attributes.pa_occasion?.terms as any)["office"]?.toString() },
         { label: "Casual", value: (SHOP_FILTERS.attributes.pa_occasion?.terms as any)["casual"]?.toString() },
-        { label: "Everyday Wear", value: (SHOP_FILTERS.attributes.pa_occasion?.terms as any)["everyday-wear"]?.toString() },
+        { label: "Party", value: (SHOP_FILTERS.attributes.pa_occasion?.terms as any)["party"]?.toString() },
         { label: "Festive", value: (SHOP_FILTERS.attributes.pa_occasion?.terms as any)["festive"]?.toString() },
         { label: "Wedding", value: (SHOP_FILTERS.attributes.pa_occasion?.terms as any)["wedding"]?.toString() }
+      ]
+    },
+    {
+      id: "pa_finish",
+      title: "Finish",
+      options: [
+        { label: "Rhodium Plated", value: (SHOP_FILTERS.attributes.pa_finish?.terms as any)["rhodium-plated"]?.toString() },
+        { label: "Oxidised", value: (SHOP_FILTERS.attributes.pa_finish?.terms as any)["oxidised"]?.toString() },
+        { label: "Glossy", value: (SHOP_FILTERS.attributes.pa_finish?.terms as any)["glossy"]?.toString() },
       ]
     }
   ];
@@ -180,10 +210,12 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
                   : `/collections/${cat.slug}?${params.toString()}`;
 
                 return (
-                  <Link 
-                    key={cat.slug} 
+                  <Link
+                    key={cat.slug}
                     href={href}
                     scroll={false}
+                    aria-current={isSelected ? "page" : undefined}
+                    onClick={() => cat.slug !== 'all' && trackCollectionClick(cat.slug, "shop-filters")}
                     className="flex items-center gap-3 cursor-pointer group"
                   >
                     <div className="relative flex items-center justify-center">
@@ -212,6 +244,7 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
                   <input
                     type="number"
                     min="0"
+                    aria-label="Minimum price"
                     value={minPrice}
                     onChange={(e) => setMinPrice(e.target.value)}
                     className="w-full border border-outline-variant/50 rounded px-3 py-2 text-sm focus:outline-none focus:border-ag-purple"
@@ -223,6 +256,7 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
                   <input
                     type="number"
                     min="0"
+                    aria-label="Maximum price"
                     value={maxPrice}
                     onChange={(e) => setMaxPrice(e.target.value)}
                     className="w-full border border-outline-variant/50 rounded px-3 py-2 text-sm focus:outline-none focus:border-ag-purple"
@@ -243,7 +277,7 @@ export function ShopFilters({ baseCategorySlug }: ShopFiltersProps = {}) {
             <AccordionItem key={filter.id} value={filter.id} className="border-none">
               <AccordionTrigger className="py-4 hover:no-underline">{filter.title}</AccordionTrigger>
               <AccordionContent>
-                <div className="flex flex-col gap-3 pt-2">
+                <div className="flex flex-col gap-3 pt-2" role="group" aria-label={`Filter by ${filter.title}`}>
                   {filter.options.map((opt) => {
                     if (!opt.value) return null;
                     const isSelected = currentValues.includes(opt.value);

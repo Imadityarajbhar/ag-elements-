@@ -116,7 +116,7 @@ export function AddToCartButton({ product, compact = false }: { product: Product
       }));
     }
 
-    const res = await addItem(parseInt(product.id), quantity, variationPayload);
+    const res = await addItem(parseInt(product.id), quantity, variationPayload, false);
     if (!res.success) {
       toast.error(mapWooCommerceError(res.code || '', res.error));
       return;

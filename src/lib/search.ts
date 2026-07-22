@@ -18,9 +18,8 @@ export const searchSynonyms: Record<string, string> = {
   'bands': 'rings',
   'chain': 'necklaces',
   'chains': 'necklaces',
-  'anklet': 'payal',
-  'anklets': 'payal',
-  'bridal': 'bridal-collection',
+  'anklet': 'anklets',
+  'anklets': 'anklets',
   'mens': 'mens',
   'men': 'mens',
   'bangle': 'bangles'

@@ -16,6 +16,7 @@ const InstagramFeed = dynamic(() => import("@/components/home/InstagramFeed").th
 export const metadata = generateMetadata({
   title: "AG Elements | Timeless Elegance",
   description: "Discover our new collection of modern heritage sterling silver jewellery. Designed to be layered, stacked, and worn every day.",
+  path: "/",
 });
 
 export default async function Home() {
@@ -45,16 +46,6 @@ export default async function Home() {
             fetchPriority="high"
             className="object-cover"
           />
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline 
-            preload="metadata"
-            className="absolute inset-0 w-full h-full object-cover mix-blend-normal"
-          >
-            <source src="https://cdn.pixabay.com/video/2016/09/21/5361-183787508_large.mp4" type="video/mp4" />
-          </video>
         </div>
         
         {/* Elegant Gradient Overlay */}

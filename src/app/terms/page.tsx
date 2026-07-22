@@ -3,6 +3,7 @@ import { generateMetadata } from "@/lib/seo/generateMetadata";
 export const metadata = generateMetadata({
   title: "Terms of Service | AG Elements",
   description: "Read about AG Elements' Terms of Service.",
+  path: "/terms",
 });
 
 export default function TermsPage() {

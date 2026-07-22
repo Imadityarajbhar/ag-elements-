@@ -1,5 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { generateMetadata as getSeoMetadata } from "@/lib/seo/generateMetadata";
+
+export const metadata = getSeoMetadata({
+  title: "Shop All Collections | AG Elements",
+  description: "Browse every AG Elements collection of handcrafted 925 sterling silver jewelry, from bridal edits to everyday essentials.",
+  path: "/collections",
+});
 
 export default function CollectionsPage() {
   return (

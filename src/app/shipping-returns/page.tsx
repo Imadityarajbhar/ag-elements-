@@ -3,6 +3,7 @@ import { generateMetadata } from "@/lib/seo/generateMetadata";
 export const metadata = generateMetadata({
   title: "Shipping & Returns | AG Elements",
   description: "Read about AG Elements' shipping and return policies.",
+  path: "/shipping-returns",
 });
 
 export default function ShippingReturnsPage() {

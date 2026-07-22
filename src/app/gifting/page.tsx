@@ -6,6 +6,7 @@ import { generateMetadata } from "@/lib/seo/generateMetadata";
 export const metadata = generateMetadata({
   title: "The Art of Gifting | AG Elements",
   description: "Find the perfect gift with AG Elements. Explore our interactive gift finder, digital gift cards, and curated occasion recommendations.",
+  path: "/gifting",
 });
 
 export default function GiftingHubPage() {
@@ -46,7 +47,7 @@ export default function GiftingHubPage() {
         </div>
 
         <div className="grid grid-cols-1 tablet:grid-cols-3 gap-8">
-          <Link href="/shop?attribute_term=574" className="group relative overflow-hidden rounded-2xl aspect-[4/5] shadow-md hover:shadow-xl transition-shadow">
+          <Link href="/shop?pa_occasion=574" className="group relative overflow-hidden rounded-2xl aspect-[4/5] shadow-md hover:shadow-xl transition-shadow">
             <Image fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUJGvMSZgwIlLwahFRrdxRLmFixcgBdkuNq3df9UHJ-K8OUa4HoheieBXDpqxPjerp-dQPGsKjSf_agZAUvvC4MUShS8orWlerj4ZLkEcfstV4yii_FfGR2mMq_vHCdAF9Rw_CLrXow-CxkgL031EdkyyO1_53j78G2TEOBk7Cx0P7vSpDYY7aHY-zbcyrV0_bEccY9eRDJToErv7tsejp21p2y-pYcuRYJUGlpe-5ltfcYvCHjNoofA" alt="Wedding Gifts" />
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal-navy/80 via-transparent to-transparent flex flex-col justify-end p-8 z-10">
               <h3 className="font-headline-md text-pearl-white text-[28px] font-medium mb-2">Wedding & Bridal</h3>
@@ -54,7 +55,7 @@ export default function GiftingHubPage() {
             </div>
           </Link>
 
-          <Link href="/shop?attribute_term=563" className="group relative overflow-hidden rounded-2xl aspect-[4/5] shadow-md hover:shadow-xl transition-shadow">
+          <Link href="/shop?pa_occasion=563" className="group relative overflow-hidden rounded-2xl aspect-[4/5] shadow-md hover:shadow-xl transition-shadow">
             <Image fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgYShAiK_WIPmW8XzCj504v1jLWuG1cfWTnZsg933i2ucADqVunBR1qG5SLt6vnry3FMYd5IjpuhbkkvpxbiBxVKdw1xPl-_cypjd1BUkgfnLWl5Z2bOp_Ch46lWO9hlVuedtU4st5dLRYuHi67StD9Fie2aQXNqIQLW4Bo1gwfo8_dl16zt-SlIi0eD1QdfaWRkmCg9NsIJWLg6avXY2r9HuoLEivcUOSNR8r0dkjK-reWSX-Jr0odA" alt="Festive Gifts" />
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal-navy/80 via-transparent to-transparent flex flex-col justify-end p-8 z-10">
               <h3 className="font-headline-md text-pearl-white text-[28px] font-medium mb-2">Festive Celebrations</h3>
@@ -62,7 +63,7 @@ export default function GiftingHubPage() {
             </div>
           </Link>
 
-          <Link href="/shop?attribute_term=564" className="group relative overflow-hidden rounded-2xl aspect-[4/5] shadow-md hover:shadow-xl transition-shadow">
+          <Link href="/shop?pa_occasion=564" className="group relative overflow-hidden rounded-2xl aspect-[4/5] shadow-md hover:shadow-xl transition-shadow">
             <Image fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYiRCc0SOXT-IyTldErTn73a7AMNwjKtfeA6qAjlNRKkflCEuJCYmv5G7MPkJOcEixO3y_InfY4EdHbRCSYjEmHnnLAIXVWP4fr35ncMCdzByzS2gbo4cva11sGetzCwvrIkkJihh-Ee0CFX-V0wak_hUweISm4jzCboLIGFMtX42uwgFxMeKHr5nnkLZ5hqABidyQMU1mt_g97E6wbxFQezC7ls_V8aXsczxyMxzKW5Wxbb5KY0xkNw" alt="Everyday Gifts" />
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal-navy/80 via-transparent to-transparent flex flex-col justify-end p-8 z-10">
               <h3 className="font-headline-md text-pearl-white text-[28px] font-medium mb-2">Just Because</h3>

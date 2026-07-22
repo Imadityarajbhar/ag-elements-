@@ -1,0 +1,1664 @@
+[
+  {
+    "id": 2986,
+    "name": "Women's Sterling Silver Pandora Bracelet",
+    "slug": "women-s-sterling-silver-pandora-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Anklets"
+    ],
+    "code": "ANK",
+    "sequence": 1,
+    "candidateSku": "AGE-ANK-0001"
+  },
+  {
+    "id": 3055,
+    "name": "Sterling Silver Emerald Green Motif Anklet",
+    "slug": "sterling-silver-emerald-green-motif-anklet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Anklets"
+    ],
+    "code": "ANK",
+    "sequence": 2,
+    "candidateSku": "AGE-ANK-0002"
+  },
+  {
+    "id": 3065,
+    "name": "Snake Chain Anklet",
+    "slug": "snake-chain-anklet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Anklets"
+    ],
+    "code": "ANK",
+    "sequence": 3,
+    "candidateSku": "AGE-ANK-0003"
+  },
+  {
+    "id": 3183,
+    "name": "Fashion Frill Silver-Plated Anklet",
+    "slug": "fashion-frill-silver-plated-anklet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Anklets"
+    ],
+    "code": "ANK",
+    "sequence": 4,
+    "candidateSku": "AGE-ANK-0004"
+  },
+  {
+    "id": 3187,
+    "name": "Evil Eye Anklet",
+    "slug": "evil-eye-anklet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Anklets"
+    ],
+    "code": "ANK",
+    "sequence": 5,
+    "candidateSku": "AGE-ANK-0005"
+  },
+  {
+    "id": 4159,
+    "name": "Elegant Twisted Rose Gold Bangle",
+    "slug": "elegant-twisted-rose-gold-bangle",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bangles"
+    ],
+    "code": "BNG",
+    "sequence": 1,
+    "candidateSku": "AGE-BNG-0001"
+  },
+  {
+    "id": 3025,
+    "name": "Rose Gold Viper Bracelet",
+    "slug": "rose-gold-viper-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 1,
+    "candidateSku": "AGE-BRC-0001"
+  },
+  {
+    "id": 3030,
+    "name": "Vintage Platinum Cubic Zirconia Bracelet",
+    "slug": "vintage-platinum-cubic-zirconia-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 2,
+    "candidateSku": "AGE-BRC-0002"
+  },
+  {
+    "id": 3042,
+    "name": "Stone Studded Bracelet",
+    "slug": "stone-studded-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 3,
+    "candidateSku": "AGE-BRC-0003"
+  },
+  {
+    "id": 3047,
+    "name": "Cuban Link Bracelet",
+    "slug": "cuban-link-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 4,
+    "candidateSku": "AGE-BRC-0004"
+  },
+  {
+    "id": 3060,
+    "name": "Centurion Silver Bracelet",
+    "slug": "centurion-silver-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 5,
+    "candidateSku": "AGE-BRC-0005"
+  },
+  {
+    "id": 3070,
+    "name": "Silver Glamira Bracelet",
+    "slug": "silver-glamira-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 6,
+    "candidateSku": "AGE-BRC-0006"
+  },
+  {
+    "id": 3090,
+    "name": "Silver Bracelet",
+    "slug": "silver-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 7,
+    "candidateSku": "AGE-BRC-0007"
+  },
+  {
+    "id": 3102,
+    "name": "Rose Gold Crystal Bracelet",
+    "slug": "rose-gold-crystal-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 8,
+    "candidateSku": "AGE-BRC-0008"
+  },
+  {
+    "id": 3140,
+    "name": "Luxurious Silver Multi Colored Gemstones Emerald Cut Bracelet",
+    "slug": "luxurious-silver-multi-colored-gemstones-emerald-cut-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 9,
+    "candidateSku": "AGE-BRC-0009"
+  },
+  {
+    "id": 3198,
+    "name": "Cubic Zirconia Cuban Link Bracelet",
+    "slug": "cubic-zirconia-cuban-link-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 10,
+    "candidateSku": "AGE-BRC-0010"
+  },
+  {
+    "id": 4082,
+    "name": "Luxury Panther Designer Bracelet",
+    "slug": "luxury-panther-designer-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 11,
+    "candidateSku": "AGE-BRC-0011"
+  },
+  {
+    "id": 4151,
+    "name": "Elegant Floral Crystal Open Bracelet",
+    "slug": "elegant-floral-crystal-open-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 12,
+    "candidateSku": "AGE-BRC-0012"
+  },
+  {
+    "id": 4153,
+    "name": "Classic Minimal Silver Open Cuff Bracelet",
+    "slug": "classic-minimal-silver-open-cuff-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 13,
+    "candidateSku": "AGE-BRC-0013"
+  },
+  {
+    "id": 4155,
+    "name": "Cute Elephant Charm Adjustable Bracelet",
+    "slug": "cute-elephant-charm-adjustable-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 14,
+    "candidateSku": "AGE-BRC-0014"
+  },
+  {
+    "id": 4157,
+    "name": "Rose Gold Butterfly Crystal Bracelet",
+    "slug": "rose-gold-butterfly-crystal-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 15,
+    "candidateSku": "AGE-BRC-0015"
+  },
+  {
+    "id": 4161,
+    "name": "Elegant Sunflower Rose Gold Bracelet",
+    "slug": "elegant-sunflower-rose-gold-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 16,
+    "candidateSku": "AGE-BRC-0016"
+  },
+  {
+    "id": 4163,
+    "name": "Classic Crystal Tennis Bracelet",
+    "slug": "classic-crystal-tennis-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 17,
+    "candidateSku": "AGE-BRC-0017"
+  },
+  {
+    "id": 4168,
+    "name": "Classic Dual Bead Open Bracelet",
+    "slug": "classic-dual-bead-open-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 18,
+    "candidateSku": "AGE-BRC-0018"
+  },
+  {
+    "id": 4170,
+    "name": "Elegant Pink Designer Kada Bracelet",
+    "slug": "elegant-pink-designer-kada-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 19,
+    "candidateSku": "AGE-BRC-0019"
+  },
+  {
+    "id": 4172,
+    "name": "Luxury Tri-Tone Stretch Bracelet",
+    "slug": "luxury-tri-tone-stretch-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 20,
+    "candidateSku": "AGE-BRC-0020"
+  },
+  {
+    "id": 4174,
+    "name": "Royal Tiger Designer Open Bracelet",
+    "slug": "royal-tiger-designer-open-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 21,
+    "candidateSku": "AGE-BRC-0021"
+  },
+  {
+    "id": 4181,
+    "name": "Traditional Floral Stone Kada Bracelet",
+    "slug": "traditional-floral-stone-kada-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 22,
+    "candidateSku": "AGE-BRC-0022"
+  },
+  {
+    "id": 4194,
+    "name": "Luxury Panther Link Bracelet",
+    "slug": "luxury-panther-link-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 23,
+    "candidateSku": "AGE-BRC-0023"
+  },
+  {
+    "id": 4446,
+    "name": "Elegant Butterfly Crystal Bracelet",
+    "slug": "elegant-butterfly-crystal-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Bracelets"
+    ],
+    "code": "BRC",
+    "sequence": 24,
+    "candidateSku": "AGE-BRC-0024"
+  },
+  {
+    "id": 3214,
+    "name": "Cubic Zirconia Silver-Plated Dangle Drop Earrings",
+    "slug": "cubic-zirconia-silver-plated-dangle-drop-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 1,
+    "candidateSku": "AGE-ERG-0001"
+  },
+  {
+    "id": 3220,
+    "name": "Chimes Green and Silver-Toned Floral Oxidized Drop Earrings",
+    "slug": "chimes-green-and-silver-toned-floral-oxidized-drop-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 2,
+    "candidateSku": "AGE-ERG-0002"
+  },
+  {
+    "id": 3227,
+    "name": "Gold-Plated Geometric Drop Earring",
+    "slug": "gold-plated-geometric-drop-earring",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 3,
+    "candidateSku": "AGE-ERG-0003"
+  },
+  {
+    "id": 3233,
+    "name": "Silver-Toned Cubic Zirconia-Studded Ear Cuff Earrings",
+    "slug": "silver-toned-cubic-zirconia-studded-ear-cuff-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 4,
+    "candidateSku": "AGE-ERG-0004"
+  },
+  {
+    "id": 3641,
+    "name": "Clover Stud Earrings",
+    "slug": "clover-stud-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 5,
+    "candidateSku": "AGE-ERG-0005"
+  },
+  {
+    "id": 3645,
+    "name": "Crystal Solitaire, Crystal Pavé Flower, and Black Enamel Flower Silver Stud Earrings",
+    "slug": "crystal-solitaire-crystal-pav-flower-and-black-enamel-flower-silver-stud-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 6,
+    "candidateSku": "AGE-ERG-0006"
+  },
+  {
+    "id": 3648,
+    "name": "Floral Wheel Silver Stud Earrings",
+    "slug": "floral-wheel-silver-stud-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 7,
+    "candidateSku": "AGE-ERG-0007"
+  },
+  {
+    "id": 3721,
+    "name": "Silver Cubic Zirconia Heart Stud Earrings Set",
+    "slug": "silver-cubic-zirconia-heart-stud-earrings-set",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 8,
+    "candidateSku": "AGE-ERG-0008"
+  },
+  {
+    "id": 3871,
+    "name": "Sterling Silver Stone Inlay Twist Frame Moreen Stud Post Earrings",
+    "slug": "sterling-silver-stone-inlay-twist-frame-moreen-stud-post-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 9,
+    "candidateSku": "AGE-ERG-0009"
+  },
+  {
+    "id": 3879,
+    "name": "Silver Wing Earrings",
+    "slug": "silver-wing-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 10,
+    "candidateSku": "AGE-ERG-0010"
+  },
+  {
+    "id": 3885,
+    "name": "White Halo Princess Cut Black Stone Stud Earrings",
+    "slug": "white-halo-princess-cut-black-stone-stud-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 11,
+    "candidateSku": "AGE-ERG-0011"
+  },
+  {
+    "id": 3888,
+    "name": "Cubic Zirconia Classic Stud Earrings",
+    "slug": "cubic-zirconia-classic-stud-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 12,
+    "candidateSku": "AGE-ERG-0012"
+  },
+  {
+    "id": 3891,
+    "name": "Rose Night Earrings",
+    "slug": "rose-night-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 13,
+    "candidateSku": "AGE-ERG-0013"
+  },
+  {
+    "id": 3897,
+    "name": "Rose Gold T-Bar Stud Earrings",
+    "slug": "rose-gold-t-bar-stud-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 14,
+    "candidateSku": "AGE-ERG-0014"
+  },
+  {
+    "id": 3902,
+    "name": "Cat Stud Earrings with Cubic Zirconia (CZ) Crystals",
+    "slug": "cat-stud-earrings-with-cubic-zirconia-cz-crystals",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 15,
+    "candidateSku": "AGE-ERG-0015"
+  },
+  {
+    "id": 4196,
+    "name": "Cute Smiley Face Stud Earrings",
+    "slug": "cute-smiley-face-stud-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 16,
+    "candidateSku": "AGE-ERG-0016"
+  },
+  {
+    "id": 4217,
+    "name": "Rose Gold Heart Minimal Stud Earrings",
+    "slug": "rose-gold-heart-minimal-stud-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 17,
+    "candidateSku": "AGE-ERG-0017"
+  },
+  {
+    "id": 4219,
+    "name": "Classic Solitaire Crystal Stud Earrings",
+    "slug": "classic-solitaire-crystal-stud-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 18,
+    "candidateSku": "AGE-ERG-0018"
+  },
+  {
+    "id": 4221,
+    "name": "Vintage Oxidised Spiral Stud Earrings",
+    "slug": "vintage-oxidised-spiral-stud-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 19,
+    "candidateSku": "AGE-ERG-0019"
+  },
+  {
+    "id": 4405,
+    "name": "Vintage Floral Oxidised Stud Earrings",
+    "slug": "vintage-floral-oxidised-stud-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 20,
+    "candidateSku": "AGE-ERG-0020"
+  },
+  {
+    "id": 4407,
+    "name": "Minimal Stripe Pattern Stud Earrings",
+    "slug": "minimal-stripe-pattern-stud-earrings",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 21,
+    "candidateSku": "AGE-ERG-0021"
+  },
+  {
+    "id": 4409,
+    "name": "Vintage Floral Oxidised Stud Earrings",
+    "slug": "vintage-floral-oxidised-stud-earrings-2",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Earrings"
+    ],
+    "code": "ERG",
+    "sequence": 22,
+    "candidateSku": "AGE-ERG-0022"
+  },
+  {
+    "id": 3146,
+    "name": "Jay Shree Shyam Men's Oxidised Kada",
+    "slug": "jay-shree-shyam-menss-oxidised-kada",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Kada"
+    ],
+    "code": "KDA",
+    "sequence": 1,
+    "candidateSku": "AGE-KDA-0001"
+  },
+  {
+    "id": 3155,
+    "name": "Jay Shree Ram Men's Oxidised Kada",
+    "slug": "jay-shree-ram-mens-s-oxidised-kada",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Kada"
+    ],
+    "code": "KDA",
+    "sequence": 2,
+    "candidateSku": "AGE-KDA-0002"
+  },
+  {
+    "id": 3133,
+    "name": "Men's Silver Bracelet",
+    "slug": "men-s-silver-bracelet",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Bracelet"
+    ],
+    "code": "MBR",
+    "sequence": 1,
+    "candidateSku": "AGE-MBR-0001"
+  },
+  {
+    "id": 4075,
+    "name": "Elegant Solitaire Mangalsutra Necklace",
+    "slug": "elegant-solitaire-mangalsutra-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Mangalsutra"
+    ],
+    "code": "MNG",
+    "sequence": 1,
+    "candidateSku": "AGE-MNG-0001"
+  },
+  {
+    "id": 4233,
+    "name": "Celeste Rose Gold Mangalsutra Pendant Necklace",
+    "slug": "celeste-rose-gold-mangalsutra-pendant-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Mangalsutra"
+    ],
+    "code": "MNG",
+    "sequence": 2,
+    "candidateSku": "AGE-MNG-0002"
+  },
+  {
+    "id": 4320,
+    "name": "Aurielle Rose Gold Plated Sterling Silver Mangalsutra",
+    "slug": "aurielle-rose-gold-plated-sterling-silver-mangalsutra",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Mangalsutra"
+    ],
+    "code": "MNG",
+    "sequence": 3,
+    "candidateSku": "AGE-MNG-0003"
+  },
+  {
+    "id": 4334,
+    "name": "Starlisse Solitaire Sterling Silver Mangalsutra",
+    "slug": "starlisse-solitaire-sterling-silver-mangalsutra",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Mangalsutra"
+    ],
+    "code": "MNG",
+    "sequence": 4,
+    "candidateSku": "AGE-MNG-0004"
+  },
+  {
+    "id": 4359,
+    "name": "Roselle Bloom Rose Gold Plated Sterling Silver Mangalsutra",
+    "slug": "roselle-bloom-rose-gold-plated-sterling-silver-mangalsutra",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Mangalsutra"
+    ],
+    "code": "MNG",
+    "sequence": 5,
+    "candidateSku": "AGE-MNG-0005"
+  },
+  {
+    "id": 4364,
+    "name": "Aurora Glow Rose Gold Sterling Silver Mangalsutra",
+    "slug": "aurora-glow-rose-gold-sterling-silver-mangalsutra",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Mangalsutra"
+    ],
+    "code": "MNG",
+    "sequence": 6,
+    "candidateSku": "AGE-MNG-0006"
+  },
+  {
+    "id": 4369,
+    "name": "Butterfly Bliss Gold Plated Sterling Silver Mangalsutra",
+    "slug": "butterfly-bliss-gold-plated-sterling-silver-mangalsutra",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Mangalsutra"
+    ],
+    "code": "MNG",
+    "sequence": 7,
+    "candidateSku": "AGE-MNG-0007"
+  },
+  {
+    "id": 4374,
+    "name": "Midnight Charm Sterling Silver Mangalsutra",
+    "slug": "midnight-charm-sterling-silver-mangalsutra",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Mangalsutra"
+    ],
+    "code": "MNG",
+    "sequence": 8,
+    "candidateSku": "AGE-MNG-0008"
+  },
+  {
+    "id": 4379,
+    "name": "Ruby Royale Sterling Silver Mangalsutra",
+    "slug": "ruby-royale-sterling-silver-mangalsutra",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Mangalsutra"
+    ],
+    "code": "MNG",
+    "sequence": 9,
+    "candidateSku": "AGE-MNG-0009"
+  },
+  {
+    "id": 3077,
+    "name": "Elegant Silver Necklace Set",
+    "slug": "elegant-silver-necklace-set",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 1,
+    "candidateSku": "AGE-NCK-0001"
+  },
+  {
+    "id": 3083,
+    "name": "Silver-Plated Choker Style Necklace Set",
+    "slug": "silver-plated-choker-style-necklace-set",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 2,
+    "candidateSku": "AGE-NCK-0002"
+  },
+  {
+    "id": 3095,
+    "name": "Rudraksha Mala",
+    "slug": "rudraksha-mala",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 3,
+    "candidateSku": "AGE-NCK-0003"
+  },
+  {
+    "id": 3109,
+    "name": "Pure Silver Strip Chain",
+    "slug": "pure-silver-strip-chain",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 4,
+    "candidateSku": "AGE-NCK-0004"
+  },
+  {
+    "id": 3115,
+    "name": "Oxidized Silver Herringbone Chain",
+    "slug": "oxidized-silver-herringbone-chain",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 5,
+    "candidateSku": "AGE-NCK-0005"
+  },
+  {
+    "id": 3121,
+    "name": "Men's Cuban Neckpiece",
+    "slug": "mens-cuban-neckpiece",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 6,
+    "candidateSku": "AGE-NCK-0006"
+  },
+  {
+    "id": 3162,
+    "name": "Infinity Link Men's Chain",
+    "slug": "infinity-link-mens-chain",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Necklace",
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 7,
+    "candidateSku": "AGE-NCK-0007"
+  },
+  {
+    "id": 3205,
+    "name": "Zirconia Silver Necklace Set",
+    "slug": "zirconia-silver-necklace-set",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 8,
+    "candidateSku": "AGE-NCK-0008"
+  },
+  {
+    "id": 3636,
+    "name": "Minimal Cube Crystal Silver Chain Necklace",
+    "slug": "minimal-cube-crystal-silver-chain-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 9,
+    "candidateSku": "AGE-NCK-0009"
+  },
+  {
+    "id": 3652,
+    "name": "Silver & Gold Accent Cross Chain",
+    "slug": "silver-gold-accent-cross-chain",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 10,
+    "candidateSku": "AGE-NCK-0010"
+  },
+  {
+    "id": 3656,
+    "name": "& Symbol Rose Gold Chain Necklace",
+    "slug": "symbol-rose-gold-chain-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 11,
+    "candidateSku": "AGE-NCK-0011"
+  },
+  {
+    "id": 3661,
+    "name": "Sterling Silver Heart and Key Necklace",
+    "slug": "sterling-silver-heart-and-key-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 12,
+    "candidateSku": "AGE-NCK-0012"
+  },
+  {
+    "id": 3670,
+    "name": "Sterling Silver Rose Gold Double Chain Necklace for Women",
+    "slug": "sterling-silver-rose-gold-double-chain-necklace-for-women",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 13,
+    "candidateSku": "AGE-NCK-0013"
+  },
+  {
+    "id": 3674,
+    "name": "Sterling Silver Crystals Necklace",
+    "slug": "sterling-silver-crystals-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 14,
+    "candidateSku": "AGE-NCK-0014"
+  },
+  {
+    "id": 3678,
+    "name": "Silver Necklace with Multiple Heart-Shaped Charms",
+    "slug": "silver-necklace-with-multiple-heart-shaped-charms",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 15,
+    "candidateSku": "AGE-NCK-0015"
+  },
+  {
+    "id": 3683,
+    "name": "Crystal Halo Pendant Necklace",
+    "slug": "crystal-halo-pendant-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 16,
+    "candidateSku": "AGE-NCK-0016"
+  },
+  {
+    "id": 3688,
+    "name": "Silver Heart Pendant Necklace",
+    "slug": "silver-heart-pendant-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 17,
+    "candidateSku": "AGE-NCK-0017"
+  },
+  {
+    "id": 3694,
+    "name": "Silver Chain Necklace with a Heart Pendant and Pearls",
+    "slug": "silver-chain-necklace-with-a-heart-pendant-and-pearls",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 18,
+    "candidateSku": "AGE-NCK-0018"
+  },
+  {
+    "id": 3699,
+    "name": "Silver LOVE Charms Necklace",
+    "slug": "silver-love-charms-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 19,
+    "candidateSku": "AGE-NCK-0019"
+  },
+  {
+    "id": 3705,
+    "name": "Silver Double Layer Chain Necklace",
+    "slug": "silver-double-layer-chain-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 20,
+    "candidateSku": "AGE-NCK-0020"
+  },
+  {
+    "id": 3711,
+    "name": "Rose Gold Blue Stone Necklace",
+    "slug": "rose-gold-blue-stone-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 21,
+    "candidateSku": "AGE-NCK-0021"
+  },
+  {
+    "id": 3716,
+    "name": "Avon Opulent Pearl Glow Silver Necklace",
+    "slug": "avon-opulent-pearl-glow-silver-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 22,
+    "candidateSku": "AGE-NCK-0022"
+  },
+  {
+    "id": 3854,
+    "name": "Rose Gold Butterfly Lariat Necklace",
+    "slug": "rose-gold-butterfly-lariat-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 23,
+    "candidateSku": "AGE-NCK-0023"
+  },
+  {
+    "id": 3860,
+    "name": "Golden Ocean Charm Necklace",
+    "slug": "golden-ocean-charm-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 24,
+    "candidateSku": "AGE-NCK-0024"
+  },
+  {
+    "id": 3869,
+    "name": "Rose Gold Crystal Necklace",
+    "slug": "rose-gold-crystal-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 25,
+    "candidateSku": "AGE-NCK-0025"
+  },
+  {
+    "id": 4239,
+    "name": "Classic Silver Ball Chain Necklace",
+    "slug": "classic-silver-ball-chain-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Necklace"
+    ],
+    "code": "NCK",
+    "sequence": 26,
+    "candidateSku": "AGE-NCK-0026"
+  },
+  {
+    "id": 4314,
+    "name": "Minimal Silver Box Chain Necklace",
+    "slug": "minimal-silver-box-chain-necklace",
+    "status": "draft",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Necklace"
+    ],
+    "code": "NCK",
+    "sequence": 27,
+    "candidateSku": "AGE-NCK-0027"
+  },
+  {
+    "id": 4316,
+    "name": "Classic Silver Cable Chain Necklace",
+    "slug": "classic-silver-cable-chain-necklace",
+    "status": "draft",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Necklace"
+    ],
+    "code": "NCK",
+    "sequence": 28,
+    "candidateSku": "AGE-NCK-0028"
+  },
+  {
+    "id": 4318,
+    "name": "Modern Silver Link Chain Necklace",
+    "slug": "modern-silver-link-chain-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Necklace"
+    ],
+    "code": "NCK",
+    "sequence": 29,
+    "candidateSku": "AGE-NCK-0029"
+  },
+  {
+    "id": 4325,
+    "name": "Elegant Triple Layer Gold Chain Necklace",
+    "slug": "elegant-triple-layer-gold-chain-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Necklace"
+    ],
+    "code": "NCK",
+    "sequence": 30,
+    "candidateSku": "AGE-NCK-0030"
+  },
+  {
+    "id": 4328,
+    "name": "925 Sterling Silver Gold Cuban Link Chain Necklace",
+    "slug": "luxury-gold-cuban-link-chain-necklace",
+    "status": "draft",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Necklace"
+    ],
+    "code": "NCK",
+    "sequence": 31,
+    "candidateSku": "AGE-NCK-0031"
+  },
+  {
+    "id": 4330,
+    "name": "Elegant Textured Silver Chain Necklace",
+    "slug": "elegant-textured-silver-chain-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Necklace"
+    ],
+    "code": "NCK",
+    "sequence": 32,
+    "candidateSku": "AGE-NCK-0032"
+  },
+  {
+    "id": 4333,
+    "name": "Classic Silver Figaro Chain Necklace",
+    "slug": "classic-silver-figaro-chain-necklace",
+    "status": "draft",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Necklace"
+    ],
+    "code": "NCK",
+    "sequence": 33,
+    "candidateSku": "AGE-NCK-0033"
+  },
+  {
+    "id": 4336,
+    "name": "Minimal Silver Oval Link Chain Necklace",
+    "slug": "minimal-silver-oval-link-chain-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Necklace"
+    ],
+    "code": "NCK",
+    "sequence": 34,
+    "candidateSku": "AGE-NCK-0034"
+  },
+  {
+    "id": 4342,
+    "name": "Bold Silver Double Link Chain Necklace",
+    "slug": "bold-silver-double-link-chain-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Necklace"
+    ],
+    "code": "NCK",
+    "sequence": 35,
+    "candidateSku": "AGE-NCK-0035"
+  },
+  {
+    "id": 4344,
+    "name": "Classic Gold Rope Chain Necklace",
+    "slug": "classic-gold-rope-chain-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 36,
+    "candidateSku": "AGE-NCK-0036"
+  },
+  {
+    "id": 4346,
+    "name": "Modern Silver Bar Link Chain Necklace",
+    "slug": "modern-silver-bar-link-chain-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Necklace"
+    ],
+    "code": "NCK",
+    "sequence": 37,
+    "candidateSku": "AGE-NCK-0037"
+  },
+  {
+    "id": 4348,
+    "name": "Elegant Two-Tone Bar Link Chain Necklace",
+    "slug": "elegant-two-tone-bar-link-chain-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Necklace"
+    ],
+    "code": "NCK",
+    "sequence": 38,
+    "candidateSku": "AGE-NCK-0038"
+  },
+  {
+    "id": 4350,
+    "name": "Classic Silver Curb Chain Necklace",
+    "slug": "classic-silver-curb-chain-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Necklace"
+    ],
+    "code": "NCK",
+    "sequence": 39,
+    "candidateSku": "AGE-NCK-0039"
+  },
+  {
+    "id": 4352,
+    "name": "Elegant Gold Pearl Station Necklace",
+    "slug": "elegant-gold-pearl-station-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 40,
+    "candidateSku": "AGE-NCK-0040"
+  },
+  {
+    "id": 4354,
+    "name": "Luxury Tri-Tone Crystal Bead Necklace",
+    "slug": "luxury-tri-tone-crystal-bead-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Necklaces"
+    ],
+    "code": "NCK",
+    "sequence": 41,
+    "candidateSku": "AGE-NCK-0041"
+  },
+  {
+    "id": 4356,
+    "name": "Premium Silver Mesh Chain Necklace",
+    "slug": "premium-silver-mesh-chain-necklace",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Necklace"
+    ],
+    "code": "NCK",
+    "sequence": 42,
+    "candidateSku": "AGE-NCK-0042"
+  },
+  {
+    "id": 3035,
+    "name": "Black Metal Oxidised Silver Payal",
+    "slug": "black-metal-oxidised-silver-payal",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Payal"
+    ],
+    "code": "PYL",
+    "sequence": 1,
+    "candidateSku": "AGE-PYL-0001"
+  },
+  {
+    "id": 3128,
+    "name": "Oxidised Payal",
+    "slug": "oxidised-payal",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Payal"
+    ],
+    "code": "PYL",
+    "sequence": 2,
+    "candidateSku": "AGE-PYL-0002"
+  },
+  {
+    "id": 3632,
+    "name": "Solitaire Ring with Accent Stones",
+    "slug": "solitaire-ring-with-accent-stones",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ],
+    "code": "RNG",
+    "sequence": 1,
+    "candidateSku": "AGE-RNG-0001"
+  },
+  {
+    "id": 3724,
+    "name": "Silver Black Enamel Stacking Ring",
+    "slug": "silver-black-enamel-stacking-ring",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ],
+    "code": "RNG",
+    "sequence": 2,
+    "candidateSku": "AGE-RNG-0002"
+  },
+  {
+    "id": 3730,
+    "name": "Solitaire Ring",
+    "slug": "solitaire-ring",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ],
+    "code": "RNG",
+    "sequence": 3,
+    "candidateSku": "AGE-RNG-0003"
+  },
+  {
+    "id": 3731,
+    "name": "Solitaire Ring with Accent Stones",
+    "slug": "solitaire-ring-with-accent-stones-2",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ],
+    "code": "RNG",
+    "sequence": 4,
+    "candidateSku": "AGE-RNG-0004"
+  },
+  {
+    "id": 3755,
+    "name": "Blue Stone Silver Ring",
+    "slug": "blue-stone-silver-ring",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ],
+    "code": "RNG",
+    "sequence": 5,
+    "candidateSku": "AGE-RNG-0005"
+  },
+  {
+    "id": 3760,
+    "name": "Silver Bubble Ring",
+    "slug": "silver-bubble-ring",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ],
+    "code": "RNG",
+    "sequence": 6,
+    "candidateSku": "AGE-RNG-0006"
+  },
+  {
+    "id": 3906,
+    "name": "Silver Half Eternity Ring",
+    "slug": "silver-half-eternity-ring",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ],
+    "code": "RNG",
+    "sequence": 7,
+    "candidateSku": "AGE-RNG-0007"
+  },
+  {
+    "id": 3912,
+    "name": "Silver Cross Ring",
+    "slug": "silver-cross-ring",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ],
+    "code": "RNG",
+    "sequence": 8,
+    "candidateSku": "AGE-RNG-0008"
+  },
+  {
+    "id": 3916,
+    "name": "Silver Wave Ring",
+    "slug": "silver-wave-ring",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ],
+    "code": "RNG",
+    "sequence": 9,
+    "candidateSku": "AGE-RNG-0009"
+  },
+  {
+    "id": 3919,
+    "name": "Silver Crown Ring",
+    "slug": "silver-crown-ring",
+    "status": "publish",
+    "existingSku": "",
+    "needsSku": true,
+    "categories": [
+      "Rings"
+    ],
+    "code": "RNG",
+    "sequence": 10,
+    "candidateSku": "AGE-RNG-0010"
+  }
+]

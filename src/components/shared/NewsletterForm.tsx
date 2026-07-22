@@ -62,8 +62,9 @@ export function NewsletterForm({ variant = "desktop" }: { variant?: "mobile" | "
         className="w-full bg-transparent border-b border-charcoal-navy/20 focus:border-primary py-2 px-0 text-body-md font-body-md outline-none transition-colors placeholder:text-outline-variant pr-10" 
         placeholder="Enter your email address" 
       />
-      <button 
+      <button
         type="submit"
+        aria-label="Subscribe"
         disabled={status === "loading"}
         className="absolute right-0 text-primary hover:text-charcoal-navy transition-colors disabled:opacity-50"
       >

@@ -6,6 +6,8 @@ import Link from "next/link";
 export const metadata = generateMetadata({
   title: "Track Order | AG Elements",
   description: "Track your AG Elements order status.",
+  path: "/track-order",
+  noIndex: true,
 });
 
 export default function TrackOrderPage() {

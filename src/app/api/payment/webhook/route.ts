@@ -24,13 +24,21 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
     }
 
-    // Verify webhook signature
+    // Verify webhook signature using a constant-time comparison — a plain !==
+    // string compare leaks timing information that can help an attacker forge
+    // a valid signature byte-by-byte.
     const expectedSignature = crypto
       .createHmac('sha256', webhook_secret)
       .update(rawBody)
       .digest('hex');
 
-    if (expectedSignature !== signature) {
+    const expectedBuf = Buffer.from(expectedSignature, 'hex');
+    const actualBuf = Buffer.from(signature, 'hex');
+    const signatureValid =
+      expectedBuf.length === actualBuf.length &&
+      crypto.timingSafeEqual(expectedBuf, actualBuf);
+
+    if (!signatureValid) {
       console.error('Invalid Webhook Signature');
       return NextResponse.json({ error: 'Invalid signature' }, { status: 400 });
     }

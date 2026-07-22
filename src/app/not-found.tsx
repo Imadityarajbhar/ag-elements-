@@ -7,6 +7,7 @@ import Image from "next/image";
 export const metadata = generateMetadata({
   title: "Page Not Found | AG Elements",
   description: "We couldn't find the page you were looking for.",
+  noIndex: true,
 });
 
 export default function NotFound() {
@@ -60,11 +61,11 @@ export default function NotFound() {
             </div>
             <span className="font-label-md text-[14px] font-semibold uppercase tracking-widest text-charcoal-navy group-hover:text-primary transition-colors">Rings</span>
           </Link>
-          <Link className="group" href="/collections/mangalsutra">
+          <Link className="group" href="/collections/bracelets">
             <div className="aspect-square bg-surface-lavender rounded mb-4 overflow-hidden relative shadow-[0px_4px_20px_rgba(35,33,58,0.05)]">
-              <Image fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover group-hover:scale-105 transition-transform duration-500 grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqgyRxlWbI_M3PLo5C-lGdFYsm1yQ67JmCtqb--2ZZQ23w3bTtqYfyfbRrWzerIqL8gyA2Ow8DmNp5Q71aR2CvdoleSaWSsgBFrewpEiBr61srFNGyMm7d2klQMBxSMwQcQCcTIRgKmBMn2fIHrxUNONU1ljUGEW_kXW57GhRLPSHvrFaBXL6dz8aN2OuAoci6iu_JmH40qnYE-_PLqELcDXWPHIALajwql66KIHdH9KtaTdNSGKPQ-Q" alt="Mangalsutra" />
+              <Image fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover group-hover:scale-105 transition-transform duration-500 grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbgh3H-hSJ9jP5dEIraPESMpSZe-khIlIE0aMQergyEF_Vev3TfKeu5thuhX3uwFaN0ziIjCLqKnPBPXPAzgPR-_HNHFvr3_yClZzJo15pFfUi8xGPbGVhaYygARQWZTotpUb9YWtyTYNCvHRjdY1Gq982TfcByBgjXd7y8fRqxBW8-N18l9NuCqJGNvmOWFz8d3LnYJHFKBG3Ft3u0F4V-Iwz-V60HolpHJ35jN5iDeVy7la55ZtugQ" alt="Bracelets" />
             </div>
-            <span className="font-label-md text-[14px] font-semibold uppercase tracking-widest text-charcoal-navy group-hover:text-primary transition-colors">Mangalsutra</span>
+            <span className="font-label-md text-[14px] font-semibold uppercase tracking-widest text-charcoal-navy group-hover:text-primary transition-colors">Bracelets</span>
           </Link>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { Phone, MessageCircle, Mail, MapPin, Clock, Camera, ThumbsUp, Share2 } f
 import Link from 'next/link';
 import Image from 'next/image';
 import { NewsletterForm } from "@/components/shared/NewsletterForm";
+import { siteConfig } from "@/lib/seo/site";
 import {
   Accordion,
   AccordionItem,
@@ -117,13 +118,13 @@ export function Footer() {
             <div className="mt-8">
               <span className="font-label-md text-[14px] uppercase tracking-widest text-primary mb-4 block">Follow Us</span>
               <div className="flex gap-4 text-on-surface-variant">
-                <a href="#" target="_blank" rel="noreferrer" className="hover:text-ag-purple transition-colors">
+                <a href={siteConfig.social.instagram} aria-label="Instagram" target="_blank" rel="noreferrer" className="hover:text-ag-purple transition-colors">
                   <Camera className="text-[24px]" />
                 </a>
-                <a href="#" target="_blank" rel="noreferrer" className="hover:text-ag-purple transition-colors">
+                <a href={siteConfig.social.facebook} aria-label="Facebook" target="_blank" rel="noreferrer" className="hover:text-ag-purple transition-colors">
                   <ThumbsUp className="text-[24px]" />
                 </a>
-                <a href="#" target="_blank" rel="noreferrer" className="hover:text-ag-purple transition-colors">
+                <a href="#" aria-label="Share" target="_blank" rel="noreferrer" className="hover:text-ag-purple transition-colors">
                   <Share2 className="text-[24px]" />
                 </a>
               </div>

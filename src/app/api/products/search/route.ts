@@ -3,6 +3,7 @@ import { unstable_cache } from 'next/cache';
 import { wcClient } from '@/services/woocommerce/client';
 import { WooCommerceProduct, WooCommerceCategory, WooCommerceTag } from '@/types/woocommerce';
 import { normalizeQuery, stripS, searchSynonyms } from '@/lib/search';
+import { COLLECTION_MAP } from '@/config/collections';
 
 const getCachedCategories = unstable_cache(
   async () => {
@@ -39,33 +40,27 @@ export async function GET(request: Request) {
       getCachedTags(),
     ]);
 
-    // Filter all matching categories
-    const matchedCategories = allCategories.filter(c => {
-      const cName = normalizeQuery(c.name);
-      const cSlug = normalizeQuery(c.slug);
-      const q = synonym;
-      
-      return cName === q || cSlug === q || stripS(cName) === stripS(q);
-    });
+    // Match category/tag slugs allowing simple singular/plural variance (e.g. a
+    // search for "ring" must still match the "rings" category) — stripS-normalized
+    // comparison, mirroring the same stemming already used client-side in
+    // SearchOverlay's handleSeeAll, which this route-level match was missing.
+    const matchesTerm = (candidate: string) => stripS(candidate.toLowerCase()) === stripS(synonym);
 
-    // Sort categories: populated > empty, then exact > stemmed, then higher count
+    // Filter all matching categories.
+    // Also require the slug to have a real frontend collection page — a WooCommerce
+    // category can exist and have products (e.g. "office", "party") without ever
+    // being wired up as a navigable /collections/* route, and routing a search there
+    // would 404.
+    const matchedCategories = allCategories.filter(c => matchesTerm(c.slug) && COLLECTION_MAP[c.slug.toLowerCase()] !== undefined);
+
+    // Sort categories: populated > empty, then higher count
     const sortedCategories = matchedCategories.sort((a, b) => {
       // 1. Prefer populated over empty
       const aPopulated = (a.count || 0) > 0 ? 1 : 0;
       const bPopulated = (b.count || 0) > 0 ? 1 : 0;
       if (aPopulated !== bPopulated) return bPopulated - aPopulated;
 
-      // 2. Prefer exact match over stemmed
-      const aName = normalizeQuery(a.name);
-      const aSlug = normalizeQuery(a.slug);
-      const bName = normalizeQuery(b.name);
-      const bSlug = normalizeQuery(b.slug);
-      
-      const aExact = aName === synonym || aSlug === synonym ? 1 : 0;
-      const bExact = bName === synonym || bSlug === synonym ? 1 : 0;
-      if (aExact !== bExact) return bExact - aExact;
-
-      // 3. Fallback to higher count
+      // 2. Fallback to higher count
       return (b.count || 0) - (a.count || 0);
     });
 
@@ -82,48 +77,58 @@ export async function GET(request: Request) {
 
     const productsRes = await productsPromise;
 
-    // Local filtering for lightning-fast category/tag results
+    // Local filtering for lightning-fast category/tag results (only categories
+    // with a real collection page — see matchedCategories above)
     const categoriesRes = allCategories
-      .filter(c => c.name.toLowerCase().includes(synonym))
+      .filter(c => matchesTerm(c.slug) && COLLECTION_MAP[c.slug.toLowerCase()] !== undefined)
       .slice(0, 3);
-      
+
     const tagsRes = allTags
-      .filter(t => t.name.toLowerCase().includes(synonym))
+      .filter(t => matchesTerm(t.slug))
       .slice(0, 3);
 
-    // Sort products: Exact matches > Partial matches
-    const sortedProducts = productsRes.sort((a, b) => {
-      const aName = a.name.toLowerCase();
-      const bName = b.name.toLowerCase();
-      
-      const aExact = aName === synonym ? 1 : 0;
-      const bExact = bName === synonym ? 1 : 0;
-      
-      if (aExact !== bExact) return bExact - aExact;
-      
-      // If neither or both are exact, prefer startsWith
-      const aStarts = aName.startsWith(synonym) ? 1 : 0;
-      const bStarts = bName.startsWith(synonym) ? 1 : 0;
-      
-      if (aStarts !== bStarts) return bStarts - aStarts;
+    // Relevance score per the requested priority: exact name > prefix match >
+    // collection > tags > category > attributes (material/stone/gender/style/
+    // occasion) > description. Applied uniformly whether the product came from
+    // the category-routed fetch or the generic WC `?search=` fallback.
+    const scoreProduct = (p: WooCommerceProduct): number => {
+      const name = p.name.toLowerCase();
+      if (name === synonym) return 1000;
+      if (name.startsWith(synonym)) return 900;
+      if (name.includes(synonym)) return 800;
 
-      // Prefer products where the title simply includes the query (vs just description matching)
-      const aIncludes = aName.includes(synonym) ? 1 : 0;
-      const bIncludes = bName.includes(synonym) ? 1 : 0;
-      
-      return bIncludes - aIncludes;
-    });
+      const attrMatches = (attrName: string) =>
+        p.attributes?.some((a) => a.name.toLowerCase() === attrName && a.options.some((o) => o.toLowerCase().includes(synonym)));
+
+      if (attrMatches('collection')) return 700;
+      // WC's generic ?search= already matches tag/category text server-side, so we
+      // can't independently confirm a tag hit here without another round-trip —
+      // approximate via category name, which we do have on the product payload.
+      if (p.categories?.some((c) => c.name.toLowerCase().includes(synonym) || c.slug.toLowerCase().includes(synonym))) return 500;
+      if (['material', 'stone', 'gender', 'style', 'occasion', 'finish'].some((attrName) => attrMatches(attrName))) return 400;
+      if (p.description?.toLowerCase().includes(synonym) || p.short_description?.toLowerCase().includes(synonym)) return 300;
+      return 100;
+    };
+
+    const sortedProducts = [...productsRes].sort((a, b) => scoreProduct(b) - scoreProduct(a));
+
+    // No direct results: surface trending products as "you might like" suggestions
+    // rather than a dead end — never fabricated, always real, currently-popular products.
+    let suggestions: WooCommerceProduct[] = [];
+    if (sortedProducts.length === 0 && categoriesRes.length === 0 && tagsRes.length === 0) {
+      suggestions = await wcClient
+        .fetch<WooCommerceProduct[]>('/products?status=publish&per_page=4&orderby=popularity&order=desc')
+        .catch(() => []);
+    }
 
     return NextResponse.json({
       products: sortedProducts,
       categories: categoriesRes,
-      tags: tagsRes
+      tags: tagsRes,
+      suggestions,
     });
   } catch (error: any) {
     console.error("Failed to fetch search suggestions", error);
-    try {
-      require('fs').appendFileSync('search-error.log', error.stack + '\n');
-    } catch(e) {}
-    return NextResponse.json({ products: [], categories: [], tags: [] }, { status: 500 });
+    return NextResponse.json({ products: [], categories: [], tags: [], suggestions: [] }, { status: 500 });
   }
 }

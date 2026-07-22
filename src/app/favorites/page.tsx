@@ -6,6 +6,8 @@ import Link from "next/link";
 export const metadata = generateMetadata({
   title: "Wishlist | AG Elements",
   description: "Save your favorite AG Elements jewelry.",
+  path: "/favorites",
+  noIndex: true,
 });
 
 export default function FavoritesPlaceholderPage() {

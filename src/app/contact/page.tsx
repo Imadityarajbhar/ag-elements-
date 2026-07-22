@@ -2,6 +2,7 @@
 import { Phone, Mail, MapPin, Camera, PlayCircle, BadgeCheck, History, Truck } from 'lucide-react';
 
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { siteConfig } from "@/lib/seo/site";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
@@ -100,8 +101,8 @@ export default function ContactPage() {
             <div className="pt-6 border-t border-primary/10">
               <p className="font-label-sm text-on-surface-variant uppercase mb-4 tracking-widest text-[12px]">Follow Our Journey</p>
               <div className="flex gap-6 text-primary">
-                <a className="hover:opacity-70 transition-all" href="#"><Camera  /></a>
-                <a className="hover:opacity-70 transition-all" href="#"><PlayCircle  /></a>
+                <a className="hover:opacity-70 transition-all" href={siteConfig.social.instagram} aria-label="Instagram" target="_blank" rel="noreferrer"><Camera  /></a>
+                <a className="hover:opacity-70 transition-all" href="#" aria-label="YouTube"><PlayCircle  /></a>
               </div>
             </div>
           </div>

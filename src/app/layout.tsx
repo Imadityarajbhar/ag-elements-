@@ -26,10 +26,12 @@ const hanken = Hanken_Grotesk({
 });
 
 import { generateMetadata as getSeoMetadata } from "@/lib/seo/generateMetadata";
+import { buildOrganizationSchema, buildWebsiteSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = getSeoMetadata({
   title: "AG Elements | Luxury Jewelry",
-  description: "A premium headless WooCommerce storefront bridging the heritage of Wardha and modern elegance.",
+  description: "A premium headless storefront for handcrafted 925 sterling silver jewelry, bridging the heritage of Wardha and modern elegance.",
+  path: "/",
 });
 
 // Add Google Site Verification dynamically or override other settings
@@ -46,24 +48,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "AG Elements",
-    "url": "https://agelements.example.com",
-    "logo": "https://agelements.example.com/logo.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+91-9876543210",
-      "contactType": "customer service",
-      "areaServed": "IN",
-      "availableLanguage": "English"
-    },
-    "sameAs": [
-      "https://instagram.com/agelements",
-      "https://facebook.com/agelements"
-    ]
-  };
+  const organizationSchema = buildOrganizationSchema();
+  const websiteSchema = buildWebsiteSchema();
 
   return (
     <html
@@ -72,9 +58,16 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
       <body suppressHydrationWarning className="min-h-full flex flex-col font-sans text-foreground bg-background selection:bg-primary-fixed selection:text-on-primary-fixed">

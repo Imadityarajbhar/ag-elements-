@@ -3,6 +3,7 @@ import { generateMetadata } from "@/lib/seo/generateMetadata";
 export const metadata = generateMetadata({
   title: "Privacy Policy | AG Elements",
   description: "Read about AG Elements' Privacy Policy and how we protect your data.",
+  path: "/privacy-policy",
 });
 
 export default function PrivacyPolicyPage() {

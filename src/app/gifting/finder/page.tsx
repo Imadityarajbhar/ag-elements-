@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, ArrowLeft } from "lucide-react";
 
@@ -82,8 +83,8 @@ export default function GiftFinderPage() {
                   onClick={() => handleNext({ gender: option.value, step: 2 })}
                   className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-outline-variant/30 hover:border-charcoal-navy transition-all"
                 >
-                  <div className="w-full aspect-square overflow-hidden bg-surface-variant">
-                    <img src={option.img} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt={option.label} />
+                  <div className="relative w-full aspect-square overflow-hidden bg-surface-variant">
+                    <Image src={option.img} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover group-hover:scale-105 transition-transform duration-700" alt={option.label} />
                   </div>
                   <div className="p-6 w-full bg-pearl-white">
                     <span className="font-label-md text-[14px] uppercase tracking-widest font-bold text-charcoal-navy">{option.label}</span>

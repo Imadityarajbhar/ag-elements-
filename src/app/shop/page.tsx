@@ -1,13 +1,15 @@
 import { getPaginatedProducts } from "@/services/products";
 import { ShopArchive } from "@/components/shop/ShopArchive";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { Metadata } from "next";
 import { Suspense } from "react";
+import { generateMetadata as getSeoMetadata } from "@/lib/seo/generateMetadata";
 
-export const metadata: Metadata = {
-  title: "Shop Premium Sterling Silver Jewellery | AG Elements",
+export const metadata = getSeoMetadata({
+  title: "Shop Premium Sterling Silver Jewellery",
   description: "Explore the complete AG Elements collection of handcrafted premium sterling silver jewellery.",
-};
+  path: "/shop",
+  keywords: ["sterling silver jewelry", "shop jewelry online", "AG Elements"],
+});
 
 export default async function ShopPage({
   searchParams,
@@ -26,7 +28,7 @@ export default async function ShopPage({
   const order = typeof resolvedParams.order === 'string' ? resolvedParams.order as any : undefined;
   const orderby = typeof resolvedParams.orderby === 'string' ? resolvedParams.orderby as any : undefined;
   // Parse dynamic attributes from URL parameters
-  const attributeKeys = ['pa_gender', 'pa_material', 'pa_collection', 'pa_stone', 'pa_occasion'];
+  const attributeKeys = ['pa_gender', 'pa_material', 'pa_collection', 'pa_stone', 'pa_occasion', 'pa_finish', 'pa_style'];
   const activeAttributes: string[] = [];
   const activeAttributeTerms: string[] = [];
 
@@ -61,6 +63,7 @@ export default async function ShopPage({
     on_sale,
     order,
     orderby,
+    attribute,
     attribute_term,
     stock_status,
     new_arrivals

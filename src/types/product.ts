@@ -32,6 +32,8 @@ export interface Product {
   purity?: string;
   finish?: string;
   stone?: string;
+  style?: string;
+  collection?: string;
   stockStatus?: 'instock' | 'outofstock' | 'onbackorder';
   stockQuantity?: number | null;
   averageRating?: string;
@@ -41,4 +43,16 @@ export interface Product {
   upsellIds?: number[];
   attributes?: { name: string; options: string[]; variation: boolean }[];
   variations?: ProductVariation[];
+  dateModified?: string;
+  /** WooCommerce-authored SEO overrides (Yoast-style meta_data), used to prefer
+   * editor-set metadata over frontend-generated fallbacks when present. */
+  seo?: {
+    title?: string;
+    metaDescription?: string;
+    focusKeyword?: string;
+    ogTitle?: string;
+    ogDescription?: string;
+    twitterTitle?: string;
+    twitterDescription?: string;
+  };
 }

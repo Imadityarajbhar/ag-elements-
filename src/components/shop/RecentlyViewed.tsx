@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { useViewedStore } from '@/store/viewedStore';
+import { useViewedStore, getActiveViewedIds } from '@/store/viewedStore';
 import { Product } from '@/types/product';
 import { ProductCarousel } from './ProductCarousel';
 
 export function RecentlyViewed({ currentProductId }: { currentProductId: number }) {
-  const { viewedIds, addProductView } = useViewedStore();
+  const { viewed, addProductView } = useViewedStore();
   const [products, setProducts] = useState<Product[]>([]);
   const [isMounted, setIsMounted] = useState(false);
 
@@ -21,11 +21,11 @@ export function RecentlyViewed({ currentProductId }: { currentProductId: number 
   useEffect(() => {
     if (!isMounted) return;
 
-    // Fetch the actual product data for the viewed IDs
+    // Fetch the actual product data for the viewed IDs (expired entries already excluded)
     async function fetchViewedProducts() {
       // Exclude current product from the display
-      const idsToFetch = viewedIds.filter(id => id !== currentProductId);
-      
+      const idsToFetch = getActiveViewedIds(viewed).filter(id => id !== currentProductId);
+
       if (idsToFetch.length === 0) {
         setProducts([]);
         return;
@@ -48,9 +48,9 @@ export function RecentlyViewed({ currentProductId }: { currentProductId: number 
     }
 
     fetchViewedProducts();
-  }, [viewedIds, currentProductId, isMounted]);
+  }, [viewed, currentProductId, isMounted]);
 
   if (!isMounted || products.length === 0) return null;
 
-  return <ProductCarousel title="Recently Viewed" products={products} />;
+  return <ProductCarousel title="Recently Viewed" products={products} analyticsSource="recently-viewed" />;
 }

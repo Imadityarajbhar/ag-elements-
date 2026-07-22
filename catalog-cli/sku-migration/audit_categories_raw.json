@@ -1,0 +1,588 @@
+[
+  {
+    "id": 15,
+    "name": "All Products",
+    "slug": "all-products",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": {
+      "id": 3125,
+      "date_created": "2025-12-05T11:27:41",
+      "date_created_gmt": "2025-12-05T11:27:41",
+      "date_modified": "2025-12-05T11:27:41",
+      "date_modified_gmt": "2025-12-05T11:27:41",
+      "src": "https://agelements.in/wp-content/uploads/2025/12/MensCubanNeckpiece.jpeg",
+      "name": "MensCubanNeckpiece",
+      "alt": ""
+    },
+    "menu_order": 0,
+    "count": 0,
+    "meta": {
+      "product_count_product_cat": [
+        "0"
+      ],
+      "thumbnail_id": [
+        "3125"
+      ],
+      "display_type": [
+        ""
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories/15",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories"
+        }
+      ]
+    }
+  },
+  {
+    "id": 547,
+    "name": "Anklets",
+    "slug": "anklets",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 0,
+    "count": 5,
+    "meta": {
+      "display_type": [
+        ""
+      ],
+      "product_count_product_cat": [
+        "5"
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories/547",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories"
+        }
+      ]
+    }
+  },
+  {
+    "id": 72,
+    "name": "Bangles",
+    "slug": "bangles",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": {
+      "id": 3294,
+      "date_created": "2025-12-11T07:51:20",
+      "date_created_gmt": "2025-12-11T07:51:20",
+      "date_modified": "2025-12-11T07:51:20",
+      "date_modified_gmt": "2025-12-11T07:51:20",
+      "src": "https://agelements.in/wp-content/uploads/2025/12/a3eecf44-ade8-409b-938a-048323e8128b.png",
+      "name": "a3eecf44-ade8-409b-938a-048323e8128b",
+      "alt": ""
+    },
+    "menu_order": 0,
+    "count": 1,
+    "meta": {
+      "order": [
+        "0"
+      ],
+      "thumbnail_id": [
+        "3294"
+      ],
+      "display_type": [
+        ""
+      ],
+      "product_count_product_cat": [
+        "1"
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories/72",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories"
+        }
+      ]
+    }
+  },
+  {
+    "id": 546,
+    "name": "Bracelets",
+    "slug": "bracelets",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 0,
+    "count": 24,
+    "meta": {
+      "display_type": [
+        ""
+      ],
+      "product_count_product_cat": [
+        "24"
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories/546",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories"
+        }
+      ]
+    }
+  },
+  {
+    "id": 67,
+    "name": "Earrings",
+    "slug": "earrings",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": {
+      "id": 1950,
+      "date_created": "2023-03-08T12:51:18",
+      "date_created_gmt": "2023-03-08T12:51:18",
+      "date_modified": "2023-03-08T12:51:18",
+      "date_modified_gmt": "2023-03-08T12:51:18",
+      "src": "https://agelements.in/wp-content/uploads/2023/03/3.jpeg",
+      "name": "3",
+      "alt": ""
+    },
+    "menu_order": 0,
+    "count": 22,
+    "meta": {
+      "order": [
+        "0"
+      ],
+      "thumbnail_id": [
+        "1950"
+      ],
+      "display_type": [
+        ""
+      ],
+      "product_count_product_cat": [
+        "22"
+      ],
+      "_wc_facebook_google_product_category": [
+        ""
+      ],
+      "_wc_facebook_enhanced_catalog_attributes___optional_selector": [
+        null
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories/67",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories"
+        }
+      ]
+    }
+  },
+  {
+    "id": 618,
+    "name": "Kada",
+    "slug": "kada",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 0,
+    "count": 2,
+    "meta": {
+      "display_type": [
+        ""
+      ],
+      "product_count_product_cat": [
+        "2"
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories/618",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories"
+        }
+      ]
+    }
+  },
+  {
+    "id": 616,
+    "name": "Mangalsutra",
+    "slug": "mangalsutra",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 0,
+    "count": 9,
+    "meta": {
+      "display_type": [
+        ""
+      ],
+      "product_count_product_cat": [
+        "9"
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories/616",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories"
+        }
+      ]
+    }
+  },
+  {
+    "id": 613,
+    "name": "Men's Bracelet",
+    "slug": "mens-bracelet",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 0,
+    "count": 1,
+    "meta": {
+      "display_type": [
+        ""
+      ],
+      "product_count_product_cat": [
+        "1"
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories/613",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories"
+        }
+      ]
+    }
+  },
+  {
+    "id": 589,
+    "name": "Men's Necklace",
+    "slug": "mens-necklace",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 0,
+    "count": 11,
+    "meta": {
+      "display_type": [
+        ""
+      ],
+      "product_count_product_cat": [
+        "11"
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories/589",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories"
+        }
+      ]
+    }
+  },
+  {
+    "id": 612,
+    "name": "Men's Ring",
+    "slug": "mens-ring",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 0,
+    "count": 9,
+    "meta": {
+      "display_type": [
+        ""
+      ],
+      "product_count_product_cat": [
+        "9"
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories/612",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories"
+        }
+      ]
+    }
+  },
+  {
+    "id": 609,
+    "name": "Necklaces",
+    "slug": "necklaces",
+    "parent": 0,
+    "description": "Discover premium 925 sterling silver necklaces crafted for elegance, everyday wear, celebrations, and special occasions. Explore minimalist chains, statement pendants, and timeless designs made with exceptional craftsmanship by AG Elements.",
+    "display": "default",
+    "image": {
+      "id": 4358,
+      "date_created": "2026-05-12T18:28:54",
+      "date_created_gmt": "2026-05-12T18:28:54",
+      "date_modified": "2026-05-12T18:28:54",
+      "date_modified_gmt": "2026-05-12T18:28:54",
+      "src": "https://agelements.in/wp-content/uploads/2026/05/Gemini_Generated_Image_6ayyvc6ayyvc6ayy.png",
+      "name": "Gemini_Generated_Image_6ayyvc6ayyvc6ayy",
+      "alt": ""
+    },
+    "menu_order": 0,
+    "count": 28,
+    "meta": {
+      "display_type": [
+        ""
+      ],
+      "product_count_product_cat": [
+        "28"
+      ],
+      "thumbnail_id": [
+        "4358"
+      ],
+      "_wc_facebook_google_product_category": [
+        ""
+      ],
+      "_wc_facebook_enhanced_catalog_attributes___optional_selector": [
+        null
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories/609",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories"
+        }
+      ]
+    }
+  },
+  {
+    "id": 615,
+    "name": "Payal",
+    "slug": "payal",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 0,
+    "count": 2,
+    "meta": {
+      "display_type": [
+        ""
+      ],
+      "product_count_product_cat": [
+        "2"
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories/615",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories"
+        }
+      ]
+    }
+  },
+  {
+    "id": 545,
+    "name": "Rings",
+    "slug": "rings",
+    "parent": 0,
+    "description": "",
+    "display": "default",
+    "image": null,
+    "menu_order": 0,
+    "count": 10,
+    "meta": {
+      "display_type": [
+        ""
+      ],
+      "product_count_product_cat": [
+        "10"
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories/545",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://agelements.in/wp-json/wc/v3/products/categories"
+        }
+      ]
+    }
+  }
+]

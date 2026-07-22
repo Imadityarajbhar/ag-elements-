@@ -4,6 +4,8 @@ import { Search } from 'lucide-react';
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { Input } from "@/components/ui/input";
+import { useDebounce } from "@/hooks/useDebounce";
+import { trackSearch, trackSortUse } from "@/lib/analytics";
 import {
   Select,
   SelectContent,
@@ -24,27 +26,30 @@ export function ShopToolbar({ totalCount }: ShopToolbarProps) {
   const currentSort = searchParams.get('sort') || 'default';
   const initialSearch = searchParams.get('search') || '';
   const [searchTerm, setSearchTerm] = useState(initialSearch);
+  const debouncedSearchTerm = useDebounce(searchTerm, 300);
 
-  // Debounced search
+  // Push the debounced search term to the URL once it settles
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const params = new URLSearchParams(searchParams.toString());
-      if (searchTerm.trim() !== '') {
-        params.set('search', searchTerm.trim());
-      } else {
-        params.delete('search');
-      }
-      // Only push if changed
-      if (params.get('search') !== searchParams.get('search')) {
-        params.set('page', '1');
-        router.push(pathname + "?" + params.toString(), { scroll: false });
-      }
-    }, 300);
-
-    return () => clearTimeout(timer);
-  }, [searchTerm, pathname, router, searchParams]);
+    const params = new URLSearchParams(searchParams.toString());
+    const trimmed = debouncedSearchTerm.trim();
+    if (trimmed !== '') {
+      params.set('search', trimmed);
+    } else {
+      params.delete('search');
+    }
+    // Only push if changed
+    if (params.get('search') !== searchParams.get('search')) {
+      params.set('page', '1');
+      router.push(pathname + "?" + params.toString(), { scroll: false });
+      // Note: totalCount here is still the pre-navigation count (the new result
+      // count isn't known until the server re-renders with the new search param).
+      if (trimmed) trackSearch(trimmed, totalCount);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedSearchTerm]);
 
   const handleSortChange = (value: string) => {
+    trackSortUse(value);
     const params = new URLSearchParams(searchParams.toString());
     
     // Clear old sort params
@@ -74,9 +79,11 @@ export function ShopToolbar({ totalCount }: ShopToolbarProps) {
         params.set('order', 'desc');
         break;
       case 'featured':
-        // WooCommerce has a generic 'featured' param, but orderby=popularity is often used.
-        // Or we can just leave it as default or popularity. 
         params.set('featured', 'true');
+        break;
+      case 'popularity':
+        params.set('orderby', 'popularity');
+        params.set('order', 'desc');
         break;
       default:
         params.delete('sort');
@@ -94,16 +101,18 @@ export function ShopToolbar({ totalCount }: ShopToolbarProps) {
 
   return (
     <div className="flex flex-col tablet:flex-row tablet:items-center justify-between gap-4 mb-6">
-      <div className="text-on-surface-variant font-body-md">
-        {totalCount === 0 
-          ? "No products found" 
+      <div className="text-on-surface-variant font-body-md" role="status" aria-live="polite">
+        {totalCount === 0
+          ? "No products found"
           : `Showing ${start}–${end} of ${totalCount} products`}
       </div>
 
       <div className="flex items-center gap-4">
         <div className="relative w-full tablet:w-64">
-          <Input 
-            placeholder="Search products..." 
+          <label htmlFor="shop-toolbar-search" className="sr-only">Search products</label>
+          <Input
+            id="shop-toolbar-search"
+            placeholder="Search products..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-9 h-10 w-full"
@@ -112,13 +121,14 @@ export function ShopToolbar({ totalCount }: ShopToolbarProps) {
         </div>
 
         <Select value={currentSort} onValueChange={(val: string | null) => val && handleSortChange(val)}>
-          <SelectTrigger className="w-[180px] h-10">
+          <SelectTrigger className="w-[180px] h-10" aria-label="Sort products">
             <SelectValue placeholder="Sort by" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="default">Default Sorting</SelectItem>
             <SelectItem value="featured">Featured</SelectItem>
             <SelectItem value="newest">Newest Arrivals</SelectItem>
+            <SelectItem value="popularity">Most Popular</SelectItem>
             <SelectItem value="price-asc">Price: Low to High</SelectItem>
             <SelectItem value="price-desc">Price: High to Low</SelectItem>
             <SelectItem value="name-asc">Name: A to Z</SelectItem>

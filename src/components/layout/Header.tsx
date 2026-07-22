@@ -73,9 +73,6 @@ export function Header() {
                   <Link href="/collections/bangles" className="px-4 py-2 hover:bg-surface-lavender hover:text-ag-purple text-[13px] font-medium transition-colors">
                     Bangles
                   </Link>
-                  <Link href="/collections/kada" className="px-4 py-2 hover:bg-surface-lavender hover:text-ag-purple text-[13px] font-medium transition-colors">
-                    Kada
-                  </Link>
                 </div>
               </div>
             </div>
@@ -86,14 +83,6 @@ export function Header() {
             
             <Link className="text-charcoal-navy hover:text-ag-purple transition-colors duration-300 relative group" href="/collections/rings">
               Rings
-            </Link>
-
-            <Link className="text-charcoal-navy hover:text-ag-purple transition-colors duration-300 relative group" href="/collections/mangalsutra">
-              Mangalsutra
-            </Link>
-
-            <Link className="text-charcoal-navy hover:text-ag-purple transition-colors duration-300 relative group" href="/collections/payal">
-              Payal
             </Link>
 
             {/* Men's Dropdown */}
@@ -115,10 +104,6 @@ export function Header() {
               </div>
             </div>
 
-            <Link className="text-charcoal-navy hover:text-ag-purple transition-colors duration-300 relative group" href="/collections/kids">
-              Kids
-            </Link>
-
             <Link className="text-ag-purple hover:text-charcoal-navy transition-colors duration-300 relative group font-bold" href="/gifting">
               Gifting
             </Link>
@@ -126,16 +111,16 @@ export function Header() {
           
           {/* Trailing Icons */}
           <div className="flex items-center gap-4 text-charcoal-navy">
-            <button onClick={openSearch} className="scale-95 hover:text-ag-purple transition-colors">
+            <button onClick={openSearch} aria-label="Search" className="scale-95 hover:text-ag-purple transition-colors">
               <Search  />
             </button>
-            <Link href={mounted && isAuthenticated ? "/account" : "/account/login"} className="hidden tablet:block scale-95 hover:text-ag-purple transition-colors relative">
+            <Link href={mounted && isAuthenticated ? "/account" : "/account/login"} aria-label={mounted && isAuthenticated ? "Account" : "Log in"} className="hidden tablet:block scale-95 hover:text-ag-purple transition-colors relative">
               <User  />
               {mounted && isAuthenticated && (
                 <span className="absolute -top-1 -right-1 flex h-3 w-3 items-center justify-center rounded-full bg-green-500 border-2 border-pearl-white"></span>
               )}
             </Link>
-            <Link href="/wishlist" className="scale-95 hover:text-ag-purple transition-colors relative flex items-center justify-center">
+            <Link href="/wishlist" aria-label="Wishlist" className="scale-95 hover:text-ag-purple transition-colors relative flex items-center justify-center">
               <Heart  />
               {mounted && wishlistItems.length > 0 && (
                 <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-ag-purple text-[9px] font-bold text-pearl-white">
@@ -159,13 +144,13 @@ export function Header() {
       
       {/* Mobile Bottom Navigation */}
       <nav className="fixed bottom-0 left-0 w-full z-50 bg-pearl-white/90 backdrop-blur-md border-t border-outline-variant/30 flex tablet:hidden justify-around items-center h-16 px-4 shadow-[0px_-4px_20px_rgba(35,33,58,0.05)]">
-        <Link className="flex flex-col items-center justify-center text-primary bg-secondary/30 rounded-full p-2" href="/">
+        <Link aria-label="Home" className="flex flex-col items-center justify-center text-primary bg-secondary/30 rounded-full p-2" href="/">
           <Home  />
         </Link>
-        <button onClick={openSearch} className="flex flex-col items-center justify-center text-on-surface-variant p-2">
+        <button onClick={openSearch} aria-label="Search" className="flex flex-col items-center justify-center text-on-surface-variant p-2">
           <Search  />
         </button>
-        <Link className="flex flex-col items-center justify-center text-on-surface-variant p-2 relative" href="/wishlist">
+        <Link aria-label="Wishlist" className="flex flex-col items-center justify-center text-on-surface-variant p-2 relative" href="/wishlist">
           <Heart  />
           {mounted && wishlistItems.length > 0 && (
             <span className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-ag-purple text-[9px] font-bold text-pearl-white">
@@ -173,7 +158,7 @@ export function Header() {
             </span>
           )}
         </Link>
-        <Link className="flex flex-col items-center justify-center text-on-surface-variant p-2 relative" href={mounted && isAuthenticated ? "/account" : "/account/login"}>
+        <Link aria-label={mounted && isAuthenticated ? "Account" : "Log in"} className="flex flex-col items-center justify-center text-on-surface-variant p-2 relative" href={mounted && isAuthenticated ? "/account" : "/account/login"}>
           <User  />
           {mounted && isAuthenticated && (
             <span className="absolute top-1 right-1 flex h-3 w-3 items-center justify-center rounded-full bg-green-500 border-2 border-pearl-white"></span>

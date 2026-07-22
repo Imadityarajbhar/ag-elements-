@@ -1,5 +1,6 @@
 import { BadgeCheck, Package, Truck, RefreshCw, ShieldCheck, MessageCircle } from 'lucide-react';
-import { getProductBySlug, getProducts, getProductsByIds, getRecommendations } from "@/services/products";
+import { getProductBySlug, getProducts, getProductsByIds, getRecommendations, getRelatedProducts, getTrendingProducts, getNewArrivals } from "@/services/products";
+import { COLLECTION_MAP } from "@/config/collections";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
@@ -21,6 +22,7 @@ const RecentlyViewed = dynamic(() => import("@/components/shop/RecentlyViewed").
 const StickyAddToCart = dynamic(() => import("@/components/shared/StickyAddToCart").then(m => m.StickyAddToCart));
 
 import { generateMetadata as getSeoMetadata } from "@/lib/seo/generateMetadata";
+import { buildProductSchema, buildBreadcrumbSchema } from "@/lib/seo/schema";
 
 interface PDPProps {
   params: {
@@ -31,12 +33,25 @@ interface PDPProps {
 export async function generateMetadata({ params }: PDPProps) {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
-  if (!product) return getSeoMetadata({ title: "Product Not Found" });
-  
+  // Resolving notFound() here (before the page component streams) ensures the HTTP
+  // response status is committed as 404 before Next flushes this segment's loading.tsx
+  // shell. Deciding only inside the page component leaves the status stuck at 200,
+  // since by then the loading fallback has already been sent with a 200 status line.
+  if (!product) notFound();
+
+  const keywords = [
+    product.name,
+    product.material,
+    ...product.categories.map((c) => c.name),
+    product.seo?.focusKeyword,
+  ].filter((v): v is string => Boolean(v));
+
   return getSeoMetadata({
-    title: product.name,
-    description: product.description || `Buy ${product.name} at AG Elements.`,
+    title: product.seo?.title || product.name,
+    description: product.seo?.metaDescription || product.shortDescription || product.description || `Buy ${product.name} at AG Elements.`,
     image: product.images[0]?.src,
+    path: `/product/${product.slug}`,
+    keywords,
   });
 }
 
@@ -64,9 +79,12 @@ async function ReviewsSection({ productId, averageRating, ratingCount }: { produ
 }
 
 async function RecommendationsSection({ product }: { product: any }) {
+  // Related Products: same Collection > same Category > same Style > same Material
+  // > same Stone > fallback to newest (see getRelatedProducts), unless WooCommerce
+  // has explicit related_ids set for this product, which take precedence.
   const relatedPromise = product.relatedIds && product.relatedIds.length > 0
     ? getProductsByIds(product.relatedIds.slice(0, 8))
-    : getRecommendations(product, 8, 'material');
+    : getRelatedProducts(product, 8);
 
   const completePromise = product.crossSellIds && product.crossSellIds.length > 0
     ? getProductsByIds(product.crossSellIds.slice(0, 8))
@@ -76,14 +94,21 @@ async function RecommendationsSection({ product }: { product: any }) {
     ? getProductsByIds(product.upsellIds.slice(0, 8))
     : getRecommendations(product, 8, 'price');
 
-  const [relatedProducts, completeTheLook, customersAlsoBought] = await Promise.all([relatedPromise, completePromise, upsellPromise]);
+  const trendingPromise = getTrendingProducts(8);
+  const newArrivalsPromise = getNewArrivals(8);
+
+  const [relatedProducts, completeTheLook, customersAlsoBought, trending, newArrivals] = await Promise.all([
+    relatedPromise, completePromise, upsellPromise, trendingPromise, newArrivalsPromise,
+  ]);
 
   return (
     <div className="flex flex-col gap-8">
-      {relatedProducts.length > 0 && <ProductCarousel title="Related Products" products={relatedProducts} />}
-      {completeTheLook.length > 0 && <ProductCarousel title="Complete The Look" products={completeTheLook} />}
-      {customersAlsoBought.length > 0 && <ProductCarousel title="Customers Also Bought" products={customersAlsoBought} />}
-      
+      {relatedProducts.length > 0 && <ProductCarousel title="Related Products" products={relatedProducts} analyticsSource="related-products" />}
+      {completeTheLook.length > 0 && <ProductCarousel title="Complete The Look" products={completeTheLook} analyticsSource="complete-the-look" />}
+      {customersAlsoBought.length > 0 && <ProductCarousel title="Customers Also Bought" products={customersAlsoBought} analyticsSource="customers-also-bought" />}
+      {trending.length > 0 && <ProductCarousel title="Trending Now" products={trending} analyticsSource="trending-now" />}
+      {newArrivals.length > 0 && <ProductCarousel title="New Arrivals" products={newArrivals} analyticsSource="new-arrivals" />}
+
       {/* Client-side Recently Viewed */}
       <RecentlyViewed currentProductId={Number(product.id)} />
     </div>
@@ -102,60 +127,21 @@ async function RecommendationsSection({ product }: { product: any }) {
         { id: '3', url: mainImage, alt: product.name },
       ];
 
-  const categoryName = product.categories[0]?.name || "Jewelry";
+  // Only breadcrumb-link to a category that actually has a live collection page —
+  // product.categories[0] can be any WooCommerce term (e.g. "Everyday", "Office")
+  // that isn't a navigable frontend collection.
+  const linkedCategory = product.categories.find((c) => COLLECTION_MAP[c.slug] !== undefined);
+  const categoryName = linkedCategory?.name || product.categories[0]?.name || "Jewelry";
+  const categoryHref = linkedCategory ? `/collections/${linkedCategory.slug}` : '/shop';
 
-  const productUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://agelements.example.com'}/product/${product.slug}`;
-
-  // JSON-LD Schema (Product + Reviews)
-  const productSchema = {
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    "name": product.name,
-    "image": [mainImage],
-    "description": product.shortDescription || product.description?.replace(/<[^>]+>/g, ''),
-    "sku": product.sku,
-    "offers": {
-      "@type": "Offer",
-      "url": productUrl,
-      "priceCurrency": "INR",
-      "price": product.price,
-      "itemCondition": "https://schema.org/NewCondition",
-      "availability": product.stockStatus === 'outofstock' ? "https://schema.org/OutOfStock" : "https://schema.org/InStock"
-    },
-    ...(product.averageRating && product.ratingCount && product.ratingCount > 0 ? {
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": product.averageRating,
-        "reviewCount": product.ratingCount
-      }
-    } : {})
-  };
-
-  // Breadcrumb Schema
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://agelements.example.com'}/`
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": categoryName,
-        "item": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://agelements.example.com'}/collections/${categoryName.toLowerCase()}`
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": product.name,
-        "item": productUrl
-      }
-    ]
-  };
+  // JSON-LD Schema (Product + Breadcrumb) — built from the shared, evidence-only
+  // schema helpers; never fabricates ratings, gtin, or fields WooCommerce doesn't provide.
+  const productSchema = buildProductSchema(product);
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: categoryName, path: categoryHref },
+    { name: product.name, path: `/product/${product.slug}` },
+  ]);
 
   return (
     <main className="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
@@ -173,7 +159,7 @@ async function RecommendationsSection({ product }: { product: any }) {
       <nav className="font-label-sm text-[12px] font-medium text-on-surface-variant flex items-center gap-2 mb-8 uppercase tracking-widest">
         <Link className="hover:text-primary transition-colors" href="/">Home</Link>
         <ChevronRight className="w-3.5 h-3.5" />
-        <Link className="hover:text-primary transition-colors" href={`/collections/${categoryName.toLowerCase()}`}>{categoryName}</Link>
+        <Link className="hover:text-primary transition-colors" href={categoryHref}>{categoryName}</Link>
         <ChevronRight className="w-3.5 h-3.5" />
         <span className="text-on-surface font-semibold">{product.name}</span>
       </nav>

@@ -82,6 +82,50 @@ export const trackAddToCart = (product: Product, quantity: number = 1) => {
 };
 
 /**
+ * Product discovery events (search/filter/sort/recommendations/collections).
+ * These are hooks only — no dedicated provider is wired up for them beyond the
+ * GA4 custom-event channel already present on this page (Phase 8 scope: prepare
+ * the call sites, not integrate a new analytics provider).
+ */
+export const trackSearch = (query: string, resultCount: number) => {
+  if (typeof window === "undefined") return;
+  if (window.gtag) {
+    window.gtag("event", "search", { search_term: query, result_count: resultCount });
+  }
+  if (window.fbq) {
+    window.fbq("track", "Search", { search_string: query });
+  }
+};
+
+export const trackFilterUse = (filterType: string, value: string) => {
+  if (typeof window === "undefined" || !window.gtag) return;
+  window.gtag("event", "filter_apply", { filter_type: filterType, filter_value: value });
+};
+
+export const trackFilterClear = () => {
+  if (typeof window === "undefined" || !window.gtag) return;
+  window.gtag("event", "filter_clear");
+};
+
+export const trackSortUse = (sortBy: string) => {
+  if (typeof window === "undefined" || !window.gtag) return;
+  window.gtag("event", "sort_apply", { sort_by: sortBy });
+};
+
+export const trackRecommendationClick = (source: string, product: Product) => {
+  if (typeof window === "undefined" || !window.gtag) return;
+  window.gtag("event", "select_item", {
+    item_list_name: source,
+    items: [{ item_id: product.id, item_name: product.name }],
+  });
+};
+
+export const trackCollectionClick = (slug: string, source: string) => {
+  if (typeof window === "undefined" || !window.gtag) return;
+  window.gtag("event", "collection_click", { collection_slug: slug, source });
+};
+
+/**
  * Enhanced Ecommerce: Purchase
  */
 export const trackPurchase = (orderId: string, value: number, items: Array<{ product: Product, quantity: number }>) => {

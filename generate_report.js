@@ -10,38 +10,65 @@ const ALLOWED_CATEGORIES = [
 ];
 
 function determineCategories(p) {
+  // Version 2 Categorization Engine
+  const CATEGORY_RULES = [
+    { category: "Earrings", patterns: [/earring(s)?/i] },
+    { category: "Toe Rings", patterns: [/toe\s+ring(s)?/i] },
+    { category: "Rings", patterns: [/\bring(s)?\b/i] },
+    { category: "Necklaces", patterns: [/\b(necklace|chain)(s)?\b/i] },
+    { category: "Pendants", patterns: [/\bpendant(s)?\b/i] },
+    { category: "Bangles", patterns: [/\bbangle(s)?\b/i] },
+    { category: "Bracelets", patterns: [/\bbracelet(s)?\b/i] },
+    { category: "Anklets", patterns: [/\b(anklet|payal)(s)?\b/i] }
+  ];
+
+  const COLLECTION_RULES = [
+    { category: "Office", patterns: [/\b(office|work|minimal|formal)\b/i] },
+    { category: "Party", patterns: [/\b(party|statement|bold)\b/i] },
+    { category: "Everyday", patterns: [/\b(everyday|daily)\b/i] },
+    { category: "Festive", patterns: [/\b(festive|wedding|bridal)\b/i] },
+    { category: "Gifts", patterns: [/\bgift(s)?\b/i] }
+  ];
+
   let cats = [];
-  const text = (p.name + " " + p.description + " " + p.short_description).toLowerCase();
+  const text = (p.name + " " + (p.description || "") + " " + (p.short_description || "")).toLowerCase();
   
-  const isMen = text.includes("men's") || p.attributes.some(a => a.name === 'Gender' && a.options.includes('Men')) && !text.includes('feminine') && !text.includes('women');
+  const hasMenAttr = p.attributes && p.attributes.some(a => a.name === 'Gender' && a.options.includes('Men'));
+  const isMen = (text.includes("men's") || /\bmens\b/i.test(text) || hasMenAttr) && !text.includes('feminine') && !text.includes('women');
   const isKids = text.includes("kids") || text.includes("children");
 
+  // Determine base jewelry type
+  let baseType = null;
+  for (const rule of CATEGORY_RULES) {
+    if (rule.patterns.some(regex => regex.test(text))) {
+      baseType = rule.category;
+      break; // Single primary category prevents duplicates like Women's + Men's Bracelet
+    }
+  }
+
   if (isMen) {
-    if (p.name.toLowerCase().includes('necklace') || p.name.toLowerCase().includes('chain')) cats.push("Men's Necklace");
-    else if (p.name.toLowerCase().includes('bracelet')) cats.push("Men's Bracelet");
-    else if (p.name.toLowerCase().includes('ring')) cats.push("Men's Ring");
+    if (baseType === "Necklaces" || baseType === "Pendants") cats.push("Men's Necklace");
+    else if (baseType === "Bracelets" || baseType === "Bangles") cats.push("Men's Bracelet");
+    else if (baseType === "Rings" || baseType === "Toe Rings") cats.push("Men's Ring");
     else cats.push("Men's Necklace"); // Default for men
   } else if (isKids) {
     cats.push("Kids Jewellery");
   } else {
-    if (p.name.toLowerCase().includes('necklace') || p.name.toLowerCase().includes('chain')) cats.push("Necklaces");
-    else if (p.name.toLowerCase().includes('ring')) cats.push("Rings");
-    else if (p.name.toLowerCase().includes('earring')) cats.push("Earrings");
-    else if (p.name.toLowerCase().includes('pendant')) cats.push("Pendants");
-    else if (p.name.toLowerCase().includes('bracelet')) cats.push("Bracelets");
-    else if (p.name.toLowerCase().includes('bangle')) cats.push("Bangles");
-    else if (p.name.toLowerCase().includes('anklet')) cats.push("Anklets");
-    else if (p.name.toLowerCase().includes('toe ring')) cats.push("Toe Rings");
+    if (baseType) {
+      cats.push(baseType);
+    }
   }
 
   // Collections based on text
-  if (text.includes('everyday') || text.includes('daily')) cats.push("Everyday");
-  if (text.includes('party')) cats.push("Party");
-  if (text.includes('office') || text.includes('formal') || text.includes('work')) cats.push("Office");
-  if (text.includes('festive') || text.includes('wedding')) cats.push("Festive");
-  if (text.includes('gift')) cats.push("Gifts");
+  for (const rule of COLLECTION_RULES) {
+    if (rule.patterns.some(regex => regex.test(text))) {
+      cats.push(rule.category);
+    }
+  }
 
-  return cats.length > 0 ? [...new Set(cats)] : ["Necklaces"]; // fallback
+  if (cats.length === 0) cats.push("Necklaces"); // safety fallback
+
+  return [...new Set(cats)];
 }
 
 function generateSEOTitle(name) {

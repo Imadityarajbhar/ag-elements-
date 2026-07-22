@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 export const metadata = generateMetadata({
   title: "About AG Elements | Our Heritage & Story",
   description: "Discover the legacy of AG Elements. Crafting timeless 925 sterling silver jewelry since 1954.",
+  path: "/about",
 });
 
 export default function AboutPage() {

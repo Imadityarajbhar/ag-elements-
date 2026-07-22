@@ -1,0 +1,603 @@
+{
+  "startedAt": "2026-07-22T08:31:22.201Z",
+  "processed": 118,
+  "updated": 118,
+  "skippedAlreadyHadSku": 0,
+  "skippedProductMissing": 0,
+  "collisions": 0,
+  "retries": 0,
+  "failures": [],
+  "updatedList": [
+    {
+      "id": 2986,
+      "name": "Women's Sterling Silver Pandora Bracelet",
+      "sku": "AGE-ANK-0001"
+    },
+    {
+      "id": 3055,
+      "name": "Sterling Silver Emerald Green Motif Anklet",
+      "sku": "AGE-ANK-0002"
+    },
+    {
+      "id": 3065,
+      "name": "Snake Chain Anklet",
+      "sku": "AGE-ANK-0003"
+    },
+    {
+      "id": 3183,
+      "name": "Fashion Frill Silver-Plated Anklet",
+      "sku": "AGE-ANK-0004"
+    },
+    {
+      "id": 3187,
+      "name": "Evil Eye Anklet",
+      "sku": "AGE-ANK-0005"
+    },
+    {
+      "id": 4159,
+      "name": "Elegant Twisted Rose Gold Bangle",
+      "sku": "AGE-BNG-0001"
+    },
+    {
+      "id": 3025,
+      "name": "Rose Gold Viper Bracelet",
+      "sku": "AGE-BRC-0001"
+    },
+    {
+      "id": 3030,
+      "name": "Vintage Platinum Cubic Zirconia Bracelet",
+      "sku": "AGE-BRC-0002"
+    },
+    {
+      "id": 3042,
+      "name": "Stone Studded Bracelet",
+      "sku": "AGE-BRC-0003"
+    },
+    {
+      "id": 3047,
+      "name": "Cuban Link Bracelet",
+      "sku": "AGE-BRC-0004"
+    },
+    {
+      "id": 3060,
+      "name": "Centurion Silver Bracelet",
+      "sku": "AGE-BRC-0005"
+    },
+    {
+      "id": 3070,
+      "name": "Silver Glamira Bracelet",
+      "sku": "AGE-BRC-0006"
+    },
+    {
+      "id": 3090,
+      "name": "Silver Bracelet",
+      "sku": "AGE-BRC-0007"
+    },
+    {
+      "id": 3102,
+      "name": "Rose Gold Crystal Bracelet",
+      "sku": "AGE-BRC-0008"
+    },
+    {
+      "id": 3140,
+      "name": "Luxurious Silver Multi Colored Gemstones Emerald Cut Bracelet",
+      "sku": "AGE-BRC-0009"
+    },
+    {
+      "id": 3198,
+      "name": "Cubic Zirconia Cuban Link Bracelet",
+      "sku": "AGE-BRC-0010"
+    },
+    {
+      "id": 4082,
+      "name": "Luxury Panther Designer Bracelet",
+      "sku": "AGE-BRC-0011"
+    },
+    {
+      "id": 4151,
+      "name": "Elegant Floral Crystal Open Bracelet",
+      "sku": "AGE-BRC-0012"
+    },
+    {
+      "id": 4153,
+      "name": "Classic Minimal Silver Open Cuff Bracelet",
+      "sku": "AGE-BRC-0013"
+    },
+    {
+      "id": 4155,
+      "name": "Cute Elephant Charm Adjustable Bracelet",
+      "sku": "AGE-BRC-0014"
+    },
+    {
+      "id": 4157,
+      "name": "Rose Gold Butterfly Crystal Bracelet",
+      "sku": "AGE-BRC-0015"
+    },
+    {
+      "id": 4161,
+      "name": "Elegant Sunflower Rose Gold Bracelet",
+      "sku": "AGE-BRC-0016"
+    },
+    {
+      "id": 4163,
+      "name": "Classic Crystal Tennis Bracelet",
+      "sku": "AGE-BRC-0017"
+    },
+    {
+      "id": 4168,
+      "name": "Classic Dual Bead Open Bracelet",
+      "sku": "AGE-BRC-0018"
+    },
+    {
+      "id": 4170,
+      "name": "Elegant Pink Designer Kada Bracelet",
+      "sku": "AGE-BRC-0019"
+    },
+    {
+      "id": 4172,
+      "name": "Luxury Tri-Tone Stretch Bracelet",
+      "sku": "AGE-BRC-0020"
+    },
+    {
+      "id": 4174,
+      "name": "Royal Tiger Designer Open Bracelet",
+      "sku": "AGE-BRC-0021"
+    },
+    {
+      "id": 4181,
+      "name": "Traditional Floral Stone Kada Bracelet",
+      "sku": "AGE-BRC-0022"
+    },
+    {
+      "id": 4194,
+      "name": "Luxury Panther Link Bracelet",
+      "sku": "AGE-BRC-0023"
+    },
+    {
+      "id": 4446,
+      "name": "Elegant Butterfly Crystal Bracelet",
+      "sku": "AGE-BRC-0024"
+    },
+    {
+      "id": 3214,
+      "name": "Cubic Zirconia Silver-Plated Dangle Drop Earrings",
+      "sku": "AGE-ERG-0001"
+    },
+    {
+      "id": 3220,
+      "name": "Chimes Green and Silver-Toned Floral Oxidized Drop Earrings",
+      "sku": "AGE-ERG-0002"
+    },
+    {
+      "id": 3227,
+      "name": "Gold-Plated Geometric Drop Earring",
+      "sku": "AGE-ERG-0003"
+    },
+    {
+      "id": 3233,
+      "name": "Silver-Toned Cubic Zirconia-Studded Ear Cuff Earrings",
+      "sku": "AGE-ERG-0004"
+    },
+    {
+      "id": 3641,
+      "name": "Clover Stud Earrings",
+      "sku": "AGE-ERG-0005"
+    },
+    {
+      "id": 3645,
+      "name": "Crystal Solitaire, Crystal Pavé Flower, and Black Enamel Flower Silver Stud Earrings",
+      "sku": "AGE-ERG-0006"
+    },
+    {
+      "id": 3648,
+      "name": "Floral Wheel Silver Stud Earrings",
+      "sku": "AGE-ERG-0007"
+    },
+    {
+      "id": 3721,
+      "name": "Silver Cubic Zirconia Heart Stud Earrings Set",
+      "sku": "AGE-ERG-0008"
+    },
+    {
+      "id": 3871,
+      "name": "Sterling Silver Stone Inlay Twist Frame Moreen Stud Post Earrings",
+      "sku": "AGE-ERG-0009"
+    },
+    {
+      "id": 3879,
+      "name": "Silver Wing Earrings",
+      "sku": "AGE-ERG-0010"
+    },
+    {
+      "id": 3885,
+      "name": "White Halo Princess Cut Black Stone Stud Earrings",
+      "sku": "AGE-ERG-0011"
+    },
+    {
+      "id": 3888,
+      "name": "Cubic Zirconia Classic Stud Earrings",
+      "sku": "AGE-ERG-0012"
+    },
+    {
+      "id": 3891,
+      "name": "Rose Night Earrings",
+      "sku": "AGE-ERG-0013"
+    },
+    {
+      "id": 3897,
+      "name": "Rose Gold T-Bar Stud Earrings",
+      "sku": "AGE-ERG-0014"
+    },
+    {
+      "id": 3902,
+      "name": "Cat Stud Earrings with Cubic Zirconia (CZ) Crystals",
+      "sku": "AGE-ERG-0015"
+    },
+    {
+      "id": 4196,
+      "name": "Cute Smiley Face Stud Earrings",
+      "sku": "AGE-ERG-0016"
+    },
+    {
+      "id": 4217,
+      "name": "Rose Gold Heart Minimal Stud Earrings",
+      "sku": "AGE-ERG-0017"
+    },
+    {
+      "id": 4219,
+      "name": "Classic Solitaire Crystal Stud Earrings",
+      "sku": "AGE-ERG-0018"
+    },
+    {
+      "id": 4221,
+      "name": "Vintage Oxidised Spiral Stud Earrings",
+      "sku": "AGE-ERG-0019"
+    },
+    {
+      "id": 4405,
+      "name": "Vintage Floral Oxidised Stud Earrings",
+      "sku": "AGE-ERG-0020"
+    },
+    {
+      "id": 4407,
+      "name": "Minimal Stripe Pattern Stud Earrings",
+      "sku": "AGE-ERG-0021"
+    },
+    {
+      "id": 4409,
+      "name": "Vintage Floral Oxidised Stud Earrings",
+      "sku": "AGE-ERG-0022"
+    },
+    {
+      "id": 3146,
+      "name": "Jay Shree Shyam Men's Oxidised Kada",
+      "sku": "AGE-KDA-0001"
+    },
+    {
+      "id": 3155,
+      "name": "Jay Shree Ram Men's Oxidised Kada",
+      "sku": "AGE-KDA-0002"
+    },
+    {
+      "id": 3133,
+      "name": "Men's Silver Bracelet",
+      "sku": "AGE-MBR-0001"
+    },
+    {
+      "id": 4075,
+      "name": "Elegant Solitaire Mangalsutra Necklace",
+      "sku": "AGE-MNG-0001"
+    },
+    {
+      "id": 4233,
+      "name": "Celeste Rose Gold Mangalsutra Pendant Necklace",
+      "sku": "AGE-MNG-0002"
+    },
+    {
+      "id": 4320,
+      "name": "Aurielle Rose Gold Plated Sterling Silver Mangalsutra",
+      "sku": "AGE-MNG-0003"
+    },
+    {
+      "id": 4334,
+      "name": "Starlisse Solitaire Sterling Silver Mangalsutra",
+      "sku": "AGE-MNG-0004"
+    },
+    {
+      "id": 4359,
+      "name": "Roselle Bloom Rose Gold Plated Sterling Silver Mangalsutra",
+      "sku": "AGE-MNG-0005"
+    },
+    {
+      "id": 4364,
+      "name": "Aurora Glow Rose Gold Sterling Silver Mangalsutra",
+      "sku": "AGE-MNG-0006"
+    },
+    {
+      "id": 4369,
+      "name": "Butterfly Bliss Gold Plated Sterling Silver Mangalsutra",
+      "sku": "AGE-MNG-0007"
+    },
+    {
+      "id": 4374,
+      "name": "Midnight Charm Sterling Silver Mangalsutra",
+      "sku": "AGE-MNG-0008"
+    },
+    {
+      "id": 4379,
+      "name": "Ruby Royale Sterling Silver Mangalsutra",
+      "sku": "AGE-MNG-0009"
+    },
+    {
+      "id": 3077,
+      "name": "Elegant Silver Necklace Set",
+      "sku": "AGE-NCK-0001"
+    },
+    {
+      "id": 3083,
+      "name": "Silver-Plated Choker Style Necklace Set",
+      "sku": "AGE-NCK-0002"
+    },
+    {
+      "id": 3095,
+      "name": "Rudraksha Mala",
+      "sku": "AGE-NCK-0003"
+    },
+    {
+      "id": 3109,
+      "name": "Pure Silver Strip Chain",
+      "sku": "AGE-NCK-0004"
+    },
+    {
+      "id": 3115,
+      "name": "Oxidized Silver Herringbone Chain",
+      "sku": "AGE-NCK-0005"
+    },
+    {
+      "id": 3121,
+      "name": "Men's Cuban Neckpiece",
+      "sku": "AGE-NCK-0006"
+    },
+    {
+      "id": 3162,
+      "name": "Infinity Link Men's Chain",
+      "sku": "AGE-NCK-0007"
+    },
+    {
+      "id": 3205,
+      "name": "Zirconia Silver Necklace Set",
+      "sku": "AGE-NCK-0008"
+    },
+    {
+      "id": 3636,
+      "name": "Minimal Cube Crystal Silver Chain Necklace",
+      "sku": "AGE-NCK-0009"
+    },
+    {
+      "id": 3652,
+      "name": "Silver & Gold Accent Cross Chain",
+      "sku": "AGE-NCK-0010"
+    },
+    {
+      "id": 3656,
+      "name": "& Symbol Rose Gold Chain Necklace",
+      "sku": "AGE-NCK-0011"
+    },
+    {
+      "id": 3661,
+      "name": "Sterling Silver Heart and Key Necklace",
+      "sku": "AGE-NCK-0012"
+    },
+    {
+      "id": 3670,
+      "name": "Sterling Silver Rose Gold Double Chain Necklace for Women",
+      "sku": "AGE-NCK-0013"
+    },
+    {
+      "id": 3674,
+      "name": "Sterling Silver Crystals Necklace",
+      "sku": "AGE-NCK-0014"
+    },
+    {
+      "id": 3678,
+      "name": "Silver Necklace with Multiple Heart-Shaped Charms",
+      "sku": "AGE-NCK-0015"
+    },
+    {
+      "id": 3683,
+      "name": "Crystal Halo Pendant Necklace",
+      "sku": "AGE-NCK-0016"
+    },
+    {
+      "id": 3688,
+      "name": "Silver Heart Pendant Necklace",
+      "sku": "AGE-NCK-0017"
+    },
+    {
+      "id": 3694,
+      "name": "Silver Chain Necklace with a Heart Pendant and Pearls",
+      "sku": "AGE-NCK-0018"
+    },
+    {
+      "id": 3699,
+      "name": "Silver LOVE Charms Necklace",
+      "sku": "AGE-NCK-0019"
+    },
+    {
+      "id": 3705,
+      "name": "Silver Double Layer Chain Necklace",
+      "sku": "AGE-NCK-0020"
+    },
+    {
+      "id": 3711,
+      "name": "Rose Gold Blue Stone Necklace",
+      "sku": "AGE-NCK-0021"
+    },
+    {
+      "id": 3716,
+      "name": "Avon Opulent Pearl Glow Silver Necklace",
+      "sku": "AGE-NCK-0022"
+    },
+    {
+      "id": 3854,
+      "name": "Rose Gold Butterfly Lariat Necklace",
+      "sku": "AGE-NCK-0023"
+    },
+    {
+      "id": 3860,
+      "name": "Golden Ocean Charm Necklace",
+      "sku": "AGE-NCK-0024"
+    },
+    {
+      "id": 3869,
+      "name": "Rose Gold Crystal Necklace",
+      "sku": "AGE-NCK-0025"
+    },
+    {
+      "id": 4239,
+      "name": "Classic Silver Ball Chain Necklace",
+      "sku": "AGE-NCK-0026"
+    },
+    {
+      "id": 4314,
+      "name": "Minimal Silver Box Chain Necklace",
+      "sku": "AGE-NCK-0027"
+    },
+    {
+      "id": 4316,
+      "name": "Classic Silver Cable Chain Necklace",
+      "sku": "AGE-NCK-0028"
+    },
+    {
+      "id": 4318,
+      "name": "Modern Silver Link Chain Necklace",
+      "sku": "AGE-NCK-0029"
+    },
+    {
+      "id": 4325,
+      "name": "Elegant Triple Layer Gold Chain Necklace",
+      "sku": "AGE-NCK-0030"
+    },
+    {
+      "id": 4328,
+      "name": "925 Sterling Silver Gold Cuban Link Chain Necklace",
+      "sku": "AGE-NCK-0031"
+    },
+    {
+      "id": 4330,
+      "name": "Elegant Textured Silver Chain Necklace",
+      "sku": "AGE-NCK-0032"
+    },
+    {
+      "id": 4333,
+      "name": "Classic Silver Figaro Chain Necklace",
+      "sku": "AGE-NCK-0033"
+    },
+    {
+      "id": 4336,
+      "name": "Minimal Silver Oval Link Chain Necklace",
+      "sku": "AGE-NCK-0034"
+    },
+    {
+      "id": 4342,
+      "name": "Bold Silver Double Link Chain Necklace",
+      "sku": "AGE-NCK-0035"
+    },
+    {
+      "id": 4344,
+      "name": "Classic Gold Rope Chain Necklace",
+      "sku": "AGE-NCK-0036"
+    },
+    {
+      "id": 4346,
+      "name": "Modern Silver Bar Link Chain Necklace",
+      "sku": "AGE-NCK-0037"
+    },
+    {
+      "id": 4348,
+      "name": "Elegant Two-Tone Bar Link Chain Necklace",
+      "sku": "AGE-NCK-0038"
+    },
+    {
+      "id": 4350,
+      "name": "Classic Silver Curb Chain Necklace",
+      "sku": "AGE-NCK-0039"
+    },
+    {
+      "id": 4352,
+      "name": "Elegant Gold Pearl Station Necklace",
+      "sku": "AGE-NCK-0040"
+    },
+    {
+      "id": 4354,
+      "name": "Luxury Tri-Tone Crystal Bead Necklace",
+      "sku": "AGE-NCK-0041"
+    },
+    {
+      "id": 4356,
+      "name": "Premium Silver Mesh Chain Necklace",
+      "sku": "AGE-NCK-0042"
+    },
+    {
+      "id": 3035,
+      "name": "Black Metal Oxidised Silver Payal",
+      "sku": "AGE-PYL-0001"
+    },
+    {
+      "id": 3128,
+      "name": "Oxidised Payal",
+      "sku": "AGE-PYL-0002"
+    },
+    {
+      "id": 3632,
+      "name": "Solitaire Ring with Accent Stones",
+      "sku": "AGE-RNG-0001"
+    },
+    {
+      "id": 3724,
+      "name": "Silver Black Enamel Stacking Ring",
+      "sku": "AGE-RNG-0002"
+    },
+    {
+      "id": 3730,
+      "name": "Solitaire Ring",
+      "sku": "AGE-RNG-0003"
+    },
+    {
+      "id": 3731,
+      "name": "Solitaire Ring with Accent Stones",
+      "sku": "AGE-RNG-0004"
+    },
+    {
+      "id": 3755,
+      "name": "Blue Stone Silver Ring",
+      "sku": "AGE-RNG-0005"
+    },
+    {
+      "id": 3760,
+      "name": "Silver Bubble Ring",
+      "sku": "AGE-RNG-0006"
+    },
+    {
+      "id": 3906,
+      "name": "Silver Half Eternity Ring",
+      "sku": "AGE-RNG-0007"
+    },
+    {
+      "id": 3912,
+      "name": "Silver Cross Ring",
+      "sku": "AGE-RNG-0008"
+    },
+    {
+      "id": 3916,
+      "name": "Silver Wave Ring",
+      "sku": "AGE-RNG-0009"
+    },
+    {
+      "id": 3919,
+      "name": "Silver Crown Ring",
+      "sku": "AGE-RNG-0010"
+    }
+  ],
+  "finishedAt": "2026-07-22T08:34:19.149Z"
+}

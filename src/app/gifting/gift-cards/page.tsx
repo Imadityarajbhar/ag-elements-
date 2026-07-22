@@ -35,10 +35,12 @@ export default function GiftCardPage() {
           {/* Left: Gift Card Visuals */}
           <div className="sticky top-24 space-y-6">
             <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden relative shadow-2xl bg-surface-variant">
-              <img 
+              <Image
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPPmdoIQY2dETKqp7gluGbmwPtyZS53-eQzFIoxDSeP1q85Dvcad4wjxKdr-gx6ECF2EKloDg3EF5RCnLD_iuqGIZFp6BbCDmKUy8Wh2cqeJ_qpFZGTS6M7uePf76pYT2HzIfM3srVgganSFtYqBn2EI4eafaR2bMfmLWIZlz_QJoK9DNtfgyll3TzG6jztpTXiGbIt92nmH0F4UQHG1L0cs3KRYhMcGWcnX8tGjcjLErESEEWo6qeHQ"
                 alt="AG Elements Digital Gift Card"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-charcoal-navy/20"></div>
               <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end">

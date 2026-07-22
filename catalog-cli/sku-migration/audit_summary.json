@@ -1,0 +1,126 @@
+{
+  "generatedAt": "2026-07-22T08:34:36.737Z",
+  "totalProducts": 118,
+  "publish": 114,
+  "draft": 4,
+  "privateStatus": 0,
+  "pending": 0,
+  "hidden": 0,
+  "variableProducts": 0,
+  "totalVariations": 0,
+  "totalEntities": 118,
+  "withSku": 118,
+  "withoutSku": 0,
+  "entitiesWithSku": 118,
+  "entitiesBlankSku": 0,
+  "nullSku": 0,
+  "emptyStringSku": 0,
+  "whitespaceOnlySku": 0,
+  "malformedWhitespace": 0,
+  "exactDuplicateGroups": 0,
+  "exactDuplicates": [],
+  "caseInsensitiveDuplicateGroups": 0,
+  "unmappedCategoryCount": 14,
+  "ambiguousCategoryCount": 0,
+  "ambiguousProducts": [],
+  "unmappedProducts": [
+    {
+      "id": 4239,
+      "name": "Classic Silver Ball Chain Necklace",
+      "categories": [
+        "Men's Necklace"
+      ]
+    },
+    {
+      "id": 4314,
+      "name": "Minimal Silver Box Chain Necklace",
+      "categories": [
+        "Men's Necklace"
+      ]
+    },
+    {
+      "id": 4316,
+      "name": "Classic Silver Cable Chain Necklace",
+      "categories": [
+        "Men's Necklace"
+      ]
+    },
+    {
+      "id": 4318,
+      "name": "Modern Silver Link Chain Necklace",
+      "categories": [
+        "Men's Necklace"
+      ]
+    },
+    {
+      "id": 4325,
+      "name": "Elegant Triple Layer Gold Chain Necklace",
+      "categories": [
+        "Men's Necklace"
+      ]
+    },
+    {
+      "id": 4328,
+      "name": "925 Sterling Silver Gold Cuban Link Chain Necklace",
+      "categories": [
+        "Men's Necklace"
+      ]
+    },
+    {
+      "id": 4330,
+      "name": "Elegant Textured Silver Chain Necklace",
+      "categories": [
+        "Men's Necklace"
+      ]
+    },
+    {
+      "id": 4333,
+      "name": "Classic Silver Figaro Chain Necklace",
+      "categories": [
+        "Men's Necklace"
+      ]
+    },
+    {
+      "id": 4336,
+      "name": "Minimal Silver Oval Link Chain Necklace",
+      "categories": [
+        "Men's Necklace"
+      ]
+    },
+    {
+      "id": 4342,
+      "name": "Bold Silver Double Link Chain Necklace",
+      "categories": [
+        "Men's Necklace"
+      ]
+    },
+    {
+      "id": 4346,
+      "name": "Modern Silver Bar Link Chain Necklace",
+      "categories": [
+        "Men's Necklace"
+      ]
+    },
+    {
+      "id": 4348,
+      "name": "Elegant Two-Tone Bar Link Chain Necklace",
+      "categories": [
+        "Men's Necklace"
+      ]
+    },
+    {
+      "id": 4350,
+      "name": "Classic Silver Curb Chain Necklace",
+      "categories": [
+        "Men's Necklace"
+      ]
+    },
+    {
+      "id": 4356,
+      "name": "Premium Silver Mesh Chain Necklace",
+      "categories": [
+        "Men's Necklace"
+      ]
+    }
+  ]
+}

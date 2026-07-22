@@ -39,6 +39,7 @@ export interface WooCommerceProduct {
   slug: string;
   permalink: string;
   date_created: string;
+  date_modified: string;
   type: 'simple' | 'variable' | 'grouped' | 'external';
   status: 'draft' | 'pending' | 'private' | 'publish';
   featured: boolean;

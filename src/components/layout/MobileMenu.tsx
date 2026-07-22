@@ -10,14 +10,10 @@ const NAV_LINKS = [
   { href: '/collections/necklaces', label: 'Necklaces' },
   { href: '/collections/bracelets', label: 'Bracelets' },
   { href: '/collections/earrings', label: 'Earrings' },
-  { href: '/collections/kada', label: 'Kada' },
-  { href: '/collections/mangalsutra', label: 'Mangalsutra' },
   { href: '/collections/rings', label: 'Rings' },
-  { href: '/collections/payal', label: 'Payal' },
   { href: '/collections/mens-bracelet', label: "Men's Bracelet" },
   { href: '/collections/mens-necklace', label: "Men's Necklace" },
   { href: '/collections/bangles', label: 'Bangles' },
-  { href: '/collections/kids', label: 'Kids Collection' },
   { href: '/gifting', label: 'Gifting' },
 ];
 

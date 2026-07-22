@@ -5,6 +5,7 @@ import Link from "next/link";
 export const metadata = generateMetadata({
   title: "Store Locator | AG Elements",
   description: "Find AG Elements stores and studios near you.",
+  path: "/store-locator",
 });
 
 export default function StoreLocatorPage() {

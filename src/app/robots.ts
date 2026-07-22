@@ -1,14 +1,13 @@
 import { MetadataRoute } from 'next';
+import { siteConfig } from '@/lib/seo/site';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://agelements.example.com';
-
   return {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/account', '/checkout', '/cart', '/api'],
+      disallow: ['/account', '/checkout', '/cart', '/api', '/favorites', '/track-order'],
     },
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: `${siteConfig.url}/sitemap.xml`,
   };
 }

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 export const metadata = generateMetadata({
   title: "Frequently Asked Questions | AG Elements",
   description: "Find answers to common questions about AG Elements' shipping, returns, silver care, and more.",
+  path: "/faq",
 });
 
 export default function FAQPage() {

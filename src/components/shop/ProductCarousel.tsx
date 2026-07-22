@@ -1,14 +1,19 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
 import { Product } from '@/types/product';
 import Image from 'next/image';
+import { trackRecommendationClick } from '@/lib/analytics';
 
 interface ProductCarouselProps {
   title: string;
   products: Product[];
+  /** Identifies which recommendation rail this is, for analytics (e.g. "related-products", "trending"). */
+  analyticsSource?: string;
 }
 
-export function ProductCarousel({ title, products }: ProductCarouselProps) {
+export function ProductCarousel({ title, products, analyticsSource }: ProductCarouselProps) {
   if (!products || products.length === 0) return null;
 
   return (
@@ -17,7 +22,10 @@ export function ProductCarousel({ title, products }: ProductCarouselProps) {
       <div className="flex gap-6 overflow-x-auto hide-scrollbar snap-x pb-8 px-4 md:px-0">
         {products.map((product) => (
           <div key={product.id} className="snap-start min-w-[260px] md:min-w-[280px] flex-shrink-0 group cursor-pointer flex flex-col">
-            <Link href={`/product/${product.slug}`}>
+            <Link
+              href={`/product/${product.slug}`}
+              onClick={() => analyticsSource && trackRecommendationClick(analyticsSource, product)}
+            >
               <div className="aspect-[4/5] bg-surface-lavender rounded-xl overflow-hidden mb-4 relative shadow-[0px_4px_20px_rgba(35,33,58,0.05)]">
                 <Image 
                   fill

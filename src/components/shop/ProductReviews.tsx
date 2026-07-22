@@ -16,7 +16,7 @@ function StarRating({ rating }: { rating: number }) {
   return (
     <div className="flex text-primary">
       {Array.from({ length: 5 }).map((_, i) => (
-        <Star className="text-[18px]" />
+        <Star key={i} className="text-[18px]" />
       ))}
     </div>
   );

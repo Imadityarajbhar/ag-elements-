@@ -1,16 +1,21 @@
+import { SHOP_FILTERS } from './shop-filters';
+
+const weddingOccasionTerm = SHOP_FILTERS.attributes.pa_occasion.terms.wedding;
+const everydayOccasionTerm = SHOP_FILTERS.attributes.pa_occasion.terms.everyday;
+
 export const HOMEPAGE_LINKS = {
   hero: {
     shopCollection: '/shop',
-    exploreBridal: '/collections/bridal',
+    exploreBridal: `/shop?pa_occasion=${weddingOccasionTerm}`,
   },
   carousels: {
-    bestSellers: '/collections/best-sellers', 
-    trending: '/collections/trending',
-    customerFavorites: '/collections/favorites',
+    bestSellers: '/shop',
+    trending: '/shop',
+    customerFavorites: '/shop',
   },
   editorial: {
-    bridalEdit: '/collections/bridal',
-    everydayStacking: '/collections/everyday-stacking',
+    bridalEdit: `/shop?pa_occasion=${weddingOccasionTerm}`,
+    everydayStacking: `/shop?pa_occasion=${everydayOccasionTerm}`,
     aboutStory: '/about',
   },
   categories: {

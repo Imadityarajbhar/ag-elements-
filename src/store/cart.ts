@@ -13,7 +13,7 @@ interface CartState {
   
   // Actions to interact with remote cart
   fetchCart: () => Promise<ApiResult<void>>;
-  addItem: (productId: number, quantity: number, variation?: Array<{attribute: string, value: string}>) => Promise<ApiResult<void>>;
+  addItem: (productId: number, quantity: number, variation?: Array<{attribute: string, value: string}>, openDrawer?: boolean) => Promise<ApiResult<void>>;
   updateItem: (key: string, quantity: number) => Promise<ApiResult<void>>;
   removeItem: (key: string) => Promise<ApiResult<void>>;
   applyCoupon: (code: string) => Promise<ApiResult<void>>;
@@ -51,7 +51,7 @@ export const useCartStore = create<CartState>()(
         }
       },
       
-      addItem: async (productId, quantity, variation) => {
+      addItem: async (productId, quantity, variation, openDrawer = true) => {
         set({ isSyncing: true });
         try {
           const res = await fetch('/api/cart', {
@@ -65,7 +65,11 @@ export const useCartStore = create<CartState>()(
           });
           if (res.ok) {
             const data = await res.json();
-            set({ cart: data, isOpen: true }); // Open drawer on success
+            if (openDrawer) {
+              set({ cart: data, isOpen: true }); // Open drawer on success
+            } else {
+              set({ cart: data }); // Just update cart data
+            }
             return { success: true, data: undefined };
           } else {
             const err = await res.json();

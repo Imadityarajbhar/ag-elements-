@@ -1,0 +1,1546 @@
+[
+  {
+    "kind": "simple",
+    "id": 2986,
+    "parent_id": null,
+    "name": "Women's Sterling Silver Pandora Bracelet",
+    "slug": "women-s-sterling-silver-pandora-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ANK-0001",
+    "categories": [
+      "Anklets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3025,
+    "parent_id": null,
+    "name": "Rose Gold Viper Bracelet",
+    "slug": "rose-gold-viper-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0001",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3030,
+    "parent_id": null,
+    "name": "Vintage Platinum Cubic Zirconia Bracelet",
+    "slug": "vintage-platinum-cubic-zirconia-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0002",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3035,
+    "parent_id": null,
+    "name": "Black Metal Oxidised Silver Payal",
+    "slug": "black-metal-oxidised-silver-payal",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-PYL-0001",
+    "categories": [
+      "Payal"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3042,
+    "parent_id": null,
+    "name": "Stone Studded Bracelet",
+    "slug": "stone-studded-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0003",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3047,
+    "parent_id": null,
+    "name": "Cuban Link Bracelet",
+    "slug": "cuban-link-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0004",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3055,
+    "parent_id": null,
+    "name": "Sterling Silver Emerald Green Motif Anklet",
+    "slug": "sterling-silver-emerald-green-motif-anklet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ANK-0002",
+    "categories": [
+      "Anklets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3060,
+    "parent_id": null,
+    "name": "Centurion Silver Bracelet",
+    "slug": "centurion-silver-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0005",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3065,
+    "parent_id": null,
+    "name": "Snake Chain Anklet",
+    "slug": "snake-chain-anklet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ANK-0003",
+    "categories": [
+      "Anklets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3070,
+    "parent_id": null,
+    "name": "Silver Glamira Bracelet",
+    "slug": "silver-glamira-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0006",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3077,
+    "parent_id": null,
+    "name": "Elegant Silver Necklace Set",
+    "slug": "elegant-silver-necklace-set",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0001",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3083,
+    "parent_id": null,
+    "name": "Silver-Plated Choker Style Necklace Set",
+    "slug": "silver-plated-choker-style-necklace-set",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0002",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3090,
+    "parent_id": null,
+    "name": "Silver Bracelet",
+    "slug": "silver-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0007",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3095,
+    "parent_id": null,
+    "name": "Rudraksha Mala",
+    "slug": "rudraksha-mala",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0003",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3102,
+    "parent_id": null,
+    "name": "Rose Gold Crystal Bracelet",
+    "slug": "rose-gold-crystal-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0008",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3109,
+    "parent_id": null,
+    "name": "Pure Silver Strip Chain",
+    "slug": "pure-silver-strip-chain",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0004",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3115,
+    "parent_id": null,
+    "name": "Oxidized Silver Herringbone Chain",
+    "slug": "oxidized-silver-herringbone-chain",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0005",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3121,
+    "parent_id": null,
+    "name": "Men's Cuban Neckpiece",
+    "slug": "mens-cuban-neckpiece",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0006",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3128,
+    "parent_id": null,
+    "name": "Oxidised Payal",
+    "slug": "oxidised-payal",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-PYL-0002",
+    "categories": [
+      "Payal"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3133,
+    "parent_id": null,
+    "name": "Men's Silver Bracelet",
+    "slug": "men-s-silver-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-MBR-0001",
+    "categories": [
+      "Men's Bracelet"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3140,
+    "parent_id": null,
+    "name": "Luxurious Silver Multi Colored Gemstones Emerald Cut Bracelet",
+    "slug": "luxurious-silver-multi-colored-gemstones-emerald-cut-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0009",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3146,
+    "parent_id": null,
+    "name": "Jay Shree Shyam Men's Oxidised Kada",
+    "slug": "jay-shree-shyam-menss-oxidised-kada",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-KDA-0001",
+    "categories": [
+      "Kada"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3155,
+    "parent_id": null,
+    "name": "Jay Shree Ram Men's Oxidised Kada",
+    "slug": "jay-shree-ram-mens-s-oxidised-kada",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-KDA-0002",
+    "categories": [
+      "Kada"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3162,
+    "parent_id": null,
+    "name": "Infinity Link Men's Chain",
+    "slug": "infinity-link-mens-chain",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0007",
+    "categories": [
+      "Men's Necklace",
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3183,
+    "parent_id": null,
+    "name": "Fashion Frill Silver-Plated Anklet",
+    "slug": "fashion-frill-silver-plated-anklet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ANK-0004",
+    "categories": [
+      "Anklets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3187,
+    "parent_id": null,
+    "name": "Evil Eye Anklet",
+    "slug": "evil-eye-anklet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ANK-0005",
+    "categories": [
+      "Anklets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3198,
+    "parent_id": null,
+    "name": "Cubic Zirconia Cuban Link Bracelet",
+    "slug": "cubic-zirconia-cuban-link-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0010",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3205,
+    "parent_id": null,
+    "name": "Zirconia Silver Necklace Set",
+    "slug": "zirconia-silver-necklace-set",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0008",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3214,
+    "parent_id": null,
+    "name": "Cubic Zirconia Silver-Plated Dangle Drop Earrings",
+    "slug": "cubic-zirconia-silver-plated-dangle-drop-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0001",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3220,
+    "parent_id": null,
+    "name": "Chimes Green and Silver-Toned Floral Oxidized Drop Earrings",
+    "slug": "chimes-green-and-silver-toned-floral-oxidized-drop-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0002",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3227,
+    "parent_id": null,
+    "name": "Gold-Plated Geometric Drop Earring",
+    "slug": "gold-plated-geometric-drop-earring",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0003",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3233,
+    "parent_id": null,
+    "name": "Silver-Toned Cubic Zirconia-Studded Ear Cuff Earrings",
+    "slug": "silver-toned-cubic-zirconia-studded-ear-cuff-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0004",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3632,
+    "parent_id": null,
+    "name": "Solitaire Ring with Accent Stones",
+    "slug": "solitaire-ring-with-accent-stones",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-RNG-0001",
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3636,
+    "parent_id": null,
+    "name": "Minimal Cube Crystal Silver Chain Necklace",
+    "slug": "minimal-cube-crystal-silver-chain-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0009",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3641,
+    "parent_id": null,
+    "name": "Clover Stud Earrings",
+    "slug": "clover-stud-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0005",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3645,
+    "parent_id": null,
+    "name": "Crystal Solitaire, Crystal Pavé Flower, and Black Enamel Flower Silver Stud Earrings",
+    "slug": "crystal-solitaire-crystal-pav-flower-and-black-enamel-flower-silver-stud-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0006",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3648,
+    "parent_id": null,
+    "name": "Floral Wheel Silver Stud Earrings",
+    "slug": "floral-wheel-silver-stud-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0007",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3652,
+    "parent_id": null,
+    "name": "Silver & Gold Accent Cross Chain",
+    "slug": "silver-gold-accent-cross-chain",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0010",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3656,
+    "parent_id": null,
+    "name": "& Symbol Rose Gold Chain Necklace",
+    "slug": "symbol-rose-gold-chain-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0011",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3661,
+    "parent_id": null,
+    "name": "Sterling Silver Heart and Key Necklace",
+    "slug": "sterling-silver-heart-and-key-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0012",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3670,
+    "parent_id": null,
+    "name": "Sterling Silver Rose Gold Double Chain Necklace for Women",
+    "slug": "sterling-silver-rose-gold-double-chain-necklace-for-women",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0013",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3674,
+    "parent_id": null,
+    "name": "Sterling Silver Crystals Necklace",
+    "slug": "sterling-silver-crystals-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0014",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3678,
+    "parent_id": null,
+    "name": "Silver Necklace with Multiple Heart-Shaped Charms",
+    "slug": "silver-necklace-with-multiple-heart-shaped-charms",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0015",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3683,
+    "parent_id": null,
+    "name": "Crystal Halo Pendant Necklace",
+    "slug": "crystal-halo-pendant-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0016",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3688,
+    "parent_id": null,
+    "name": "Silver Heart Pendant Necklace",
+    "slug": "silver-heart-pendant-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0017",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3694,
+    "parent_id": null,
+    "name": "Silver Chain Necklace with a Heart Pendant and Pearls",
+    "slug": "silver-chain-necklace-with-a-heart-pendant-and-pearls",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0018",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3699,
+    "parent_id": null,
+    "name": "Silver LOVE Charms Necklace",
+    "slug": "silver-love-charms-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0019",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3705,
+    "parent_id": null,
+    "name": "Silver Double Layer Chain Necklace",
+    "slug": "silver-double-layer-chain-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0020",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3711,
+    "parent_id": null,
+    "name": "Rose Gold Blue Stone Necklace",
+    "slug": "rose-gold-blue-stone-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0021",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3716,
+    "parent_id": null,
+    "name": "Avon Opulent Pearl Glow Silver Necklace",
+    "slug": "avon-opulent-pearl-glow-silver-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0022",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3721,
+    "parent_id": null,
+    "name": "Silver Cubic Zirconia Heart Stud Earrings Set",
+    "slug": "silver-cubic-zirconia-heart-stud-earrings-set",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0008",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3724,
+    "parent_id": null,
+    "name": "Silver Black Enamel Stacking Ring",
+    "slug": "silver-black-enamel-stacking-ring",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-RNG-0002",
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3730,
+    "parent_id": null,
+    "name": "Solitaire Ring",
+    "slug": "solitaire-ring",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-RNG-0003",
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3731,
+    "parent_id": null,
+    "name": "Solitaire Ring with Accent Stones",
+    "slug": "solitaire-ring-with-accent-stones-2",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-RNG-0004",
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3755,
+    "parent_id": null,
+    "name": "Blue Stone Silver Ring",
+    "slug": "blue-stone-silver-ring",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-RNG-0005",
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3760,
+    "parent_id": null,
+    "name": "Silver Bubble Ring",
+    "slug": "silver-bubble-ring",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-RNG-0006",
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3854,
+    "parent_id": null,
+    "name": "Rose Gold Butterfly Lariat Necklace",
+    "slug": "rose-gold-butterfly-lariat-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0023",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3860,
+    "parent_id": null,
+    "name": "Golden Ocean Charm Necklace",
+    "slug": "golden-ocean-charm-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0024",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3869,
+    "parent_id": null,
+    "name": "Rose Gold Crystal Necklace",
+    "slug": "rose-gold-crystal-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0025",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3871,
+    "parent_id": null,
+    "name": "Sterling Silver Stone Inlay Twist Frame Moreen Stud Post Earrings",
+    "slug": "sterling-silver-stone-inlay-twist-frame-moreen-stud-post-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0009",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3879,
+    "parent_id": null,
+    "name": "Silver Wing Earrings",
+    "slug": "silver-wing-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0010",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3885,
+    "parent_id": null,
+    "name": "White Halo Princess Cut Black Stone Stud Earrings",
+    "slug": "white-halo-princess-cut-black-stone-stud-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0011",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3888,
+    "parent_id": null,
+    "name": "Cubic Zirconia Classic Stud Earrings",
+    "slug": "cubic-zirconia-classic-stud-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0012",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3891,
+    "parent_id": null,
+    "name": "Rose Night Earrings",
+    "slug": "rose-night-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0013",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3897,
+    "parent_id": null,
+    "name": "Rose Gold T-Bar Stud Earrings",
+    "slug": "rose-gold-t-bar-stud-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0014",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3902,
+    "parent_id": null,
+    "name": "Cat Stud Earrings with Cubic Zirconia (CZ) Crystals",
+    "slug": "cat-stud-earrings-with-cubic-zirconia-cz-crystals",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0015",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3906,
+    "parent_id": null,
+    "name": "Silver Half Eternity Ring",
+    "slug": "silver-half-eternity-ring",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-RNG-0007",
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3912,
+    "parent_id": null,
+    "name": "Silver Cross Ring",
+    "slug": "silver-cross-ring",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-RNG-0008",
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3916,
+    "parent_id": null,
+    "name": "Silver Wave Ring",
+    "slug": "silver-wave-ring",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-RNG-0009",
+    "categories": [
+      "Men's Ring",
+      "Rings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 3919,
+    "parent_id": null,
+    "name": "Silver Crown Ring",
+    "slug": "silver-crown-ring",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-RNG-0010",
+    "categories": [
+      "Rings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4075,
+    "parent_id": null,
+    "name": "Elegant Solitaire Mangalsutra Necklace",
+    "slug": "elegant-solitaire-mangalsutra-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-MNG-0001",
+    "categories": [
+      "Mangalsutra"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4082,
+    "parent_id": null,
+    "name": "Luxury Panther Designer Bracelet",
+    "slug": "luxury-panther-designer-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0011",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4151,
+    "parent_id": null,
+    "name": "Elegant Floral Crystal Open Bracelet",
+    "slug": "elegant-floral-crystal-open-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0012",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4153,
+    "parent_id": null,
+    "name": "Classic Minimal Silver Open Cuff Bracelet",
+    "slug": "classic-minimal-silver-open-cuff-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0013",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4155,
+    "parent_id": null,
+    "name": "Cute Elephant Charm Adjustable Bracelet",
+    "slug": "cute-elephant-charm-adjustable-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0014",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4157,
+    "parent_id": null,
+    "name": "Rose Gold Butterfly Crystal Bracelet",
+    "slug": "rose-gold-butterfly-crystal-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0015",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4159,
+    "parent_id": null,
+    "name": "Elegant Twisted Rose Gold Bangle",
+    "slug": "elegant-twisted-rose-gold-bangle",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BNG-0001",
+    "categories": [
+      "Bangles"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4161,
+    "parent_id": null,
+    "name": "Elegant Sunflower Rose Gold Bracelet",
+    "slug": "elegant-sunflower-rose-gold-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0016",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4163,
+    "parent_id": null,
+    "name": "Classic Crystal Tennis Bracelet",
+    "slug": "classic-crystal-tennis-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0017",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4168,
+    "parent_id": null,
+    "name": "Classic Dual Bead Open Bracelet",
+    "slug": "classic-dual-bead-open-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0018",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4170,
+    "parent_id": null,
+    "name": "Elegant Pink Designer Kada Bracelet",
+    "slug": "elegant-pink-designer-kada-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0019",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4172,
+    "parent_id": null,
+    "name": "Luxury Tri-Tone Stretch Bracelet",
+    "slug": "luxury-tri-tone-stretch-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0020",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4174,
+    "parent_id": null,
+    "name": "Royal Tiger Designer Open Bracelet",
+    "slug": "royal-tiger-designer-open-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0021",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4181,
+    "parent_id": null,
+    "name": "Traditional Floral Stone Kada Bracelet",
+    "slug": "traditional-floral-stone-kada-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0022",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4194,
+    "parent_id": null,
+    "name": "Luxury Panther Link Bracelet",
+    "slug": "luxury-panther-link-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0023",
+    "categories": [
+      "Bracelets"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4196,
+    "parent_id": null,
+    "name": "Cute Smiley Face Stud Earrings",
+    "slug": "cute-smiley-face-stud-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0016",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4217,
+    "parent_id": null,
+    "name": "Rose Gold Heart Minimal Stud Earrings",
+    "slug": "rose-gold-heart-minimal-stud-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0017",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4219,
+    "parent_id": null,
+    "name": "Classic Solitaire Crystal Stud Earrings",
+    "slug": "classic-solitaire-crystal-stud-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0018",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4221,
+    "parent_id": null,
+    "name": "Vintage Oxidised Spiral Stud Earrings",
+    "slug": "vintage-oxidised-spiral-stud-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0019",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4233,
+    "parent_id": null,
+    "name": "Celeste Rose Gold Mangalsutra Pendant Necklace",
+    "slug": "celeste-rose-gold-mangalsutra-pendant-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-MNG-0002",
+    "categories": [
+      "Mangalsutra"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4239,
+    "parent_id": null,
+    "name": "Classic Silver Ball Chain Necklace",
+    "slug": "classic-silver-ball-chain-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0026",
+    "categories": [
+      "Men's Necklace"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4314,
+    "parent_id": null,
+    "name": "Minimal Silver Box Chain Necklace",
+    "slug": "minimal-silver-box-chain-necklace",
+    "status": "draft",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0027",
+    "categories": [
+      "Men's Necklace"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4316,
+    "parent_id": null,
+    "name": "Classic Silver Cable Chain Necklace",
+    "slug": "classic-silver-cable-chain-necklace",
+    "status": "draft",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0028",
+    "categories": [
+      "Men's Necklace"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4318,
+    "parent_id": null,
+    "name": "Modern Silver Link Chain Necklace",
+    "slug": "modern-silver-link-chain-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0029",
+    "categories": [
+      "Men's Necklace"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4320,
+    "parent_id": null,
+    "name": "Aurielle Rose Gold Plated Sterling Silver Mangalsutra",
+    "slug": "aurielle-rose-gold-plated-sterling-silver-mangalsutra",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-MNG-0003",
+    "categories": [
+      "Mangalsutra"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4325,
+    "parent_id": null,
+    "name": "Elegant Triple Layer Gold Chain Necklace",
+    "slug": "elegant-triple-layer-gold-chain-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0030",
+    "categories": [
+      "Men's Necklace"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4328,
+    "parent_id": null,
+    "name": "925 Sterling Silver Gold Cuban Link Chain Necklace",
+    "slug": "luxury-gold-cuban-link-chain-necklace",
+    "status": "draft",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0031",
+    "categories": [
+      "Men's Necklace"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4330,
+    "parent_id": null,
+    "name": "Elegant Textured Silver Chain Necklace",
+    "slug": "elegant-textured-silver-chain-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0032",
+    "categories": [
+      "Men's Necklace"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4333,
+    "parent_id": null,
+    "name": "Classic Silver Figaro Chain Necklace",
+    "slug": "classic-silver-figaro-chain-necklace",
+    "status": "draft",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0033",
+    "categories": [
+      "Men's Necklace"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4334,
+    "parent_id": null,
+    "name": "Starlisse Solitaire Sterling Silver Mangalsutra",
+    "slug": "starlisse-solitaire-sterling-silver-mangalsutra",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-MNG-0004",
+    "categories": [
+      "Mangalsutra"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4336,
+    "parent_id": null,
+    "name": "Minimal Silver Oval Link Chain Necklace",
+    "slug": "minimal-silver-oval-link-chain-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0034",
+    "categories": [
+      "Men's Necklace"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4342,
+    "parent_id": null,
+    "name": "Bold Silver Double Link Chain Necklace",
+    "slug": "bold-silver-double-link-chain-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0035",
+    "categories": [
+      "Men's Necklace"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4344,
+    "parent_id": null,
+    "name": "Classic Gold Rope Chain Necklace",
+    "slug": "classic-gold-rope-chain-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0036",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4346,
+    "parent_id": null,
+    "name": "Modern Silver Bar Link Chain Necklace",
+    "slug": "modern-silver-bar-link-chain-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0037",
+    "categories": [
+      "Men's Necklace"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4348,
+    "parent_id": null,
+    "name": "Elegant Two-Tone Bar Link Chain Necklace",
+    "slug": "elegant-two-tone-bar-link-chain-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0038",
+    "categories": [
+      "Men's Necklace"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4350,
+    "parent_id": null,
+    "name": "Classic Silver Curb Chain Necklace",
+    "slug": "classic-silver-curb-chain-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0039",
+    "categories": [
+      "Men's Necklace"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4352,
+    "parent_id": null,
+    "name": "Elegant Gold Pearl Station Necklace",
+    "slug": "elegant-gold-pearl-station-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0040",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4354,
+    "parent_id": null,
+    "name": "Luxury Tri-Tone Crystal Bead Necklace",
+    "slug": "luxury-tri-tone-crystal-bead-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0041",
+    "categories": [
+      "Necklaces"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4356,
+    "parent_id": null,
+    "name": "Premium Silver Mesh Chain Necklace",
+    "slug": "premium-silver-mesh-chain-necklace",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-NCK-0042",
+    "categories": [
+      "Men's Necklace"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4359,
+    "parent_id": null,
+    "name": "Roselle Bloom Rose Gold Plated Sterling Silver Mangalsutra",
+    "slug": "roselle-bloom-rose-gold-plated-sterling-silver-mangalsutra",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-MNG-0005",
+    "categories": [
+      "Mangalsutra"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4364,
+    "parent_id": null,
+    "name": "Aurora Glow Rose Gold Sterling Silver Mangalsutra",
+    "slug": "aurora-glow-rose-gold-sterling-silver-mangalsutra",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-MNG-0006",
+    "categories": [
+      "Mangalsutra"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4369,
+    "parent_id": null,
+    "name": "Butterfly Bliss Gold Plated Sterling Silver Mangalsutra",
+    "slug": "butterfly-bliss-gold-plated-sterling-silver-mangalsutra",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-MNG-0007",
+    "categories": [
+      "Mangalsutra"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4374,
+    "parent_id": null,
+    "name": "Midnight Charm Sterling Silver Mangalsutra",
+    "slug": "midnight-charm-sterling-silver-mangalsutra",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-MNG-0008",
+    "categories": [
+      "Mangalsutra"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4379,
+    "parent_id": null,
+    "name": "Ruby Royale Sterling Silver Mangalsutra",
+    "slug": "ruby-royale-sterling-silver-mangalsutra",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-MNG-0009",
+    "categories": [
+      "Mangalsutra"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4405,
+    "parent_id": null,
+    "name": "Vintage Floral Oxidised Stud Earrings",
+    "slug": "vintage-floral-oxidised-stud-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0020",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4407,
+    "parent_id": null,
+    "name": "Minimal Stripe Pattern Stud Earrings",
+    "slug": "minimal-stripe-pattern-stud-earrings",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0021",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4409,
+    "parent_id": null,
+    "name": "Vintage Floral Oxidised Stud Earrings",
+    "slug": "vintage-floral-oxidised-stud-earrings-2",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-ERG-0022",
+    "categories": [
+      "Earrings"
+    ]
+  },
+  {
+    "kind": "simple",
+    "id": 4446,
+    "parent_id": null,
+    "name": "Elegant Butterfly Crystal Bracelet",
+    "slug": "elegant-butterfly-crystal-bracelet",
+    "status": "publish",
+    "catalog_visibility": "visible",
+    "sku": "AGE-BRC-0024",
+    "categories": [
+      "Bracelets"
+    ]
+  }
+]

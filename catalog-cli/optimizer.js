@@ -29,28 +29,58 @@ function generateContent(p) {
   
   const text = (name + " " + p.description + " " + p.short_description).toLowerCase();
   
-  // Basic Categorization
+  // Version 2 Categorization Engine
+  const CATEGORY_RULES = [
+    { category: "Earrings", patterns: [/earring(s)?/i] },
+    { category: "Toe Rings", patterns: [/toe\s+ring(s)?/i] },
+    { category: "Rings", patterns: [/\bring(s)?\b/i] },
+    { category: "Necklaces", patterns: [/\b(necklace|chain)(s)?\b/i] },
+    { category: "Pendants", patterns: [/\bpendant(s)?\b/i] },
+    { category: "Bangles", patterns: [/\bbangle(s)?\b/i] },
+    { category: "Bracelets", patterns: [/\bbracelet(s)?\b/i] },
+    { category: "Anklets", patterns: [/\b(anklet|payal)(s)?\b/i] }
+  ];
+
+  const COLLECTION_RULES = [
+    { category: "Office", patterns: [/\b(office|work|minimal|formal)\b/i] },
+    { category: "Party", patterns: [/\b(party|statement|bold)\b/i] },
+    { category: "Everyday", patterns: [/\b(everyday|daily)\b/i] },
+    { category: "Festive", patterns: [/\b(festive|wedding|bridal)\b/i] },
+    { category: "Gifts", patterns: [/\bgift(s)?\b/i] }
+  ];
+
   let cats = [];
-  const isMen = text.includes("men's") || p.attributes.some(a => a.name === 'Gender' && a.options.includes('Men')) && !text.includes('feminine') && !text.includes('women');
-  if (isMen) {
-    if (text.includes('necklace') || text.includes('chain')) cats.push("Men's Necklace");
-    else if (text.includes('bracelet')) cats.push("Men's Bracelet");
-    else if (text.includes('ring')) cats.push("Men's Ring");
-    else cats.push("Men's Necklace"); 
-  } else {
-    if (text.includes('necklace') || text.includes('chain')) cats.push("Necklaces");
-    else if (text.includes('bracelet')) cats.push("Bracelets");
-    else if (text.includes('ring')) cats.push("Rings");
-    else if (text.includes('earring')) cats.push("Earrings");
-    else if (text.includes('pendant')) cats.push("Pendants");
-    else if (text.includes('bangle')) cats.push("Bangles");
-    else if (text.includes('anklet')) cats.push("Anklets");
+  const isMen = (text.includes("men's") || /\bmens\b/i.test(text) || p.attributes.some(a => a.name === 'Gender' && a.options.includes('Men'))) && !text.includes('feminine') && !text.includes('women');
+  const isKids = text.includes("kids") || text.includes("children");
+
+  // Determine base jewelry type
+  let baseType = null;
+  for (const rule of CATEGORY_RULES) {
+    if (rule.patterns.some(regex => regex.test(text))) {
+      baseType = rule.category;
+      break; // Single primary category prevents duplicates like Women's + Men's Bracelet
+    }
   }
 
-  // Selective Collections
-  if (text.includes('office') || text.includes('work') || text.includes('minimal')) cats.push("Office");
-  if (text.includes('party') || text.includes('statement') || text.includes('bold')) cats.push("Party");
-  if (text.includes('everyday') || text.includes('daily')) cats.push("Everyday");
+  if (isMen) {
+    if (baseType === "Necklaces" || baseType === "Pendants") cats.push("Men's Necklace");
+    else if (baseType === "Bracelets" || baseType === "Bangles") cats.push("Men's Bracelet");
+    else if (baseType === "Rings" || baseType === "Toe Rings") cats.push("Men's Ring");
+    else cats.push("Men's Necklace"); // Default for men
+  } else if (isKids) {
+    cats.push("Kids Jewellery");
+  } else {
+    if (baseType) {
+      cats.push(baseType);
+    }
+  }
+
+  // Collections based on text
+  for (const rule of COLLECTION_RULES) {
+    if (rule.patterns.some(regex => regex.test(text))) {
+      cats.push(rule.category);
+    }
+  }
 
   if (cats.length === 0) cats.push("Everyday"); // Fallback
 
