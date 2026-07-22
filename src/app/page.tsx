@@ -21,21 +21,15 @@ export const metadata = generateMetadata({
 
 export default async function Home() {
   // Parallelize the data fetching to avoid waterfalls and fetch-all anti-patterns
-  const [bestSellers, trendingInitial, customerFavorites] = await Promise.all([
+  const [bestSellers, customerFavorites] = await Promise.all([
     getProducts('per_page=4&page=2'), // Mock curation: Page 2
-    getProducts('per_page=4&featured=true'), // Trending
     getProducts('per_page=4&page=3'), // Mock curation: Page 3
   ]);
 
-  let finalTrending = trendingInitial;
-  if (finalTrending.length < 4) {
-    finalTrending = await getProducts('per_page=4');
-  }
-
   return (
     <div className="flex flex-col w-full bg-pearl-white">
-      {/* 1. Cinematic Video Hero Banner */}
-      <section className="relative w-full h-[90vh] min-h-[600px] flex items-center justify-center tablet:justify-start overflow-hidden bg-surface-variant">
+      {/* 1. Editorial Hero Banner */}
+      <section className="relative w-full h-[75vh] min-h-[560px] flex items-center justify-center tablet:justify-start overflow-hidden bg-surface-variant">
         {/* LCP Optimized Poster Image */}
         <div className="absolute inset-0 w-full h-full z-0 bg-surface-variant">
           <Image
@@ -47,9 +41,9 @@ export default async function Home() {
             className="object-cover"
           />
         </div>
-        
-        {/* Elegant Gradient Overlay */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-charcoal-navy/90 via-charcoal-navy/30 to-charcoal-navy/10"></div>
+
+        {/* Elegant Gradient Overlay — let the photography lead, keep just enough contrast for the text */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-charcoal-navy/80 via-charcoal-navy/25 to-transparent"></div>
         
         <div className="relative z-20 w-full max-w-[1440px] mx-auto text-center px-margin-mobile tablet:px-margin-desktop flex flex-col items-center mt-auto mb-24 tablet:mb-0 tablet:mt-0">
           <span className="font-label-md text-[14px] uppercase tracking-[0.2em] text-pearl-white/80 font-semibold mb-6 drop-shadow-md">
@@ -73,31 +67,31 @@ export default async function Home() {
       </section>
 
       {/* 2. Trust Strip */}
-      <div className="bg-surface-container-low w-full py-8 border-b border-outline-variant/30 relative z-30 -mt-2">
+      <div className="bg-pearl-white w-full py-7 relative z-30">
         <div className="max-w-[1440px] mx-auto px-margin-mobile tablet:px-margin-desktop">
           <div className="grid grid-cols-2 tablet:grid-cols-4 gap-8 text-center text-charcoal-navy">
-            <div className="flex flex-col items-center gap-3">
-              <BadgeCheck className="text-[32px] text-ag-purple font-light" />
-              <span className="font-label-sm uppercase tracking-widest text-[11px] font-semibold">925 Certified Silver</span>
+            <div className="flex flex-col items-center gap-2.5">
+              <BadgeCheck className="text-[22px] text-ag-purple" strokeWidth={1.5} />
+              <span className="font-label-sm uppercase tracking-widest text-[11px] font-medium text-on-surface-variant">925 Certified Silver</span>
             </div>
-            <div className="flex flex-col items-center gap-3">
-              <ShieldCheck className="text-[32px] text-ag-purple font-light" />
-              <span className="font-label-sm uppercase tracking-widest text-[11px] font-semibold">100% Secure Payments</span>
+            <div className="flex flex-col items-center gap-2.5">
+              <ShieldCheck className="text-[22px] text-ag-purple" strokeWidth={1.5} />
+              <span className="font-label-sm uppercase tracking-widest text-[11px] font-medium text-on-surface-variant">100% Secure Payments</span>
             </div>
-            <div className="flex flex-col items-center gap-3">
-              <Truck className="text-[32px] text-ag-purple font-light" />
-              <span className="font-label-sm uppercase tracking-widest text-[11px] font-semibold">Free Delivery Above ₹2000</span>
+            <div className="flex flex-col items-center gap-2.5">
+              <Truck className="text-[22px] text-ag-purple" strokeWidth={1.5} />
+              <span className="font-label-sm uppercase tracking-widest text-[11px] font-medium text-on-surface-variant">Free Delivery Above ₹2000</span>
             </div>
-            <div className="flex flex-col items-center gap-3">
-              <RefreshCw className="text-[32px] text-ag-purple font-light" />
-              <span className="font-label-sm uppercase tracking-widest text-[11px] font-semibold">7-Day Easy Returns</span>
+            <div className="flex flex-col items-center gap-2.5">
+              <RefreshCw className="text-[22px] text-ag-purple" strokeWidth={1.5} />
+              <span className="font-label-sm uppercase tracking-widest text-[11px] font-medium text-on-surface-variant">7-Day Easy Returns</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* 3. Shop by Category (Refined) */}
-      <section className="py-24 px-margin-mobile tablet:px-margin-desktop max-w-[1440px] mx-auto w-full">
+      <section className="py-section-v-padding-mobile tablet:py-section-v-padding px-margin-mobile tablet:px-margin-desktop max-w-[1440px] mx-auto w-full">
         <div className="text-center mb-16">
           <h2 className="font-headline-lg text-[36px] tablet:text-[48px] leading-tight font-medium text-charcoal-navy mb-4">Shop by Category</h2>
           <div className="w-16 h-[1px] bg-charcoal-navy mx-auto mb-6"></div>
@@ -127,15 +121,13 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 4. Best Sellers & Trending */}
+      {/* 4. Best Sellers */}
       <div className="bg-surface-container-lowest w-full pb-12">
         <ProductCarousel title="Best Sellers" products={bestSellers} viewAllLink={HOMEPAGE_LINKS.carousels.bestSellers} />
-        <div className="h-12"></div>
-        <ProductCarousel title="Trending Now" products={finalTrending} viewAllLink={HOMEPAGE_LINKS.carousels.trending} />
       </div>
 
       {/* 5. Luxury Storytelling: The Art of Craftsmanship */}
-      <section className="py-24 bg-surface-container-low w-full overflow-hidden">
+      <section className="py-section-v-padding-mobile tablet:py-section-v-padding bg-surface-container-low w-full overflow-hidden">
         <div className="max-w-[1440px] mx-auto px-margin-mobile tablet:px-margin-desktop">
           <div className="flex flex-col tablet:flex-row items-center gap-16 tablet:gap-24">
             <div className="flex-1 relative group w-full">
@@ -162,7 +154,7 @@ export default async function Home() {
       </section>
 
       {/* 6. Editorial Split (Luxury Grid) */}
-      <section className="py-24 px-margin-mobile tablet:px-margin-desktop max-w-[1440px] mx-auto grid grid-cols-1 tablet:grid-cols-2 gap-8 w-full">
+      <section className="py-section-v-padding-mobile tablet:py-section-v-padding px-margin-mobile tablet:px-margin-desktop max-w-[1440px] mx-auto grid grid-cols-1 tablet:grid-cols-2 gap-8 w-full">
         <div className="relative group overflow-hidden rounded-2xl aspect-[4/5] tablet:aspect-[3/4] shadow-lg">
           <Image fill sizes="(max-width: 768px) 100vw, 50vw" alt="Bridal Collection" className="object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUJGvMSZgwIlLwahFRrdxRLmFixcgBdkuNq3df9UHJ-K8OUa4HoheieBXDpqxPjerp-dQPGsKjSf_agZAUvvC4MUShS8orWlerj4ZLkEcfstV4yii_FfGR2mMq_vHCdAF9Rw_CLrXow-CxkgL031EdkyyO1_53j78G2TEOBk7Cx0P7vSpDYY7aHY-zbcyrV0_bEccY9eRDJToErv7tsejp21p2y-pYcuRYJUGlpe-5ltfcYvCHjNoofA" />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-navy/80 via-charcoal-navy/20 to-transparent flex flex-col items-center justify-end pb-16 text-pearl-white opacity-90 group-hover:opacity-100 transition-opacity">
@@ -185,6 +177,19 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* 6b. Gift Finder CTA Banner — the dominant single-color anchor moment the page was missing */}
+      <section className="bg-ag-purple w-full py-16 tablet:py-20 px-margin-mobile tablet:px-margin-desktop">
+        <div className="max-w-[1440px] mx-auto flex flex-col tablet:flex-row items-center justify-between gap-8 text-center tablet:text-left">
+          <div className="flex flex-col gap-3 max-w-xl">
+            <span className="font-label-md text-[13px] font-bold uppercase tracking-[0.2em] text-pearl-white/70">Not Sure What To Pick?</span>
+            <h2 className="font-headline-lg text-[32px] tablet:text-[44px] leading-[1.15] font-medium text-pearl-white">Let Us Find Their Perfect Piece</h2>
+          </div>
+          <Link href={HOMEPAGE_LINKS.ctaBanner.giftFinder} className="shrink-0 bg-pearl-white text-ag-purple font-label-md text-[13px] px-10 py-4 rounded-full uppercase tracking-[0.15em] font-bold hover:bg-surface-variant transition-colors shadow-xl">
+            Try The Gift Finder
+          </Link>
+        </div>
+      </section>
+
       {/* 7. Customer Favorites */}
       <div className="bg-pearl-white w-full py-12 tablet:mt-12">
         <ProductCarousel title="Customer Favorites" products={customerFavorites} viewAllLink={HOMEPAGE_LINKS.carousels.customerFavorites} />
@@ -201,49 +206,40 @@ export default async function Home() {
       </div>
 
       {/* 10. Testimonials */}
-      <section className="py-24 bg-surface-container w-full border-t border-outline-variant/30">
+      <section className="py-section-v-padding-mobile tablet:py-section-v-padding bg-surface-container w-full">
         <div className="max-w-[1440px] mx-auto px-margin-mobile tablet:px-margin-desktop">
           <div className="text-center mb-16">
             <span className="text-ag-purple font-label-md text-[13px] font-bold uppercase tracking-[0.2em] mb-4 block">Testimonials</span>
             <h2 className="font-headline-lg text-[36px] tablet:text-[48px] leading-tight font-medium text-charcoal-navy">What Our Customers Say</h2>
           </div>
-          <div className="grid grid-cols-1 tablet:grid-cols-3 gap-8">
-            <div className="bg-pearl-white p-10 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col gap-6 relative">
-              <span className="absolute top-6 right-8 text-6xl text-outline-variant/20 font-serif leading-none">"</span>
+          <div className="grid grid-cols-1 tablet:grid-cols-3 gap-12 tablet:gap-16">
+            <div className="flex flex-col gap-5">
               <div className="flex text-ag-purple">
-                {Array(5).fill(0).map((_, i) => <Star key={i} />)}
+                {Array(5).fill(0).map((_, i) => <Star key={i} className="w-4 h-4" />)}
               </div>
-              <p className="font-body-md text-[16px] text-on-surface-variant leading-relaxed">"Absolutely stunning! The detailing on the stars is incredible. It feels substantial but looks so delicate on the wrist. I haven't taken it off since it arrived."</p>
-              <div className="mt-auto pt-4 border-t border-outline-variant/30">
-                <span className="font-label-md text-[13px] font-bold uppercase tracking-widest text-charcoal-navy">Priya S.</span>
-              </div>
+              <p className="font-headline-sm text-[20px] leading-[1.5] text-charcoal-navy font-normal italic">"Absolutely stunning! It feels substantial but looks so delicate on the wrist. I haven't taken it off since it arrived."</p>
+              <span className="font-label-sm text-[12px] font-semibold uppercase tracking-widest text-on-surface-variant">Priya S.</span>
             </div>
-            <div className="bg-pearl-white p-10 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col gap-6 relative">
-              <span className="absolute top-6 right-8 text-6xl text-outline-variant/20 font-serif leading-none">"</span>
+            <div className="flex flex-col gap-5">
               <div className="flex text-ag-purple">
-                {Array(5).fill(0).map((_, i) => <Star key={i} />)}
+                {Array(5).fill(0).map((_, i) => <Star key={i} className="w-4 h-4" />)}
               </div>
-              <p className="font-body-md text-[16px] text-on-surface-variant leading-relaxed">"Perfect gift. Bought this for my sister's birthday and she loves it. The premium packaging made the unboxing experience feel so luxurious and special."</p>
-              <div className="mt-auto pt-4 border-t border-outline-variant/30">
-                <span className="font-label-md text-[13px] font-bold uppercase tracking-widest text-charcoal-navy">Rohan M.</span>
-              </div>
+              <p className="font-headline-sm text-[20px] leading-[1.5] text-charcoal-navy font-normal italic">"Perfect gift. The premium packaging made the unboxing experience feel so luxurious and special."</p>
+              <span className="font-label-sm text-[12px] font-semibold uppercase tracking-widest text-on-surface-variant">Rohan M.</span>
             </div>
-            <div className="bg-pearl-white p-10 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col gap-6 relative">
-              <span className="absolute top-6 right-8 text-6xl text-outline-variant/20 font-serif leading-none">"</span>
+            <div className="flex flex-col gap-5">
               <div className="flex text-ag-purple">
-                {Array(5).fill(0).map((_, i) => <Star key={i} />)}
+                {Array(5).fill(0).map((_, i) => <Star key={i} className="w-4 h-4" />)}
               </div>
-              <p className="font-body-md text-[16px] text-on-surface-variant leading-relaxed">"Elegant and versatile. It pairs beautifully with my watch and other bracelets. The silver has a lovely shine that doesn't tarnish with everyday wear."</p>
-              <div className="mt-auto pt-4 border-t border-outline-variant/30">
-                <span className="font-label-md text-[13px] font-bold uppercase tracking-widest text-charcoal-navy">Anita D.</span>
-              </div>
+              <p className="font-headline-sm text-[20px] leading-[1.5] text-charcoal-navy font-normal italic">"Elegant and versatile. The silver has a lovely shine that doesn't tarnish with everyday wear."</p>
+              <span className="font-label-sm text-[12px] font-semibold uppercase tracking-widest text-on-surface-variant">Anita D.</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* 11. FAQ */}
-      <section className="py-24 px-margin-mobile tablet:px-margin-desktop max-w-3xl mx-auto w-full">
+      <section className="py-section-v-padding-mobile tablet:py-section-v-padding px-margin-mobile tablet:px-margin-desktop max-w-3xl mx-auto w-full">
         <div className="text-center mb-12">
           <span className="text-ag-purple font-label-md text-[13px] font-bold uppercase tracking-[0.2em] mb-4 block">Help Center</span>
           <h2 className="font-headline-lg text-[36px] tablet:text-[48px] font-medium text-charcoal-navy">Frequently Asked Questions</h2>

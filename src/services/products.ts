@@ -170,6 +170,45 @@ export const getProductsByIds = cache(async (ids: number[]): Promise<Product[]> 
   }
 });
 
+// A single WooCommerce REST `/products` call only accepts ONE `attribute` +
+// `attribute_term` pair (confirmed live: passing two taxonomy slugs joined by a
+// comma, e.g. "pa_gender,pa_occasion", fails `taxonomy_exists()` server-side and
+// silently drops the entire attribute filter, returning the unfiltered catalog).
+// To AND-combine 2+ different taxonomies (e.g. Gender + Occasion) we narrow via
+// `include`: fetch the ID set for every filter but the last, intersect them, and
+// apply the last filter as the real attribute/attribute_term param alongside
+// `include` on the paginated query.
+export interface AttributeFilter {
+  attribute: string; // taxonomy slug, e.g. "pa_gender"
+  term: string; // term id (or comma-separated term ids for OR within that taxonomy)
+}
+
+async function fetchAttributeProductIds(attribute: string, term: string): Promise<number[]> {
+  const ids: number[] = [];
+  let page = 1;
+  let totalPages = 1;
+
+  do {
+    const query = new URLSearchParams({
+      status: 'publish',
+      per_page: '100',
+      page: String(page),
+      attribute,
+      attribute_term: term,
+      _fields: 'id',
+    });
+    const { data, headers } = await wcClient.fetchWithHeaders<{ id: number }[]>(
+      `/products?${query.toString()}`,
+      { next: { revalidate: 300, tags: ['products'] } }
+    );
+    ids.push(...data.map((p) => p.id));
+    totalPages = parseInt(headers.get('x-wp-totalpages') || '1', 10);
+    page += 1;
+  } while (page <= totalPages);
+
+  return ids;
+}
+
 export interface GetProductsParams {
   page?: number;
   per_page?: number;
@@ -183,6 +222,9 @@ export interface GetProductsParams {
   orderby?: 'date' | 'price' | 'title' | 'popularity' | 'rating';
   attribute?: string;
   attribute_term?: string;
+  // Use this instead of attribute/attribute_term when 2+ different taxonomies
+  // must be combined with AND logic (see fetchAttributeProductIds above).
+  attributeFilters?: AttributeFilter[];
   stock_status?: 'instock' | 'outofstock';
   new_arrivals?: boolean;
 }
@@ -196,7 +238,7 @@ export interface PaginatedProductsResult {
 export async function getPaginatedProducts(params: GetProductsParams): Promise<PaginatedProductsResult> {
   try {
     const query = new URLSearchParams({ status: 'publish' });
-    
+
     if (params.page) query.append('page', params.page.toString());
     if (params.per_page) query.append('per_page', params.per_page.toString());
     if (params.search) query.append('search', params.search);
@@ -207,9 +249,37 @@ export async function getPaginatedProducts(params: GetProductsParams): Promise<P
     if (params.on_sale) query.append('on_sale', 'true');
     if (params.order) query.append('order', params.order);
     if (params.orderby) query.append('orderby', params.orderby);
-    if (params.attribute) query.append('attribute', params.attribute);
-    if (params.attribute_term) query.append('attribute_term', params.attribute_term);
     if (params.stock_status) query.append('stock_status', params.stock_status);
+
+    if (params.attributeFilters && params.attributeFilters.length > 0) {
+      const [narrowingFilters, [lastFilter]] = [
+        params.attributeFilters.slice(0, -1),
+        params.attributeFilters.slice(-1),
+      ];
+
+      if (narrowingFilters.length > 0) {
+        const idSets = await Promise.all(
+          narrowingFilters.map((f) => fetchAttributeProductIds(f.attribute, f.term))
+        );
+        const intersected = idSets.reduce((a, b) => {
+          const bSet = new Set(b);
+          return a.filter((id) => bSet.has(id));
+        });
+
+        // No product satisfies every narrowing filter — short-circuit rather
+        // than issuing a doomed final request.
+        if (intersected.length === 0) {
+          return { products: [], total: 0, totalPages: 1 };
+        }
+        query.append('include', intersected.join(','));
+      }
+
+      query.append('attribute', lastFilter.attribute);
+      query.append('attribute_term', lastFilter.term);
+    } else {
+      if (params.attribute) query.append('attribute', params.attribute);
+      if (params.attribute_term) query.append('attribute_term', params.attribute_term);
+    }
 
     // "New Arrivals" is defined as products created in the last 30 days via WC's
     // native `after` param — a stable, evergreen signal, unlike a hardcoded

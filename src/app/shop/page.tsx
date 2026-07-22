@@ -1,4 +1,4 @@
-import { getPaginatedProducts } from "@/services/products";
+import { getPaginatedProducts, AttributeFilter } from "@/services/products";
 import { ShopArchive } from "@/components/shop/ShopArchive";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Suspense } from "react";
@@ -27,28 +27,21 @@ export default async function ShopPage({
   const on_sale = resolvedParams.on_sale === 'true';
   const order = typeof resolvedParams.order === 'string' ? resolvedParams.order as any : undefined;
   const orderby = typeof resolvedParams.orderby === 'string' ? resolvedParams.orderby as any : undefined;
-  // Parse dynamic attributes from URL parameters
+  // Parse dynamic attributes from URL parameters. Each key maps to its own
+  // WooCommerce attribute taxonomy (e.g. pa_gender, pa_occasion) — WC's REST API
+  // only accepts a single attribute/attribute_term pair per request, so 2+
+  // simultaneously active taxonomies are AND-combined via attributeFilters
+  // (see getPaginatedProducts) rather than joined into one invalid param string.
   const attributeKeys = ['pa_gender', 'pa_material', 'pa_collection', 'pa_stone', 'pa_occasion', 'pa_finish', 'pa_style'];
-  const activeAttributes: string[] = [];
-  const activeAttributeTerms: string[] = [];
+  const attributeFilters: AttributeFilter[] = [];
 
   for (const key of attributeKeys) {
     const val = typeof resolvedParams[key] === 'string' ? resolvedParams[key] : undefined;
     if (val) {
-      activeAttributes.push(key);
-      activeAttributeTerms.push(val);
+      attributeFilters.push({ attribute: key, term: val });
     }
   }
 
-  // Handle old generic attribute_term parameter if it still exists (fallback)
-  const legacyAttributeTerm = typeof resolvedParams.attribute_term === 'string' ? resolvedParams.attribute_term : undefined;
-  if (legacyAttributeTerm) {
-    activeAttributes.push('pa_material,pa_gender,pa_collection');
-    activeAttributeTerms.push(legacyAttributeTerm);
-  }
-
-  const attribute = activeAttributes.length > 0 ? activeAttributes.join(',') : undefined;
-  const attribute_term = activeAttributeTerms.length > 0 ? activeAttributeTerms.join(',') : undefined;
   const stock_status = typeof resolvedParams.stock_status === 'string' ? resolvedParams.stock_status as any : undefined;
   const new_arrivals = resolvedParams.new_arrivals === 'true';
 
@@ -63,8 +56,7 @@ export default async function ShopPage({
     on_sale,
     order,
     orderby,
-    attribute,
-    attribute_term,
+    attributeFilters,
     stock_status,
     new_arrivals
   });

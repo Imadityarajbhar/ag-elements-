@@ -23,15 +23,12 @@ export default function GiftFinderPage() {
     if (newState.step > 3) {
       // Submit the quiz
       const params = new URLSearchParams();
-      
-      // We map the selections to WooCommerce attributes
-      const attributes: string[] = [];
-      if (newState.gender) attributes.push(newState.gender);
-      if (newState.occasion) attributes.push(newState.occasion);
-      
-      if (attributes.length > 0) {
-        params.set("attribute_term", attributes.join(","));
-      }
+
+      // Map selections to their own WooCommerce attribute taxonomy params —
+      // /shop reads pa_gender/pa_occasion individually and AND-combines them
+      // (a single generic attribute_term can't carry two different taxonomies).
+      if (newState.gender) params.set("pa_gender", newState.gender);
+      if (newState.occasion) params.set("pa_occasion", newState.occasion);
 
       if (newState.budget) {
         const [min, max] = newState.budget.split("-");

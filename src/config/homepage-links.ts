@@ -10,13 +10,15 @@ export const HOMEPAGE_LINKS = {
   },
   carousels: {
     bestSellers: '/shop',
-    trending: '/shop',
     customerFavorites: '/shop',
   },
   editorial: {
     bridalEdit: `/shop?pa_occasion=${weddingOccasionTerm}`,
     everydayStacking: `/shop?pa_occasion=${everydayOccasionTerm}`,
     aboutStory: '/about',
+  },
+  ctaBanner: {
+    giftFinder: '/gifting/finder',
   },
   categories: {
     necklaces: '/collections/necklaces',
