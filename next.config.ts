@@ -10,14 +10,6 @@ const nextConfig: NextConfig = {
         hostname: 'lh3.googleusercontent.com',
       },
       {
-        protocol: 'http',
-        hostname: 'ag-elements.test',
-      },
-      {
-        protocol: 'https',
-        hostname: 'ag-elements.test',
-      },
-      {
         protocol: 'https',
         hostname: 'agelements.in',
       }

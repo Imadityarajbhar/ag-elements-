@@ -1,7 +1,9 @@
+import { siteConfig } from "@/lib/seo/site";
+
 export function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/919876543210" // Using a placeholder number; replace with actual AG Elements number
+      href={`https://wa.me/${siteConfig.whatsappNumber.replace(/[^\d]/g, '')}`}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 flex items-center bg-[#25D366] text-white rounded-full p-3 shadow-[0px_4px_20px_rgba(37,211,102,0.4)] hover:scale-105 transition-all duration-300 group overflow-hidden"

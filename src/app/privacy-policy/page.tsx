@@ -1,4 +1,5 @@
 import { generateMetadata } from "@/lib/seo/generateMetadata";
+import { siteConfig } from "@/lib/seo/site";
 
 export const metadata = generateMetadata({
   title: "Privacy Policy | AG Elements",
@@ -49,7 +50,7 @@ export default function PrivacyPolicyPage() {
         <section>
           <h2 className="text-[24px] mb-4 border-b border-outline-variant/30 pb-2">5. Your Rights</h2>
           <p>
-            [PLACEHOLDER: You have the right to access, update, or delete your personal information. If you wish to exercise these rights, please contact our privacy officer at privacy@agelements.com.]
+            [PLACEHOLDER: You have the right to access, update, or delete your personal information. If you wish to exercise these rights, please contact our privacy officer at {siteConfig.email}.]
           </p>
         </section>
 

@@ -3,6 +3,7 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/lib/seo/site";
 
 export const metadata = generateMetadata({
   title: "Frequently Asked Questions | AG Elements",
@@ -52,7 +53,7 @@ export default function FAQPage() {
         "name": "How do I initiate a return?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "To initiate a return, please contact our concierge team via email at concierge@agelements.com or call us at +91 7152 245000 with your order number."
+          "text": `To initiate a return, please contact our concierge team via email at ${siteConfig.email} or call us at ${siteConfig.phone} with your order number.`
         }
       },
       {
@@ -144,7 +145,7 @@ export default function FAQPage() {
             <AccordionItem value="returns-2">
               <AccordionTrigger>How do I initiate a return?</AccordionTrigger>
               <AccordionContent>
-                To initiate a return, please contact our concierge team via email at concierge@agelements.com or call us at +91 7152 245000 with your order number.
+                To initiate a return, please contact our concierge team via email at {siteConfig.email} or call us at {siteConfig.phone} with your order number.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="returns-3">

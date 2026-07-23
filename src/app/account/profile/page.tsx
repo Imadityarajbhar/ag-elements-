@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useAuthStore } from '@/store/authStore';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { toast } from 'sonner';
 
 export default function ProfilePage() {
   const { user, updateUser } = useAuthStore();
@@ -36,6 +37,33 @@ export default function ProfilePage() {
   
   const [isSavingPreferences, setIsSavingPreferences] = useState(false);
   const [prefMessage, setPrefMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+
+  const [isExportingData, setIsExportingData] = useState(false);
+
+  const handleDownloadPersonalData = async () => {
+    setIsExportingData(true);
+    try {
+      const res = await fetch('/api/account/data-export');
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || 'Failed to generate data export');
+      }
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `ag-elements-my-data-${new Date().toISOString().slice(0, 10)}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      toast.success('Your data export has downloaded.');
+    } catch (error: any) {
+      toast.error(error.message || 'Failed to download your data. Please try again.');
+    } finally {
+      setIsExportingData(false);
+    }
+  };
 
   useEffect(() => {
     if (user) {
@@ -248,9 +276,14 @@ export default function ProfilePage() {
           <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
             <h2 className="font-headline-sm text-[18px] font-semibold text-charcoal-navy mb-4">Security & Data</h2>
             <div className="space-y-3">
-              <button className="flex items-center gap-3 w-full text-left p-2 rounded-lg hover:bg-surface-lavender transition-colors group">
+              <button
+                type="button"
+                onClick={handleDownloadPersonalData}
+                disabled={isExportingData}
+                className="flex items-center gap-3 w-full text-left p-2 rounded-lg hover:bg-surface-lavender transition-colors group disabled:opacity-50"
+              >
                 <Download className="text-outline-variant group-hover:text-ag-purple" />
-                <span className="font-label-md text-sm text-charcoal-navy">Download Personal Data</span>
+                <span className="font-label-md text-sm text-charcoal-navy">{isExportingData ? 'Preparing your data…' : 'Download Personal Data'}</span>
               </button>
               <button className="flex items-center gap-3 w-full text-left p-2 rounded-lg hover:bg-surface-lavender transition-colors group">
                 <History className="text-outline-variant group-hover:text-ag-purple" />

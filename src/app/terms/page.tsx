@@ -1,4 +1,5 @@
 import { generateMetadata } from "@/lib/seo/generateMetadata";
+import { siteConfig } from "@/lib/seo/site";
 
 export const metadata = generateMetadata({
   title: "Terms of Service | AG Elements",
@@ -49,7 +50,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-[24px] mb-4 border-b border-outline-variant/30 pb-2">5. Contact Information</h2>
           <p>
-            [PLACEHOLDER: Questions about the Terms of Service should be sent to us at concierge@agelements.com.]
+            [PLACEHOLDER: Questions about the Terms of Service should be sent to us at {siteConfig.email}.]
           </p>
         </section>
 

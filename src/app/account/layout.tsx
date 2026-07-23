@@ -20,8 +20,9 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
 
   if (!mounted) return <div className="min-h-screen" />;
 
-  // Don't show sidebar on login/register/forgot-password pages
-  if (pathname.includes('/login') || pathname.includes('/register') || pathname.includes('/forgot-password')) {
+  // Don't show sidebar on login/register/forgot-password/reset-password pages —
+  // these are reachable while signed out, so the authenticated account sidebar doesn't apply.
+  if (pathname.includes('/login') || pathname.includes('/register') || pathname.includes('/forgot-password') || pathname.includes('/reset-password')) {
     return <>{children}</>;
   }
 

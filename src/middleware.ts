@@ -9,10 +9,15 @@ export function middleware(request: NextRequest) {
   const isProtectedPath = pathname.startsWith('/account') || pathname.startsWith('/wishlist');
   
   // Paths that should not be accessed if already authenticated
-  const isAuthPath = 
-    pathname.startsWith('/account/login') || 
-    pathname.startsWith('/account/register') || 
-    pathname.startsWith('/account/forgot-password');
+  const isAuthPath =
+    pathname.startsWith('/account/login') ||
+    pathname.startsWith('/account/register') ||
+    pathname.startsWith('/account/forgot-password') ||
+    // Whoever needs this page is, by definition, signed out (they forgot their
+    // password) — without this it falls through to isProtectedPath below and an
+    // unauthenticated visitor gets redirected straight to /account/login, which
+    // silently breaks the reset-password link before the page ever renders.
+    pathname.startsWith('/account/reset-password');
 
   if (isProtectedPath) {
     if (isAuthPath) {

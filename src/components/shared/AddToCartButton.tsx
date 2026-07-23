@@ -49,9 +49,23 @@ export function AddToCartButton({ product, compact = false }: { product: Product
   // Derived display values
   const displayPrice = activeVariation ? activeVariation.price : product.price;
   const displayRegularPrice = activeVariation ? activeVariation.regularPrice : product.regularPrice;
-  const isOutOfStock = isVariable 
+  const isOutOfStock = isVariable
     ? (activeVariation ? activeVariation.stockStatus === 'outofstock' : false)
     : product.stockStatus === 'outofstock';
+  // Real stock quantity for whichever unit (variation or the simple product itself) is
+  // currently active. Falls back to the parent product's own quantity when there's no
+  // variation selected, since a simple product has no `activeVariation` at all.
+  const effectiveStockQuantity = activeVariation ? activeVariation.stockQuantity : product.stockQuantity;
+  const effectiveStockStatus = activeVariation ? activeVariation.stockStatus : product.stockStatus;
+
+  // Switching to a variation with a lower (or now-tracked) stock quantity must clamp the
+  // already-selected quantity back down, otherwise a customer could carry over a quantity
+  // that exceeds the new variation's real stock into an add-to-cart call.
+  useEffect(() => {
+    if (effectiveStockQuantity !== null && effectiveStockQuantity !== undefined) {
+      setQuantity(q => Math.min(q, Math.max(1, effectiveStockQuantity)));
+    }
+  }, [effectiveStockQuantity]);
 
   const handleOptionSelect = (attributeName: string, option: string) => {
     setSelectedOptions(prev => ({ ...prev, [attributeName]: option }));
@@ -232,7 +246,7 @@ export function AddToCartButton({ product, compact = false }: { product: Product
       <div className="flex flex-col gap-2">
         <div className="flex items-center gap-2">
           <div className="relative flex h-3 w-3">
-            {activeVariation?.stockStatus === 'onbackorder' ? (
+            {effectiveStockStatus === 'onbackorder' ? (
               <>
                 <span className="absolute inline-flex h-full w-full rounded-full opacity-75 bg-yellow-400"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
@@ -244,16 +258,16 @@ export function AddToCartButton({ product, compact = false }: { product: Product
               </>
             )}
           </div>
-          <span className={`font-label-sm font-bold uppercase tracking-widest text-[12px] ${activeVariation?.stockStatus === 'onbackorder' ? 'text-yellow-700' : isOutOfStock ? 'text-red-600' : 'text-green-600'}`}>
-            {activeVariation?.stockStatus === 'onbackorder' ? 'Available on Backorder' : isOutOfStock ? 'Out of Stock' : 'In Stock'}
+          <span className={`font-label-sm font-bold uppercase tracking-widest text-[12px] ${effectiveStockStatus === 'onbackorder' ? 'text-yellow-700' : isOutOfStock ? 'text-red-600' : 'text-green-600'}`}>
+            {effectiveStockStatus === 'onbackorder' ? 'Available on Backorder' : isOutOfStock ? 'Out of Stock' : 'In Stock'}
           </span>
         </div>
 
-        {/* Low Stock Warning */}
-        {activeVariation?.stockQuantity !== null && activeVariation?.stockQuantity !== undefined && activeVariation.stockQuantity > 0 && activeVariation.stockQuantity < 5 && (
+        {/* Low Stock Warning - only rendered when WooCommerce actually tracks a real quantity for this product/variation */}
+        {effectiveStockQuantity !== null && effectiveStockQuantity !== undefined && effectiveStockQuantity > 0 && effectiveStockQuantity < 5 && (
           <div className="inline-flex items-center gap-1.5 bg-red-50 text-red-700 px-3 py-1.5 rounded text-[11px] font-bold uppercase tracking-widest border border-red-100 w-fit animate-pulse">
             <Flame className="text-[14px]" />
-            Hurry! Only {activeVariation.stockQuantity} left in stock
+            Hurry! Only {effectiveStockQuantity} left in stock
           </div>
         )}
       </div>
@@ -270,9 +284,9 @@ export function AddToCartButton({ product, compact = false }: { product: Product
               -
             </button>
             <span className="w-12 text-center font-body-md text-charcoal-navy">{quantity}</span>
-            <button 
-              onClick={() => setQuantity(Math.min(activeVariation?.stockQuantity || product.stockQuantity || 99, quantity + 1))}
-              disabled={quantity >= (activeVariation?.stockQuantity || product.stockQuantity || 99) || isOutOfStock}
+            <button
+              onClick={() => setQuantity(Math.min(effectiveStockQuantity ?? 99, quantity + 1))}
+              disabled={quantity >= (effectiveStockQuantity ?? 99) || isOutOfStock}
               className="px-4 h-full text-charcoal-navy hover:bg-surface-variant disabled:opacity-50 transition-colors"
             >
               +

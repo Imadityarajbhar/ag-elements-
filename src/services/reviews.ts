@@ -1,13 +1,22 @@
 import { WooCommerceReview } from "@/types/woocommerce";
+import { absoluteUrl } from "@/lib/seo/site";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api';
+// This app's own /api/products/reviews route, not a separate backend — there is no
+// external review service. The previous `NEXT_PUBLIC_API_URL || 'http://localhost:3000/api'`
+// fallback was always taken (that env var was never actually set anywhere), so in
+// production this silently tried to reach localhost:3000 from wherever the request ran:
+// from the server for getProductReviews() (product/[slug]/page.tsx calls it in a Server
+// Component), and from each visitor's own machine for createProductReview() (called
+// client-side) — both fail every time, which is why reviews never loaded and submissions
+// never went through. absoluteUrl() resolves to the real site origin in both contexts.
+const API_URL = absoluteUrl('/api/products');
 
 /**
  * Fetch reviews for a specific product
  */
 export async function getProductReviews(productId: number): Promise<WooCommerceReview[]> {
   try {
-    const res = await fetch(`${API_URL}/products/reviews?product_id=${productId}`, {
+    const res = await fetch(`${API_URL}/reviews?product_id=${productId}`, {
       next: { revalidate: 60 } // Cache for 60 seconds
     });
     
@@ -40,7 +49,7 @@ export interface ReviewPayload {
  */
 export async function createProductReview(payload: ReviewPayload): Promise<{ success: boolean; data?: WooCommerceReview; message?: string }> {
   try {
-    const res = await fetch(`${API_URL}/products/reviews`, {
+    const res = await fetch(`${API_URL}/reviews`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -1,10 +1,20 @@
 "use client";
-import { Phone, Mail, MapPin, Camera, PlayCircle, BadgeCheck, History, Truck } from 'lucide-react';
+import { Phone, Mail, MapPin, BadgeCheck, History, Truck } from 'lucide-react';
 
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { siteConfig } from "@/lib/seo/site";
+import { siteConfig, googleMapsSearchUrl } from "@/lib/seo/site";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/shared/SocialIcons";
+
+const STORE_MAPS_URL = googleMapsSearchUrl(siteConfig.address);
+
+// Only confirmed real accounts — Pinterest/YouTube/LinkedIn are intentionally excluded.
+const SOCIAL_LINKS = [
+  { key: 'instagram', label: 'Instagram', url: siteConfig.social.instagram, Icon: InstagramIcon },
+  { key: 'facebook', label: 'Facebook', url: siteConfig.social.facebook, Icon: FacebookIcon },
+  { key: 'whatsapp', label: 'WhatsApp', url: `https://wa.me/${siteConfig.whatsappNumber.replace(/[^\d]/g, '')}`, Icon: WhatsAppIcon },
+];
 
 export default function ContactPage() {
   const inputClass = "w-full bg-transparent border-b border-charcoal-navy/20 focus:border-primary py-2 px-0 text-body-md font-body-md outline-none transition-colors placeholder:text-outline-variant";
@@ -70,21 +80,29 @@ export default function ContactPage() {
                   <Phone className="text-primary mt-1" />
                   <div>
                     <p className="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1 text-[12px]">Call Us</p>
-                    <p className="font-body-lg text-charcoal-navy">+91 7152 245000</p>
+                    <a href={`tel:${siteConfig.phone.replace(/[^\d+]/g, '')}`} className="font-body-lg text-charcoal-navy hover:text-primary transition-colors underline-offset-4 hover:underline">{siteConfig.phone}</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Mail className="text-primary mt-1" />
                   <div>
                     <p className="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1 text-[12px]">Email Us</p>
-                    <p className="font-body-lg text-charcoal-navy">concierge@agelements.com</p>
+                    <a href={`mailto:${siteConfig.email}`} className="font-body-lg text-charcoal-navy hover:text-primary transition-colors underline-offset-4 hover:underline">{siteConfig.email}</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <MapPin className="text-primary mt-1" />
                   <div>
                     <p className="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1 text-[12px]">Visit Studio</p>
-                    <p className="font-body-lg text-charcoal-navy">Shriram Govind Kathane Jewellers,<br />c/o Sarafa Line, opp. Balaji Mandir,<br />Kapada Line, Mahadevpura, Nagpur,<br />Wardha, Maharashtra 442001</p>
+                    <a
+                      href={STORE_MAPS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Open our studio address in Google Maps (opens in a new tab)"
+                      className="font-body-lg text-charcoal-navy hover:text-primary transition-colors underline-offset-4 hover:underline"
+                    >
+                      {siteConfig.address}
+                    </a>
                   </div>
                 </div>
               </div>
@@ -101,8 +119,11 @@ export default function ContactPage() {
             <div className="pt-6 border-t border-primary/10">
               <p className="font-label-sm text-on-surface-variant uppercase mb-4 tracking-widest text-[12px]">Follow Our Journey</p>
               <div className="flex gap-6 text-primary">
-                <a className="hover:opacity-70 transition-all" href={siteConfig.social.instagram} aria-label="Instagram" target="_blank" rel="noreferrer"><Camera  /></a>
-                <a className="hover:opacity-70 transition-all" href="#" aria-label="YouTube"><PlayCircle  /></a>
+                {SOCIAL_LINKS.map(({ key, label, url, Icon }) => (
+                  <a key={key} className="hover:opacity-70 transition-all" href={url} aria-label={label} target="_blank" rel="noreferrer">
+                    <Icon className="w-5 h-5" />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
@@ -110,16 +131,22 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Google Maps Placeholder */}
+      {/* Map Preview - links out to Google Maps since no embeddable map API key is configured */}
       <section className="px-margin-mobile tablet:px-margin-desktop mb-section-v-padding-mobile tablet:mb-section-v-padding">
-        <div className="w-full h-[300px] tablet:h-[450px] bg-surface-container-low rounded-xl overflow-hidden relative group">
+        <a
+          href={STORE_MAPS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open our studio location in Google Maps (opens in a new tab)"
+          className="block w-full h-[300px] tablet:h-[450px] bg-surface-container-low rounded-xl overflow-hidden relative group"
+        >
           <div className="w-full h-full grayscale hover:grayscale-0 transition-all duration-700 bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDvtKe6CQsdEM3k1Rtzid-EK0982WhejlQDGgVewgYY8D3k3m0gAr8X7z_pO5JwHMfn3Zl0o5b-6X-2w3EcTuhGoAaz4yTPKmGOPfRvYxZlqXN5twI9GxMTrMJ7YfSpIlYHPIA9PXgTyWS4UIx7_MUQru8zz82AdWw3EHuGPLUFciP4jgG50sjtrFg0U9gA-Jv1vXbKXIHVR_ybdLXAsYpuwfqtaLN5gxyX_-o_wS1PsXJICRwLispPTQ')" }}></div>
           <div className="absolute inset-0 bg-charcoal-navy/10 pointer-events-none"></div>
           <div className="absolute top-4 left-4 tablet:top-8 tablet:left-8 bg-pearl-white p-6 shadow-xl rounded-lg max-w-[280px] tablet:max-w-xs">
             <p className="font-headline-sm text-[18px] mb-2 text-charcoal-navy">Our Flagship Store</p>
             <p className="font-body-md text-[14px] text-on-surface-variant">Located in the heart of the historic Sarafa market, our studio is a sanctuary for fine silver craftsmanship.</p>
           </div>
-        </div>
+        </a>
       </section>
 
       {/* FAQ Teaser */}

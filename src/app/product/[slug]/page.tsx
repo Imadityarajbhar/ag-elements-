@@ -14,6 +14,7 @@ import { ProductViewTracker } from "@/components/shop/ProductViewTracker";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
+import { siteConfig, absoluteUrl } from "@/lib/seo/site";
 
 export const runtime = 'edge';
 
@@ -186,15 +187,6 @@ async function RecommendationsSection({ product }: { product: any }) {
 
           {/* Add to Cart & Actions (includes price, variants, buttons) */}
           <div className="flex flex-col gap-4">
-            
-            {/* Urgency / Scarcity Message */}
-            <div className="flex items-center gap-2 bg-red-50 text-red-700 px-4 py-3 rounded-md border border-red-100">
-              <div className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
-              </div>
-              <span className="font-label-sm font-bold uppercase tracking-widest text-[12px]">High Demand: Only 2 left in stock!</span>
-            </div>
 
             <Suspense fallback={<div className="h-12 bg-surface-container-lowest animate-pulse rounded" />}>
               <AddToCartButton product={product} />
@@ -328,7 +320,12 @@ async function RecommendationsSection({ product }: { product: any }) {
                 <AccordionContent className="font-body-md text-[16px] text-on-surface-variant leading-relaxed">
                   <div className="flex flex-col gap-4 pt-2">
                     <p>Have questions about this piece? Our Jewellery Experts are available to assist you with styling advice, sizing, or any other inquiries.</p>
-                    <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-full font-label-md uppercase tracking-widest w-fit hover:bg-[#128C7E] transition-colors">
+                    <a
+                      href={`https://wa.me/${siteConfig.whatsappNumber.replace(/[^\d]/g, '')}?text=${encodeURIComponent(`Hi, I have a question about ${product.name} (${absoluteUrl(`/product/${product.slug}`)})`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-full font-label-md uppercase tracking-widest w-fit hover:bg-[#128C7E] transition-colors"
+                    >
                       <MessageCircle  />
                       WhatsApp Us
                     </a>

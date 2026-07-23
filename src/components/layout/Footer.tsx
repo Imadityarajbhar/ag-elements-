@@ -1,14 +1,25 @@
-import { Phone, MessageCircle, Mail, MapPin, Clock, Camera, ThumbsUp, Share2 } from 'lucide-react';
+import { Phone, MessageCircle, Mail, MapPin, Clock } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { NewsletterForm } from "@/components/shared/NewsletterForm";
-import { siteConfig } from "@/lib/seo/site";
+import { siteConfig, googleMapsSearchUrl } from "@/lib/seo/site";
+import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/shared/SocialIcons";
 import {
   Accordion,
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
+
+const WHATSAPP_URL = `https://wa.me/${siteConfig.whatsappNumber.replace(/[^\d]/g, '')}`;
+const STORE_MAPS_URL = googleMapsSearchUrl(siteConfig.address);
+
+// Only confirmed real accounts — Pinterest/YouTube/LinkedIn are intentionally excluded.
+const SOCIAL_LINKS = [
+  { key: 'instagram', label: 'Instagram', url: siteConfig.social.instagram, Icon: InstagramIcon },
+  { key: 'facebook', label: 'Facebook', url: siteConfig.social.facebook, Icon: FacebookIcon },
+  { key: 'whatsapp', label: 'WhatsApp', url: WHATSAPP_URL, Icon: WhatsAppIcon },
+];
 
 export function Footer() {
   return (
@@ -30,21 +41,21 @@ export function Footer() {
             <p className="font-body-md text-[14px] leading-[24px] text-on-surface-variant text-center tablet:text-left">Premium Silver Jewellery</p>
             
             <div className="flex flex-col gap-3 font-body-sm text-on-surface-variant mt-2 text-center tablet:text-left">
-              <a href="tel:+91XXXXXXXXXX" className="flex items-center justify-center tablet:justify-start gap-2 hover:text-ag-purple transition-colors">
+              <a href={`tel:${siteConfig.phone.replace(/[^\d+]/g, '')}`} className="flex items-center justify-center tablet:justify-start gap-2 hover:text-ag-purple transition-colors">
                 <Phone className="text-[18px]" />
-                +91 XXXXX XXXXX
+                {siteConfig.phone}
               </a>
-              <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center tablet:justify-start gap-2 hover:text-ag-purple transition-colors">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center tablet:justify-start gap-2 hover:text-ag-purple transition-colors">
                 <MessageCircle className="text-[18px]" />
                 WhatsApp Us
               </a>
-              <a href="mailto:hello@agelements.in" className="flex items-center justify-center tablet:justify-start gap-2 hover:text-ag-purple transition-colors">
+              <a href={`mailto:${siteConfig.email}`} className="flex items-center justify-center tablet:justify-start gap-2 hover:text-ag-purple transition-colors">
                 <Mail className="text-[18px]" />
-                hello@agelements.in
+                {siteConfig.email}
               </a>
-              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="flex items-start justify-center tablet:justify-start gap-2 hover:text-ag-purple transition-colors mt-2">
-                <MapPin className="text-[18px] mt-1" />
-                <span>(Complete business address)</span>
+              <a href={STORE_MAPS_URL} target="_blank" rel="noopener noreferrer" aria-label="Open our studio address in Google Maps (opens in a new tab)" className="flex items-start justify-center tablet:justify-start gap-2 hover:text-ag-purple transition-colors mt-2">
+                <MapPin className="text-[18px] mt-1 shrink-0" />
+                <span>{siteConfig.address}</span>
               </a>
               <div className="flex items-start justify-center tablet:justify-start gap-2 mt-2 text-[13px]">
                 <Clock className="text-[18px] mt-0.5" />
@@ -118,15 +129,11 @@ export function Footer() {
             <div className="mt-8">
               <span className="font-label-md text-[14px] uppercase tracking-widest text-primary mb-4 block">Follow Us</span>
               <div className="flex gap-4 text-on-surface-variant">
-                <a href={siteConfig.social.instagram} aria-label="Instagram" target="_blank" rel="noreferrer" className="hover:text-ag-purple transition-colors">
-                  <Camera className="text-[24px]" />
-                </a>
-                <a href={siteConfig.social.facebook} aria-label="Facebook" target="_blank" rel="noreferrer" className="hover:text-ag-purple transition-colors">
-                  <ThumbsUp className="text-[24px]" />
-                </a>
-                <a href="#" aria-label="Share" target="_blank" rel="noreferrer" className="hover:text-ag-purple transition-colors">
-                  <Share2 className="text-[24px]" />
-                </a>
+                {SOCIAL_LINKS.map(({ key, label, url, Icon }) => (
+                  <a key={key} href={url} aria-label={label} target="_blank" rel="noreferrer" className="hover:text-ag-purple transition-colors">
+                    <Icon className="w-6 h-6" />
+                  </a>
+                ))}
               </div>
             </div>
           </div>

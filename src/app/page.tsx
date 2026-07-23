@@ -33,11 +33,12 @@ export default async function Home() {
         {/* LCP Optimized Poster Image */}
         <div className="absolute inset-0 w-full h-full z-0 bg-surface-variant">
           <Image
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ1bPW5lb8cWYkCstsu-pp4Ik_9gj7tZv11n0CdJUf2jLWXzbzS8J12xqSiIknx2jnzhV7Lzn2gy22xJ4HQzp3-Cqo4HgQvaPbD21GiZEiLC_9rgRDhXxlRhQq23crWrByAYZ-Ec8ZIN6QQPl-4IF41iEi6AtKTxM49mtykHFmucgBZm5DAqfElBwNVejzazMU4kDHGlyZMqtYcGVhI6HROyvbSgXktmauXu27vLd87uS0OJrnbV7ZuQ=s0"
-            alt="New Collection Banner"
+            src="/brand/hero-studio.jpg"
+            alt="AG Elements sterling silver jewellery, showcased at our studio"
             fill
             priority
             fetchPriority="high"
+            sizes="100vw"
             className="object-cover"
           />
         </div>

@@ -15,7 +15,11 @@ export async function POST(request: Request) {
 
     // Use WordPress REST API to trigger password reset
     // WordPress doesn't have a native REST endpoint for password reset,
-    // so we call the wp-login.php action directly
+    // so we call the wp-login.php action directly.
+    // NOTE: the emailed reset link itself still points at wp-login.php until the
+    // mu-plugin described in PASSWORD_RESET_SETUP.md (project root) is deployed to
+    // WordPress — see that file for why, and for /account/reset-password (already
+    // built on this side) which the link will land on once it's deployed.
     const formData = new URLSearchParams();
     formData.append('user_login', email);
     formData.append('redirect_to', '');

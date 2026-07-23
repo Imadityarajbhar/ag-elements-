@@ -1,4 +1,5 @@
 import { generateMetadata } from "@/lib/seo/generateMetadata";
+import { siteConfig } from "@/lib/seo/site";
 
 export const metadata = generateMetadata({
   title: "Shipping & Returns | AG Elements",
@@ -48,7 +49,7 @@ export default function ShippingReturnsPage() {
         <section>
           <h2 className="text-[24px] mb-4 border-b border-outline-variant/30 pb-2">4. How to Initiate a Return</h2>
           <p>
-            [PLACEHOLDER: To initiate a return, please email our concierge team at concierge@agelements.com with your order number and unboxing video (if applicable). Our team will arrange a reverse pickup within 2-3 business days.]
+            [PLACEHOLDER: To initiate a return, please email our concierge team at {siteConfig.email} with your order number and unboxing video (if applicable). Our team will arrange a reverse pickup within 2-3 business days.]
           </p>
         </section>
 

@@ -1,5 +1,5 @@
 import { Wand2 } from 'lucide-react';
-import { getPaginatedProducts } from "@/services/products";
+import { getPaginatedProducts, AttributeFilter } from "@/services/products";
 import { ShopArchive } from "@/components/shop/ShopArchive";
 import { ProductCarousel } from "@/components/shared/ProductCarousel";
 import Link from "next/link";
@@ -65,31 +65,30 @@ export default async function CollectionPage({
   const on_sale = resolvedParams.on_sale === 'true';
   const order = typeof resolvedParams.order === 'string' ? resolvedParams.order as any : undefined;
   const orderby = typeof resolvedParams.orderby === 'string' ? resolvedParams.orderby as any : undefined;
-  // Parse dynamic attributes from URL parameters
+  // Parse dynamic attributes from URL parameters. WooCommerce's REST API only accepts a
+  // single attribute/attribute_term pair per request — joining 2+ different taxonomies
+  // (e.g. Gender + Material) into one comma-separated string fails taxonomy_exists() and
+  // silently drops the entire attribute filter, returning the whole unfiltered category
+  // (verified live: category=Bracelets + Gender=Women + any second attribute returned all
+  // 24 bracelets, including Men-only items, instead of the correct 21 Women-tagged ones).
+  // AttributeFilter[] + getPaginatedProducts' include-based intersection (already fixed
+  // for /shop in Phase 10) AND-combines them correctly instead.
   const attributeKeys = ['pa_gender', 'pa_material', 'pa_collection', 'pa_stone', 'pa_occasion', 'pa_finish', 'pa_style'];
-  const activeAttributes: string[] = [];
-  const activeAttributeTerms: string[] = [];
+  const attributeFilters: AttributeFilter[] = [];
 
   for (const key of attributeKeys) {
     const val = typeof resolvedParams[key] === 'string' ? resolvedParams[key] : undefined;
     if (val) {
-      activeAttributes.push(key);
-      activeAttributeTerms.push(val);
+      attributeFilters.push({ attribute: key, term: val });
     }
   }
 
-  // Handle old generic attribute_term or config-level attribute
-  const legacyAttributeTerm = typeof resolvedParams.attribute_term === 'string' ? resolvedParams.attribute_term : undefined;
-  if (legacyAttributeTerm) {
-    activeAttributes.push(config.attribute || 'pa_material,pa_gender,pa_collection');
-    activeAttributeTerms.push(legacyAttributeTerm);
-  } else if (config.attribute && config.attribute_term) {
-    activeAttributes.push(config.attribute);
-    activeAttributeTerms.push(config.attribute_term);
+  // Config-level attribute restriction (e.g. a collection permanently scoped to one
+  // taxonomy term) ANDs in alongside whatever the user selected in the sidebar filters.
+  if (config.attribute && config.attribute_term) {
+    attributeFilters.push({ attribute: config.attribute, term: config.attribute_term });
   }
 
-  const attribute = activeAttributes.length > 0 ? activeAttributes.join(',') : undefined;
-  const attribute_term = activeAttributeTerms.length > 0 ? activeAttributeTerms.join(',') : undefined;
   const stock_status = typeof resolvedParams.stock_status === 'string' ? resolvedParams.stock_status as any : undefined;
   const new_arrivals = resolvedParams.new_arrivals === 'true';
 
@@ -105,8 +104,7 @@ export default async function CollectionPage({
     on_sale,
     order,
     orderby,
-    attribute,
-    attribute_term,
+    attributeFilters,
     stock_status,
     new_arrivals
   });
@@ -116,8 +114,7 @@ export default async function CollectionPage({
     page: 1,
     per_page: 8,
     category: categoryId.toString(),
-    attribute,
-    attribute_term,
+    attributeFilters,
     featured: true // Just fetch top featured items for this category
   });
 
