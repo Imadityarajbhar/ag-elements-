@@ -54,10 +54,11 @@ export default function ContactPage() {
                 <div className="flex flex-col gap-2">
                   <label className="font-label-sm uppercase text-on-surface-variant tracking-widest text-[12px]">Subject</label>
                   <select className={`${inputClass} appearance-none bg-transparent`}>
-                    <option>Bespoke Inquiry</option>
+                    <option>Custom Order Enquiry</option>
                     <option>Order Status</option>
                     <option>Product Care</option>
-                    <option>Wholesale</option>
+                    <option>Wholesale Enquiry</option>
+                    <option>Other</option>
                   </select>
                 </div>
               </div>
