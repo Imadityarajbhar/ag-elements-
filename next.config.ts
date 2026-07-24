@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'agelements.in',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cms.agelements.in',
       }
     ],
   },

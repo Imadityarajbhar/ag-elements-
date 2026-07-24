@@ -29,12 +29,12 @@ export default async function Home() {
   return (
     <div className="flex flex-col w-full bg-pearl-white">
       {/* 1. Editorial Hero Banner */}
-      <section className="relative w-full h-[75vh] min-h-[560px] flex items-center justify-center tablet:justify-start overflow-hidden bg-surface-variant">
+      <section className="relative w-full h-[75vh] min-h-[560px] flex items-end justify-center tablet:justify-start overflow-hidden bg-surface-variant">
         {/* LCP Optimized Poster Image */}
         <div className="absolute inset-0 w-full h-full z-0 bg-surface-variant">
           <Image
             src="/brand/hero-studio.jpg"
-            alt="AG Elements sterling silver jewellery, showcased at our studio"
+            alt="AG Elements founder at our jewellery studio"
             fill
             priority
             fetchPriority="high"
@@ -43,10 +43,11 @@ export default async function Home() {
           />
         </div>
 
-        {/* Elegant Gradient Overlay — let the photography lead, keep just enough contrast for the text */}
+        {/* Elegant Gradient Overlay — darkest at the bottom (where the text now sits), fully
+            clear at the top so the founder's face in the upper frame stays unobscured */}
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-charcoal-navy/80 via-charcoal-navy/25 to-transparent"></div>
-        
-        <div className="relative z-20 w-full max-w-[1440px] mx-auto text-center px-margin-mobile tablet:px-margin-desktop flex flex-col items-center mt-auto mb-24 tablet:mb-0 tablet:mt-0">
+
+        <div className="relative z-20 w-full max-w-[1440px] mx-auto text-center px-margin-mobile tablet:px-margin-desktop pb-16 tablet:pb-20 flex flex-col items-center">
           <span className="font-label-md text-[14px] uppercase tracking-[0.2em] text-pearl-white/80 font-semibold mb-6 drop-shadow-md">
             The New Collection
           </span>

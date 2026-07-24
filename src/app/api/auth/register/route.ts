@@ -85,7 +85,6 @@ export async function POST(request: Request) {
             'Cart-Token': cartToken,
           }
         });
-        console.log('Guest cart merged successfully.');
       } catch (err) {
         console.warn('Failed to merge guest cart during registration:', err);
       }

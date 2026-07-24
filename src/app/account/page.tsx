@@ -12,7 +12,7 @@ export default async function AccountDashboardPage() {
     redirect('/account/login?redirect=/account');
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_WC_API_URL || '';
+  const baseUrl = (process.env.NEXT_PUBLIC_WP_URL || '').replace(/\/$/, '');
   
   let userId;
   try {

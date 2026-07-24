@@ -1,32 +1,26 @@
 import { WooCommerceReview } from "@/types/woocommerce";
 import { absoluteUrl } from "@/lib/seo/site";
+import { wcClient } from "@/services/woocommerce/client";
 
-// This app's own /api/products/reviews route, not a separate backend — there is no
-// external review service. The previous `NEXT_PUBLIC_API_URL || 'http://localhost:3000/api'`
-// fallback was always taken (that env var was never actually set anywhere), so in
-// production this silently tried to reach localhost:3000 from wherever the request ran:
-// from the server for getProductReviews() (product/[slug]/page.tsx calls it in a Server
-// Component), and from each visitor's own machine for createProductReview() (called
-// client-side) — both fail every time, which is why reviews never loaded and submissions
-// never went through. absoluteUrl() resolves to the real site origin in both contexts.
+// createProductReview is called client-side (a visitor submitting a review from the
+// browser), so it has to go over HTTP to this app's own /api/products/reviews route —
+// the browser can't use wcClient directly (server-only: it holds the WC consumer secret).
+// absoluteUrl() resolves that route to the real site origin.
 const API_URL = absoluteUrl('/api/products');
 
 /**
- * Fetch reviews for a specific product
+ * Fetch reviews for a specific product.
+ *
+ * Runs server-side only (called from a Server Component), so it talks to wcClient
+ * directly instead of round-tripping through this app's own /api/products/reviews
+ * route — that route exists for the client-side submission flow below, not for this.
  */
 export async function getProductReviews(productId: number): Promise<WooCommerceReview[]> {
   try {
-    const res = await fetch(`${API_URL}/reviews?product_id=${productId}`, {
-      next: { revalidate: 60 } // Cache for 60 seconds
-    });
-    
-    if (!res.ok) {
-      console.warn(`Failed to fetch reviews for product ${productId}: ${res.statusText}`);
-      return [];
-    }
-    
-    const data = await res.json();
-    return data;
+    return await wcClient.fetch<WooCommerceReview[]>(
+      `/products/reviews?product=${productId}&status=approved`,
+      { next: { revalidate: 60 } }
+    );
   } catch (error) {
     console.error(`Error fetching reviews for product ${productId}:`, error);
     return [];
