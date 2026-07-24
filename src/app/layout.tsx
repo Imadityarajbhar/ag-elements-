@@ -42,6 +42,7 @@ metadata.verification = {
 import { AuthProvider } from "@/components/shared/AuthProvider";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function RootLayout({
   children,
@@ -85,6 +86,7 @@ export default function RootLayout({
         <SocialProofToast />
         <AnalyticsProvider />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
