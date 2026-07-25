@@ -1,4 +1,4 @@
-import { BadgeCheck, ShieldCheck, Truck, RefreshCw, Star } from 'lucide-react';
+import { BadgeCheck, ShieldCheck, Truck, RefreshCw } from 'lucide-react';
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,7 @@ const ProductCarousel = dynamic(() => import("@/components/shared/ProductCarouse
 const RecentlyViewed = dynamic(() => import("@/components/shop/RecentlyViewed").then(m => m.RecentlyViewed));
 const InstagramFeed = dynamic(() => import("@/components/home/InstagramFeed").then(m => m.InstagramFeed));
 const FounderIntro = dynamic(() => import("@/components/home/FounderIntro").then(m => m.FounderIntro));
+const Testimonials = dynamic(() => import("@/components/home/Testimonials").then(m => m.Testimonials));
 
 export const metadata = generateMetadata({
   title: "AG Elements | Timeless Elegance",
@@ -185,37 +186,7 @@ export default async function Home() {
       </div>
 
       {/* 10. Testimonials */}
-      <section className="py-section-v-padding-mobile tablet:py-section-v-padding bg-surface-container w-full">
-        <div className="max-w-[1440px] mx-auto px-margin-mobile tablet:px-margin-desktop">
-          <div className="text-center mb-16">
-            <span className="text-ag-purple font-label-md text-[13px] font-bold uppercase tracking-[0.2em] mb-4 block">Testimonials</span>
-            <h2 className="font-headline-lg text-[36px] tablet:text-[48px] leading-tight font-medium text-charcoal-navy">What Our Customers Say</h2>
-          </div>
-          <div className="grid grid-cols-1 tablet:grid-cols-3 gap-12 tablet:gap-16">
-            <div className="flex flex-col gap-5">
-              <div className="flex text-ag-purple">
-                {Array(5).fill(0).map((_, i) => <Star key={i} className="w-4 h-4" />)}
-              </div>
-              <p className="font-headline-sm text-[20px] leading-[1.5] text-charcoal-navy font-normal italic">"Absolutely stunning! It feels substantial but looks so delicate on the wrist. I haven't taken it off since it arrived."</p>
-              <span className="font-label-sm text-[12px] font-semibold uppercase tracking-widest text-on-surface-variant">Priya S.</span>
-            </div>
-            <div className="flex flex-col gap-5">
-              <div className="flex text-ag-purple">
-                {Array(5).fill(0).map((_, i) => <Star key={i} className="w-4 h-4" />)}
-              </div>
-              <p className="font-headline-sm text-[20px] leading-[1.5] text-charcoal-navy font-normal italic">"Perfect gift. The premium packaging made the unboxing experience feel so luxurious and special."</p>
-              <span className="font-label-sm text-[12px] font-semibold uppercase tracking-widest text-on-surface-variant">Rohan M.</span>
-            </div>
-            <div className="flex flex-col gap-5">
-              <div className="flex text-ag-purple">
-                {Array(5).fill(0).map((_, i) => <Star key={i} className="w-4 h-4" />)}
-              </div>
-              <p className="font-headline-sm text-[20px] leading-[1.5] text-charcoal-navy font-normal italic">"Elegant and versatile. The silver has a lovely shine that doesn't tarnish with everyday wear."</p>
-              <span className="font-label-sm text-[12px] font-semibold uppercase tracking-widest text-on-surface-variant">Anita D.</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Testimonials />
 
       {/* 11. FAQ */}
       <section className="py-section-v-padding-mobile tablet:py-section-v-padding px-margin-mobile tablet:px-margin-desktop max-w-3xl mx-auto w-full">
