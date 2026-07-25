@@ -27,7 +27,7 @@ export const HOMEPAGE_LINKS = {
     rings: '/collections/rings',
   },
   instagram: {
-    profile: 'https://instagram.com/agelements',
+    profile: 'https://www.instagram.com/agelements_sterlingsilver/',
     posts: [
       { id: 1, url: '/collections/necklaces' },
       { id: 2, url: '/collections/bracelets' },

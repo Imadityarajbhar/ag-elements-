@@ -12,6 +12,7 @@ import { HOMEPAGE_LINKS } from "@/config/homepage-links";
 const ProductCarousel = dynamic(() => import("@/components/shared/ProductCarousel").then(m => m.ProductCarousel));
 const RecentlyViewed = dynamic(() => import("@/components/shop/RecentlyViewed").then(m => m.RecentlyViewed));
 const InstagramFeed = dynamic(() => import("@/components/home/InstagramFeed").then(m => m.InstagramFeed));
+const FounderIntro = dynamic(() => import("@/components/home/FounderIntro").then(m => m.FounderIntro));
 
 export const metadata = generateMetadata({
   title: "AG Elements | Timeless Elegance",
@@ -128,37 +129,13 @@ export default async function Home() {
         <ProductCarousel title="Best Sellers" products={bestSellers} viewAllLink={HOMEPAGE_LINKS.carousels.bestSellers} />
       </div>
 
-      {/* 5. Luxury Storytelling: The Art of Craftsmanship */}
-      <section className="py-section-v-padding-mobile tablet:py-section-v-padding bg-surface-container-low w-full overflow-hidden">
-        <div className="max-w-[1440px] mx-auto px-margin-mobile tablet:px-margin-desktop">
-          <div className="flex flex-col tablet:flex-row items-center gap-16 tablet:gap-24">
-            <div className="flex-1 relative group w-full">
-              <div className="absolute -inset-4 bg-pearl-white/50 rounded-2xl transform rotate-3 transition-transform duration-700 group-hover:rotate-6"></div>
-              <div className="absolute -inset-4 bg-ag-purple/5 rounded-2xl transform -rotate-2 transition-transform duration-700 group-hover:-rotate-4"></div>
-              <Image width={800} height={1000} className="relative z-10 rounded-xl shadow-2xl w-full object-cover aspect-[4/5] tablet:aspect-square" alt="The Art of Craftsmanship" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPPmdoIQY2dETKqp7gluGbmwPtyZS53-eQzFIoxDSeP1q85Dvcad4wjxKdr-gx6ECF2EKloDg3EF5RCnLD_iuqGIZFp6BbCDmKUy8Wh2cqeJ_qpFZGTS6M7uePf76pYT2HzIfM3srVgganSFtYqBn2EI4eafaR2bMfmLWIZlz_QJoK9DNtfgyll3TzG6jztpTXiGbIt92nmH0F4UQHG1L0cs3KRYhMcGWcnX8tGjcjLErESEEWo6qeHQ" />
-            </div>
-            <div className="flex-1 flex flex-col gap-8 text-center tablet:text-left z-20">
-              <div className="flex flex-col gap-2">
-                <span className="text-ag-purple font-label-md text-[13px] font-bold uppercase tracking-[0.2em]">Heritage Since 1954</span>
-                <h2 className="font-headline-lg text-[40px] tablet:text-[56px] leading-[1.1] font-medium text-charcoal-navy">The Art of Craftsmanship</h2>
-              </div>
-              <p className="font-body-lg text-[18px] leading-[1.8] text-on-surface-variant font-light">
-                Founded in 1954, AG Elements has been at the forefront of artisanal silversmithing. Our journey began with a simple mission: to create timeless pieces that celebrate the beauty of 925 sterling silver, ensuring that every necklace, ring, and bracelet feels like a modern heirloom.
-              </p>
-              <div>
-                <Link href="/about" className="inline-block border-b-2 border-charcoal-navy pb-1 text-charcoal-navy font-label-md text-[13px] font-bold uppercase tracking-[0.15em] hover:text-ag-purple hover:border-ag-purple transition-colors">
-                  Discover Our Story
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 5. Founder Introduction */}
+      <FounderIntro />
 
       {/* 6. Editorial Split (Luxury Grid) */}
       <section className="py-section-v-padding-mobile tablet:py-section-v-padding px-margin-mobile tablet:px-margin-desktop max-w-[1440px] mx-auto grid grid-cols-1 tablet:grid-cols-2 gap-8 w-full">
         <div className="relative group overflow-hidden rounded-2xl aspect-[4/5] tablet:aspect-[3/4] shadow-lg">
-          <Image fill sizes="(max-width: 768px) 100vw, 50vw" alt="Bridal Collection" className="object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUJGvMSZgwIlLwahFRrdxRLmFixcgBdkuNq3df9UHJ-K8OUa4HoheieBXDpqxPjerp-dQPGsKjSf_agZAUvvC4MUShS8orWlerj4ZLkEcfstV4yii_FfGR2mMq_vHCdAF9Rw_CLrXow-CxkgL031EdkyyO1_53j78G2TEOBk7Cx0P7vSpDYY7aHY-zbcyrV0_bEccY9eRDJToErv7tsejp21p2y-pYcuRYJUGlpe-5ltfcYvCHjNoofA" />
+          <Image fill sizes="(max-width: 768px) 100vw, 50vw" alt="Bride wearing a layered emerald and sterling silver necklace, matching earrings, and stacked bangles from the AG Elements Bridal Collection" className="object-cover transition-transform duration-1000 group-hover:scale-110" src="/collections/bridal-collection.jpg" />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-navy/80 via-charcoal-navy/20 to-transparent flex flex-col items-center justify-end pb-16 text-pearl-white opacity-90 group-hover:opacity-100 transition-opacity">
             <h3 className="font-headline-md text-[36px] font-medium mb-4 drop-shadow-md tracking-tight">Bridal Collection</h3>
             <p className="font-body-sm max-w-xs text-center mb-6 text-pearl-white/80">Elegance designed for your most unforgettable moments.</p>
@@ -168,7 +145,7 @@ export default async function Home() {
           </div>
         </div>
         <div className="relative group overflow-hidden rounded-2xl aspect-[4/5] tablet:aspect-[3/4] shadow-lg tablet:translate-y-12">
-          <Image fill sizes="(max-width: 768px) 100vw, 50vw" alt="Everyday Stacking" className="object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYiRCc0SOXT-IyTldErTn73a7AMNwjKtfeA6qAjlNRKkflCEuJCYmv5G7MPkJOcEixO3y_InfY4EdHbRCSYjEmHnnLAIXVWP4fr35ncMCdzByzS2gbo4cva11sGetzCwvrIkkJihh-Ee0CFX-V0wak_hUweISm4jzCboLIGFMtX42uwgFxMeKHr5nnkLZ5hqABidyQMU1mt_g97E6wbxFQezC7ls_V8aXsczxyMxzKW5Wxbb5KY0xkNw" />
+          <Image fill sizes="(max-width: 768px) 100vw, 50vw" alt="Layered amethyst and gold-accent sterling silver necklaces from the AG Elements Everyday Stacking collection, worn close-up" className="object-cover transition-transform duration-1000 group-hover:scale-110" src="/collections/everyday-stacking.jpg" />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-navy/80 via-charcoal-navy/20 to-transparent flex flex-col items-center justify-end pb-16 text-pearl-white opacity-90 group-hover:opacity-100 transition-opacity">
             <h3 className="font-headline-md text-[36px] font-medium mb-4 drop-shadow-md tracking-tight">Everyday Stacking</h3>
             <p className="font-body-sm max-w-xs text-center mb-6 text-pearl-white/80">Minimalist pieces crafted for your daily rotation.</p>

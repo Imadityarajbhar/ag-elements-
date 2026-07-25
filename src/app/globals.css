@@ -49,6 +49,7 @@
   --color-surface-container: #f5ebf3;
   --color-surface-variant: #e9e0e7;
   --color-outline-variant: #cfc3d0;
+  --color-on-surface-variant: #4d444f;
 
   /* Typography extensions */
   --font-headline-md: Playfair Display;
