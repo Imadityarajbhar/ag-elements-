@@ -20,7 +20,17 @@ const itemVariants: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
 };
 
-export function FounderIntro() {
+interface FounderIntroProps {
+  /** Override where the closing CTA points — defaults to the homepage's "/about" link. */
+  ctaHref?: string;
+  /** Override the closing CTA label — defaults to "Meet The Founder". */
+  ctaLabel?: string;
+}
+
+export function FounderIntro({
+  ctaHref = HOMEPAGE_LINKS.editorial.aboutStory,
+  ctaLabel = "Meet The Founder",
+}: FounderIntroProps = {}) {
   return (
     <section className="py-section-v-padding-mobile tablet:py-section-v-padding bg-surface-container-low w-full overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-margin-mobile tablet:px-margin-desktop">
@@ -91,10 +101,10 @@ export function FounderIntro() {
 
             <motion.div variants={itemVariants}>
               <Link
-                href={HOMEPAGE_LINKS.editorial.aboutStory}
+                href={ctaHref}
                 className="group inline-flex items-center gap-3 border-b-2 border-charcoal-navy pb-1 text-charcoal-navy font-label-md text-[13px] font-bold uppercase tracking-[0.15em] hover:text-ag-purple hover:border-ag-purple transition-colors"
               >
-                Meet The Founder
+                {ctaLabel}
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </motion.div>

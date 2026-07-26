@@ -78,7 +78,11 @@ export async function POST(request: Request) {
     if (cartCookieMatch) {
       const cartToken = cartCookieMatch[1];
       try {
-        await fetch(`${baseUrl}/wp-json/wc/store/v1/cart`, {
+        // Cache-bust: the WordPress host's LiteSpeed page cache serves GET
+        // /cart by URL only, ignoring Cart-Token/Authorization headers, so
+        // an un-busted request here can silently merge onto a frozen,
+        // unrelated cart snapshot instead of this visitor's real one.
+        await fetch(`${baseUrl}/wp-json/wc/store/v1/cart?_=${Date.now()}`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,

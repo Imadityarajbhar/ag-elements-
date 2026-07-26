@@ -36,6 +36,94 @@ const InputWrapper = ({ children, error, show }: { children: React.ReactNode, er
   </div>
 );
 
+interface OrderSummaryContentProps {
+  items: any[];
+  totals: any;
+  subtotalRaw: number;
+  discountRaw: number;
+  shippingRaw: number;
+  totalRaw: number;
+}
+
+// Hoisted to module scope — declaring this inside CheckoutContent recreated
+// the component (and remounted its <Image> list) on every render, including
+// every keystroke in the address/contact form above it.
+const OrderSummaryContent = ({ items, totals, subtotalRaw, discountRaw, shippingRaw, totalRaw }: OrderSummaryContentProps) => (
+  <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4 max-h-[40vh] overflow-y-auto pr-2 custom-scrollbar">
+      {items.map((item: any) => {
+        const unitPriceRaw = parseInt(item.prices.price, 10) / (10 ** totals!.currency_minor_unit);
+        return (
+          <div key={item.key} className="flex gap-4 items-center">
+            <div className="relative w-16 h-16 bg-surface-dim rounded overflow-hidden flex-shrink-0 border border-outline-variant/30">
+              {item.images?.[0]?.src && (
+                <Image fill sizes="64px" src={item.images[0].src} alt={item.name} className="object-cover" />
+              )}
+              <div className="absolute -top-2 -right-2 bg-charcoal-navy text-pearl-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full z-10">
+                {item.quantity}
+              </div>
+            </div>
+            <div className="flex-grow">
+              <h4 className="font-body-md font-medium text-charcoal-navy line-clamp-1" dangerouslySetInnerHTML={{ __html: item.name }} />
+              {item.variation && item.variation.length > 0 && (
+                <p className="font-sans text-on-surface-variant text-[11px] mt-0.5 capitalize">
+                  {item.variation.map((v: any) => `${v.attribute.replace('pa_', '')}: ${v.value}`).join(' | ')}
+                </p>
+              )}
+              <div className="flex gap-4 mt-1 font-sans text-[12px] text-on-surface-variant">
+                <span>Qty: {item.quantity}</span>
+                <span>@ ₹{unitPriceRaw.toLocaleString('en-IN')} each</span>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+      {items.length === 0 && (
+        <p className="text-on-surface-variant text-sm py-4">Your cart is empty.</p>
+      )}
+    </div>
+
+    <div className="bg-surface-lavender/50 p-4 rounded-lg flex gap-3 items-start border border-ag-purple/20">
+      <Award className="text-ag-purple mt-0.5" />
+      <div>
+        <p className="font-label-md text-charcoal-navy font-semibold text-[13px]">Complimentary Certificate of Authenticity</p>
+        <p className="font-sans text-[12px] text-on-surface-variant mt-1">Every AG Elements piece includes a certified guarantee of 925 sterling silver purity.</p>
+      </div>
+    </div>
+
+    <div className="flex flex-col gap-3 font-body-md text-charcoal-navy border-t border-outline-variant/30 pt-6">
+      <div className="flex justify-between">
+        <span className="text-on-surface-variant">Subtotal</span>
+        <span>₹{subtotalRaw.toLocaleString('en-IN')}</span>
+      </div>
+
+      {discountRaw > 0 && (
+        <div className="flex justify-between text-ag-purple font-semibold">
+          <span>Discount</span>
+          <span>-₹{discountRaw.toLocaleString('en-IN')}</span>
+        </div>
+      )}
+
+      <div className="flex justify-between mt-4">
+        <span className="text-on-surface-variant">Shipping</span>
+        <div className="text-right">
+          <span>
+            {shippingRaw === 0 ? 'Calculated at checkout' : `₹${shippingRaw.toLocaleString('en-IN')}`}
+          </span>
+        </div>
+      </div>
+
+      <div className="flex justify-between font-headline-sm text-[20px] font-semibold pt-4 border-t border-outline-variant/30">
+        <span>Total</span>
+        <div className="flex items-baseline gap-2">
+          <span className="text-on-surface-variant text-[12px] uppercase font-normal tracking-widest">INR</span>
+          <span>₹{totalRaw.toLocaleString('en-IN')}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 function CheckoutContent() {
   const router = useRouter();
   const { fetchCart, cart } = useCartStore();
@@ -256,6 +344,12 @@ function CheckoutContent() {
       }
       
       if (data.razorpay_order_id && data.key_id) {
+        if (typeof (window as any).Razorpay === 'undefined') {
+          setCheckoutError("Payment is still loading. Please wait a moment and try again.");
+          setIsSubmitting(false);
+          return;
+        }
+
         // Open Razorpay Modal
         const options = {
           key: data.key_id,
@@ -326,82 +420,6 @@ function CheckoutContent() {
 
   const getInputClass = (name: string) => `w-full bg-transparent border ${touched[name] && errors[name] ? 'border-red-400 focus:border-red-500 focus:ring-red-500/20' : 'border-outline-variant focus:border-primary'} focus:ring-0 px-4 py-3 rounded outline-none transition-colors font-body-md text-charcoal-navy placeholder:text-on-surface-variant/60 aria-invalid:${touched[name] && !!errors[name]}`;
 
-  const OrderSummaryContent = () => (
-    <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-4 max-h-[40vh] overflow-y-auto pr-2 custom-scrollbar">
-        {items.map((item: any) => {
-          const unitPriceRaw = parseInt(item.prices.price, 10) / (10 ** totals!.currency_minor_unit);
-          return (
-            <div key={item.key} className="flex gap-4 items-center">
-              <div className="relative w-16 h-16 bg-surface-dim rounded overflow-hidden flex-shrink-0 border border-outline-variant/30">
-                {item.images?.[0]?.src && (
-                  <Image fill sizes="64px" src={item.images[0].src} alt={item.name} className="object-cover" />
-                )}
-                <div className="absolute -top-2 -right-2 bg-charcoal-navy text-pearl-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full z-10">
-                  {item.quantity}
-                </div>
-              </div>
-              <div className="flex-grow">
-                <h4 className="font-body-md font-medium text-charcoal-navy line-clamp-1" dangerouslySetInnerHTML={{ __html: item.name }} />
-                {item.variation && item.variation.length > 0 && (
-                  <p className="font-sans text-on-surface-variant text-[11px] mt-0.5 capitalize">
-                    {item.variation.map((v: any) => `${v.attribute.replace('pa_', '')}: ${v.value}`).join(' | ')}
-                  </p>
-                )}
-                <div className="flex gap-4 mt-1 font-sans text-[12px] text-on-surface-variant">
-                  <span>Qty: {item.quantity}</span>
-                  <span>@ ₹{unitPriceRaw.toLocaleString('en-IN')} each</span>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-        {items.length === 0 && (
-          <p className="text-on-surface-variant text-sm py-4">Your cart is empty.</p>
-        )}
-      </div>
-
-      <div className="bg-surface-lavender/50 p-4 rounded-lg flex gap-3 items-start border border-ag-purple/20">
-        <Award className="text-ag-purple mt-0.5" />
-        <div>
-          <p className="font-label-md text-charcoal-navy font-semibold text-[13px]">Complimentary Certificate of Authenticity</p>
-          <p className="font-sans text-[12px] text-on-surface-variant mt-1">Every AG Elements piece includes a certified guarantee of 925 sterling silver purity.</p>
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-3 font-body-md text-charcoal-navy border-t border-outline-variant/30 pt-6">
-        <div className="flex justify-between">
-          <span className="text-on-surface-variant">Subtotal</span>
-          <span>₹{subtotalRaw.toLocaleString('en-IN')}</span>
-        </div>
-        
-        {discountRaw > 0 && (
-          <div className="flex justify-between text-ag-purple font-semibold">
-            <span>Discount</span>
-            <span>-₹{discountRaw.toLocaleString('en-IN')}</span>
-          </div>
-        )}
-
-        <div className="flex justify-between mt-4">
-          <span className="text-on-surface-variant">Shipping</span>
-          <div className="text-right">
-            <span>
-              {shippingRaw === 0 ? 'Calculated at checkout' : `₹${shippingRaw.toLocaleString('en-IN')}`}
-            </span>
-          </div>
-        </div>
-        
-        <div className="flex justify-between font-headline-sm text-[20px] font-semibold pt-4 border-t border-outline-variant/30">
-          <span>Total</span>
-          <div className="flex items-baseline gap-2">
-            <span className="text-on-surface-variant text-[12px] uppercase font-normal tracking-widest">INR</span>
-            <span>₹{totalRaw.toLocaleString('en-IN')}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-
   if (isLoading || (!checkoutData && !cart)) return <div className="min-h-screen bg-pearl-white flex justify-center items-center font-heading text-lg text-ag-purple">Loading checkout...</div>;
   if (items.length === 0) return <div className="min-h-screen bg-pearl-white flex justify-center items-center font-heading text-lg text-charcoal-navy">Your cart is empty.</div>;
 
@@ -430,7 +448,7 @@ function CheckoutContent() {
                     <span className="font-headline-sm text-charcoal-navy font-semibold">₹{totalRaw.toLocaleString('en-IN')}</span>
                   </AccordionTrigger>
                   <AccordionContent className="px-4 pb-6 bg-surface-container-low border-t border-outline-variant/30 pt-6">
-                    <OrderSummaryContent />
+                    <OrderSummaryContent items={items} totals={totals} subtotalRaw={subtotalRaw} discountRaw={discountRaw} shippingRaw={shippingRaw} totalRaw={totalRaw} />
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -621,7 +639,7 @@ function CheckoutContent() {
           <div className="hidden tablet:block tablet:col-span-5 relative">
             <div className="sticky top-24 bg-surface-container-low p-8 border border-outline-variant/50 rounded-xl">
               <h2 className="font-headline-sm text-[24px] font-medium text-charcoal-navy mb-6">Order Summary</h2>
-              <OrderSummaryContent />
+              <OrderSummaryContent items={items} totals={totals} subtotalRaw={subtotalRaw} discountRaw={discountRaw} shippingRaw={shippingRaw} totalRaw={totalRaw} />
               
               <div className="mt-8 border-t border-outline-variant/30 pt-4">
                 <TrustBadges />
@@ -638,7 +656,10 @@ function CheckoutContent() {
 export default function CheckoutPage() {
   return (
     <Suspense fallback={<div className="min-h-screen bg-pearl-white flex items-center justify-center">Loading checkout...</div>}>
-      <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
+      {/* afterInteractive, not lazyOnload — lazyOnload can still be mid-fetch
+          if a user reaches the "Pay" click quickly, and `new Razorpay(...)`
+          below has no readiness guard, so a late-loading script would throw. */}
+      <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="afterInteractive" />
       <CheckoutContent />
     </Suspense>
   );

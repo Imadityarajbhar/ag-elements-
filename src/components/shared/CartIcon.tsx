@@ -3,8 +3,10 @@
 import { useCartStore } from '@/store/cart';
 
 export function CartIcon() {
-  const { cart, setIsOpen } = useCartStore();
-  const itemCount = cart?.items_count || 0;
+  // Selectors — this component only cares about item count and the open
+  // action, so it shouldn't re-render on isSyncing/isOpen churn either.
+  const itemCount = useCartStore((s) => s.cart?.items_count || 0);
+  const setIsOpen = useCartStore((s) => s.setIsOpen);
 
   return (
     <button 

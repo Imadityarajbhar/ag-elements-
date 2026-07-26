@@ -15,8 +15,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import { siteConfig, absoluteUrl } from "@/lib/seo/site";
-
-export const runtime = 'edge';
+import type { Product } from "@/types/product";
 
 const ProductReviews = dynamic(() => import("@/components/shop/ProductReviews").then(m => m.ProductReviews));
 const RecentlyViewed = dynamic(() => import("@/components/shop/RecentlyViewed").then(m => m.RecentlyViewed));
@@ -56,20 +55,16 @@ export async function generateMetadata({ params }: PDPProps) {
   });
 }
 
-export default async function ProductDetailPage({ params }: PDPProps) {
-  const { slug } = await params;
-  const product = await getProductBySlug(slug);
-  
-  if (!product) {
-    notFound();
-  }
-
+// Hoisted to module scope rather than declared inside the page component —
+// declaring them there recreated the component function on every render,
+// which resets any internal state and works against the very Suspense
+// boundaries they're wrapped in below.
 async function ReviewsSection({ productId, averageRating, ratingCount }: { productId: number, averageRating: string, ratingCount: number }) {
   const initialReviews = await getProductReviews(productId);
   return (
     <section className="mt-section-v-padding pt-16 border-t border-outline-variant/30">
       <h2 className="font-headline-md text-[32px] font-medium text-center text-charcoal-navy mb-12">Customer Reviews</h2>
-      <ProductReviews 
+      <ProductReviews
         productId={productId}
         initialReviews={initialReviews}
         averageRating={averageRating}
@@ -79,7 +74,7 @@ async function ReviewsSection({ productId, averageRating, ratingCount }: { produ
   );
 }
 
-async function RecommendationsSection({ product }: { product: any }) {
+async function RecommendationsSection({ product }: { product: Product }) {
   // Related Products: same Collection > same Category > same Style > same Material
   // > same Stone > fallback to newest (see getRelatedProducts), unless WooCommerce
   // has explicit related_ids set for this product, which take precedence.
@@ -115,6 +110,14 @@ async function RecommendationsSection({ product }: { product: any }) {
     </div>
   );
 }
+
+export default async function ProductDetailPage({ params }: PDPProps) {
+  const { slug } = await params;
+  const product = await getProductBySlug(slug);
+
+  if (!product) {
+    notFound();
+  }
 
   // We ensure there's at least one image
   const mainImage = product.images[0]?.src || "https://lh3.googleusercontent.com/aida-public/AB6AXuDUJcDFZ4gfxtgf5QZ4A3vCMYjs1GNnlSvqwfSOFoUudjcqTEFGwyItsyiomIUMhVYrv8zbpUSghtF9q1KKoc05XwxQFeuo5Sjas05jBNlpzK487FACTxY_qeNUFAxWuMANmTPUhuZSFcUoWkUrCE8DKXvnxlU6TKwOq6yoSV1S_2mqi8HMXJZHR8FFCCoouBwu5a_a9ZmgvYm_LiGhKoM5OZGcuA2XONxOC-52soC1NTKIGl--7f8k3w";

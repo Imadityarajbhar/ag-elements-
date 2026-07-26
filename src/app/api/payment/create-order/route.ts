@@ -2,44 +2,65 @@ import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import Razorpay from 'razorpay';
 import { wcClient } from '@/services/woocommerce/client';
+import { storeApiRequest, persistCartSession } from '@/services/woocommerce/storeApiClient';
 import { PAYMENT_METHODS } from '@/config/payment-methods';
 import { getWpUserIdFromToken } from '@/lib/auth-helpers';
-
-const WC_STORE_URL = process.env.NEXT_PUBLIC_WP_URL + 'wp-json/wc/store/v1';
-const CART_TOKEN_COOKIE = 'wc_cart_token';
 
 // Ensure keys exist
 const key_id = process.env.RAZORPAY_KEY_ID;
 const key_secret = process.env.RAZORPAY_KEY_SECRET;
 
-async function storeApiRequest(endpoint: string, method = 'POST', body?: any) {
-  const cookieStore = await cookies();
-  const token = cookieStore.get(CART_TOKEN_COOKIE)?.value;
-  const authToken = cookieStore.get('ag_auth_token')?.value;
+/**
+ * Best-effort: links the guest order to a logged-in customer's account once
+ * we know the WC order and the WP user id resolved from their JWT. Never
+ * throws — a failure here must not block the order or payment from
+ * proceeding, so every branch is logged rather than surfaced to the caller.
+ */
+async function attachCustomerToOrder(userIdPromise: Promise<number | null>, wcOrderId: number, orderData: any): Promise<void> {
+  try {
+    const userId = await userIdPromise;
+    if (!userId) return;
 
-  const headers: HeadersInit = {
-    'Content-Type': 'application/json',
-  };
+    if (orderData.status !== 'pending' || orderData.customer_id !== 0) {
+      console.warn(`[Checkout] Order ${wcOrderId} is not eligible for customer attachment. Status: ${orderData.status}, Customer ID: ${orderData.customer_id}`);
+      return;
+    }
 
-  if (token) {
-    headers['Cart-Token'] = token;
+    const customerData = await wcClient.fetch<any>(`/customers/${userId}`);
+    const customerEmail = customerData?.email;
+    const orderEmail = orderData.billing?.email;
+
+    if (customerEmail && orderEmail && customerEmail.toLowerCase() === orderEmail.toLowerCase()) {
+      if (process.env.NODE_ENV !== 'production') {
+        console.log(`[Checkout] Emails match (${orderEmail}). Attaching customer_id ${userId} to order ${wcOrderId}`);
+      }
+      // Independent writes — neither depends on the other's result.
+      await Promise.all([
+        wcClient.fetch(`/orders/${wcOrderId}`, {
+          method: 'PUT',
+          body: JSON.stringify({ customer_id: userId })
+        }),
+        wcClient.fetch(`/orders/${wcOrderId}/notes`, {
+          method: 'POST',
+          body: JSON.stringify({
+            note: `Customer linked through Headless Authentication.\nCustomer ID: ${userId}\nJWT verified successfully.\nLinked by AG Elements API.`,
+            customer_note: false
+          })
+        }),
+      ]);
+    } else {
+      console.warn(`[Checkout] JWT user email (${customerEmail}) does not match order billing email (${orderEmail}). Rejecting attachment.`);
+      await wcClient.fetch(`/orders/${wcOrderId}/notes`, {
+        method: 'POST',
+        body: JSON.stringify({
+          note: `Failed to link customer via Headless Auth. Email mismatch between JWT user and billing address.`,
+          customer_note: false
+        })
+      });
+    }
+  } catch (err: any) {
+    console.error('[Checkout] Failed to attach customer to order:', err);
   }
-  
-  if (authToken) {
-    headers['Authorization'] = `Bearer ${authToken}`;
-  }
-
-  const res = await fetch(`${WC_STORE_URL}${endpoint}`, {
-    method,
-    headers,
-    body: body ? JSON.stringify(body) : undefined,
-    cache: 'no-store',
-  });
-
-  const cartToken = res.headers.get('Cart-Token');
-  const data = await res.json();
-
-  return { data, cartToken, status: res.status, ok: res.ok };
 }
 
 export async function POST(request: Request) {
@@ -54,24 +75,38 @@ export async function POST(request: Request) {
     });
 
     const body = await request.json();
-    
+
     // 1. Validate payment method against centralized configuration
     const requestedMethod = body.payment_method;
     const isValidMethod = PAYMENT_METHODS.some(m => m.id === requestedMethod && m.enabled);
-    
+
     if (!isValidMethod) {
       return NextResponse.json({ error: `Payment method '${requestedMethod}' is not enabled or invalid.` }, { status: 400 });
     }
-    
+
+    // Kick off JWT -> WP user id resolution immediately. It only depends on
+    // the auth cookie, not on anything the order creation below produces, so
+    // there's no reason to wait until after the order exists to start it —
+    // that was adding a full extra network round-trip to the critical path
+    // of every logged-in checkout.
+    const cookieStore = await cookies();
+    const authToken = cookieStore.get('ag_auth_token')?.value;
+    const userIdPromise: Promise<number | null> = authToken
+      ? getWpUserIdFromToken(authToken, (process.env.NEXT_PUBLIC_WP_URL || '').replace(/\/$/, '')).catch((err) => {
+          console.error('[Checkout] Failed to resolve WP user from JWT:', err);
+          return null;
+        })
+      : Promise.resolve(null);
+
     // 2. Submit to WooCommerce Store API to create the Pending Order
     let wcResponse = await storeApiRequest('/checkout', 'POST', body);
-    
+
     // 2.5 Seamless Fallback for Existing Accounts
-    // If the user requested account creation but the email already exists, 
+    // If the user requested account creation but the email already exists,
     // the Store API rejects the entire checkout. We catch this and retry as a guest.
     if (!wcResponse.ok && (
-      wcResponse.data?.code === 'registration-error-email-exists' || 
-      (wcResponse.data?.message && typeof wcResponse.data.message === 'string' && wcResponse.data.message.toLowerCase().includes('already registered'))
+      (wcResponse.data as any)?.code === 'registration-error-email-exists' ||
+      ((wcResponse.data as any)?.message && typeof (wcResponse.data as any).message === 'string' && (wcResponse.data as any).message.toLowerCase().includes('already registered'))
     )) {
       if (body.create_account) {
         console.warn(`[Checkout] Email exists. Retrying order for ${body.billing_address?.email} without account creation.`);
@@ -80,132 +115,86 @@ export async function POST(request: Request) {
       }
     }
 
+    // Not persisted anywhere before this fix — the cart-token/nonce pair from
+    // this response was silently discarded, so a customer's *next* cart
+    // interaction after checkout would carry a stale nonce.
+    await persistCartSession(wcResponse);
+
     if (!wcResponse.ok) {
       return NextResponse.json(wcResponse.data, { status: wcResponse.status });
     }
-    
-    const wcOrder = wcResponse.data;
+
+    const wcOrder = wcResponse.data as any;
     const wcOrderId = wcOrder.order_id;
-    
+
     if (!wcOrderId) {
       return NextResponse.json({ error: 'Failed to create WooCommerce order' }, { status: 500 });
     }
 
-    let totalInPaise = 0;
     const orderData = await wcClient.fetch<any>(`/orders/${wcOrderId}`);
-    if (orderData && orderData.total) {
-       totalInPaise = Math.round(parseFloat(orderData.total) * 100);
-    } else {
-       return NextResponse.json({ error: 'Failed to fetch order total' }, { status: 500 });
+    if (!orderData || !orderData.total) {
+      return NextResponse.json({ error: 'Failed to fetch order total' }, { status: 500 });
     }
+    const totalInPaise = Math.round(parseFloat(orderData.total) * 100);
 
-    // --- CUSTOMER ATTACHMENT LOGIC ---
-    const cookieStore = await cookies();
-    const authToken = cookieStore.get('ag_auth_token')?.value;
-
-    if (authToken) {
-      if (process.env.NODE_ENV !== 'production') console.log('[Checkout] JWT found. Attempting to attach customer to guest order.');
-      try {
-        const baseUrl = (process.env.NEXT_PUBLIC_WP_URL || '').replace(/\/$/, '');
-        const userId = await getWpUserIdFromToken(authToken, baseUrl);
-        
-        if (userId) {
-          // Verify order eligibility
-          if (orderData.status === 'pending' && orderData.customer_id === 0) {
-            // Verify email matches
-            const customerData = await wcClient.fetch<any>(`/customers/${userId}`);
-            const customerEmail = customerData?.email;
-            const orderEmail = orderData.billing?.email;
-
-            if (customerEmail && orderEmail && customerEmail.toLowerCase() === orderEmail.toLowerCase()) {
-              if (process.env.NODE_ENV !== 'production') {
-                console.log(`[Checkout] Emails match (${orderEmail}). Attaching customer_id ${userId} to order ${wcOrderId}`);
-              }
-              
-              // Attach customer
-              await wcClient.fetch(`/orders/${wcOrderId}`, {
-                method: 'PUT',
-                body: JSON.stringify({ customer_id: userId })
-              });
-
-              // Add audit note
-              await wcClient.fetch(`/orders/${wcOrderId}/notes`, {
-                method: 'POST',
-                body: JSON.stringify({
-                  note: `Customer linked through Headless Authentication.\nCustomer ID: ${userId}\nJWT verified successfully.\nLinked by AG Elements API.`,
-                  customer_note: false
-                })
-              });
-            } else {
-              console.warn(`[Checkout] JWT user email (${customerEmail}) does not match order billing email (${orderEmail}). Rejecting attachment.`);
-              await wcClient.fetch(`/orders/${wcOrderId}/notes`, {
-                method: 'POST',
-                body: JSON.stringify({
-                  note: `Failed to link customer via Headless Auth. Email mismatch between JWT user and billing address.`,
-                  customer_note: false
-                })
-              });
-            }
-          } else {
-             console.warn(`[Checkout] Order ${wcOrderId} is not eligible for customer attachment. Status: ${orderData.status}, Customer ID: ${orderData.customer_id}`);
-          }
-        }
-      } catch (err: any) {
-        console.error('[Checkout] Failed to attach customer to order:', err);
-        // We do NOT return an error response here, because the order is created and we should proceed with payment.
-      }
-    }
-    // --- END CUSTOMER ATTACHMENT LOGIC ---
+    // Customer attachment is a best-effort side effect with no bearing on the
+    // payment response — run it concurrently with payment-gateway order
+    // creation below instead of blocking on it first.
+    const attachCustomerPromise = attachCustomerToOrder(userIdPromise, wcOrderId, orderData);
 
     // 3. Payment Gateway specific logic
-    let razorpayOrderId = null;
-    let paymentKeyId = null;
+    let razorpayOrderId: string | null = null;
+    let paymentKeyId: string | null = null;
 
     if (requestedMethod === 'razorpay') {
-      const rzpOrder = await razorpay.orders.create({
-        amount: totalInPaise,
-        currency: 'INR',
-        receipt: `order_rcptid_${wcOrderId}`,
-        notes: {
-          wc_order_id: wcOrderId.toString(),
-          source: 'headless_nextjs'
-        }
-      });
+      const [rzpOrder] = await Promise.all([
+        razorpay.orders.create({
+          amount: totalInPaise,
+          currency: 'INR',
+          receipt: `order_rcptid_${wcOrderId}`,
+          notes: {
+            wc_order_id: wcOrderId.toString(),
+            source: 'headless_nextjs'
+          }
+        }),
+        attachCustomerPromise,
+      ]);
       razorpayOrderId = rzpOrder.id;
       paymentKeyId = key_id;
 
       try {
-        await wcClient.fetch(`/orders/${wcOrderId}/notes`, {
-          method: 'POST',
-          body: JSON.stringify({
-            note: `Payment Initiated. Razorpay Order Created: ${rzpOrder.id}`,
-            customer_note: false
-          })
-        });
-
-        await wcClient.fetch(`/orders/${wcOrderId}`, {
-          method: 'PUT',
-          body: JSON.stringify({
-            meta_data: [
-              { key: '_razorpay_order_id', value: rzpOrder.id }
-            ]
-          })
-        });
+        await Promise.all([
+          wcClient.fetch(`/orders/${wcOrderId}/notes`, {
+            method: 'POST',
+            body: JSON.stringify({
+              note: `Payment Initiated. Razorpay Order Created: ${rzpOrder.id}`,
+              customer_note: false
+            })
+          }),
+          wcClient.fetch(`/orders/${wcOrderId}`, {
+            method: 'PUT',
+            body: JSON.stringify({
+              meta_data: [
+                { key: '_razorpay_order_id', value: rzpOrder.id }
+              ]
+            })
+          }),
+        ]);
       } catch (e) {
         console.warn("Failed to add order notes or metadata", e);
       }
     } else if (requestedMethod === 'cod') {
-       try {
-        await wcClient.fetch(`/orders/${wcOrderId}/notes`, {
-          method: 'POST',
-          body: JSON.stringify({
-            note: `Order placed with Cash on Delivery.`,
-            customer_note: false
-          })
-        });
-      } catch (e) {
-        console.warn("Failed to add order notes", e);
-      }
+      const codNotePromise = wcClient.fetch(`/orders/${wcOrderId}/notes`, {
+        method: 'POST',
+        body: JSON.stringify({
+          note: `Order placed with Cash on Delivery.`,
+          customer_note: false
+        })
+      }).catch((e) => console.warn("Failed to add order notes", e));
+
+      await Promise.all([attachCustomerPromise, codNotePromise]);
+    } else {
+      await attachCustomerPromise;
     }
 
     // 4. Return success payload
@@ -217,7 +206,7 @@ export async function POST(request: Request) {
       currency: 'INR',
       key_id: paymentKeyId
     });
-    
+
   } catch (error: any) {
     console.error("Razorpay Create Order Error:", error);
     return NextResponse.json({ error: `Failed to initialize payment: ${error.message || JSON.stringify(error)}` }, { status: 500 });

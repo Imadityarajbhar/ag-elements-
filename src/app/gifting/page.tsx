@@ -1,11 +1,11 @@
-import { Gift, CheckCircle2 } from 'lucide-react';
 import Image from "next/image";
 import Link from "next/link";
 import { generateMetadata } from "@/lib/seo/generateMetadata";
+import { HOMEPAGE_LINKS } from "@/config/homepage-links";
 
 export const metadata = generateMetadata({
   title: "The Art of Gifting | AG Elements",
-  description: "Find the perfect gift with AG Elements. Explore our interactive gift finder, digital gift cards, and curated occasion recommendations.",
+  description: "Find the perfect gift with AG Elements. Explore our interactive gift finder and curated occasion recommendations.",
   path: "/gifting",
 });
 
@@ -73,51 +73,18 @@ export default function GiftingHubPage() {
         </div>
       </section>
 
-      {/* 3. Gift Cards CTA */}
-      <section className="py-24 bg-surface-container-low w-full">
-        <div className="max-w-[1440px] mx-auto px-margin-mobile tablet:px-margin-desktop">
-          <div className="bg-pearl-white rounded-3xl overflow-hidden shadow-lg border border-outline-variant/30 flex flex-col tablet:flex-row">
-            <div className="flex-1 bg-surface-variant relative aspect-square tablet:aspect-[4/3] min-h-[300px]">
-              <Image fill sizes="(max-width: 768px) 100vw, 50vw" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPPmdoIQY2dETKqp7gluGbmwPtyZS53-eQzFIoxDSeP1q85Dvcad4wjxKdr-gx6ECF2EKloDg3EF5RCnLD_iuqGIZFp6BbCDmKUy8Wh2cqeJ_qpFZGTS6M7uePf76pYT2HzIfM3srVgganSFtYqBn2EI4eafaR2bMfmLWIZlz_QJoK9DNtfgyll3TzG6jztpTXiGbIt92nmH0F4UQHG1L0cs3KRYhMcGWcnX8tGjcjLErESEEWo6qeHQ" className="object-cover" alt="Gift Card" />
-            </div>
-            <div className="flex-1 p-12 tablet:p-24 flex flex-col justify-center text-center tablet:text-left">
-              <span className="text-ag-purple font-label-md text-[13px] font-bold uppercase tracking-[0.2em] mb-4">Digital E-Gift Cards</span>
-              <h2 className="font-headline-lg text-[40px] leading-tight font-medium text-charcoal-navy mb-6">The Gift of Choice</h2>
-              <p className="font-body-lg text-[18px] text-on-surface-variant font-light leading-[1.8] mb-10">
-                Not sure what they'll love the most? Give them the luxury of choosing their own perfect piece with an AG Elements Digital Gift Card, delivered instantly to their inbox.
-              </p>
-              <div>
-                <Link href="/gifting/gift-cards" className="inline-block bg-charcoal-navy text-pearl-white font-label-md text-[13px] px-10 py-4 rounded-full uppercase tracking-[0.15em] font-bold hover:bg-charcoal-navy/90 transition-colors shadow-md">
-                  Purchase Gift Card
-                </Link>
-              </div>
-            </div>
+      {/* 3. Gift Finder CTA — closing beat, reusing the same purple banner
+          pattern already established on the homepage, and pointing to the
+          Gift Finder that's a real, working feature on this exact page. */}
+      <section className="bg-ag-purple w-full py-16 tablet:py-20 px-margin-mobile tablet:px-margin-desktop">
+        <div className="max-w-[1440px] mx-auto flex flex-col tablet:flex-row items-center justify-between gap-8 text-center tablet:text-left">
+          <div className="flex flex-col gap-3 max-w-xl">
+            <span className="font-label-md text-[13px] font-bold uppercase tracking-[0.2em] text-pearl-white/70">Still Deciding?</span>
+            <h2 className="font-headline-lg text-[32px] tablet:text-[44px] leading-[1.15] font-medium text-pearl-white">Let Our Gift Finder Help</h2>
           </div>
-        </div>
-      </section>
-
-      {/* 4. Service Highlights (Wrapping & Message) */}
-      <section className="py-24 bg-charcoal-navy text-pearl-white text-center w-full">
-        <div className="max-w-4xl mx-auto px-margin-mobile tablet:px-margin-desktop flex flex-col items-center">
-          <Gift className="text-[48px] text-ag-purple mb-8 font-light" />
-          <h2 className="font-headline-lg text-[36px] tablet:text-[48px] font-medium mb-6">Signature Packaging</h2>
-          <p className="font-body-lg text-[18px] font-light text-pearl-white/80 leading-[1.8] mb-10">
-            Every AG Elements gift arrives in our signature premium packaging, completely free of charge. You can also add a luxurious gift wrap and a personalized handwritten note directly at checkout.
-          </p>
-          <div className="flex items-center gap-6 text-pearl-white/70 font-label-md uppercase tracking-widest text-[12px] font-semibold">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="text-[18px]" />
-              <span>Premium Box</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="text-[18px]" />
-              <span>Authenticity Card</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="text-[18px]" />
-              <span>Optional Gift Wrap</span>
-            </div>
-          </div>
+          <Link href={HOMEPAGE_LINKS.ctaBanner.giftFinder} className="shrink-0 bg-pearl-white text-ag-purple font-label-md text-[13px] px-10 py-4 rounded-full uppercase tracking-[0.15em] font-bold hover:bg-surface-variant transition-colors shadow-xl">
+            Open Gift Finder
+          </Link>
         </div>
       </section>
 

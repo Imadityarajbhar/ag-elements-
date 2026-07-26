@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const token = request.cookies.get('ag_auth_token')?.value;
   const { pathname, search } = request.nextUrl;
 
   // Paths that require authentication
   const isProtectedPath = pathname.startsWith('/account') || pathname.startsWith('/wishlist');
-  
+
   // Paths that should not be accessed if already authenticated
   const isAuthPath =
     pathname.startsWith('/account/login') ||
@@ -34,7 +34,7 @@ export function middleware(request: NextRequest) {
     }
 
     if (process.env.NODE_ENV !== 'production') {
-      console.log(`[Auth] Middleware intercepted protected path ${pathname} and validated cookie presence.`);
+      console.log(`[Auth] Proxy intercepted protected path ${pathname} and validated cookie presence.`);
     }
   }
 

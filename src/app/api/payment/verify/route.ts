@@ -44,25 +44,27 @@ export async function POST(request: Request) {
     }
 
     // Acknowledge payment on WooCommerce (but do NOT change status to processing yet - Webhook does that)
+    // The note and the meta-data update are independent writes — no need to
+    // serialize them.
     try {
-      await wcClient.fetch(`/orders/${wc_order_id}/notes`, {
-        method: 'POST',
-        body: JSON.stringify({
-          note: `Frontend Signature Verified for Payment ID: ${razorpay_payment_id}. Waiting for Webhook to update status.`,
-          customer_note: false
-        })
-      });
-
-      // Update meta data
-      await wcClient.fetch(`/orders/${wc_order_id}`, {
-        method: 'PUT',
-        body: JSON.stringify({
-          meta_data: [
-            { key: '_razorpay_payment_id', value: razorpay_payment_id },
-            { key: '_razorpay_order_id', value: razorpay_order_id }
-          ]
-        })
-      });
+      await Promise.all([
+        wcClient.fetch(`/orders/${wc_order_id}/notes`, {
+          method: 'POST',
+          body: JSON.stringify({
+            note: `Frontend Signature Verified for Payment ID: ${razorpay_payment_id}. Waiting for Webhook to update status.`,
+            customer_note: false
+          })
+        }),
+        wcClient.fetch(`/orders/${wc_order_id}`, {
+          method: 'PUT',
+          body: JSON.stringify({
+            meta_data: [
+              { key: '_razorpay_payment_id', value: razorpay_payment_id },
+              { key: '_razorpay_order_id', value: razorpay_order_id }
+            ]
+          })
+        }),
+      ]);
     } catch (e) {
       console.error("Failed to update WC order notes during verification", e);
     }

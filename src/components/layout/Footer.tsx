@@ -32,7 +32,10 @@ export function Footer() {
       </section>
 
       {/* Main Footer */}
-      <footer className="w-full bg-surface-lavender tablet:bg-pearl-white pt-12 tablet:py-section-v-padding px-margin-mobile tablet:px-margin-desktop pb-24 tablet:pb-section-v-padding">
+      {/* pb-20 on mobile isn't arbitrary — it's the minimum clearance above the
+          fixed h-16 (64px) bottom nav bar in Header.tsx, which overlays every
+          mobile page; anything less hides the copyright line behind it. */}
+      <footer className="w-full bg-surface-lavender tablet:bg-pearl-white pt-12 tablet:pt-section-v-padding px-margin-mobile tablet:px-margin-desktop pb-20 tablet:pb-16">
         <div className="max-w-[1440px] mx-auto flex flex-col tablet:grid tablet:grid-cols-4 gap-gutter">
           
           {/* Col 1: Logo & Contact Info */}

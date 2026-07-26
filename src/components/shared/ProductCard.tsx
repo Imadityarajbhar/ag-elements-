@@ -1,6 +1,7 @@
 "use client";
-import { Flame } from 'lucide-react';
+import { Flame, Loader2 } from 'lucide-react';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Product } from '@/types/product';
@@ -15,7 +16,10 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const { addItem, setIsOpen } = useCartStore();
+  // Selector, not whole-store destructuring — see AddToCartButton for why:
+  // this is what stops every card in a grid re-rendering on any cart change.
+  const addItem = useCartStore((s) => s.addItem);
+  const [isAdding, setIsAdding] = useState(false);
 
   const isOutOfStock = product.stockStatus === 'outofstock' || product.inStock === false;
   const isBackorder = product.stockStatus === 'onbackorder';
@@ -23,8 +27,13 @@ export function ProductCard({ product }: ProductCardProps) {
 
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
-    if (isOutOfStock) return;
-    await addItem(parseInt(product.id), 1);
+    if (isOutOfStock || isAdding) return;
+    setIsAdding(true);
+    try {
+      await addItem(parseInt(product.id), 1);
+    } finally {
+      setIsAdding(false);
+    }
   };
 
   return (
@@ -63,12 +72,12 @@ export function ProductCard({ product }: ProductCardProps) {
         )}
         
         {/* Quick Add Button on Hover (hidden on mobile) */}
-        <Button 
+        <Button
           onClick={handleAddToCart}
-          disabled={isOutOfStock}
+          disabled={isOutOfStock || isAdding}
           className="hidden tablet:flex absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] opacity-0 group-hover:opacity-100 transition-opacity bg-pearl-white/95 text-ag-purple hover:bg-pearl-white font-label-md disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {isOutOfStock ? 'Out of Stock' : 'Quick Add'}
+          {isAdding ? <Loader2 className="text-[16px] animate-spin" /> : isOutOfStock ? 'Out of Stock' : 'Quick Add'}
         </Button>
       </div>
       
@@ -80,13 +89,17 @@ export function ProductCard({ product }: ProductCardProps) {
         <PriceDisplay regularPrice={product.regularPrice || product.price} salePrice={product.salePrice} />
         
         {/* Mobile Quick Add Button (hidden on tablet/desktop) */}
-        <Button 
+        <Button
           onClick={handleAddToCart}
-          disabled={isOutOfStock}
+          disabled={isOutOfStock || isAdding}
           className="flex tablet:hidden h-8 w-8 p-0 rounded bg-ag-purple text-pearl-white flex-shrink-0 hover:brightness-90 transition-all items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="Add to cart"
         >
-          <span className="material-symbols-outlined text-[18px]">{isOutOfStock ? 'remove_shopping_cart' : 'add_shopping_cart'}</span>
+          {isAdding ? (
+            <Loader2 className="text-[16px] animate-spin" />
+          ) : (
+            <span className="material-symbols-outlined text-[18px]">{isOutOfStock ? 'remove_shopping_cart' : 'add_shopping_cart'}</span>
+          )}
         </Button>
       </div>
     </Link>

@@ -1,8 +1,8 @@
 "use client";
-import { Flame, ShoppingBag, Zap } from 'lucide-react';
+import { Flame, ShoppingBag, Zap, Loader2 } from 'lucide-react';
 
 import { useState, useMemo, useEffect } from 'react';
-import { Product, ProductVariation } from '@/types/product';
+import { Product } from '@/types/product';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/store/cart';
 import { trackAddToCart } from '@/lib/analytics';
@@ -13,7 +13,12 @@ import { mapWooCommerceError } from '@/lib/error-mapper';
 import { PriceDisplay } from '@/components/shared/PriceDisplay';
 
 export function AddToCartButton({ product, compact = false }: { product: Product, compact?: boolean }) {
-  const { addItem, setIsOpen } = useCartStore();
+  // Selector, not whole-store destructuring — addItem is a stable reference,
+  // so this stops every AddToCartButton on a listing page (one per product
+  // card) from re-rendering whenever the cart's `cart`/`isSyncing` fields
+  // change for a completely unrelated product. (The cart drawer opening on
+  // add is handled inside the store's own addItem, not here.)
+  const addItem = useCartStore((s) => s.addItem);
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -35,6 +40,9 @@ export function AddToCartButton({ product, compact = false }: { product: Product
     return initial;
   });
   const [showError, setShowError] = useState(false);
+  const [isAdding, setIsAdding] = useState(false);
+  const [isBuyingNow, setIsBuyingNow] = useState(false);
+  const isPending = isAdding || isBuyingNow;
 
   const activeVariation = useMemo(() => {
     if (!isVariable || !product.variations) return null;
@@ -89,55 +97,69 @@ export function AddToCartButton({ product, compact = false }: { product: Product
   };
 
   const handleAddToCart = async () => {
-    if (!validateSelection()) return;
+    // isPending guards against double-submits — without it, rapid clicks each
+    // fire their own POST /api/cart before the first resolves (confirmed via
+    // network trace: 5 clicks in under 500ms produced 5 separate cart adds).
+    if (!validateSelection() || isPending) return;
 
-    let variationPayload;
-    if (isVariable && selectedOptions) {
-      // The Store API expects variation: [ { attribute: 'pa_color', value: 'silver' } ]
-      // WooCommerce attributes prefixed with pa_ if global, or just the name if custom.
-      // We'll pass them down. For safety, we match WooCommerce format.
-      variationPayload = Object.entries(selectedOptions).map(([key, value]) => ({
-        attribute: key,
-        value: value
-      }));
-    }
+    setIsAdding(true);
+    try {
+      let variationPayload;
+      if (isVariable && selectedOptions) {
+        // The Store API expects variation: [ { attribute: 'pa_color', value: 'silver' } ]
+        // WooCommerce attributes prefixed with pa_ if global, or just the name if custom.
+        // We'll pass them down. For safety, we match WooCommerce format.
+        variationPayload = Object.entries(selectedOptions).map(([key, value]) => ({
+          attribute: key,
+          value: value
+        }));
+      }
 
-    const res = await addItem(parseInt(product.id), quantity, variationPayload);
-    if (!res.success) {
-      toast.error(mapWooCommerceError(res.code || '', res.error));
-      return;
+      const res = await addItem(parseInt(product.id), quantity, variationPayload);
+      if (!res.success) {
+        toast.error(mapWooCommerceError(res.code || '', res.error));
+        return;
+      }
+      trackAddToCart(product, quantity);
+    } finally {
+      setIsAdding(false);
     }
-    trackAddToCart(product, quantity);
   };
 
   const handleBuyNow = async () => {
-    if (!validateSelection()) return;
+    if (!validateSelection() || isPending) return;
 
-    // Clear existing cart to start a fresh checkout session for this specific item
-    const currentCart = useCartStore.getState().cart;
-    if (currentCart && currentCart.items && currentCart.items.length > 0) {
-      const { removeItem } = useCartStore.getState();
-      for (const item of currentCart.items) {
-        await removeItem(item.key);
+    setIsBuyingNow(true);
+    try {
+      // Clear existing cart to start a fresh checkout session for this specific
+      // item. Fired in parallel rather than one-at-a-time — with a full cart,
+      // sequential awaits meant N full network round-trips before the new item
+      // was even added.
+      const currentCart = useCartStore.getState().cart;
+      if (currentCart && currentCart.items && currentCart.items.length > 0) {
+        const { removeItem } = useCartStore.getState();
+        await Promise.all(currentCart.items.map((item) => removeItem(item.key)));
       }
-    }
 
-    let variationPayload;
-    if (isVariable && selectedOptions) {
-      variationPayload = Object.entries(selectedOptions).map(([key, value]) => ({
-        attribute: key,
-        value: value
-      }));
-    }
+      let variationPayload;
+      if (isVariable && selectedOptions) {
+        variationPayload = Object.entries(selectedOptions).map(([key, value]) => ({
+          attribute: key,
+          value: value
+        }));
+      }
 
-    const res = await addItem(parseInt(product.id), quantity, variationPayload, false);
-    if (!res.success) {
-      toast.error(mapWooCommerceError(res.code || '', res.error));
-      return;
+      const res = await addItem(parseInt(product.id), quantity, variationPayload, false);
+      if (!res.success) {
+        toast.error(mapWooCommerceError(res.code || '', res.error));
+        return;
+      }
+
+      trackAddToCart(product, quantity);
+      router.push('/checkout');
+    } finally {
+      setIsBuyingNow(false);
     }
-    
-    trackAddToCart(product, quantity);
-    router.push('/checkout');
   };
 
 
@@ -149,20 +171,20 @@ export function AddToCartButton({ product, compact = false }: { product: Product
           <p className="text-red-500 text-[11px] font-medium text-center">Please select options above</p>
         )}
         <div className="grid grid-cols-2 gap-2">
-          <Button 
-            onClick={handleAddToCart} 
-            disabled={isOutOfStock}
-            className="w-full bg-primary text-primary-foreground font-label-md text-[13px] font-semibold h-10 px-0 rounded hover:brightness-90 transition-all flex justify-center items-center gap-1.5"
+          <Button
+            onClick={handleAddToCart}
+            disabled={isOutOfStock || isPending}
+            className="w-full bg-primary text-primary-foreground font-label-md text-[13px] font-semibold h-10 px-0 rounded hover:brightness-90 transition-all flex justify-center items-center gap-1.5 disabled:opacity-60"
           >
-            <span>Add to Cart</span>
+            {isAdding ? <Loader2 className="text-[16px] animate-spin" /> : <span>Add to Cart</span>}
           </Button>
-          <Button 
-            onClick={handleBuyNow} 
-            disabled={isOutOfStock}
+          <Button
+            onClick={handleBuyNow}
+            disabled={isOutOfStock || isPending}
             variant="outline"
-            className="w-full border-ag-purple text-ag-purple font-label-md text-[13px] font-semibold h-10 px-0 rounded hover:bg-ag-purple/5 transition-all flex justify-center items-center gap-1.5"
+            className="w-full border-ag-purple text-ag-purple font-label-md text-[13px] font-semibold h-10 px-0 rounded hover:bg-ag-purple/5 transition-all flex justify-center items-center gap-1.5 disabled:opacity-60"
           >
-            <span>Buy Now</span>
+            {isBuyingNow ? <Loader2 className="text-[16px] animate-spin" /> : <span>Buy Now</span>}
           </Button>
         </div>
       </div>
@@ -296,22 +318,34 @@ export function AddToCartButton({ product, compact = false }: { product: Product
 
       {/* Action Buttons */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-        <Button 
-          onClick={handleAddToCart} 
-          disabled={isOutOfStock}
-          className="w-full bg-primary text-primary-foreground font-label-md text-[14px] font-semibold py-6 rounded hover:brightness-90 transition-all flex justify-center items-center gap-2"
+        <Button
+          onClick={handleAddToCart}
+          disabled={isOutOfStock || isPending}
+          className="w-full bg-primary text-primary-foreground font-label-md text-[14px] font-semibold py-6 rounded hover:brightness-90 transition-all flex justify-center items-center gap-2 disabled:opacity-60"
         >
-          <span>Add to Cart</span>
-          <ShoppingBag className="text-[18px]" />
+          {isAdding ? (
+            <Loader2 className="text-[18px] animate-spin" />
+          ) : (
+            <>
+              <span>Add to Cart</span>
+              <ShoppingBag className="text-[18px]" />
+            </>
+          )}
         </Button>
-        <Button 
-          onClick={handleBuyNow} 
-          disabled={isOutOfStock}
+        <Button
+          onClick={handleBuyNow}
+          disabled={isOutOfStock || isPending}
           variant="outline"
-          className="w-full border-ag-purple text-ag-purple font-label-md text-[14px] font-semibold py-6 rounded hover:bg-ag-purple/5 transition-all flex justify-center items-center gap-2"
+          className="w-full border-ag-purple text-ag-purple font-label-md text-[14px] font-semibold py-6 rounded hover:bg-ag-purple/5 transition-all flex justify-center items-center gap-2 disabled:opacity-60"
         >
-          <span>Buy Now</span>
-          <Zap className="text-[18px]" />
+          {isBuyingNow ? (
+            <Loader2 className="text-[18px] animate-spin" />
+          ) : (
+            <>
+              <span>Buy Now</span>
+              <Zap className="text-[18px]" />
+            </>
+          )}
         </Button>
       </div>
     </div>
