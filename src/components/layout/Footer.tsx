@@ -27,7 +27,7 @@ export function Footer() {
       {/* Mobile Newsletter Section (Hidden on Tablet+) */}
       <section className="tablet:hidden bg-charcoal-navy py-section-v-padding-mobile px-margin-mobile text-center">
         <h2 className="font-headline-sm text-pearl-white mb-4">Join Our Inner Circle</h2>
-        <p className="text-body-md text-pearl-white/60 mb-8 max-w-sm mx-auto">Subscribe for early access to new launches, exclusive events, and heritage stories.</p>
+        <p className="text-body-md text-pearl-white/60 mb-8 max-w-sm mx-auto">Subscribe for early access to new launches, exclusive events, and style guides.</p>
         <NewsletterForm variant="mobile" />
       </section>
 

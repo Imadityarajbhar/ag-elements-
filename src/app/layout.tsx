@@ -30,7 +30,7 @@ import { buildOrganizationSchema, buildWebsiteSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = getSeoMetadata({
   title: "AG Elements | Luxury Jewelry",
-  description: "A premium headless storefront for handcrafted 925 sterling silver jewelry, bridging the heritage of Wardha and modern elegance.",
+  description: "A premium storefront for authentic 925 sterling silver jewellery, combining timeless style and modern elegance.",
   path: "/",
 });
 

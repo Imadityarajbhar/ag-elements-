@@ -21,7 +21,7 @@ export default function FAQPage() {
         "name": "How long does shipping take?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We offer complimentary express shipping across India. Standard delivery takes 3-5 business days, while bespoke or personalized items may require 10-14 days for crafting and shipment."
+          "text": "We offer complimentary express shipping across India. Standard delivery takes 3-5 business days."
         }
       },
       {
@@ -61,7 +61,7 @@ export default function FAQPage() {
         "name": "Can I return a bespoke or personalized item?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Unfortunately, bespoke, personalized, or engraved items are crafted specifically for you and cannot be returned or exchanged unless there is a manufacturing defect."
+          "text": "Unfortunately, customized or engraved items are made specifically to order and cannot be returned or exchanged unless there is a quality defect."
         }
       },
       {
@@ -69,7 +69,7 @@ export default function FAQPage() {
         "name": "Is AG Elements silver certified 925?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, every piece of AG Elements jewelry is crafted from authentic 925 Sterling Silver. Each purchase comes with a physical certificate of authenticity."
+          "text": "Yes, every piece of AG Elements jewellery is made from authentic 925 Sterling Silver. Each purchase comes with a physical certificate of authenticity."
         }
       },
       {
@@ -85,7 +85,7 @@ export default function FAQPage() {
         "name": "Do you offer a warranty on your jewelry?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We stand behind the quality of our craftsmanship. We offer a 6-month warranty against manufacturing defects. Normal wear and tear, or damage caused by improper care, is not covered."
+          "text": "We stand behind the quality of our jewellery. We offer a 6-month warranty against manufacturing defects. Normal wear and tear, or damage caused by improper care, is not covered."
         }
       }
     ]
@@ -114,7 +114,7 @@ export default function FAQPage() {
             <AccordionItem value="shipping-1">
               <AccordionTrigger>How long does shipping take?</AccordionTrigger>
               <AccordionContent>
-                We offer complimentary express shipping across India. Standard delivery takes 3-5 business days, while bespoke or personalized items may require 10-14 days for crafting and shipment.
+                We offer complimentary express shipping across India. Standard delivery takes 3-5 business days.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="shipping-2">
@@ -151,7 +151,7 @@ export default function FAQPage() {
             <AccordionItem value="returns-3">
               <AccordionTrigger>Can I return a bespoke or personalized item?</AccordionTrigger>
               <AccordionContent>
-                Unfortunately, bespoke, personalized, or engraved items are crafted specifically for you and cannot be returned or exchanged unless there is a manufacturing defect.
+                Unfortunately, customized or engraved items are made specifically to order and cannot be returned or exchanged unless there is a quality defect.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -164,7 +164,7 @@ export default function FAQPage() {
             <AccordionItem value="care-1">
               <AccordionTrigger>Is AG Elements silver certified 925?</AccordionTrigger>
               <AccordionContent>
-                Yes, every piece of AG Elements jewelry is crafted from authentic 925 Sterling Silver. Each purchase comes with a physical certificate of authenticity.
+                Yes, every piece of AG Elements jewellery is made from authentic 925 Sterling Silver. Each purchase comes with a physical certificate of authenticity.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="care-2">
@@ -176,7 +176,7 @@ export default function FAQPage() {
             <AccordionItem value="care-3">
               <AccordionTrigger>Do you offer a warranty on your jewelry?</AccordionTrigger>
               <AccordionContent>
-                We stand behind the quality of our craftsmanship. We offer a 6-month warranty against manufacturing defects. Normal wear and tear, or damage caused by improper care, is not covered.
+                We stand behind the quality of our jewellery. We offer a 6-month warranty against manufacturing defects. Normal wear and tear, or damage caused by improper care, is not covered.
               </AccordionContent>
             </AccordionItem>
           </Accordion>

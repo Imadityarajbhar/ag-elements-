@@ -29,7 +29,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-[24px] mb-4 border-b border-outline-variant/30 pb-2">2. Products & Services</h2>
           <p>
-            [PLACEHOLDER: We have made every effort to display as accurately as possible the colors and images of our products. However, we cannot guarantee that your computer monitor's display of any color will be accurate. All our jewelry is handcrafted, meaning slight variations may occur, which adds to the uniqueness of each piece.]
+            [PLACEHOLDER: We have made every effort to display as accurately as possible the colors and images of our products. However, we cannot guarantee that your computer monitor's display of any color will be accurate. Slight natural variations in gemstone or silver finishing may occur, adding to the uniqueness of each piece.]
           </p>
         </section>
 

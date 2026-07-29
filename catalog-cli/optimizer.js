@@ -90,7 +90,7 @@ function generateContent(p) {
   // Enhanced Long Description (Structured)
   const longDesc = `
 <h3>Introduction</h3>
-<p>Experience the perfect blend of modern craftsmanship and timeless design with the ${name}. Engineered for durability and style, this piece elevates your accessory game effortlessly.</p>
+<p>Experience the perfect blend of modern elegance and timeless design with the ${name}. Engineered for durability and style, this piece elevates your accessory game effortlessly.</p>
 
 <h3>Design Story</h3>
 <p>Inspired by contemporary minimalism and architectural forms, the design emphasizes clean lines and a premium finish. It is crafted for the individual who appreciates subtle luxury and bold presence.</p>
@@ -109,7 +109,7 @@ function generateContent(p) {
 <p>Maintain its brilliance by avoiding direct contact with harsh chemicals, lotions, and perfumes. Store gently in the provided AG Elements pouch when not in use.</p>
 
 <h3>Why AG Elements</h3>
-<p>At AG Elements, we bridge the gap between traditional craftsmanship and contemporary style. Every piece is a testament to our commitment to quality, ensuring you wear jewelry that truly stands out.</p>
+<p>At AG Elements, we bridge the gap between premium quality and contemporary style. Every piece is a testament to our commitment to excellence, ensuring you wear jewellery that truly stands out.</p>
 `.trim();
 
   // SEO Fields

@@ -4,7 +4,6 @@ import {
   AboutHero,
   OurStory,
   BrandPhilosophy,
-  Craftsmanship,
   WhyChooseUs,
   QualityPromise,
   AboutCTA,
@@ -14,8 +13,8 @@ const FounderIntro = dynamic(() => import("@/components/home/FounderIntro").then
 const Testimonials = dynamic(() => import("@/components/home/Testimonials").then((m) => m.Testimonials));
 
 export const metadata = generateMetadata({
-  title: "About AG Elements | Our Heritage & Story",
-  description: "Discover the legacy of AG Elements. Crafting timeless 925 sterling silver jewelry since 1954.",
+  title: "About AG Elements | Premium 925 Sterling Silver Jewellery",
+  description: "Discover AG Elements. Premium 925 sterling silver jewellery offering timeless style and everyday luxury.",
   path: "/about",
 });
 
@@ -26,7 +25,6 @@ export default function AboutPage() {
       <FounderIntro ctaHref="/shop" ctaLabel="Explore Our Jewellery" />
       <OurStory />
       <BrandPhilosophy />
-      <Craftsmanship />
       <WhyChooseUs />
       <QualityPromise />
       <Testimonials />

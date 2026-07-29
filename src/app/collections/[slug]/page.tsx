@@ -1,5 +1,5 @@
 import { Wand2 } from 'lucide-react';
-import { getPaginatedProducts, AttributeFilter } from "@/services/products";
+import { getPaginatedProducts, AttributeFilter, resolveAttributeTermId } from "@/services/products";
 import { ShopArchive } from "@/components/shop/ShopArchive";
 import { ProductCarousel } from "@/components/shared/ProductCarousel";
 import Link from "next/link";
@@ -85,8 +85,13 @@ export default async function CollectionPage({
 
   // Config-level attribute restriction (e.g. a collection permanently scoped to one
   // taxonomy term) ANDs in alongside whatever the user selected in the sidebar filters.
-  if (config.attribute && config.attribute_term) {
-    attributeFilters.push({ attribute: config.attribute, term: config.attribute_term });
+  if (config.attribute) {
+    const termVal = config.termSlug 
+      ? resolveAttributeTermId(config.attribute as any, config.termSlug)
+      : config.attribute_term;
+    if (termVal) {
+      attributeFilters.push({ attribute: config.attribute, term: termVal });
+    }
   }
 
   const stock_status = typeof resolvedParams.stock_status === 'string' ? resolvedParams.stock_status as any : undefined;

@@ -25,7 +25,7 @@ export default function ShippingReturnsPage() {
             [PLACEHOLDER — confirm with AG Elements team: Standard delivery takes 3-5 business days across India. Express shipping is available for select pin codes.]
           </p>
           <p>
-            [PLACEHOLDER: Bespoke or personalized items require an additional 10-14 days for crafting before shipment.]
+            [PLACEHOLDER: Customized or engraved items require an additional 3-5 business days before shipment.]
           </p>
         </section>
 
@@ -42,7 +42,7 @@ export default function ShippingReturnsPage() {
             [PLACEHOLDER: Due to the precious nature of our materials, we offer a 7-day exchange window from the date of delivery. Items must be unused, in their original packaging, and accompanied by the 925 authenticity certificate.]
           </p>
           <p>
-            [PLACEHOLDER: Personalized, engraved, or bespoke items cannot be returned or exchanged unless there is a manufacturing defect.]
+            [PLACEHOLDER: Personalized or engraved items cannot be returned or exchanged unless there is a quality defect.]
           </p>
         </section>
 

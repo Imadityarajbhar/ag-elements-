@@ -28,7 +28,7 @@ export default function GiftingHubPage() {
             The Art of Gifting
           </h1>
           <p className="font-body-lg text-[18px] text-pearl-white/90 font-light mb-8">
-            Celebrate life's most precious moments with modern heritage sterling silver. Discover the perfect expression of your love.
+            Celebrate life's most precious moments with authentic 925 sterling silver. Discover the perfect expression of your love.
           </p>
           <Link href="/gifting/finder" className="bg-pearl-white text-charcoal-navy px-10 py-4 rounded-full uppercase tracking-[0.15em] font-label-md text-[13px] font-bold hover:bg-surface-variant transition-colors shadow-xl">
             Open Gift Finder

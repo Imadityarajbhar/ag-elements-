@@ -87,7 +87,7 @@ export function FounderIntro({
               variants={itemVariants}
               className="font-body-lg text-[18px] leading-[1.8] text-on-surface-variant font-light max-w-xl mx-auto tablet:mx-0"
             >
-              Kuntal Kaustubh Kathane grew up around silver — quite literally. Her family has worked as master silversmiths for generations, and by the time she returned home from her MBA in the UK, the craft was already part of how she saw the world. What she didn&apos;t see enough of was silver jewellery she could actually trust: pieces that held their shine, their shape, their promise of purity. So she built AG Elements around that gap, turning Wardha&apos;s first certified silver brand into a modern studio where heritage technique meets a design sensibility made for everyday life. She still reviews new pieces personally before they leave the studio — a habit less about control, more about care. Behind every necklace and ring is a woman who never stopped thinking like a craftsman, even after she became a founder.
+              AG Elements was founded by Kuntal Kaustubh Kathane with the vision of making premium 925 sterling silver jewellery accessible through timeless style, exceptional quality, and a seamless shopping experience. After completing her MBA in the UK, she established AG Elements to provide authentic silver jewellery customers can truly trust—pieces that hold their shine, shape, and hallmarked purity for everyday luxury.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col gap-1">

@@ -1,5 +1,5 @@
 "use client";
-import { Phone, Mail, MapPin, BadgeCheck, History, Truck } from 'lucide-react';
+import { Phone, Mail, MapPin, BadgeCheck, ShieldCheck, Truck } from 'lucide-react';
 
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { siteConfig, googleMapsSearchUrl } from "@/lib/seo/site";
@@ -25,7 +25,7 @@ export default function ContactPage() {
       <section className="px-margin-mobile tablet:px-margin-desktop pt-16 tablet:pt-section-v-padding pb-16 text-center max-w-4xl mx-auto">
         <h1 className="font-headline-lg text-[48px] text-charcoal-navy mb-6">Get in Touch</h1>
         <p className="font-body-lg text-[18px] text-on-surface-variant leading-relaxed">
-          Whether you seek a bespoke creation or have questions about our heritage collections, our silver specialists are here to guide you. Every conversation at AG Elements is handled with the same precision we apply to our craft since 1954.
+          Whether you seek styling advice or have questions about our signature collections, our jewellery specialists are here to guide you. Every conversation at AG Elements is handled with prompt care and dedicated service.
         </p>
       </section>
 
@@ -145,7 +145,7 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-charcoal-navy/10 pointer-events-none"></div>
           <div className="absolute top-4 left-4 tablet:top-8 tablet:left-8 bg-pearl-white p-6 shadow-xl rounded-lg max-w-[280px] tablet:max-w-xs">
             <p className="font-headline-sm text-[18px] mb-2 text-charcoal-navy">Our Flagship Store</p>
-            <p className="font-body-md text-[14px] text-on-surface-variant">Located in the heart of the historic Sarafa market, our studio is a sanctuary for fine silver craftsmanship.</p>
+            <p className="font-body-md text-[14px] text-on-surface-variant">Located in Wardha, our studio is your destination for authentic 925 sterling silver jewellery.</p>
           </div>
         </a>
       </section>
@@ -158,7 +158,7 @@ export default function ContactPage() {
             <AccordionItem value="q1">
               <AccordionTrigger>How long does shipping take?</AccordionTrigger>
               <AccordionContent>
-                We offer complimentary express shipping across India. Standard delivery takes 3-5 business days, while bespoke or personalized items may require 10-14 days for crafting and shipment.
+                We offer complimentary express shipping across India. Standard delivery takes 3-5 business days.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="q2">
@@ -188,10 +188,10 @@ export default function ContactPage() {
             </div>
           </div>
           <div className="flex flex-col items-center gap-4 border-y md:border-y-0 md:border-x border-outline-variant/30 py-8 md:py-0">
-            <History className="text-primary scale-125" />
+            <ShieldCheck className="text-primary scale-125" />
             <div>
-              <h5 className="font-label-md text-charcoal-navy uppercase tracking-widest">Since 1954</h5>
-              <p className="font-label-sm text-on-surface-variant mt-1">Decades of heritage & expertise</p>
+              <h5 className="font-label-md text-charcoal-navy uppercase tracking-widest">Trusted Quality</h5>
+              <p className="font-label-sm text-on-surface-variant mt-1">Rigorous quality & authenticity checks</p>
             </div>
           </div>
           <div className="flex flex-col items-center gap-4">

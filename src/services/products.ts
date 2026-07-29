@@ -9,9 +9,9 @@ import { SHOP_FILTERS } from '@/config/shop-filters';
 // human-readable term NAME (e.g. "925 Sterling Silver") as returned by the
 // products API's `attributes[].options[]`. Resolve name -> ID via the same
 // term map the filter UI uses, falling back to the raw value if unresolved.
-function resolveAttributeTermId(attributeKey: keyof typeof SHOP_FILTERS.attributes, termName: string): string {
+export function resolveAttributeTermId(attributeKey: keyof typeof SHOP_FILTERS.attributes, termNameOrSlug: string): string {
   const terms = SHOP_FILTERS.attributes[attributeKey]?.terms as Record<string, number> | undefined;
-  return terms?.[termName]?.toString() || termName;
+  return terms?.[termNameOrSlug]?.toString() || termNameOrSlug;
 }
 
 // Helper to map WC product to our Product model

@@ -126,6 +126,32 @@ export const trackCollectionClick = (slug: string, source: string) => {
 };
 
 /**
+ * Enhanced Ecommerce: Product Share
+ */
+export const trackShareItem = (product: Product, method: string) => {
+  if (typeof window === "undefined") return;
+
+  const payload = {
+    product_id: product.id,
+    product_slug: product.slug,
+    product_name: product.name,
+    category: product.categories[0]?.name || "Jewellery",
+    share_method: method,
+    page_type: "PDP"
+  };
+
+  // Google Analytics 4
+  if (window.gtag) {
+    window.gtag("event", "share", payload);
+  }
+
+  // Meta Pixel
+  if (window.fbq) {
+    window.fbq("trackCustom", "ShareProduct", payload);
+  }
+};
+
+/**
  * Enhanced Ecommerce: Purchase
  */
 export const trackPurchase = (orderId: string, value: number, items: Array<{ product: Product, quantity: number }>) => {

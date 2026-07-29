@@ -8,6 +8,7 @@ import { AddToCartButton, ProductGallery } from "@/components/shared/AddToCartBu
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { ProductCarousel } from "@/components/shop/ProductCarousel";
 import { WishlistButton } from "@/components/shared/WishlistButton";
+import { ProductShareButton } from "@/components/product/ProductShareButton";
 import { getProductReviews } from "@/services/reviews";
 import { TrustBadges } from "@/components/shared/TrustBadges";
 import { ProductViewTracker } from "@/components/shop/ProductViewTracker";
@@ -185,7 +186,7 @@ export default async function ProductDetailPage({ params }: PDPProps) {
               {product.material || "925 Sterling Silver"}
             </div>
             <h1 className="font-headline-lg text-[48px] leading-[56px] font-medium text-charcoal-navy">{product.name}</h1>
-            <p className="font-body-lg text-[18px] text-on-surface-variant">Handcrafted Silver Jewelry</p>
+            <p className="font-body-lg text-[18px] text-on-surface-variant">Authentic 925 Sterling Silver Jewellery</p>
           </div>
 
           {/* Add to Cart & Actions (includes price, variants, buttons) */}
@@ -195,8 +196,9 @@ export default async function ProductDetailPage({ params }: PDPProps) {
               <AddToCartButton product={product} />
             </Suspense>
 
-            <div className="flex justify-center mt-2">
+            <div className="flex items-center justify-center gap-6 mt-2">
               <WishlistButton product={product} withText className="hover:scale-100" />
+              <ProductShareButton product={product} />
             </div>
 
             {/* Trust Icons */}
@@ -297,7 +299,7 @@ export default async function ProductDetailPage({ params }: PDPProps) {
                       <ShieldCheck className="text-ag-purple mt-0.5" />
                       <div>
                         <span className="block font-semibold text-charcoal-navy">6-Month Warranty</span>
-                        <span>Enjoy a 6-month warranty against any manufacturing defects. We stand by the craftsmanship of our artisans.</span>
+                        <span>Enjoy a 6-month warranty against any manufacturing defects. We stand by the quality and purity of every piece.</span>
                       </div>
                     </div>
                   </div>
@@ -308,7 +310,7 @@ export default async function ProductDetailPage({ params }: PDPProps) {
               <AccordionItem value="care">
                 <AccordionTrigger className="font-label-md text-[14px] font-semibold uppercase tracking-widest text-charcoal-navy">Materials & Care Guide</AccordionTrigger>
                 <AccordionContent className="font-body-md text-[16px] text-on-surface-variant leading-relaxed">
-                  <p>Our jewelry is crafted from solid 925 sterling silver, free from nickel and lead. To maintain its luster, gently wipe with a soft polishing cloth after wear. Store in the provided AG Elements pouch away from moisture and direct sunlight.</p>
+                  <p>Our jewellery is made from solid 925 sterling silver, free from nickel and lead. To maintain its luster, gently wipe with a soft polishing cloth after wear. Store in the provided AG Elements pouch away from moisture and direct sunlight.</p>
                   <ul className="list-disc pl-5 mt-4 space-y-2">
                     <li>Avoid exposure to harsh chemicals, perfumes, and lotions.</li>
                     <li>Remove before swimming, bathing, or exercising.</li>
@@ -340,19 +342,7 @@ export default async function ProductDetailPage({ params }: PDPProps) {
         </div>
       </div>
 
-      {/* Below the Fold Content */}
-      {/* Product Story / Craftsmanship       {/* Editorial Image Block */}
-      <section className="mt-section-v-padding pt-16 border-t border-outline-variant/30 flex flex-col md:flex-row gap-8 items-center">
-        <div className="flex-1">
-          <div className="relative aspect-[4/3] bg-surface-lavender rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(35,33,58,0.05)]">
-            <Image fill sizes="(max-width: 768px) 100vw, 50vw" alt="Silversmith working on a piece of jewelry" className="object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPPmdoIQY2dETKqp7gluGbmwPtyZS53-eQzFIoxDSeP1q85Dvcad4wjxKdr-gx6ECF2EKloDg3EF5RCnLD_iuqGIZFp6BbCDmKUy8Wh2cqeJ_qpFZGTS6M7uePf76pYT2HzIfM3srVgganSFtYqBn2EI4eafaR2bMfmLWIZlz_QJoK9DNtfgyll3TzG6jztpTXiGbIt92nmH0F4UQHG1L0cs3KRYhMcGWcnX8tGjcjLErESEEWo6qeHQ" />
-          </div>
-        </div>
-        <div className="flex-1 flex flex-col gap-4">
-          <h2 className="font-headline-md text-[32px] font-medium text-charcoal-navy">Heritage & Craftsmanship</h2>
-          <p className="font-body-md text-[16px] text-on-surface-variant leading-relaxed">Every piece at AG Elements carries the legacy of artisanal silversmithing dating back to 1954. This piece is painstakingly hand-engraved by our master artisans, blending traditional techniques with contemporary design. We source only the finest 925 sterling silver, ensuring that each creation is not just an accessory, but a timeless heirloom meant to be cherished for generations.</p>
-        </div>
-      </section>
+
 
       {/* Recommendations Sections */}
       <Suspense fallback={<div className="h-[400px] w-full bg-surface-container-lowest animate-pulse rounded my-8" />}>

@@ -17,7 +17,7 @@ const Testimonials = dynamic(() => import("@/components/home/Testimonials").then
 
 export const metadata = generateMetadata({
   title: "AG Elements | Timeless Elegance",
-  description: "Discover our new collection of modern heritage sterling silver jewellery. Designed to be layered, stacked, and worn every day.",
+  description: "Discover our collection of premium 925 sterling silver jewellery. Timeless pieces for every occasion.",
   path: "/",
 });
 
@@ -54,10 +54,10 @@ export default async function Home() {
             The New Collection
           </span>
           <h1 className="font-display-lg text-[48px] tablet:text-[72px] leading-[1.1] text-pearl-white max-w-3xl mb-6 drop-shadow-2xl tracking-tight font-medium">
-            Everyday Elegance, <br className="hidden tablet:block" /> Crafted for You.
+            Everyday Elegance, <br className="hidden tablet:block" /> Chosen for You.
           </h1>
           <p className="font-body-lg text-[16px] tablet:text-[20px] leading-[1.6] text-pearl-white/90 max-w-xl mb-10 drop-shadow-md font-light">
-            Discover modern heritage sterling silver jewellery. Designed to be layered, stacked, and worn every day.
+            Discover premium 925 sterling silver jewellery. Made to be layered, stacked, and worn every day.
           </p>
           <div className="flex flex-col tablet:flex-row gap-6 w-full tablet:w-auto">
             <Link href={HOMEPAGE_LINKS.hero.shopCollection} className="w-full tablet:w-auto text-center bg-pearl-white text-charcoal-navy font-label-md text-[13px] px-12 py-4 rounded-full hover:bg-surface-variant transition-colors uppercase tracking-[0.15em] font-bold shadow-xl">
@@ -149,7 +149,7 @@ export default async function Home() {
           <Image fill sizes="(max-width: 768px) 100vw, 50vw" alt="Layered amethyst and gold-accent sterling silver necklaces from the AG Elements Everyday Stacking collection, worn close-up" className="object-cover transition-transform duration-1000 group-hover:scale-110" src="/collections/everyday-stacking.jpg" />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-navy/80 via-charcoal-navy/20 to-transparent flex flex-col items-center justify-end pb-16 text-pearl-white opacity-90 group-hover:opacity-100 transition-opacity">
             <h3 className="font-headline-md text-[36px] font-medium mb-4 drop-shadow-md tracking-tight">Everyday Stacking</h3>
-            <p className="font-body-sm max-w-xs text-center mb-6 text-pearl-white/80">Minimalist pieces crafted for your daily rotation.</p>
+            <p className="font-body-sm max-w-xs text-center mb-6 text-pearl-white/80">Minimalist pieces made for your daily rotation.</p>
             <Link className="bg-pearl-white text-charcoal-navy font-label-md text-[12px] px-8 py-3 rounded-full uppercase tracking-[0.15em] font-bold hover:bg-surface-variant transition-colors" href={HOMEPAGE_LINKS.editorial.everydayStacking}>
               Shop The Edit
             </Link>
@@ -198,7 +198,7 @@ export default async function Home() {
           <AccordionItem value="item-1">
             <AccordionTrigger className="font-label-md text-[14px] font-semibold uppercase tracking-widest text-charcoal-navy py-6 text-left">Is the jewellery 925 silver?</AccordionTrigger>
             <AccordionContent className="font-body-md text-[16px] text-on-surface-variant pb-6 leading-relaxed">
-              Yes, every piece of AG Elements jewelry is crafted from authentic 925 Sterling Silver. Each piece is hallmarked to guarantee its purity and comes with a certificate of authenticity.
+              Yes, every piece of AG Elements jewellery is made from authentic 925 Sterling Silver. Each piece is hallmarked to guarantee its purity and comes with a certificate of authenticity.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">

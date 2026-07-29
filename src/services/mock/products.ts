@@ -4,16 +4,16 @@ import { Product } from '../../types/product';
 const mockProducts: Product[] = [
   {
     id: '1',
-    name: 'The Heritage Chain',
-    slug: 'the-heritage-chain',
+    name: 'The Essential Chain',
+    slug: 'the-essential-chain',
     price: 4500,
     regularPrice: 5200,
     salePrice: 4500,
-    description: 'A classic 925 sterling silver chain that embodies everyday elegance. Beautifully crafted to sit gracefully on the collarbone.',
+    description: 'A classic 925 sterling silver chain that embodies everyday elegance. Beautifully styled to sit gracefully on the collarbone.',
     shortDescription: 'Classic elegance with a modern touch.',
     images: [
-      { id: 'img1_1', src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBL6Bqx_BxUfm5yqDK-NZS96-g67wYit2acRdUfG2Ob81cJORmAkr_LFePRNedOpgJDdhzLFfeOCmvdAd8QmXbNRl2bQmcG3N88-u5JXUxGKIJRe1NY5tpq5vu48H3J2yrlhbO00i0BIPGQ62XWXj0mmxGmMl0196EF_lKJORhpi0Pq9ij_rNsaDoulWXu1OFCng4RUyc4dpNTY8DL-0fSRqbZqRojmydwd97iQr1EdXTXI8nAvMW43mA', alt: 'The Heritage Chain' },
-      { id: 'img1_2', src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCiFqjAygKTWEdktVX56K0eEuonB75VtROtaQ_wN4P2YPGIBIeXkZNDrTaGgxXpo637gosuEMvL6v6Aa1Xti6fCHRsj9WHwsrpIHqPn9VYSo21-3JyGgANk0SQHaShkzjjUbSMZKHLsFhUf2g_rnQmJRJ-g5rRnZagw3Tu-Y-VcurV4nfZOnTHSfnIQk3MCCn4zur29-ug4WsKwJZyb0GCs5RQZrfqpSdOG-4KlymG6iy6VD8IFQ_JG5A', alt: 'The Heritage Chain Worn' }
+      { id: 'img1_1', src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBL6Bqx_BxUfm5yqDK-NZS96-g67wYit2acRdUfG2Ob81cJORmAkr_LFePRNedOpgJDdhzLFfeOCmvdAd8QmXbNRl2bQmcG3N88-u5JXUxGKIJRe1NY5tpq5vu48H3J2yrlhbO00i0BIPGQ62XWXj0mmxGmMl0196EF_lKJORhpi0Pq9ij_rNsaDoulWXu1OFCng4RUyc4dpNTY8DL-0fSRqbZqRojmydwd97iQr1EdXTXI8nAvMW43mA', alt: 'The Essential Chain' },
+      { id: 'img1_2', src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCiFqjAygKTWEdktVX56K0eEuonB75VtROtaQ_wN4P2YPGIBIeXkZNDrTaGgxXpo637gosuEMvL6v6Aa1Xti6fCHRsj9WHwsrpIHqPn9VYSo21-3JyGgANk0SQHaShkzjjUbSMZKHLsFhUf2g_rnQmJRJ-g5rRnZagw3Tu-Y-VcurV4nfZOnTHSfnIQk3MCCn4zur29-ug4WsKwJZyb0GCs5RQZrfqpSdOG-4KlymG6iy6VD8IFQ_JG5A', alt: 'The Essential Chain Worn' }
     ],
     categories: [{ id: 'cat1', name: 'Necklaces', slug: 'necklaces' }],
     inStock: true,
@@ -125,10 +125,10 @@ const mockProducts: Product[] = [
   },
   {
     id: '8',
-    name: 'Artisan Forged Signet Ring',
-    slug: 'artisan-forged-signet-ring',
+    name: 'Classic Matte Signet Ring',
+    slug: 'classic-matte-signet-ring',
     price: 4200,
-    description: 'A classic signet ring forged by our master artisans with a matte finish.',
+    description: 'A classic signet ring featuring 925 sterling silver with a refined matte finish.',
     images: [
       { id: 'img8_1', src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBL6Bqx_BxUfm5yqDK-NZS96-g67wYit2acRdUfG2Ob81cJORmAkr_LFePRNedOpgJDdhzLFfeOCmvdAd8QmXbNRl2bQmcG3N88-u5JXUxGKIJRe1NY5tpq5vu48H3J2yrlhbO00i0BIPGQ62XWXj0mmxGmMl0196EF_lKJORhpi0Pq9ij_rNsaDoulWXu1OFCng4RUyc4dpNTY8DL-0fSRqbZqRojmydwd97iQr1EdXTXI8nAvMW43mA', alt: 'Ring' }
     ],

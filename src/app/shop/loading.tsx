@@ -7,7 +7,7 @@ export default function ShopLoading() {
       <div className="mb-12 text-center max-w-2xl mx-auto">
         <SectionHeading 
           title="Shop All Jewellery" 
-          subtitle="Explore the complete AG Elements collection of handcrafted premium sterling silver jewellery."
+          subtitle="Explore the complete AG Elements collection of premium 925 sterling silver jewellery."
           align="center"
         />
       </div>

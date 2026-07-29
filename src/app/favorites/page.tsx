@@ -22,7 +22,7 @@ export default function FavoritesPlaceholderPage() {
         
         <div className="bg-surface-lavender p-8 rounded-xl text-center mb-8">
           <p className="font-body-md text-charcoal-navy mb-4">
-            In the meantime, explore our curated collections to find your next heirloom.
+            In the meantime, explore our collections to find your next favorite piece.
           </p>
           <Link href="/">
             <Button className="uppercase tracking-widest font-label-md">

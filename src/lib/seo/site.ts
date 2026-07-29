@@ -10,7 +10,7 @@ export const siteConfig = {
   name: 'AG Elements',
   shortName: 'AG Elements',
   description:
-    'AG Elements is a premium headless storefront for handcrafted 925 sterling silver jewelry — necklaces, earrings, rings, bangles and more, rooted in the silversmithing heritage of Wardha.',
+    'AG Elements is a destination for premium 925 sterling silver jewellery — necklaces, earrings, rings, bangles and more, offering timeless style and everyday luxury.',
   url: SITE_URL,
   ogImage: `${SITE_URL}/brand/og-image.jpg`,
   locale: 'en_IN',

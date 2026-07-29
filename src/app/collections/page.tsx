@@ -4,7 +4,7 @@ import { generateMetadata as getSeoMetadata } from "@/lib/seo/generateMetadata";
 
 export const metadata = getSeoMetadata({
   title: "Shop All Collections | AG Elements",
-  description: "Browse every AG Elements collection of handcrafted 925 sterling silver jewelry, from bridal edits to everyday essentials.",
+  description: "Browse every AG Elements collection of premium 925 sterling silver jewellery, from bridal edits to everyday essentials.",
   path: "/collections",
 });
 

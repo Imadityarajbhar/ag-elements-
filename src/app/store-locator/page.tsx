@@ -14,7 +14,7 @@ export default function StoreLocatorPage() {
       <section className="px-margin-mobile tablet:px-margin-desktop py-16 tablet:py-section-v-padding text-center max-w-4xl mx-auto">
         <h1 className="font-headline-lg text-[48px] text-charcoal-navy mb-6">Store Locator</h1>
         <p className="font-body-lg text-[18px] text-on-surface-variant leading-relaxed mb-12">
-          Discover our flagship studio where our heritage comes to life.
+          Discover our flagship studio where our collection comes to life.
         </p>
 
         <div className="bg-surface-lavender p-8 tablet:p-12 rounded-xl text-left shadow-sm max-w-2xl mx-auto flex flex-col tablet:flex-row gap-8 items-center tablet:items-start justify-between">

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Diamond, PenTool, Handshake, BadgeCheck, History, Truck, ArrowRight } from "lucide-react";
+import { Diamond, PenTool, Handshake, BadgeCheck, ShieldCheck, Truck, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "@/lib/motion/variants";
 
@@ -17,10 +17,10 @@ export function AboutHero() {
       transition={{ duration: 0.8, ease: EASE }}
       className="px-margin-mobile tablet:px-margin-desktop pt-20 tablet:pt-32 pb-16 tablet:pb-20 text-center max-w-4xl mx-auto"
     >
-      <span className="text-ag-purple font-label-md text-[13px] font-bold uppercase tracking-[0.2em] mb-4 block">Est. 1954</span>
+      <span className="text-ag-purple font-label-md text-[13px] font-bold uppercase tracking-[0.2em] mb-4 block">Authentic 925 Silver</span>
       <h1 className="font-headline-lg text-[40px] tablet:text-[56px] leading-[1.1] font-medium text-charcoal-navy mb-6">About AG Elements</h1>
       <p className="font-body-lg text-[18px] leading-relaxed text-on-surface-variant">
-        Rooted in a legacy dating back to 1954, AG Elements redefines sterling silver jewelry for the modern world. We blend heritage craftsmanship with contemporary editorial aesthetics to create pieces that are as timeless as they are everyday.
+        AG Elements offers a collection of premium 925 sterling silver jewellery for the modern world. Every piece is selected for its exceptional design and quality, bringing you timeless style for everyday luxury.
       </p>
     </motion.section>
   );
@@ -36,10 +36,10 @@ export function OurStory() {
       className="py-section-v-padding-mobile tablet:py-section-v-padding px-margin-mobile tablet:px-margin-desktop max-w-3xl mx-auto w-full text-center"
     >
       <span className="text-ag-purple font-label-md text-[13px] font-bold uppercase tracking-[0.2em] mb-4 block">Our Story</span>
-      <h2 className="font-headline-lg text-[36px] tablet:text-[48px] leading-tight font-medium text-charcoal-navy mb-8">Rooted in Heritage, Designed for Today</h2>
+      <h2 className="font-headline-lg text-[36px] tablet:text-[48px] leading-tight font-medium text-charcoal-navy mb-8">Driven by Elegance, Built on Trust</h2>
       <div className="font-body-lg text-[18px] leading-[1.8] text-on-surface-variant flex flex-col gap-6">
-        <p>AG Elements began in 1954 as a family silversmithing practice, long before &ldquo;sterling silver&rdquo; was a phrase modern shoppers searched for. For generations, that craft stayed close to home, passed down hand to hand rather than written in a manual.</p>
-        <p>It found its next chapter when Kuntal Kaustubh Kathane, raised inside that same workshop, returned from her MBA in the UK and turned a family trade into Wardha&apos;s first certified silver brand — keeping the technique, but building the quality guarantees a modern customer actually expects.</p>
+        <p>AG Elements was created to make authentic, high-quality sterling silver jewellery effortless to discover for discerning shoppers who appreciate fine design and lasting quality.</p>
+        <p>We focus on delivering genuine 925 sterling silver with full transparency, hallmarked purity, and an elevated shopping experience tailored for everyday elegance.</p>
       </div>
     </motion.section>
   );
@@ -57,53 +57,17 @@ export function BrandPhilosophy() {
       <div className="max-w-4xl mx-auto px-margin-mobile tablet:px-margin-desktop text-center">
         <span className="text-ag-purple font-label-md text-[13px] font-bold uppercase tracking-[0.2em] mb-6 block">Brand Philosophy</span>
         <p className="font-display-lg text-[28px] tablet:text-[44px] leading-[1.3] text-primary italic font-medium">
-          &ldquo;To empower individuals with timeless elegance, crafting silver jewelry that tells a story of heritage, quality, and everyday luxury.&rdquo;
+          &ldquo;To empower individuals with timeless elegance, offering sterling silver jewellery that reflects quality, style, and everyday luxury.&rdquo;
         </p>
       </div>
     </motion.section>
   );
 }
 
-export function Craftsmanship() {
-  return (
-    <section className="py-section-v-padding-mobile tablet:py-section-v-padding bg-surface-container w-full overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-margin-mobile tablet:px-margin-desktop flex flex-col tablet:flex-row items-center gap-16">
-        <motion.div
-          initial={{ opacity: 0, scale: 1.05 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 1, ease: EASE }}
-          className="flex-1 aspect-[4/3] relative rounded-xl overflow-hidden shadow-[0px_20px_45px_-25px_rgba(35,33,58,0.35)]"
-        >
-          <Image
-            alt="AG Elements artisans hand-finishing sterling silver jewellery"
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPPmdoIQY2dETKqp7gluGbmwPtyZS53-eQzFIoxDSeP1q85Dvcad4wjxKdr-gx6ECF2EKloDg3EF5RCnLD_iuqGIZFp6BbCDmKUy8Wh2cqeJ_qpFZGTS6M7uePf76pYT2HzIfM3srVgganSFtYqBn2EI4eafaR2bMfmLWIZlz_QJoK9DNtfgyll3TzG6jztpTXiGbIt92nmH0F4UQHG1L0cs3KRYhMcGWcnX8tGjcjLErESEEWo6qeHQ"
-          />
-        </motion.div>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.4 }}
-          variants={fadeUp}
-          className="flex-1 flex flex-col gap-6"
-        >
-          <span className="text-ag-purple font-label-md text-[13px] font-bold uppercase tracking-[0.2em]">Craftsmanship</span>
-          <h2 className="font-headline-lg text-[36px] tablet:text-[48px] leading-tight font-medium text-charcoal-navy">Made By Hand, Made To Last</h2>
-          <p className="font-body-lg text-[18px] leading-[1.8] text-on-surface-variant">Every piece begins with 925 sterling silver, shaped using techniques our artisans learned the same way their teachers did — by hand, over years, not weeks.</p>
-          <p className="font-body-lg text-[18px] leading-[1.8] text-on-surface-variant">Where tradition ends, modern finishing begins: precision polishing, hallmark certification, and a final quality check before anything leaves the studio.</p>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
 const VALUES = [
-  { Icon: Diamond, title: "Uncompromising Quality", body: "Every piece is crafted from certified 925 sterling silver, ensuring durability, luster, and a standard of excellence that stands the test of time." },
-  { Icon: PenTool, title: "Timeless Design", body: "We believe in elegant minimalism. Our jewelry is designed to be versatile—effortlessly elevating your everyday style or adding sophistication to special occasions." },
-  { Icon: Handshake, title: "Ethical Craftsmanship", body: "We are committed to responsible sourcing and supporting our artisan communities, preserving traditional skills while prioritizing sustainable practices." },
+  { Icon: Diamond, title: "Uncompromising Quality", body: "Every piece features certified 925 sterling silver, ensuring durability, luster, and a standard of excellence that stands the test of time." },
+  { Icon: PenTool, title: "Timeless Style", body: "We believe in elegant minimalism. Our jewellery is selected for versatility—effortlessly elevating your everyday style or adding sophistication to special occasions." },
+  { Icon: Handshake, title: "Quality Assurance", body: "We are committed to full transparency and strict standards, delivering hallmarked 925 sterling silver with genuine authenticity certification." },
 ];
 
 export function WhyChooseUs() {
@@ -134,7 +98,7 @@ export function WhyChooseUs() {
 
 const TRUST_BADGES = [
   { Icon: BadgeCheck, title: "925 Certified", body: "Guaranteed purity in every piece" },
-  { Icon: History, title: "Since 1954", body: "Decades of heritage & expertise" },
+  { Icon: ShieldCheck, title: "Trusted Quality", body: "Rigorous quality & authenticity checks" },
   { Icon: Truck, title: "Free Delivery", body: "Insured shipping on all orders" },
 ];
 
@@ -180,7 +144,7 @@ export function AboutCTA() {
       <div className="max-w-[1440px] mx-auto flex flex-col tablet:flex-row items-center justify-between gap-8 text-center tablet:text-left">
         <div className="flex flex-col gap-3 max-w-xl">
           <span className="font-label-md text-[13px] font-bold uppercase tracking-[0.2em] text-pearl-white/70">Visit Our Collection</span>
-          <h2 className="font-headline-lg text-[32px] tablet:text-[44px] leading-[1.15] font-medium text-pearl-white">Find Your Next Heirloom</h2>
+          <h2 className="font-headline-lg text-[32px] tablet:text-[44px] leading-[1.15] font-medium text-pearl-white">Find Your Perfect Piece</h2>
         </div>
         <Link
           href="/shop"

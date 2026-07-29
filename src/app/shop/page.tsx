@@ -6,7 +6,7 @@ import { generateMetadata as getSeoMetadata } from "@/lib/seo/generateMetadata";
 
 export const metadata = getSeoMetadata({
   title: "Shop Premium Sterling Silver Jewellery",
-  description: "Explore the complete AG Elements collection of handcrafted premium sterling silver jewellery.",
+  description: "Explore the complete AG Elements collection of premium 925 sterling silver jewellery.",
   path: "/shop",
   keywords: ["sterling silver jewelry", "shop jewelry online", "AG Elements"],
 });
@@ -67,7 +67,7 @@ export default async function ShopPage({
       <div className="mb-12 text-center max-w-2xl mx-auto">
         <SectionHeading 
           title="Shop All Jewellery" 
-          subtitle="Explore the complete AG Elements collection of handcrafted premium sterling silver jewellery."
+          subtitle="Explore the complete AG Elements collection of premium 925 sterling silver jewellery."
           align="center"
         />
       </div>
