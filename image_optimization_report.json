@@ -1,0 +1,6062 @@
+{
+  "generatedAt": "2026-08-06T19:31:07.985Z",
+  "mode": "optimize (local only)",
+  "thresholdBytes": 409600,
+  "totalImages": 386,
+  "totalOriginalBytes": 174148564,
+  "formatBreakdown": {
+    "jpeg": 252,
+    "png": 134
+  },
+  "overThresholdCount": 126,
+  "optimizedCount": 126,
+  "totalSavingsBytes": 132875484,
+  "rows": [
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/18-1.jpeg",
+      "products": [
+        {
+          "productId": 4239,
+          "slug": "classic-silver-ball-chain-necklace",
+          "imageId": 4260
+        }
+      ],
+      "originalBytes": 41342,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/18-2.jpeg",
+      "products": [
+        {
+          "productId": 4239,
+          "slug": "classic-silver-ball-chain-necklace",
+          "imageId": 4259
+        }
+      ],
+      "originalBytes": 102886,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/18-3.jpeg",
+      "products": [
+        {
+          "productId": 4239,
+          "slug": "classic-silver-ball-chain-necklace",
+          "imageId": 4258
+        }
+      ],
+      "originalBytes": 121130,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Man_wearing_chain_202605121750.jpeg",
+      "products": [
+        {
+          "productId": 4239,
+          "slug": "classic-silver-ball-chain-necklace",
+          "imageId": 4241
+        }
+      ],
+      "originalBytes": 224111,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/15-1.jpeg",
+      "products": [
+        {
+          "productId": 4318,
+          "slug": "modern-silver-link-chain-necklace",
+          "imageId": 4267
+        }
+      ],
+      "originalBytes": 48903,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/15-2.jpeg",
+      "products": [
+        {
+          "productId": 4318,
+          "slug": "modern-silver-link-chain-necklace",
+          "imageId": 4268
+        }
+      ],
+      "originalBytes": 62813,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/15-3.jpeg",
+      "products": [
+        {
+          "productId": 4318,
+          "slug": "modern-silver-link-chain-necklace",
+          "imageId": 4269
+        }
+      ],
+      "originalBytes": 120348,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Man_wearing_chain_202605121743.jpeg",
+      "products": [
+        {
+          "productId": 4318,
+          "slug": "modern-silver-link-chain-necklace",
+          "imageId": 4243
+        }
+      ],
+      "originalBytes": 264729,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/12-1.jpeg",
+      "products": [
+        {
+          "productId": 4330,
+          "slug": "elegant-textured-silver-chain-necklace",
+          "imageId": 4275
+        }
+      ],
+      "originalBytes": 49281,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/12-3.jpeg",
+      "products": [
+        {
+          "productId": 4330,
+          "slug": "elegant-textured-silver-chain-necklace",
+          "imageId": 4277
+        }
+      ],
+      "originalBytes": 123413,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/12-2.jpeg",
+      "products": [
+        {
+          "productId": 4330,
+          "slug": "elegant-textured-silver-chain-necklace",
+          "imageId": 4276
+        }
+      ],
+      "originalBytes": 104352,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/6.1.jpeg",
+      "products": [
+        {
+          "productId": 4330,
+          "slug": "elegant-textured-silver-chain-necklace",
+          "imageId": 4252
+        },
+        {
+          "productId": 4348,
+          "slug": "elegant-two-tone-bar-link-chain-necklace",
+          "imageId": 4252
+        }
+      ],
+      "originalBytes": 224946,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/10-3.jpeg",
+      "products": [
+        {
+          "productId": 4336,
+          "slug": "minimal-silver-oval-link-chain-necklace",
+          "imageId": 4285
+        }
+      ],
+      "originalBytes": 53865,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/10-2.jpeg",
+      "products": [
+        {
+          "productId": 4336,
+          "slug": "minimal-silver-oval-link-chain-necklace",
+          "imageId": 4284
+        }
+      ],
+      "originalBytes": 81602,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/10-1.jpeg",
+      "products": [
+        {
+          "productId": 4336,
+          "slug": "minimal-silver-oval-link-chain-necklace",
+          "imageId": 4283
+        }
+      ],
+      "originalBytes": 133120,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Man_wearing_chain_202605121735.jpeg",
+      "products": [
+        {
+          "productId": 4336,
+          "slug": "minimal-silver-oval-link-chain-necklace",
+          "imageId": 4247
+        }
+      ],
+      "originalBytes": 220066,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/9.1.jpeg",
+      "products": [
+        {
+          "productId": 4342,
+          "slug": "bold-silver-double-link-chain-necklace",
+          "imageId": 4288
+        }
+      ],
+      "originalBytes": 73972,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Man_wearing_chain_202605121734.jpeg",
+      "products": [
+        {
+          "productId": 4342,
+          "slug": "bold-silver-double-link-chain-necklace",
+          "imageId": 4248
+        }
+      ],
+      "originalBytes": 210522,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/9.2.jpeg",
+      "products": [
+        {
+          "productId": 4342,
+          "slug": "bold-silver-double-link-chain-necklace",
+          "imageId": 4287
+        }
+      ],
+      "originalBytes": 75804,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/9.3.jpeg",
+      "products": [
+        {
+          "productId": 4342,
+          "slug": "bold-silver-double-link-chain-necklace",
+          "imageId": 4286
+        }
+      ],
+      "originalBytes": 154492,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/8.1.jpeg",
+      "products": [
+        {
+          "productId": 4344,
+          "slug": "classic-gold-rope-chain-necklace",
+          "imageId": 4289
+        }
+      ],
+      "originalBytes": 44942,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/8.2.jpeg",
+      "products": [
+        {
+          "productId": 4344,
+          "slug": "classic-gold-rope-chain-necklace",
+          "imageId": 4290
+        }
+      ],
+      "originalBytes": 131192,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/8.3.jpeg",
+      "products": [
+        {
+          "productId": 4344,
+          "slug": "classic-gold-rope-chain-necklace",
+          "imageId": 4291
+        }
+      ],
+      "originalBytes": 125098,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Man_wearing_chain_202605121733.jpeg",
+      "products": [
+        {
+          "productId": 4344,
+          "slug": "classic-gold-rope-chain-necklace",
+          "imageId": 4249
+        }
+      ],
+      "originalBytes": 160404,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/7.a.jpeg",
+      "products": [
+        {
+          "productId": 4346,
+          "slug": "modern-silver-bar-link-chain-necklace",
+          "imageId": 4292
+        }
+      ],
+      "originalBytes": 44155,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/7.2.jpeg",
+      "products": [
+        {
+          "productId": 4346,
+          "slug": "modern-silver-bar-link-chain-necklace",
+          "imageId": 4293
+        }
+      ],
+      "originalBytes": 121757,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/7.3.jpeg",
+      "products": [
+        {
+          "productId": 4346,
+          "slug": "modern-silver-bar-link-chain-necklace",
+          "imageId": 4294
+        }
+      ],
+      "originalBytes": 72501,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/7.4.jpeg",
+      "products": [
+        {
+          "productId": 4346,
+          "slug": "modern-silver-bar-link-chain-necklace",
+          "imageId": 4295
+        }
+      ],
+      "originalBytes": 123403,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/6.c.jpeg",
+      "products": [
+        {
+          "productId": 4348,
+          "slug": "elegant-two-tone-bar-link-chain-necklace",
+          "imageId": 4298
+        }
+      ],
+      "originalBytes": 41328,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/6.a.jpeg",
+      "products": [
+        {
+          "productId": 4348,
+          "slug": "elegant-two-tone-bar-link-chain-necklace",
+          "imageId": 4296
+        }
+      ],
+      "originalBytes": 128239,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/6.b.jpeg",
+      "products": [
+        {
+          "productId": 4348,
+          "slug": "elegant-two-tone-bar-link-chain-necklace",
+          "imageId": 4297
+        }
+      ],
+      "originalBytes": 63198,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/5.a.jpeg",
+      "products": [
+        {
+          "productId": 4350,
+          "slug": "classic-silver-curb-chain-necklace",
+          "imageId": 4299
+        }
+      ],
+      "originalBytes": 46903,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/5.b.jpeg",
+      "products": [
+        {
+          "productId": 4350,
+          "slug": "classic-silver-curb-chain-necklace",
+          "imageId": 4300
+        }
+      ],
+      "originalBytes": 71458,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/5.c.jpeg",
+      "products": [
+        {
+          "productId": 4350,
+          "slug": "classic-silver-curb-chain-necklace",
+          "imageId": 4301
+        }
+      ],
+      "originalBytes": 123794,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/5.6.jpeg",
+      "products": [
+        {
+          "productId": 4350,
+          "slug": "classic-silver-curb-chain-necklace",
+          "imageId": 4253
+        }
+      ],
+      "originalBytes": 248366,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/3-2.jpeg",
+      "products": [
+        {
+          "productId": 4352,
+          "slug": "elegant-gold-pearl-station-necklace",
+          "imageId": 4305
+        }
+      ],
+      "originalBytes": 36459,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/3-1.jpeg",
+      "products": [
+        {
+          "productId": 4352,
+          "slug": "elegant-gold-pearl-station-necklace",
+          "imageId": 4304
+        }
+      ],
+      "originalBytes": 112999,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/3-3.jpeg",
+      "products": [
+        {
+          "productId": 4352,
+          "slug": "elegant-gold-pearl-station-necklace",
+          "imageId": 4306
+        }
+      ],
+      "originalBytes": 122966,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/3-4.jpeg",
+      "products": [
+        {
+          "productId": 4352,
+          "slug": "elegant-gold-pearl-station-necklace",
+          "imageId": 4255
+        }
+      ],
+      "originalBytes": 187623,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/14-3.jpeg",
+      "products": [
+        {
+          "productId": 4325,
+          "slug": "elegant-triple-layer-gold-chain-necklace",
+          "imageId": 4272
+        }
+      ],
+      "originalBytes": 63739,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/14-2.jpeg",
+      "products": [
+        {
+          "productId": 4325,
+          "slug": "elegant-triple-layer-gold-chain-necklace",
+          "imageId": 4271
+        }
+      ],
+      "originalBytes": 85613,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/14-1.jpeg",
+      "products": [
+        {
+          "productId": 4325,
+          "slug": "elegant-triple-layer-gold-chain-necklace",
+          "imageId": 4270
+        }
+      ],
+      "originalBytes": 126830,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/1.b.jpeg",
+      "products": [
+        {
+          "productId": 4354,
+          "slug": "luxury-tri-tone-crystal-bead-necklace",
+          "imageId": 4308
+        }
+      ],
+      "originalBytes": 48491,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/1.c.jpeg",
+      "products": [
+        {
+          "productId": 4354,
+          "slug": "luxury-tri-tone-crystal-bead-necklace",
+          "imageId": 4309
+        }
+      ],
+      "originalBytes": 145972,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/1.a.jpeg",
+      "products": [
+        {
+          "productId": 4354,
+          "slug": "luxury-tri-tone-crystal-bead-necklace",
+          "imageId": 4307
+        }
+      ],
+      "originalBytes": 78016,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/1-2.jpeg",
+      "products": [
+        {
+          "productId": 4354,
+          "slug": "luxury-tri-tone-crystal-bead-necklace",
+          "imageId": 4256
+        }
+      ],
+      "originalBytes": 244247,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/2.b.jpeg",
+      "products": [
+        {
+          "productId": 4356,
+          "slug": "premium-silver-mesh-chain-necklace",
+          "imageId": 4311
+        }
+      ],
+      "originalBytes": 63663,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/2.c.jpeg",
+      "products": [
+        {
+          "productId": 4356,
+          "slug": "premium-silver-mesh-chain-necklace",
+          "imageId": 4312
+        }
+      ],
+      "originalBytes": 79917,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/2.a.jpeg",
+      "products": [
+        {
+          "productId": 4356,
+          "slug": "premium-silver-mesh-chain-necklace",
+          "imageId": 4310
+        }
+      ],
+      "originalBytes": 117004,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/2.4.jpeg",
+      "products": [
+        {
+          "productId": 4356,
+          "slug": "premium-silver-mesh-chain-necklace",
+          "imageId": 4257
+        }
+      ],
+      "originalBytes": 270173,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/ChatGPT-Image-May-19-2026-01_59_06-PM.png",
+      "products": [
+        {
+          "productId": 4446,
+          "slug": "elegant-butterfly-crystal-bracelet",
+          "imageId": 4452
+        }
+      ],
+      "originalBytes": 1999275,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 179264,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 1820011,
+      "savingsPct": "91.0",
+      "localOutputPath": "catalog-cli\\optimized-images\\ChatGPT-Image-May-19-2026-01_59_06-PM.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/ChatGPT-Image-May-19-2026-01_51_42-PM.png",
+      "products": [
+        {
+          "productId": 4446,
+          "slug": "elegant-butterfly-crystal-bracelet",
+          "imageId": 4448
+        }
+      ],
+      "originalBytes": 1868749,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 116860,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 1751889,
+      "savingsPct": "93.7",
+      "localOutputPath": "catalog-cli\\optimized-images\\ChatGPT-Image-May-19-2026-01_51_42-PM.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/ChatGPT-Image-May-19-2026-01_54_37-PM.png",
+      "products": [
+        {
+          "productId": 4446,
+          "slug": "elegant-butterfly-crystal-bracelet",
+          "imageId": 4450
+        }
+      ],
+      "originalBytes": 2025523,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 194020,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 1831503,
+      "savingsPct": "90.4",
+      "localOutputPath": "catalog-cli\\optimized-images\\ChatGPT-Image-May-19-2026-01_54_37-PM.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/ChatGPT-Image-May-19-2026-01_50_33-PM.png",
+      "products": [
+        {
+          "productId": 4446,
+          "slug": "elegant-butterfly-crystal-bracelet",
+          "imageId": 4447
+        }
+      ],
+      "originalBytes": 984637,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 42472,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 942165,
+      "savingsPct": "95.7",
+      "localOutputPath": "catalog-cli\\optimized-images\\ChatGPT-Image-May-19-2026-01_50_33-PM.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Edit_image_keep_background_white_202605091316.jpeg",
+      "products": [
+        {
+          "productId": 4174,
+          "slug": "royal-tiger-designer-open-bracelet",
+          "imageId": 4124
+        }
+      ],
+      "originalBytes": 54358,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Wear_bracelet_simple_background_202605091317.jpeg",
+      "products": [
+        {
+          "productId": 4174,
+          "slug": "royal-tiger-designer-open-bracelet",
+          "imageId": 4101
+        }
+      ],
+      "originalBytes": 137904,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091316.jpeg",
+      "products": [
+        {
+          "productId": 4174,
+          "slug": "royal-tiger-designer-open-bracelet",
+          "imageId": 4147
+        }
+      ],
+      "originalBytes": 99666,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Photo-05-05-26-4-56-14-PM-scaled.jpg",
+      "products": [
+        {
+          "productId": 4174,
+          "slug": "royal-tiger-designer-open-bracelet",
+          "imageId": 4443
+        }
+      ],
+      "originalBytes": 636689,
+      "originalFormat": "jpeg",
+      "overThreshold": true,
+      "width": 1600,
+      "height": 2133,
+      "optimizedBytes": 627866,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 8823,
+      "savingsPct": "1.4",
+      "localOutputPath": "catalog-cli\\optimized-images\\Photo-05-05-26-4-56-14-PM-scaled.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Photo-05-05-26-4-56-45-PM-scaled.jpg",
+      "products": [
+        {
+          "productId": 4174,
+          "slug": "royal-tiger-designer-open-bracelet",
+          "imageId": 4442
+        }
+      ],
+      "originalBytes": 564140,
+      "originalFormat": "jpeg",
+      "overThreshold": true,
+      "width": 1600,
+      "height": 2133,
+      "optimizedBytes": 534384,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 29756,
+      "savingsPct": "5.3",
+      "localOutputPath": "catalog-cli\\optimized-images\\Photo-05-05-26-4-56-45-PM-scaled.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Edit_image_keep_background_white_202605091337-1.jpeg",
+      "products": [
+        {
+          "productId": 4161,
+          "slug": "elegant-sunflower-rose-gold-bracelet",
+          "imageId": 4113
+        }
+      ],
+      "originalBytes": 56781,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Edit_image_keep_background_white_202605091337.jpeg",
+      "products": [
+        {
+          "productId": 4161,
+          "slug": "elegant-sunflower-rose-gold-bracelet",
+          "imageId": 4112
+        }
+      ],
+      "originalBytes": 89019,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091338.jpeg",
+      "products": [
+        {
+          "productId": 4161,
+          "slug": "elegant-sunflower-rose-gold-bracelet",
+          "imageId": 4135
+        }
+      ],
+      "originalBytes": 83551,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Wear_bracelet_simple_background_202605091337.jpeg",
+      "products": [
+        {
+          "productId": 4161,
+          "slug": "elegant-sunflower-rose-gold-bracelet",
+          "imageId": 4089
+        }
+      ],
+      "originalBytes": 140929,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Edit_image_keep_background_white_202605091341.jpeg",
+      "products": [
+        {
+          "productId": 4157,
+          "slug": "rose-gold-butterfly-crystal-bracelet",
+          "imageId": 4110
+        }
+      ],
+      "originalBytes": 47252,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091343.jpeg",
+      "products": [
+        {
+          "productId": 4157,
+          "slug": "rose-gold-butterfly-crystal-bracelet",
+          "imageId": 4131
+        }
+      ],
+      "originalBytes": 83647,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Wear_bracelet_simple_background_202605091341.jpeg",
+      "products": [
+        {
+          "productId": 4157,
+          "slug": "rose-gold-butterfly-crystal-bracelet",
+          "imageId": 4086
+        }
+      ],
+      "originalBytes": 176190,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Edit_image_keep_background_white_202605111126.jpeg",
+      "products": [
+        {
+          "productId": 4181,
+          "slug": "traditional-floral-stone-kada-bracelet",
+          "imageId": 4184
+        }
+      ],
+      "originalBytes": 64350,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091321.jpeg",
+      "products": [
+        {
+          "productId": 4181,
+          "slug": "traditional-floral-stone-kada-bracelet",
+          "imageId": 4144
+        }
+      ],
+      "originalBytes": 76688,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Wear_bracelet_simple_background_202605091321-1.jpeg",
+      "products": [
+        {
+          "productId": 4181,
+          "slug": "traditional-floral-stone-kada-bracelet",
+          "imageId": 4099
+        }
+      ],
+      "originalBytes": 200271,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091321-1.jpeg",
+      "products": [
+        {
+          "productId": 4181,
+          "slug": "traditional-floral-stone-kada-bracelet",
+          "imageId": 4145
+        }
+      ],
+      "originalBytes": 84145,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Edit_image_keep_background_white_202605091321.jpeg",
+      "products": [
+        {
+          "productId": 4172,
+          "slug": "luxury-tri-tone-stretch-bracelet",
+          "imageId": 4120
+        }
+      ],
+      "originalBytes": 116177,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091319.jpeg",
+      "products": [
+        {
+          "productId": 4172,
+          "slug": "luxury-tri-tone-stretch-bracelet",
+          "imageId": 4146
+        }
+      ],
+      "originalBytes": 99327,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Wear_bracelet_simple_background_202605091319.jpeg",
+      "products": [
+        {
+          "productId": 4172,
+          "slug": "luxury-tri-tone-stretch-bracelet",
+          "imageId": 4100
+        }
+      ],
+      "originalBytes": 182007,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Edit_image_keep_background_white_202605091340.jpeg",
+      "products": [
+        {
+          "productId": 4159,
+          "slug": "elegant-twisted-rose-gold-bangle",
+          "imageId": 4111
+        }
+      ],
+      "originalBytes": 51835,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Wear_bracelet_simple_background_202605091339.jpeg",
+      "products": [
+        {
+          "productId": 4159,
+          "slug": "elegant-twisted-rose-gold-bangle",
+          "imageId": 4088
+        }
+      ],
+      "originalBytes": 172346,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091339-1.jpeg",
+      "products": [
+        {
+          "productId": 4159,
+          "slug": "elegant-twisted-rose-gold-bangle",
+          "imageId": 4134
+        }
+      ],
+      "originalBytes": 76442,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091339.jpeg",
+      "products": [
+        {
+          "productId": 4159,
+          "slug": "elegant-twisted-rose-gold-bangle",
+          "imageId": 4133
+        }
+      ],
+      "originalBytes": 84626,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Edit_image_keep_background_white_202605091332-1.jpeg",
+      "products": [
+        {
+          "productId": 4163,
+          "slug": "classic-crystal-tennis-bracelet",
+          "imageId": 4115
+        },
+        {
+          "productId": 4163,
+          "slug": "classic-crystal-tennis-bracelet",
+          "imageId": 4115
+        }
+      ],
+      "originalBytes": 41958,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091331.jpeg",
+      "products": [
+        {
+          "productId": 4163,
+          "slug": "classic-crystal-tennis-bracelet",
+          "imageId": 4138
+        }
+      ],
+      "originalBytes": 66739,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Wear_bracelet_simple_background_202605091331.jpeg",
+      "products": [
+        {
+          "productId": 4163,
+          "slug": "classic-crystal-tennis-bracelet",
+          "imageId": 4092
+        }
+      ],
+      "originalBytes": 110183,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Wear_bracelet_simple_background_202605091331-1.jpeg",
+      "products": [
+        {
+          "productId": 4163,
+          "slug": "classic-crystal-tennis-bracelet",
+          "imageId": 4093
+        }
+      ],
+      "originalBytes": 103186,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Edit_image_keep_background_white_202605111130-1.jpeg",
+      "products": [
+        {
+          "productId": 4194,
+          "slug": "luxury-panther-link-bracelet",
+          "imageId": 4183
+        }
+      ],
+      "originalBytes": 68673,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Edit_image_keep_background_white_202605111122-1.jpeg",
+      "products": [
+        {
+          "productId": 4194,
+          "slug": "luxury-panther-link-bracelet",
+          "imageId": 4186
+        }
+      ],
+      "originalBytes": 72729,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Edit_image_keep_background_white_202605111130.jpeg",
+      "products": [
+        {
+          "productId": 4194,
+          "slug": "luxury-panther-link-bracelet",
+          "imageId": 4182
+        }
+      ],
+      "originalBytes": 60461,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091333.jpeg",
+      "products": [
+        {
+          "productId": 4194,
+          "slug": "luxury-panther-link-bracelet",
+          "imageId": 4136
+        }
+      ],
+      "originalBytes": 87911,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091333-1.jpeg",
+      "products": [
+        {
+          "productId": 4194,
+          "slug": "luxury-panther-link-bracelet",
+          "imageId": 4137
+        }
+      ],
+      "originalBytes": 63542,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Delicate_women_hand_wearing_brac…_202605111312-1.jpeg",
+      "products": [
+        {
+          "productId": 4194,
+          "slug": "luxury-panther-link-bracelet",
+          "imageId": 4226
+        }
+      ],
+      "originalBytes": 87559,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Delicate_women_hand_wearing_brac…_202605111312.jpeg",
+      "products": [
+        {
+          "productId": 4194,
+          "slug": "luxury-panther-link-bracelet",
+          "imageId": 4227
+        }
+      ],
+      "originalBytes": 77655,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Edit_image_keep_background_white_202605091346.jpeg",
+      "products": [
+        {
+          "productId": 4153,
+          "slug": "classic-minimal-silver-open-cuff-bracelet",
+          "imageId": 4108
+        }
+      ],
+      "originalBytes": 40139,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091347-1.jpeg",
+      "products": [
+        {
+          "productId": 4153,
+          "slug": "classic-minimal-silver-open-cuff-bracelet",
+          "imageId": 4130
+        }
+      ],
+      "originalBytes": 75358,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091347.jpeg",
+      "products": [
+        {
+          "productId": 4153,
+          "slug": "classic-minimal-silver-open-cuff-bracelet",
+          "imageId": 4129
+        }
+      ],
+      "originalBytes": 66354,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Delicate_women_hand_wearing_brac…_202605111307.jpeg",
+      "products": [
+        {
+          "productId": 4153,
+          "slug": "classic-minimal-silver-open-cuff-bracelet",
+          "imageId": 4225
+        }
+      ],
+      "originalBytes": 125911,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Delicate_women_hand_wearing_brac…_202605111307-1.jpeg",
+      "products": [
+        {
+          "productId": 4153,
+          "slug": "classic-minimal-silver-open-cuff-bracelet",
+          "imageId": 4224
+        }
+      ],
+      "originalBytes": 155245,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Edit_image_keep_background_white_202605091329.jpeg",
+      "products": [
+        {
+          "productId": 4168,
+          "slug": "classic-dual-bead-open-bracelet",
+          "imageId": 4116
+        }
+      ],
+      "originalBytes": 60125,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091450.jpeg",
+      "products": [
+        {
+          "productId": 4168,
+          "slug": "classic-dual-bead-open-bracelet",
+          "imageId": 4166
+        }
+      ],
+      "originalBytes": 108049,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Delicate_women_hand_wearing_brac…_202605111315.jpeg",
+      "products": [
+        {
+          "productId": 4168,
+          "slug": "classic-dual-bead-open-bracelet",
+          "imageId": 4228
+        }
+      ],
+      "originalBytes": 97377,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/create_a_image_of_delicate_202605111315.jpeg",
+      "products": [
+        {
+          "productId": 4168,
+          "slug": "classic-dual-bead-open-bracelet",
+          "imageId": 4229
+        }
+      ],
+      "originalBytes": 153080,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Edit_image_keep_background_white_202605091327-1.jpeg",
+      "products": [
+        {
+          "productId": 4170,
+          "slug": "elegant-pink-designer-kada-bracelet",
+          "imageId": 4119
+        }
+      ],
+      "originalBytes": 51643,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091328.jpeg",
+      "products": [
+        {
+          "productId": 4170,
+          "slug": "elegant-pink-designer-kada-bracelet",
+          "imageId": 4140
+        }
+      ],
+      "originalBytes": 126294,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Wear_bracelet_simple_background_202605091328-1.jpeg",
+      "products": [
+        {
+          "productId": 4170,
+          "slug": "elegant-pink-designer-kada-bracelet",
+          "imageId": 4095
+        }
+      ],
+      "originalBytes": 97588,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Wear_bracelet_simple_background_202605091328.jpeg",
+      "products": [
+        {
+          "productId": 4170,
+          "slug": "elegant-pink-designer-kada-bracelet",
+          "imageId": 4094
+        }
+      ],
+      "originalBytes": 97482,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Edit_image_keep_background_white_202605091344.jpeg",
+      "products": [
+        {
+          "productId": 4155,
+          "slug": "cute-elephant-charm-adjustable-bracelet",
+          "imageId": 4109
+        }
+      ],
+      "originalBytes": 59540,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091343-1.jpeg",
+      "products": [
+        {
+          "productId": 4155,
+          "slug": "cute-elephant-charm-adjustable-bracelet",
+          "imageId": 4132
+        }
+      ],
+      "originalBytes": 67558,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Wear_bracelet_simple_background_202605091344.jpeg",
+      "products": [
+        {
+          "productId": 4155,
+          "slug": "cute-elephant-charm-adjustable-bracelet",
+          "imageId": 4085
+        }
+      ],
+      "originalBytes": 134323,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/ChatGPT-Image-May-9-2026-12_40_04-PM.png",
+      "products": [
+        {
+          "productId": 4151,
+          "slug": "elegant-floral-crystal-open-bracelet",
+          "imageId": 4127
+        }
+      ],
+      "originalBytes": 2084597,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 211452,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 1873145,
+      "savingsPct": "89.9",
+      "localOutputPath": "catalog-cli\\optimized-images\\ChatGPT-Image-May-9-2026-12_40_04-PM.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Wear_bracelet_simple_background_202605091349.jpeg",
+      "products": [
+        {
+          "productId": 4151,
+          "slug": "elegant-floral-crystal-open-bracelet",
+          "imageId": 4083
+        }
+      ],
+      "originalBytes": 136637,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091348.jpeg",
+      "products": [
+        {
+          "productId": 4151,
+          "slug": "elegant-floral-crystal-open-bracelet",
+          "imageId": 4128
+        }
+      ],
+      "originalBytes": 67587,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/ChatGPT-Image-May-9-2026-12_40_10-PM.png",
+      "products": [
+        {
+          "productId": 4151,
+          "slug": "elegant-floral-crystal-open-bracelet",
+          "imageId": 4126
+        }
+      ],
+      "originalBytes": 2065638,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 179888,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 1885750,
+      "savingsPct": "91.3",
+      "localOutputPath": "catalog-cli\\optimized-images\\ChatGPT-Image-May-9-2026-12_40_10-PM.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/ChatGPT-Image-May-9-2026-12_40_17-PM.png",
+      "products": [
+        {
+          "productId": 4151,
+          "slug": "elegant-floral-crystal-open-bracelet",
+          "imageId": 4125
+        }
+      ],
+      "originalBytes": 2093584,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 186308,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 1907276,
+      "savingsPct": "91.1",
+      "localOutputPath": "catalog-cli\\optimized-images\\ChatGPT-Image-May-9-2026-12_40_17-PM.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Gemini_Generated_Image_8mgv5p8mgv5p8mgv.png",
+      "products": [
+        {
+          "productId": 4082,
+          "slug": "luxury-panther-designer-bracelet",
+          "imageId": 4106
+        }
+      ],
+      "originalBytes": 947233,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 896,
+      "height": 1195,
+      "optimizedBytes": 40952,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 906281,
+      "savingsPct": "95.7",
+      "localOutputPath": "catalog-cli\\optimized-images\\Gemini_Generated_Image_8mgv5p8mgv5p8mgv.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Bracelet_on_paper_roll_202605091310.jpeg",
+      "products": [
+        {
+          "productId": 4082,
+          "slug": "luxury-panther-designer-bracelet",
+          "imageId": 4149
+        }
+      ],
+      "originalBytes": 81499,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Wear_bracelet_simple_background_202605091305.jpeg",
+      "products": [
+        {
+          "productId": 4082,
+          "slug": "luxury-panther-designer-bracelet",
+          "imageId": 4104
+        }
+      ],
+      "originalBytes": 108440,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Wear_bracelet_simple_background_202605091304.jpeg",
+      "products": [
+        {
+          "productId": 4082,
+          "slug": "luxury-panther-designer-bracelet",
+          "imageId": 4105
+        }
+      ],
+      "originalBytes": 84714,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Earrings_on_pastel_surface_202605151558.jpeg",
+      "products": [
+        {
+          "productId": 4409,
+          "slug": "vintage-floral-oxidised-stud-earrings-2",
+          "imageId": 4387
+        }
+      ],
+      "originalBytes": 64908,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Earrings_in_luxury_jewelry_box_202605151557.jpeg",
+      "products": [
+        {
+          "productId": 4409,
+          "slug": "vintage-floral-oxidised-stud-earrings-2",
+          "imageId": 4391
+        }
+      ],
+      "originalBytes": 88970,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Woman_wearing_earring_focus_202605151557.jpeg",
+      "products": [
+        {
+          "productId": 4409,
+          "slug": "vintage-floral-oxidised-stud-earrings-2",
+          "imageId": 4394
+        }
+      ],
+      "originalBytes": 106049,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Earrings_on_pastel_surface_202605151557.jpeg",
+      "products": [
+        {
+          "productId": 4407,
+          "slug": "minimal-stripe-pattern-stud-earrings",
+          "imageId": 4388
+        }
+      ],
+      "originalBytes": 68497,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Woman_wearing_earring_focus_202605151551.jpeg",
+      "products": [
+        {
+          "productId": 4407,
+          "slug": "minimal-stripe-pattern-stud-earrings",
+          "imageId": 4395
+        }
+      ],
+      "originalBytes": 81774,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Earrings_in_luxury_jewelry_box_202605151555.jpeg",
+      "products": [
+        {
+          "productId": 4407,
+          "slug": "minimal-stripe-pattern-stud-earrings",
+          "imageId": 4392
+        }
+      ],
+      "originalBytes": 50580,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Earrings_on_pastel_surface_202605151557-1.jpeg",
+      "products": [
+        {
+          "productId": 4407,
+          "slug": "minimal-stripe-pattern-stud-earrings",
+          "imageId": 4403
+        }
+      ],
+      "originalBytes": 66934,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Earrings_on_pastel_surface_202605151559.jpeg",
+      "products": [
+        {
+          "productId": 4405,
+          "slug": "vintage-floral-oxidised-stud-earrings",
+          "imageId": 4386
+        }
+      ],
+      "originalBytes": 79496,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Earrings_on_white_surface_pink_202605151613-1.jpeg",
+      "products": [
+        {
+          "productId": 4405,
+          "slug": "vintage-floral-oxidised-stud-earrings",
+          "imageId": 4397
+        }
+      ],
+      "originalBytes": 107655,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Woman_wearing_earring_focus_202605151559.jpeg",
+      "products": [
+        {
+          "productId": 4405,
+          "slug": "vintage-floral-oxidised-stud-earrings",
+          "imageId": 4393
+        }
+      ],
+      "originalBytes": 102076,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Earrings_in_luxury_jewelry_box_202605151601.jpeg",
+      "products": [
+        {
+          "productId": 4405,
+          "slug": "vintage-floral-oxidised-stud-earrings",
+          "imageId": 4389
+        }
+      ],
+      "originalBytes": 78774,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Change_product_background_202605111206.jpeg",
+      "products": [
+        {
+          "productId": 4217,
+          "slug": "rose-gold-heart-minimal-stud-earrings",
+          "imageId": 4210
+        }
+      ],
+      "originalBytes": 150442,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Women_wearing_earrings_focus_202605111225-2.jpeg",
+      "products": [
+        {
+          "productId": 4217,
+          "slug": "rose-gold-heart-minimal-stud-earrings",
+          "imageId": 4201
+        }
+      ],
+      "originalBytes": 139213,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Women_wearing_earrings_focus_202605111225.jpeg",
+      "products": [
+        {
+          "productId": 4217,
+          "slug": "rose-gold-heart-minimal-stud-earrings",
+          "imageId": 4200
+        }
+      ],
+      "originalBytes": 101038,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Women_wearing_earrings_focus_202605111225-1.jpeg",
+      "products": [
+        {
+          "productId": 4217,
+          "slug": "rose-gold-heart-minimal-stud-earrings",
+          "imageId": 4202
+        }
+      ],
+      "originalBytes": 153486,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Earrings_on_pastel_surface_202605151605-1.jpeg",
+      "products": [
+        {
+          "productId": 4217,
+          "slug": "rose-gold-heart-minimal-stud-earrings",
+          "imageId": 4385
+        }
+      ],
+      "originalBytes": 76791,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Earrings_on_pastel_surface_202605151611.jpeg",
+      "products": [
+        {
+          "productId": 4219,
+          "slug": "classic-solitaire-crystal-stud-earrings",
+          "imageId": 4401
+        }
+      ],
+      "originalBytes": 68802,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Women_wearing_earrings_focus_202605111227.jpeg",
+      "products": [
+        {
+          "productId": 4219,
+          "slug": "classic-solitaire-crystal-stud-earrings",
+          "imageId": 4199
+        }
+      ],
+      "originalBytes": 105816,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/change_the_background_to_dark_202605111228-1.jpeg",
+      "products": [
+        {
+          "productId": 4219,
+          "slug": "classic-solitaire-crystal-stud-earrings",
+          "imageId": 4204
+        }
+      ],
+      "originalBytes": 249552,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Earrings_on_pastel_surface_202605151614-1.jpeg",
+      "products": [
+        {
+          "productId": 4221,
+          "slug": "vintage-oxidised-spiral-stud-earrings",
+          "imageId": 4400
+        }
+      ],
+      "originalBytes": 76965,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Women_wearing_earrings_focus_202605111228-1.jpeg",
+      "products": [
+        {
+          "productId": 4221,
+          "slug": "vintage-oxidised-spiral-stud-earrings",
+          "imageId": 4198
+        }
+      ],
+      "originalBytes": 113470,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Women_wearing_earrings_focus_202605111228.jpeg",
+      "products": [
+        {
+          "productId": 4221,
+          "slug": "vintage-oxidised-spiral-stud-earrings",
+          "imageId": 4197
+        }
+      ],
+      "originalBytes": 114183,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Earrings_on_pastel_surface_202605151614.jpeg",
+      "products": [
+        {
+          "productId": 4221,
+          "slug": "vintage-oxidised-spiral-stud-earrings",
+          "imageId": 4399
+        }
+      ],
+      "originalBytes": 67402,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Change_product_background_202605111204.jpeg",
+      "products": [
+        {
+          "productId": 4196,
+          "slug": "cute-smiley-face-stud-earrings",
+          "imageId": 4212
+        }
+      ],
+      "originalBytes": 144491,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Women_wearing_earrings_focus_202605111222.jpeg",
+      "products": [
+        {
+          "productId": 4196,
+          "slug": "cute-smiley-face-stud-earrings",
+          "imageId": 4203
+        }
+      ],
+      "originalBytes": 138436,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/change_the_background_to_dark_202605111225.jpeg",
+      "products": [
+        {
+          "productId": 4196,
+          "slug": "cute-smiley-face-stud-earrings",
+          "imageId": 4206
+        }
+      ],
+      "originalBytes": 257441,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Ruby-Royale-Sterling-Silver-Mangalsutra-3.png",
+      "products": [
+        {
+          "productId": 4379,
+          "slug": "ruby-royale-sterling-silver-mangalsutra",
+          "imageId": 4380
+        }
+      ],
+      "originalBytes": 1874002,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 896,
+      "height": 1103,
+      "optimizedBytes": 234872,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 1639130,
+      "savingsPct": "87.5",
+      "localOutputPath": "catalog-cli\\optimized-images\\Ruby-Royale-Sterling-Silver-Mangalsutra-3.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Ruby-Royale-Sterling-Silver-Mangalsutra.png",
+      "products": [
+        {
+          "productId": 4379,
+          "slug": "ruby-royale-sterling-silver-mangalsutra",
+          "imageId": 4381
+        }
+      ],
+      "originalBytes": 1673656,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 896,
+      "height": 1095,
+      "optimizedBytes": 188263,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 1485393,
+      "savingsPct": "88.8",
+      "localOutputPath": "catalog-cli\\optimized-images\\Ruby-Royale-Sterling-Silver-Mangalsutra.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Ruby-Royale-Sterling-Silver-Mangalsutra-2.png",
+      "products": [
+        {
+          "productId": 4379,
+          "slug": "ruby-royale-sterling-silver-mangalsutra",
+          "imageId": 4382
+        }
+      ],
+      "originalBytes": 1091195,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 896,
+      "height": 1195,
+      "optimizedBytes": 60807,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 1030388,
+      "savingsPct": "94.4",
+      "localOutputPath": "catalog-cli\\optimized-images\\Ruby-Royale-Sterling-Silver-Mangalsutra-2.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Midnight-Charm-Sterling-Silver-Mangalsutra.png",
+      "products": [
+        {
+          "productId": 4374,
+          "slug": "midnight-charm-sterling-silver-mangalsutra",
+          "imageId": 4375
+        }
+      ],
+      "originalBytes": 2961578,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1254,
+      "height": 1254,
+      "optimizedBytes": 427028,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 2534550,
+      "savingsPct": "85.6",
+      "localOutputPath": "catalog-cli\\optimized-images\\Midnight-Charm-Sterling-Silver-Mangalsutra.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Midnight-Charm-Sterling-Silver-Mangalsutra-2.png",
+      "products": [
+        {
+          "productId": 4374,
+          "slug": "midnight-charm-sterling-silver-mangalsutra",
+          "imageId": 4376
+        }
+      ],
+      "originalBytes": 2203877,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 223967,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 1979910,
+      "savingsPct": "89.8",
+      "localOutputPath": "catalog-cli\\optimized-images\\Midnight-Charm-Sterling-Silver-Mangalsutra-2.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Midnight-Charm-Sterling-Silver-Mangalsutra-3.png",
+      "products": [
+        {
+          "productId": 4374,
+          "slug": "midnight-charm-sterling-silver-mangalsutra",
+          "imageId": 4377
+        }
+      ],
+      "originalBytes": 1400216,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 66030,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 1334186,
+      "savingsPct": "95.3",
+      "localOutputPath": "catalog-cli\\optimized-images\\Midnight-Charm-Sterling-Silver-Mangalsutra-3.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/ChatGPT-Image-May-13-2026-12_28_22-AM.png",
+      "products": [
+        {
+          "productId": 4369,
+          "slug": "butterfly-bliss-gold-plated-sterling-silver-mangalsutra",
+          "imageId": 4372
+        }
+      ],
+      "originalBytes": 2487819,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1254,
+      "height": 1254,
+      "optimizedBytes": 314627,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 2173192,
+      "savingsPct": "87.4",
+      "localOutputPath": "catalog-cli\\optimized-images\\ChatGPT-Image-May-13-2026-12_28_22-AM.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Butterfly-Bliss-Gold-Plated-Sterling-Silver-Mangalsutra-2.png",
+      "products": [
+        {
+          "productId": 4369,
+          "slug": "butterfly-bliss-gold-plated-sterling-silver-mangalsutra",
+          "imageId": 4371
+        }
+      ],
+      "originalBytes": 2060436,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 185280,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 1875156,
+      "savingsPct": "91.0",
+      "localOutputPath": "catalog-cli\\optimized-images\\Butterfly-Bliss-Gold-Plated-Sterling-Silver-Mangalsutra-2.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Butterfly-Bliss-Gold-Plated-Sterling-Silver-Mangalsutra.png",
+      "products": [
+        {
+          "productId": 4369,
+          "slug": "butterfly-bliss-gold-plated-sterling-silver-mangalsutra",
+          "imageId": 4370
+        }
+      ],
+      "originalBytes": 1843697,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 119310,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 1724387,
+      "savingsPct": "93.5",
+      "localOutputPath": "catalog-cli\\optimized-images\\Butterfly-Bliss-Gold-Plated-Sterling-Silver-Mangalsutra.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Aurora-Glow-Rose-Gold-Sterling-Silver-Mangalsutra-3.png",
+      "products": [
+        {
+          "productId": 4364,
+          "slug": "aurora-glow-rose-gold-sterling-silver-mangalsutra",
+          "imageId": 4365
+        }
+      ],
+      "originalBytes": 2331784,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 240819,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 2090965,
+      "savingsPct": "89.7",
+      "localOutputPath": "catalog-cli\\optimized-images\\Aurora-Glow-Rose-Gold-Sterling-Silver-Mangalsutra-3.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Aurora-Glow-Rose-Gold-Sterling-Silver-Mangalsutra.png",
+      "products": [
+        {
+          "productId": 4364,
+          "slug": "aurora-glow-rose-gold-sterling-silver-mangalsutra",
+          "imageId": 4366
+        }
+      ],
+      "originalBytes": 2187270,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 215297,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 1971973,
+      "savingsPct": "90.2",
+      "localOutputPath": "catalog-cli\\optimized-images\\Aurora-Glow-Rose-Gold-Sterling-Silver-Mangalsutra.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Aurora-Glow-Rose-Gold-Sterling-Silver-Mangalsutra-2.png",
+      "products": [
+        {
+          "productId": 4364,
+          "slug": "aurora-glow-rose-gold-sterling-silver-mangalsutra",
+          "imageId": 4367
+        }
+      ],
+      "originalBytes": 2119001,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 180040,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 1938961,
+      "savingsPct": "91.5",
+      "localOutputPath": "catalog-cli\\optimized-images\\Aurora-Glow-Rose-Gold-Sterling-Silver-Mangalsutra-2.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Roselle-Bloom-Rose-Gold-Plated-Sterling-Silver-Mangalsutra.png",
+      "products": [
+        {
+          "productId": 4359,
+          "slug": "roselle-bloom-rose-gold-plated-sterling-silver-mangalsutra",
+          "imageId": 4360
+        }
+      ],
+      "originalBytes": 2035106,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 198518,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 1836588,
+      "savingsPct": "90.2",
+      "localOutputPath": "catalog-cli\\optimized-images\\Roselle-Bloom-Rose-Gold-Plated-Sterling-Silver-Mangalsutra.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Roselle-Bloom-Rose-Gold-Plated-Sterling-Silver-Mangalsutra-2.png",
+      "products": [
+        {
+          "productId": 4359,
+          "slug": "roselle-bloom-rose-gold-plated-sterling-silver-mangalsutra",
+          "imageId": 4362
+        }
+      ],
+      "originalBytes": 2176921,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 218162,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 1958759,
+      "savingsPct": "90.0",
+      "localOutputPath": "catalog-cli\\optimized-images\\Roselle-Bloom-Rose-Gold-Plated-Sterling-Silver-Mangalsutra-2.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Roselle-Bloom-Rose-Gold-Plated-Sterling-Silver-Mangalsutra-3.png",
+      "products": [
+        {
+          "productId": 4359,
+          "slug": "roselle-bloom-rose-gold-plated-sterling-silver-mangalsutra",
+          "imageId": 4361
+        }
+      ],
+      "originalBytes": 1810144,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1085,
+      "height": 1449,
+      "optimizedBytes": 112272,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 1697872,
+      "savingsPct": "93.8",
+      "localOutputPath": "catalog-cli\\optimized-images\\Roselle-Bloom-Rose-Gold-Plated-Sterling-Silver-Mangalsutra-3.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Starlisse-Solitaire-Sterling-Silver-Mangalsutra.png",
+      "products": [
+        {
+          "productId": 4334,
+          "slug": "starlisse-solitaire-sterling-silver-mangalsutra",
+          "imageId": 4338
+        }
+      ],
+      "originalBytes": 1976709,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 164374,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 1812335,
+      "savingsPct": "91.7",
+      "localOutputPath": "catalog-cli\\optimized-images\\Starlisse-Solitaire-Sterling-Silver-Mangalsutra.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Starlisse-Solitaire-Sterling-Silver-Mangalsutra-3.png",
+      "products": [
+        {
+          "productId": 4334,
+          "slug": "starlisse-solitaire-sterling-silver-mangalsutra",
+          "imageId": 4337
+        }
+      ],
+      "originalBytes": 1882357,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 131820,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 1750537,
+      "savingsPct": "93.0",
+      "localOutputPath": "catalog-cli\\optimized-images\\Starlisse-Solitaire-Sterling-Silver-Mangalsutra-3.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Gemini_Generated_Image_6ayyvc6ayyvc6ayy.png",
+      "products": [
+        {
+          "productId": 4334,
+          "slug": "starlisse-solitaire-sterling-silver-mangalsutra",
+          "imageId": 4358
+        }
+      ],
+      "originalBytes": 4470644,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1600,
+      "height": 1955,
+      "optimizedBytes": 296778,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 4173866,
+      "savingsPct": "93.4",
+      "localOutputPath": "catalog-cli\\optimized-images\\Gemini_Generated_Image_6ayyvc6ayyvc6ayy.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Starlisse-Solitaire-Sterling-Silver-Mangalsutra-2.png",
+      "products": [
+        {
+          "productId": 4334,
+          "slug": "starlisse-solitaire-sterling-silver-mangalsutra",
+          "imageId": 4339
+        }
+      ],
+      "originalBytes": 1771803,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 89352,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 1682451,
+      "savingsPct": "95.0",
+      "localOutputPath": "catalog-cli\\optimized-images\\Starlisse-Solitaire-Sterling-Silver-Mangalsutra-2.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Aurielle-Rose-Gold-Plated-Sterling-Silver-Mangalsutra-3.png",
+      "products": [
+        {
+          "productId": 4320,
+          "slug": "aurielle-rose-gold-plated-sterling-silver-mangalsutra",
+          "imageId": 4324
+        }
+      ],
+      "originalBytes": 2298971,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1122,
+      "height": 1402,
+      "optimizedBytes": 252292,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 2046679,
+      "savingsPct": "89.0",
+      "localOutputPath": "catalog-cli\\optimized-images\\Aurielle-Rose-Gold-Plated-Sterling-Silver-Mangalsutra-3.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Aurielle-Rose-Gold-Plated-Sterling-Silver-Mangalsutra-2.png",
+      "products": [
+        {
+          "productId": 4320,
+          "slug": "aurielle-rose-gold-plated-sterling-silver-mangalsutra",
+          "imageId": 4322
+        }
+      ],
+      "originalBytes": 1391307,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1086,
+      "height": 1448,
+      "optimizedBytes": 61930,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 1329377,
+      "savingsPct": "95.5",
+      "localOutputPath": "catalog-cli\\optimized-images\\Aurielle-Rose-Gold-Plated-Sterling-Silver-Mangalsutra-2.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/ChatGPT-Image-May-12-2026-06_27_01-PM.png",
+      "products": [
+        {
+          "productId": 4320,
+          "slug": "aurielle-rose-gold-plated-sterling-silver-mangalsutra",
+          "imageId": 4331
+        }
+      ],
+      "originalBytes": 2295701,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1122,
+      "height": 1402,
+      "optimizedBytes": 249357,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 2046344,
+      "savingsPct": "89.1",
+      "localOutputPath": "catalog-cli\\optimized-images\\ChatGPT-Image-May-12-2026-06_27_01-PM.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Aurielle-Rose-Gold-Plated-Sterling-Silver-Mangalsutra.png",
+      "products": [
+        {
+          "productId": 4320,
+          "slug": "aurielle-rose-gold-plated-sterling-silver-mangalsutra",
+          "imageId": 4321
+        }
+      ],
+      "originalBytes": 4108792,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1600,
+      "height": 1976,
+      "optimizedBytes": 165724,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 3943068,
+      "savingsPct": "96.0",
+      "localOutputPath": "catalog-cli\\optimized-images\\Aurielle-Rose-Gold-Plated-Sterling-Silver-Mangalsutra.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Celeste-Noir-Rose-Gold-Mangalsutra-Pendant-Necklace-2.png",
+      "products": [
+        {
+          "productId": 4233,
+          "slug": "celeste-rose-gold-mangalsutra-pendant-necklace",
+          "imageId": 4234
+        }
+      ],
+      "originalBytes": 4091298,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1600,
+      "height": 1929,
+      "optimizedBytes": 183762,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 3907536,
+      "savingsPct": "95.5",
+      "localOutputPath": "catalog-cli\\optimized-images\\Celeste-Noir-Rose-Gold-Mangalsutra-Pendant-Necklace-2.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Celeste-Noir-Rose-Gold-Mangalsutra-Pendant-Necklace.png",
+      "products": [
+        {
+          "productId": 4233,
+          "slug": "celeste-rose-gold-mangalsutra-pendant-necklace",
+          "imageId": 4235
+        }
+      ],
+      "originalBytes": 4495522,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1600,
+      "height": 1990,
+      "optimizedBytes": 320596,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 4174926,
+      "savingsPct": "92.9",
+      "localOutputPath": "catalog-cli\\optimized-images\\Celeste-Noir-Rose-Gold-Mangalsutra-Pendant-Necklace.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Celeste-Noir-Rose-Gold-Mangalsutra-Pendant-Necklace-3.png",
+      "products": [
+        {
+          "productId": 4233,
+          "slug": "celeste-rose-gold-mangalsutra-pendant-necklace",
+          "imageId": 4236
+        }
+      ],
+      "originalBytes": 2161118,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1254,
+      "height": 1254,
+      "optimizedBytes": 189943,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 1971175,
+      "savingsPct": "91.2",
+      "localOutputPath": "catalog-cli\\optimized-images\\Celeste-Noir-Rose-Gold-Mangalsutra-Pendant-Necklace-3.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/Celeste-Noir-Rose-Gold-Mangalsutra-Pendant-Necklace-4.png",
+      "products": [
+        {
+          "productId": 4233,
+          "slug": "celeste-rose-gold-mangalsutra-pendant-necklace",
+          "imageId": 4237
+        }
+      ],
+      "originalBytes": 4283261,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1600,
+      "height": 2134,
+      "optimizedBytes": 219962,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 4063299,
+      "savingsPct": "94.9",
+      "localOutputPath": "catalog-cli\\optimized-images\\Celeste-Noir-Rose-Gold-Mangalsutra-Pendant-Necklace-4.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/1-5.png",
+      "products": [
+        {
+          "productId": 4075,
+          "slug": "elegant-solitaire-mangalsutra-necklace",
+          "imageId": 4230
+        }
+      ],
+      "originalBytes": 2244555,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1254,
+      "height": 1254,
+      "optimizedBytes": 224865,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 2019690,
+      "savingsPct": "90.0",
+      "localOutputPath": "catalog-cli\\optimized-images\\1-5.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/1-4.png",
+      "products": [
+        {
+          "productId": 4075,
+          "slug": "elegant-solitaire-mangalsutra-necklace",
+          "imageId": 4231
+        }
+      ],
+      "originalBytes": 4700929,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1600,
+      "height": 2134,
+      "optimizedBytes": 256752,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 4444177,
+      "savingsPct": "94.5",
+      "localOutputPath": "catalog-cli\\optimized-images\\1-4.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/05/1-3.png",
+      "products": [
+        {
+          "productId": 4075,
+          "slug": "elegant-solitaire-mangalsutra-necklace",
+          "imageId": 4232
+        }
+      ],
+      "originalBytes": 4577037,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1600,
+      "height": 1990,
+      "optimizedBytes": 305848,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 4271189,
+      "savingsPct": "93.3",
+      "localOutputPath": "catalog-cli\\optimized-images\\1-3.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Silver-Crown-Ring.png",
+      "products": [
+        {
+          "productId": 3919,
+          "slug": "silver-crown-ring",
+          "imageId": 3920
+        }
+      ],
+      "originalBytes": 386424,
+      "originalFormat": "png",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Silver-wave-ring-.png",
+      "products": [
+        {
+          "productId": 3916,
+          "slug": "silver-wave-ring",
+          "imageId": 3917
+        }
+      ],
+      "originalBytes": 464149,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1074,
+      "optimizedBytes": 81972,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 382177,
+      "savingsPct": "82.3",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-wave-ring-.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Silver-cross-ring.png",
+      "products": [
+        {
+          "productId": 3912,
+          "slug": "silver-cross-ring",
+          "imageId": 3913
+        }
+      ],
+      "originalBytes": 548469,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1062,
+      "optimizedBytes": 78250,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 470219,
+      "savingsPct": "85.7",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-cross-ring.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Silver-cross-ring1.png",
+      "products": [
+        {
+          "productId": 3912,
+          "slug": "silver-cross-ring",
+          "imageId": 3914
+        }
+      ],
+      "originalBytes": 434448,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 13590,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 420858,
+      "savingsPct": "96.9",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-cross-ring1.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Silver-half-Eternity-Ring.png",
+      "products": [
+        {
+          "productId": 3906,
+          "slug": "silver-half-eternity-ring",
+          "imageId": 3907
+        }
+      ],
+      "originalBytes": 540005,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1066,
+      "optimizedBytes": 107084,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 432921,
+      "savingsPct": "80.2",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-half-Eternity-Ring.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/silver-half-eternity-ring-1.png",
+      "products": [
+        {
+          "productId": 3906,
+          "slug": "silver-half-eternity-ring",
+          "imageId": 3910
+        }
+      ],
+      "originalBytes": 383853,
+      "originalFormat": "png",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/silver-half-eternity-ring2.png",
+      "products": [
+        {
+          "productId": 3906,
+          "slug": "silver-half-eternity-ring",
+          "imageId": 3909
+        }
+      ],
+      "originalBytes": 389060,
+      "originalFormat": "png",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Cat-Stud-Earrings-with-Cubic-Zirconia-CZ-Crystals.-1-e1769964908984.png",
+      "products": [
+        {
+          "productId": 3902,
+          "slug": "cat-stud-earrings-with-cubic-zirconia-cz-crystals",
+          "imageId": 3903
+        }
+      ],
+      "originalBytes": 746294,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1087,
+      "optimizedBytes": 34506,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 711788,
+      "savingsPct": "95.4",
+      "localOutputPath": "catalog-cli\\optimized-images\\Cat-Stud-Earrings-with-Cubic-Zirconia-CZ-Crystals.-1-e1769964908984.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Cat-Stud-Earrings-with-Cubic-Zirconia-CZ-Crystals.-.png",
+      "products": [
+        {
+          "productId": 3902,
+          "slug": "cat-stud-earrings-with-cubic-zirconia-cz-crystals",
+          "imageId": 3904
+        }
+      ],
+      "originalBytes": 655847,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 29730,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 626117,
+      "savingsPct": "95.5",
+      "localOutputPath": "catalog-cli\\optimized-images\\Cat-Stud-Earrings-with-Cubic-Zirconia-CZ-Crystals.-.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/T-Bar-Stud-Earrings3.png",
+      "products": [
+        {
+          "productId": 3897,
+          "slug": "rose-gold-t-bar-stud-earrings",
+          "imageId": 3898
+        }
+      ],
+      "originalBytes": 378910,
+      "originalFormat": "png",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/T-Bar-Stud-Earrings1.png",
+      "products": [
+        {
+          "productId": 3897,
+          "slug": "rose-gold-t-bar-stud-earrings",
+          "imageId": 3899
+        }
+      ],
+      "originalBytes": 822646,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 15178,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 807468,
+      "savingsPct": "98.2",
+      "localOutputPath": "catalog-cli\\optimized-images\\T-Bar-Stud-Earrings1.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/T-Bar-Stud-Earrings.png",
+      "products": [
+        {
+          "productId": 3897,
+          "slug": "rose-gold-t-bar-stud-earrings",
+          "imageId": 3900
+        }
+      ],
+      "originalBytes": 718373,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 160703,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 557670,
+      "savingsPct": "77.6",
+      "localOutputPath": "catalog-cli\\optimized-images\\T-Bar-Stud-Earrings.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Rose-Night-Earrings.png",
+      "products": [
+        {
+          "productId": 3891,
+          "slug": "rose-night-earrings",
+          "imageId": 3892
+        }
+      ],
+      "originalBytes": 475854,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 27060,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 448794,
+      "savingsPct": "94.3",
+      "localOutputPath": "catalog-cli\\optimized-images\\Rose-Night-Earrings.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Gemini_Generated_Image_srhj0srhj0srhj0s.png",
+      "products": [
+        {
+          "productId": 3891,
+          "slug": "rose-night-earrings",
+          "imageId": 3895
+        }
+      ],
+      "originalBytes": 642932,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 35036,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 607896,
+      "savingsPct": "94.6",
+      "localOutputPath": "catalog-cli\\optimized-images\\Gemini_Generated_Image_srhj0srhj0srhj0s.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Rose-Night-Earrings-2.png",
+      "products": [
+        {
+          "productId": 3891,
+          "slug": "rose-night-earrings",
+          "imageId": 3893
+        }
+      ],
+      "originalBytes": 407773,
+      "originalFormat": "png",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Cubic-Zirconia-Classic-Stud-Earrings.png",
+      "products": [
+        {
+          "productId": 3888,
+          "slug": "cubic-zirconia-classic-stud-earrings",
+          "imageId": 3889
+        }
+      ],
+      "originalBytes": 728614,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 35696,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 692918,
+      "savingsPct": "95.1",
+      "localOutputPath": "catalog-cli\\optimized-images\\Cubic-Zirconia-Classic-Stud-Earrings.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/White-Halo-Princess-Cut-Black-Stone-Stud-Earrings.png",
+      "products": [
+        {
+          "productId": 3885,
+          "slug": "white-halo-princess-cut-black-stone-stud-earrings",
+          "imageId": 3886
+        }
+      ],
+      "originalBytes": 738892,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 33216,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 705676,
+      "savingsPct": "95.5",
+      "localOutputPath": "catalog-cli\\optimized-images\\White-Halo-Princess-Cut-Black-Stone-Stud-Earrings.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Silver-wing-earrings.png",
+      "products": [
+        {
+          "productId": 3879,
+          "slug": "silver-wing-earrings",
+          "imageId": 3882
+        }
+      ],
+      "originalBytes": 747833,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 31978,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 715855,
+      "savingsPct": "95.7",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-wing-earrings.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-03-at-11.55.02-AM.jpeg",
+      "products": [
+        {
+          "productId": 3879,
+          "slug": "silver-wing-earrings",
+          "imageId": 3925
+        }
+      ],
+      "originalBytes": 181061,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Silver-wing-earrings2.png",
+      "products": [
+        {
+          "productId": 3879,
+          "slug": "silver-wing-earrings",
+          "imageId": 3881
+        }
+      ],
+      "originalBytes": 730042,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 43982,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 686060,
+      "savingsPct": "94.0",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-wing-earrings2.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Silver-wing-earrings1.png",
+      "products": [
+        {
+          "productId": 3879,
+          "slug": "silver-wing-earrings",
+          "imageId": 3880
+        }
+      ],
+      "originalBytes": 839306,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 144238,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 695068,
+      "savingsPct": "82.8",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-wing-earrings1.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Sterling-Silver-Stone-Inlay-Twist-Frame-Moreen-Stud-Post-Earrings1-e1769962403166.png",
+      "products": [
+        {
+          "productId": 3871,
+          "slug": "sterling-silver-stone-inlay-twist-frame-moreen-stud-post-earrings",
+          "imageId": 3872
+        }
+      ],
+      "originalBytes": 539024,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 934,
+      "optimizedBytes": 13902,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 525122,
+      "savingsPct": "97.4",
+      "localOutputPath": "catalog-cli\\optimized-images\\Sterling-Silver-Stone-Inlay-Twist-Frame-Moreen-Stud-Post-Earrings1-e1769962403166.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Sterling-Silver-Stone-Inlay-Twist-Frame-Moreen-Stud-Post-Earrings-e1769962460551.png",
+      "products": [
+        {
+          "productId": 3871,
+          "slug": "sterling-silver-stone-inlay-twist-frame-moreen-stud-post-earrings",
+          "imageId": 3873
+        }
+      ],
+      "originalBytes": 614531,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1056,
+      "optimizedBytes": 22068,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 592463,
+      "savingsPct": "96.4",
+      "localOutputPath": "catalog-cli\\optimized-images\\Sterling-Silver-Stone-Inlay-Twist-Frame-Moreen-Stud-Post-Earrings-e1769962460551.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Gemini_Generated_Image_my977qmy977qmy97.png",
+      "products": [
+        {
+          "productId": 3869,
+          "slug": "rose-gold-crystal-necklace",
+          "imageId": 3866
+        }
+      ],
+      "originalBytes": 703628,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1070,
+      "optimizedBytes": 129227,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 574401,
+      "savingsPct": "81.6",
+      "localOutputPath": "catalog-cli\\optimized-images\\Gemini_Generated_Image_my977qmy977qmy97.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Gemini_Generated_Image_bnv793bnv793bnv7.png",
+      "products": [
+        {
+          "productId": 3869,
+          "slug": "rose-gold-crystal-necklace",
+          "imageId": 3862
+        }
+      ],
+      "originalBytes": 673332,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 78957,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 594375,
+      "savingsPct": "88.3",
+      "localOutputPath": "catalog-cli\\optimized-images\\Gemini_Generated_Image_bnv793bnv793bnv7.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Gemini_Generated_Image_205m9z205m9z205m.png",
+      "products": [
+        {
+          "productId": 3869,
+          "slug": "rose-gold-crystal-necklace",
+          "imageId": 3861
+        }
+      ],
+      "originalBytes": 734566,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1081,
+      "optimizedBytes": 163936,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 570630,
+      "savingsPct": "77.7",
+      "localOutputPath": "catalog-cli\\optimized-images\\Gemini_Generated_Image_205m9z205m9z205m.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Gemini_Generated_Image_i5t5rji5t5rji5t5.png",
+      "products": [
+        {
+          "productId": 3860,
+          "slug": "golden-ocean-charm-necklace",
+          "imageId": 3863
+        }
+      ],
+      "originalBytes": 576305,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 35532,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 540773,
+      "savingsPct": "93.8",
+      "localOutputPath": "catalog-cli\\optimized-images\\Gemini_Generated_Image_i5t5rji5t5rji5t5.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Gemini_Generated_Image_mmna2mmmna2mmmna.png",
+      "products": [
+        {
+          "productId": 3860,
+          "slug": "golden-ocean-charm-necklace",
+          "imageId": 3865
+        }
+      ],
+      "originalBytes": 644324,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 22708,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 621616,
+      "savingsPct": "96.5",
+      "localOutputPath": "catalog-cli\\optimized-images\\Gemini_Generated_Image_mmna2mmmna2mmmna.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Gemini_Generated_Image_vz8d8lvz8d8lvz8d-1.png",
+      "products": [
+        {
+          "productId": 3860,
+          "slug": "golden-ocean-charm-necklace",
+          "imageId": 3867
+        }
+      ],
+      "originalBytes": 585866,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 30704,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 555162,
+      "savingsPct": "94.8",
+      "localOutputPath": "catalog-cli\\optimized-images\\Gemini_Generated_Image_vz8d8lvz8d8lvz8d-1.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Gemini_Generated_Image_fimwvzfimwvzfimw.png",
+      "products": [
+        {
+          "productId": 3854,
+          "slug": "rose-gold-butterfly-lariat-necklace",
+          "imageId": 3855
+        }
+      ],
+      "originalBytes": 667853,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1080,
+      "optimizedBytes": 116034,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 551819,
+      "savingsPct": "82.6",
+      "localOutputPath": "catalog-cli\\optimized-images\\Gemini_Generated_Image_fimwvzfimwvzfimw.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Gemini_Generated_Image_o4s2rfo4s2rfo4s2.png",
+      "products": [
+        {
+          "productId": 3854,
+          "slug": "rose-gold-butterfly-lariat-necklace",
+          "imageId": 3856
+        }
+      ],
+      "originalBytes": 664374,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1093,
+      "optimizedBytes": 103207,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 561167,
+      "savingsPct": "84.5",
+      "localOutputPath": "catalog-cli\\optimized-images\\Gemini_Generated_Image_o4s2rfo4s2rfo4s2.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Gemini_Generated_Image_3bhaud3bhaud3bha.png",
+      "products": [
+        {
+          "productId": 3854,
+          "slug": "rose-gold-butterfly-lariat-necklace",
+          "imageId": 3858
+        }
+      ],
+      "originalBytes": 622286,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 51672,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 570614,
+      "savingsPct": "91.7",
+      "localOutputPath": "catalog-cli\\optimized-images\\Gemini_Generated_Image_3bhaud3bhaud3bha.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-bubble-ring.png",
+      "products": [
+        {
+          "productId": 3760,
+          "slug": "silver-bubble-ring",
+          "imageId": 3762
+        }
+      ],
+      "originalBytes": 387730,
+      "originalFormat": "png",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-bubble-ring-2.png",
+      "products": [
+        {
+          "productId": 3760,
+          "slug": "silver-bubble-ring",
+          "imageId": 3761
+        }
+      ],
+      "originalBytes": 795685,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 48444,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 747241,
+      "savingsPct": "93.9",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-bubble-ring-2.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Blue-stone-Silver-Ring-3.png",
+      "products": [
+        {
+          "productId": 3755,
+          "slug": "blue-stone-silver-ring",
+          "imageId": 3758
+        }
+      ],
+      "originalBytes": 400775,
+      "originalFormat": "png",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Blue-stone-Silver-Ring-2.png",
+      "products": [
+        {
+          "productId": 3755,
+          "slug": "blue-stone-silver-ring",
+          "imageId": 3757
+        }
+      ],
+      "originalBytes": 505138,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 17060,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 488078,
+      "savingsPct": "96.6",
+      "localOutputPath": "catalog-cli\\optimized-images\\Blue-stone-Silver-Ring-2.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Blue-stone-Silver-Ring.png",
+      "products": [
+        {
+          "productId": 3755,
+          "slug": "blue-stone-silver-ring",
+          "imageId": 3756
+        }
+      ],
+      "originalBytes": 491335,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 44790,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 446545,
+      "savingsPct": "90.9",
+      "localOutputPath": "catalog-cli\\optimized-images\\Blue-stone-Silver-Ring.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/solitaire-ring-with-accent-stones1.png",
+      "products": [
+        {
+          "productId": 3731,
+          "slug": "solitaire-ring-with-accent-stones-2",
+          "imageId": 3634
+        },
+        {
+          "productId": 3632,
+          "slug": "solitaire-ring-with-accent-stones",
+          "imageId": 3634
+        }
+      ],
+      "originalBytes": 666936,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1036,
+      "optimizedBytes": 24500,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 642436,
+      "savingsPct": "96.3",
+      "localOutputPath": "catalog-cli\\optimized-images\\solitaire-ring-with-accent-stones1.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/solitaire-ring-with-accent-stones.png",
+      "products": [
+        {
+          "productId": 3731,
+          "slug": "solitaire-ring-with-accent-stones-2",
+          "imageId": 3633
+        },
+        {
+          "productId": 3632,
+          "slug": "solitaire-ring-with-accent-stones",
+          "imageId": 3633
+        }
+      ],
+      "originalBytes": 488184,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1028,
+      "optimizedBytes": 73238,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 414946,
+      "savingsPct": "85.0",
+      "localOutputPath": "catalog-cli\\optimized-images\\solitaire-ring-with-accent-stones.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Solitaire-Ring1.png",
+      "products": [
+        {
+          "productId": 3730,
+          "slug": "solitaire-ring",
+          "imageId": 3876
+        }
+      ],
+      "originalBytes": 384567,
+      "originalFormat": "png",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Solitaire-Ring.png",
+      "products": [
+        {
+          "productId": 3730,
+          "slug": "solitaire-ring",
+          "imageId": 3877
+        }
+      ],
+      "originalBytes": 384567,
+      "originalFormat": "png",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-Black-Enamel-Stacking-Ring2.png",
+      "products": [
+        {
+          "productId": 3724,
+          "slug": "silver-black-enamel-stacking-ring",
+          "imageId": 3726
+        }
+      ],
+      "originalBytes": 589904,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1024,
+      "optimizedBytes": 74984,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 514920,
+      "savingsPct": "87.3",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-Black-Enamel-Stacking-Ring2.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-Black-Enamel-Stacking-Ring.png",
+      "products": [
+        {
+          "productId": 3724,
+          "slug": "silver-black-enamel-stacking-ring",
+          "imageId": 3727
+        }
+      ],
+      "originalBytes": 729557,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1089,
+      "optimizedBytes": 16914,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 712643,
+      "savingsPct": "97.7",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-Black-Enamel-Stacking-Ring.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-Cubic-Zirconia-Heart-Stud-Earrings-Set.png",
+      "products": [
+        {
+          "productId": 3721,
+          "slug": "silver-cubic-zirconia-heart-stud-earrings-set",
+          "imageId": 3722
+        }
+      ],
+      "originalBytes": 728393,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1050,
+      "optimizedBytes": 98962,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 629431,
+      "savingsPct": "86.4",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-Cubic-Zirconia-Heart-Stud-Earrings-Set.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Avon-Opulent-Glow-Silver-Necklace.2.png",
+      "products": [
+        {
+          "productId": 3716,
+          "slug": "avon-opulent-pearl-glow-silver-necklace",
+          "imageId": 3718
+        }
+      ],
+      "originalBytes": 647688,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 60488,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 587200,
+      "savingsPct": "90.7",
+      "localOutputPath": "catalog-cli\\optimized-images\\Avon-Opulent-Glow-Silver-Necklace.2.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Avon-Opulent-Glow-Silver-Necklace.png",
+      "products": [
+        {
+          "productId": 3716,
+          "slug": "avon-opulent-pearl-glow-silver-necklace",
+          "imageId": 3719
+        }
+      ],
+      "originalBytes": 722220,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1093,
+      "optimizedBytes": 199398,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 522822,
+      "savingsPct": "72.4",
+      "localOutputPath": "catalog-cli\\optimized-images\\Avon-Opulent-Glow-Silver-Necklace.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Avon-Opulent-Glow-Silver-Necklace.1.png",
+      "products": [
+        {
+          "productId": 3716,
+          "slug": "avon-opulent-pearl-glow-silver-necklace",
+          "imageId": 3717
+        }
+      ],
+      "originalBytes": 671089,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 116344,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 554745,
+      "savingsPct": "82.7",
+      "localOutputPath": "catalog-cli\\optimized-images\\Avon-Opulent-Glow-Silver-Necklace.1.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Rose-gold-Blue-stone-Necklace.png",
+      "products": [
+        {
+          "productId": 3711,
+          "slug": "rose-gold-blue-stone-necklace",
+          "imageId": 3714
+        }
+      ],
+      "originalBytes": 582260,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 70624,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 511636,
+      "savingsPct": "87.9",
+      "localOutputPath": "catalog-cli\\optimized-images\\Rose-gold-Blue-stone-Necklace.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Rose-gold-Blue-stone-Necklace1.png",
+      "products": [
+        {
+          "productId": 3711,
+          "slug": "rose-gold-blue-stone-necklace",
+          "imageId": 3713
+        }
+      ],
+      "originalBytes": 590410,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 67382,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 523028,
+      "savingsPct": "88.6",
+      "localOutputPath": "catalog-cli\\optimized-images\\Rose-gold-Blue-stone-Necklace1.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Rose-gold-Blue-stone-Necklace2.png",
+      "products": [
+        {
+          "productId": 3711,
+          "slug": "rose-gold-blue-stone-necklace",
+          "imageId": 3712
+        }
+      ],
+      "originalBytes": 586806,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 60818,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 525988,
+      "savingsPct": "89.6",
+      "localOutputPath": "catalog-cli\\optimized-images\\Rose-gold-Blue-stone-Necklace2.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-Double-Layer-chain-necklace3.png",
+      "products": [
+        {
+          "productId": 3705,
+          "slug": "silver-double-layer-chain-necklace",
+          "imageId": 3707
+        }
+      ],
+      "originalBytes": 734098,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 93466,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 640632,
+      "savingsPct": "87.3",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-Double-Layer-chain-necklace3.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-Double-Layer-chain-necklace.png",
+      "products": [
+        {
+          "productId": 3705,
+          "slug": "silver-double-layer-chain-necklace",
+          "imageId": 3708
+        }
+      ],
+      "originalBytes": 710574,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 71787,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 638787,
+      "savingsPct": "89.9",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-Double-Layer-chain-necklace.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-Double-Layer-chain-necklace2.png",
+      "products": [
+        {
+          "productId": 3705,
+          "slug": "silver-double-layer-chain-necklace",
+          "imageId": 3706
+        }
+      ],
+      "originalBytes": 758066,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1080,
+      "optimizedBytes": 176864,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 581202,
+      "savingsPct": "76.7",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-Double-Layer-chain-necklace2.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-Double-Layer-chain-necklace1.png",
+      "products": [
+        {
+          "productId": 3705,
+          "slug": "silver-double-layer-chain-necklace",
+          "imageId": 3709
+        }
+      ],
+      "originalBytes": 689648,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1081,
+      "optimizedBytes": 106846,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 582802,
+      "savingsPct": "84.5",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-Double-Layer-chain-necklace1.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-LOVE-Charms-Necklace.png",
+      "products": [
+        {
+          "productId": 3699,
+          "slug": "silver-love-charms-necklace",
+          "imageId": 3703
+        }
+      ],
+      "originalBytes": 728168,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 130616,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 597552,
+      "savingsPct": "82.1",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-LOVE-Charms-Necklace.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-LOVE-Charms-Necklace1.png",
+      "products": [
+        {
+          "productId": 3699,
+          "slug": "silver-love-charms-necklace",
+          "imageId": 3702
+        }
+      ],
+      "originalBytes": 686008,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 103521,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 582487,
+      "savingsPct": "84.9",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-LOVE-Charms-Necklace1.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-LOVE-Charms-Necklace2.png",
+      "products": [
+        {
+          "productId": 3699,
+          "slug": "silver-love-charms-necklace",
+          "imageId": 3701
+        }
+      ],
+      "originalBytes": 766924,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1085,
+      "optimizedBytes": 151274,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 615650,
+      "savingsPct": "80.3",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-LOVE-Charms-Necklace2.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-LOVE-Charms-Necklace3.png",
+      "products": [
+        {
+          "productId": 3699,
+          "slug": "silver-love-charms-necklace",
+          "imageId": 3700
+        }
+      ],
+      "originalBytes": 734715,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1066,
+      "optimizedBytes": 181312,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 553403,
+      "savingsPct": "75.3",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-LOVE-Charms-Necklace3.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-chain-necklace-with-a-heart-pendant-and-pearls2.png",
+      "products": [
+        {
+          "productId": 3694,
+          "slug": "silver-chain-necklace-with-a-heart-pendant-and-pearls",
+          "imageId": 3695
+        }
+      ],
+      "originalBytes": 580359,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 74954,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 505405,
+      "savingsPct": "87.1",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-chain-necklace-with-a-heart-pendant-and-pearls2.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-chain-necklace-with-a-heart-pendant-and-pearls1.png",
+      "products": [
+        {
+          "productId": 3694,
+          "slug": "silver-chain-necklace-with-a-heart-pendant-and-pearls",
+          "imageId": 3696
+        }
+      ],
+      "originalBytes": 562916,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1093,
+      "optimizedBytes": 107031,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 455885,
+      "savingsPct": "81.0",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-chain-necklace-with-a-heart-pendant-and-pearls1.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-chain-necklace-with-a-heart-pendant-and-pearls.png",
+      "products": [
+        {
+          "productId": 3694,
+          "slug": "silver-chain-necklace-with-a-heart-pendant-and-pearls",
+          "imageId": 3697
+        }
+      ],
+      "originalBytes": 542267,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 50990,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 491277,
+      "savingsPct": "90.6",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-chain-necklace-with-a-heart-pendant-and-pearls.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-heart-pendant-necklace3.png",
+      "products": [
+        {
+          "productId": 3688,
+          "slug": "silver-heart-pendant-necklace",
+          "imageId": 3690
+        }
+      ],
+      "originalBytes": 601519,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1089,
+      "optimizedBytes": 82057,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 519462,
+      "savingsPct": "86.4",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-heart-pendant-necklace3.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-heart-pendant-necklace1.png",
+      "products": [
+        {
+          "productId": 3688,
+          "slug": "silver-heart-pendant-necklace",
+          "imageId": 3691
+        }
+      ],
+      "originalBytes": 642620,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 818,
+      "height": 1100,
+      "optimizedBytes": 124892,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 517728,
+      "savingsPct": "80.6",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-heart-pendant-necklace1.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-heart-pendant-necklace.png",
+      "products": [
+        {
+          "productId": 3688,
+          "slug": "silver-heart-pendant-necklace",
+          "imageId": 3692
+        }
+      ],
+      "originalBytes": 694465,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1093,
+      "optimizedBytes": 152031,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 542434,
+      "savingsPct": "78.1",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-heart-pendant-necklace.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-heart-pendant-necklace2.png",
+      "products": [
+        {
+          "productId": 3688,
+          "slug": "silver-heart-pendant-necklace",
+          "imageId": 3689
+        }
+      ],
+      "originalBytes": 684951,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1089,
+      "optimizedBytes": 143136,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 541815,
+      "savingsPct": "79.1",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-heart-pendant-necklace2.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/crystal-halo-pendant-necklace1.png",
+      "products": [
+        {
+          "productId": 3683,
+          "slug": "crystal-halo-pendant-necklace",
+          "imageId": 3685
+        }
+      ],
+      "originalBytes": 676307,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 102213,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 574094,
+      "savingsPct": "84.9",
+      "localOutputPath": "catalog-cli\\optimized-images\\crystal-halo-pendant-necklace1.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/crystal-halo-pendant-necklace.png",
+      "products": [
+        {
+          "productId": 3683,
+          "slug": "crystal-halo-pendant-necklace",
+          "imageId": 3686
+        }
+      ],
+      "originalBytes": 620556,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 66022,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 554534,
+      "savingsPct": "89.4",
+      "localOutputPath": "catalog-cli\\optimized-images\\crystal-halo-pendant-necklace.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/crystal-halo-pendant-necklace2.png",
+      "products": [
+        {
+          "productId": 3683,
+          "slug": "crystal-halo-pendant-necklace",
+          "imageId": 3684
+        }
+      ],
+      "originalBytes": 684611,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1074,
+      "optimizedBytes": 145564,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 539047,
+      "savingsPct": "78.7",
+      "localOutputPath": "catalog-cli\\optimized-images\\crystal-halo-pendant-necklace2.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/silver-necklace-with-multiple-heart-shaped-charms1.png",
+      "products": [
+        {
+          "productId": 3678,
+          "slug": "silver-necklace-with-multiple-heart-shaped-charms",
+          "imageId": 3680
+        }
+      ],
+      "originalBytes": 740981,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1096,
+      "optimizedBytes": 173217,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 567764,
+      "savingsPct": "76.6",
+      "localOutputPath": "catalog-cli\\optimized-images\\silver-necklace-with-multiple-heart-shaped-charms1.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/silver-necklace-with-multiple-heart-shaped-charms2.png",
+      "products": [
+        {
+          "productId": 3678,
+          "slug": "silver-necklace-with-multiple-heart-shaped-charms",
+          "imageId": 3679
+        }
+      ],
+      "originalBytes": 768352,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1081,
+      "optimizedBytes": 203669,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 564683,
+      "savingsPct": "73.5",
+      "localOutputPath": "catalog-cli\\optimized-images\\silver-necklace-with-multiple-heart-shaped-charms2.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/silver-necklace-with-multiple-heart-shaped-charms.png",
+      "products": [
+        {
+          "productId": 3678,
+          "slug": "silver-necklace-with-multiple-heart-shaped-charms",
+          "imageId": 3681
+        }
+      ],
+      "originalBytes": 786575,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1081,
+      "optimizedBytes": 210655,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 575920,
+      "savingsPct": "73.2",
+      "localOutputPath": "catalog-cli\\optimized-images\\silver-necklace-with-multiple-heart-shaped-charms.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Sterling-Silver-Crystals-Necklace1.png",
+      "products": [
+        {
+          "productId": 3674,
+          "slug": "sterling-silver-crystals-necklace",
+          "imageId": 3675
+        }
+      ],
+      "originalBytes": 684619,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1093,
+      "optimizedBytes": 109748,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 574871,
+      "savingsPct": "84.0",
+      "localOutputPath": "catalog-cli\\optimized-images\\Sterling-Silver-Crystals-Necklace1.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Sterling-Silver-Crystals-Necklace.png",
+      "products": [
+        {
+          "productId": 3674,
+          "slug": "sterling-silver-crystals-necklace",
+          "imageId": 3676
+        }
+      ],
+      "originalBytes": 630289,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 74562,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 555727,
+      "savingsPct": "88.2",
+      "localOutputPath": "catalog-cli\\optimized-images\\Sterling-Silver-Crystals-Necklace.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/02/Gemini_Generated_Image_iuptftiuptftiupt.png",
+      "products": [
+        {
+          "productId": 3674,
+          "slug": "sterling-silver-crystals-necklace",
+          "imageId": 3864
+        }
+      ],
+      "originalBytes": 702536,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1096,
+      "optimizedBytes": 140061,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 562475,
+      "savingsPct": "80.1",
+      "localOutputPath": "catalog-cli\\optimized-images\\Gemini_Generated_Image_iuptftiuptftiupt.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Sterling-Silver-Rose-Gold-Double-Chain-Necklace-for-women.png",
+      "products": [
+        {
+          "productId": 3670,
+          "slug": "sterling-silver-rose-gold-double-chain-necklace-for-women",
+          "imageId": 3672
+        }
+      ],
+      "originalBytes": 687889,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1093,
+      "optimizedBytes": 112179,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 575710,
+      "savingsPct": "83.7",
+      "localOutputPath": "catalog-cli\\optimized-images\\Sterling-Silver-Rose-Gold-Double-Chain-Necklace-for-women.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Sterling-Silver-Rose-Gold-Double-Chain-Necklace-for-women.1.png",
+      "products": [
+        {
+          "productId": 3670,
+          "slug": "sterling-silver-rose-gold-double-chain-necklace-for-women",
+          "imageId": 3671
+        }
+      ],
+      "originalBytes": 609656,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1070,
+      "optimizedBytes": 78255,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 531401,
+      "savingsPct": "87.2",
+      "localOutputPath": "catalog-cli\\optimized-images\\Sterling-Silver-Rose-Gold-Double-Chain-Necklace-for-women.1.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Sterling-Silver-Heart-and-Key-Necklace.4.png",
+      "products": [
+        {
+          "productId": 3661,
+          "slug": "sterling-silver-heart-and-key-necklace",
+          "imageId": 3662
+        }
+      ],
+      "originalBytes": 749343,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 63686,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 685657,
+      "savingsPct": "91.5",
+      "localOutputPath": "catalog-cli\\optimized-images\\Sterling-Silver-Heart-and-Key-Necklace.4.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Sterling-Silver-Heart-and-Key-Necklace.3.png",
+      "products": [
+        {
+          "productId": 3661,
+          "slug": "sterling-silver-heart-and-key-necklace",
+          "imageId": 3664
+        }
+      ],
+      "originalBytes": 700418,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1074,
+      "optimizedBytes": 168391,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 532027,
+      "savingsPct": "76.0",
+      "localOutputPath": "catalog-cli\\optimized-images\\Sterling-Silver-Heart-and-Key-Necklace.3.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Sterling-Silver-Heart-and-Key-Necklace_.png",
+      "products": [
+        {
+          "productId": 3661,
+          "slug": "sterling-silver-heart-and-key-necklace",
+          "imageId": 3663
+        }
+      ],
+      "originalBytes": 699731,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1085,
+      "optimizedBytes": 175360,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 524371,
+      "savingsPct": "74.9",
+      "localOutputPath": "catalog-cli\\optimized-images\\Sterling-Silver-Heart-and-Key-Necklace_.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/GEMINI.png",
+      "products": [
+        {
+          "productId": 3661,
+          "slug": "sterling-silver-heart-and-key-necklace",
+          "imageId": 3729
+        }
+      ],
+      "originalBytes": 793026,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 59092,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 733934,
+      "savingsPct": "92.5",
+      "localOutputPath": "catalog-cli\\optimized-images\\GEMINI.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/symbol-rose-gold-chain-Necklace2.png",
+      "products": [
+        {
+          "productId": 3656,
+          "slug": "symbol-rose-gold-chain-necklace",
+          "imageId": 3658
+        }
+      ],
+      "originalBytes": 658880,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 80024,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 578856,
+      "savingsPct": "87.9",
+      "localOutputPath": "catalog-cli\\optimized-images\\symbol-rose-gold-chain-Necklace2.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/symbol-rose-gold-chain-Necklace1.png",
+      "products": [
+        {
+          "productId": 3656,
+          "slug": "symbol-rose-gold-chain-necklace",
+          "imageId": 3659
+        }
+      ],
+      "originalBytes": 647627,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 50214,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 597413,
+      "savingsPct": "92.2",
+      "localOutputPath": "catalog-cli\\optimized-images\\symbol-rose-gold-chain-Necklace1.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/symbol-rose-gold-chain-Necklace.png",
+      "products": [
+        {
+          "productId": 3656,
+          "slug": "symbol-rose-gold-chain-necklace",
+          "imageId": 3660
+        }
+      ],
+      "originalBytes": 642587,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 66718,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 575869,
+      "savingsPct": "89.6",
+      "localOutputPath": "catalog-cli\\optimized-images\\symbol-rose-gold-chain-Necklace.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-Gold-Accent-Cross-Chain.png",
+      "products": [
+        {
+          "productId": 3652,
+          "slug": "silver-gold-accent-cross-chain",
+          "imageId": 3653
+        }
+      ],
+      "originalBytes": 791110,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 163398,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 627712,
+      "savingsPct": "79.3",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-Gold-Accent-Cross-Chain.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/Silver-Gold-Accent-Cross-Chain1.png",
+      "products": [
+        {
+          "productId": 3652,
+          "slug": "silver-gold-accent-cross-chain",
+          "imageId": 3654
+        }
+      ],
+      "originalBytes": 722177,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 780,
+      "height": 1157,
+      "optimizedBytes": 150320,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 571857,
+      "savingsPct": "79.2",
+      "localOutputPath": "catalog-cli\\optimized-images\\Silver-Gold-Accent-Cross-Chain1.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/floral-wheel-Silver-Stud-earrings.png",
+      "products": [
+        {
+          "productId": 3648,
+          "slug": "floral-wheel-silver-stud-earrings",
+          "imageId": 3650
+        }
+      ],
+      "originalBytes": 373246,
+      "originalFormat": "png",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/floral-wheel-Silver-Stud-earrings1.png",
+      "products": [
+        {
+          "productId": 3648,
+          "slug": "floral-wheel-silver-stud-earrings",
+          "imageId": 3649
+        }
+      ],
+      "originalBytes": 546460,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 879,
+      "optimizedBytes": 14128,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 532332,
+      "savingsPct": "97.4",
+      "localOutputPath": "catalog-cli\\optimized-images\\floral-wheel-Silver-Stud-earrings1.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/crystal-solitaire-crystal-pave-flower-and-black-enamel-flower-silver-stud-earrings.png",
+      "products": [
+        {
+          "productId": 3645,
+          "slug": "crystal-solitaire-crystal-pav-flower-and-black-enamel-flower-silver-stud-earrings",
+          "imageId": 3646
+        }
+      ],
+      "originalBytes": 653269,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1055,
+      "optimizedBytes": 36474,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 616795,
+      "savingsPct": "94.4",
+      "localOutputPath": "catalog-cli\\optimized-images\\crystal-solitaire-crystal-pave-flower-and-black-enamel-flower-silver-stud-earrings.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/clover-stud-earrings.png",
+      "products": [
+        {
+          "productId": 3641,
+          "slug": "clover-stud-earrings",
+          "imageId": 3643
+        }
+      ],
+      "originalBytes": 600628,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1070,
+      "optimizedBytes": 23970,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 576658,
+      "savingsPct": "96.0",
+      "localOutputPath": "catalog-cli\\optimized-images\\clover-stud-earrings.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/clover-stud-earrings1.png",
+      "products": [
+        {
+          "productId": 3641,
+          "slug": "clover-stud-earrings",
+          "imageId": 3642
+        }
+      ],
+      "originalBytes": 628220,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1032,
+      "optimizedBytes": 44226,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 583994,
+      "savingsPct": "93.0",
+      "localOutputPath": "catalog-cli\\optimized-images\\clover-stud-earrings1.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/cube-shaped-crystal-Silver-Chain1.png",
+      "products": [
+        {
+          "productId": 3636,
+          "slug": "minimal-cube-crystal-silver-chain-necklace",
+          "imageId": 3638
+        }
+      ],
+      "originalBytes": 737535,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1055,
+      "optimizedBytes": 205467,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 532068,
+      "savingsPct": "72.1",
+      "localOutputPath": "catalog-cli\\optimized-images\\cube-shaped-crystal-Silver-Chain1.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2026/01/cube-shaped-crystal-Silver-Chain.png",
+      "products": [
+        {
+          "productId": 3636,
+          "slug": "minimal-cube-crystal-silver-chain-necklace",
+          "imageId": 3639
+        }
+      ],
+      "originalBytes": 715839,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1074,
+      "optimizedBytes": 176420,
+      "optimizedFormat": "jpeg",
+      "optimizationReason": "opaque image, JPEG smaller than WebP at matched quality",
+      "savingsBytes": 539419,
+      "savingsPct": "75.4",
+      "localOutputPath": "catalog-cli\\optimized-images\\cube-shaped-crystal-Silver-Chain.jpg"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/silver-tonedcubiczirconia-studdedearcuffearring.jpeg",
+      "products": [
+        {
+          "productId": 3233,
+          "slug": "silver-toned-cubic-zirconia-studded-ear-cuff-earrings",
+          "imageId": 3234
+        }
+      ],
+      "originalBytes": 54766,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/silver-tonedcubiczirconia-studdedearcuffearrings-1.jpeg",
+      "products": [
+        {
+          "productId": 3233,
+          "slug": "silver-toned-cubic-zirconia-studded-ear-cuff-earrings",
+          "imageId": 3235
+        }
+      ],
+      "originalBytes": 68544,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/silver-tonedcubiczirconia-studdedearcuffearrings.jpeg",
+      "products": [
+        {
+          "productId": 3233,
+          "slug": "silver-toned-cubic-zirconia-studded-ear-cuff-earrings",
+          "imageId": 3236
+        }
+      ],
+      "originalBytes": 36535,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/gold-platedgeometricdropearrings-2-e1765282409340.jpeg",
+      "products": [
+        {
+          "productId": 3227,
+          "slug": "gold-plated-geometric-drop-earring",
+          "imageId": 3229
+        }
+      ],
+      "originalBytes": 78331,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/gold-platedgeometricdropearring-e1765282420119.jpeg",
+      "products": [
+        {
+          "productId": 3227,
+          "slug": "gold-plated-geometric-drop-earring",
+          "imageId": 3228
+        }
+      ],
+      "originalBytes": 82653,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/gold-platedgeometricdropearrings-e1765282386880.jpeg",
+      "products": [
+        {
+          "productId": 3227,
+          "slug": "gold-plated-geometric-drop-earring",
+          "imageId": 3231
+        }
+      ],
+      "originalBytes": 47466,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/gold-platedgeometricdropearrings-1-e1765282398681.jpeg",
+      "products": [
+        {
+          "productId": 3227,
+          "slug": "gold-plated-geometric-drop-earring",
+          "imageId": 3230
+        }
+      ],
+      "originalBytes": 49785,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/Chimesgreenandsilver-tonedfloraloxidizeddropearrings-2.jpeg",
+      "products": [
+        {
+          "productId": 3220,
+          "slug": "chimes-green-and-silver-toned-floral-oxidized-drop-earrings",
+          "imageId": 3221
+        }
+      ],
+      "originalBytes": 61935,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/Chimesgreenandsilver-tonedfloraloxidizeddropearrings-1.jpeg",
+      "products": [
+        {
+          "productId": 3220,
+          "slug": "chimes-green-and-silver-toned-floral-oxidized-drop-earrings",
+          "imageId": 3223
+        }
+      ],
+      "originalBytes": 67310,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/Chimesgreenandsilver-tonedfloraloxidizeddropearrings.jpeg",
+      "products": [
+        {
+          "productId": 3220,
+          "slug": "chimes-green-and-silver-toned-floral-oxidized-drop-earrings",
+          "imageId": 3224
+        }
+      ],
+      "originalBytes": 63268,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/Chimesgreenandsilver-tonedfloraloxidizeddropearring.jpeg",
+      "products": [
+        {
+          "productId": 3220,
+          "slug": "chimes-green-and-silver-toned-floral-oxidized-drop-earrings",
+          "imageId": 3222
+        }
+      ],
+      "originalBytes": 71608,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/American-diamond-and-cubic-zirconia-silver-plated-dangle-drop-earrings-4.png",
+      "products": [
+        {
+          "productId": 3214,
+          "slug": "cubic-zirconia-silver-plated-dangle-drop-earrings",
+          "imageId": 3218
+        }
+      ],
+      "originalBytes": 437073,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 21962,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 415111,
+      "savingsPct": "95.0",
+      "localOutputPath": "catalog-cli\\optimized-images\\American-diamond-and-cubic-zirconia-silver-plated-dangle-drop-earrings-4.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/American-diamond-and-cubic-zirconia-silver-plated-dangle-drop-earrings-3.png",
+      "products": [
+        {
+          "productId": 3214,
+          "slug": "cubic-zirconia-silver-plated-dangle-drop-earrings",
+          "imageId": 3217
+        }
+      ],
+      "originalBytes": 493753,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 23948,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 469805,
+      "savingsPct": "95.1",
+      "localOutputPath": "catalog-cli\\optimized-images\\American-diamond-and-cubic-zirconia-silver-plated-dangle-drop-earrings-3.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/American-diamond-and-cubic-zirconia-silver-plated-dangle-drop-earrings-2.png",
+      "products": [
+        {
+          "productId": 3214,
+          "slug": "cubic-zirconia-silver-plated-dangle-drop-earrings",
+          "imageId": 3216
+        }
+      ],
+      "originalBytes": 518433,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 22716,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 495717,
+      "savingsPct": "95.6",
+      "localOutputPath": "catalog-cli\\optimized-images\\American-diamond-and-cubic-zirconia-silver-plated-dangle-drop-earrings-2.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/American-diamond-and-cubic-zirconia-silver-plated-dangle-drop-earrings.png",
+      "products": [
+        {
+          "productId": 3214,
+          "slug": "cubic-zirconia-silver-plated-dangle-drop-earrings",
+          "imageId": 3215
+        }
+      ],
+      "originalBytes": 565390,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 864,
+      "height": 1184,
+      "optimizedBytes": 24210,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 541180,
+      "savingsPct": "95.7",
+      "localOutputPath": "catalog-cli\\optimized-images\\American-diamond-and-cubic-zirconia-silver-plated-dangle-drop-earrings.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/AmericanDiamondNecklaceSet2055.jpeg",
+      "products": [
+        {
+          "productId": 3205,
+          "slug": "zirconia-silver-necklace-set",
+          "imageId": 3207
+        }
+      ],
+      "originalBytes": 73846,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/AmericanDiamondNecklaceSe-e1765282461919.jpeg",
+      "products": [
+        {
+          "productId": 3205,
+          "slug": "zirconia-silver-necklace-set",
+          "imageId": 3206
+        }
+      ],
+      "originalBytes": 67015,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/AmericanDiamondNecklaceSet-1.jpeg",
+      "products": [
+        {
+          "productId": 3205,
+          "slug": "zirconia-silver-necklace-set",
+          "imageId": 3208
+        }
+      ],
+      "originalBytes": 62729,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/AmericanDiamondNecklaceSet-e1765282446915.jpeg",
+      "products": [
+        {
+          "productId": 3205,
+          "slug": "zirconia-silver-necklace-set",
+          "imageId": 3209
+        }
+      ],
+      "originalBytes": 47559,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/CubanDiamondSilverIcedBracelet-1.jpeg",
+      "products": [
+        {
+          "productId": 3198,
+          "slug": "cubic-zirconia-cuban-link-bracelet",
+          "imageId": 3202
+        }
+      ],
+      "originalBytes": 49071,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/CubanDiamondSilverIcedBracelet.jpeg",
+      "products": [
+        {
+          "productId": 3198,
+          "slug": "cubic-zirconia-cuban-link-bracelet",
+          "imageId": 3203
+        }
+      ],
+      "originalBytes": 34584,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/CubanDiamondSilverIcedBracelet1225-e1765282490829.jpeg",
+      "products": [
+        {
+          "productId": 3198,
+          "slug": "cubic-zirconia-cuban-link-bracelet",
+          "imageId": 3200
+        }
+      ],
+      "originalBytes": 60388,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/CubanDiamondSilverIcedBracelet-2-e1765282477981.jpeg",
+      "products": [
+        {
+          "productId": 3198,
+          "slug": "cubic-zirconia-cuban-link-bracelet",
+          "imageId": 3201
+        }
+      ],
+      "originalBytes": 38862,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/CubanDiamondSilverIcedBracele-e1765282504795.jpeg",
+      "products": [
+        {
+          "productId": 3198,
+          "slug": "cubic-zirconia-cuban-link-bracelet",
+          "imageId": 3199
+        }
+      ],
+      "originalBytes": 100239,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/EvilEyeAnkle.jpeg",
+      "products": [
+        {
+          "productId": 3187,
+          "slug": "evil-eye-anklet",
+          "imageId": 3191
+        }
+      ],
+      "originalBytes": 48118,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/EvilEyeAnklet238-e1765282535140.jpeg",
+      "products": [
+        {
+          "productId": 3187,
+          "slug": "evil-eye-anklet",
+          "imageId": 3189
+        }
+      ],
+      "originalBytes": 86517,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/EvilEyeAnklet.jpeg",
+      "products": [
+        {
+          "productId": 3187,
+          "slug": "evil-eye-anklet",
+          "imageId": 3190
+        }
+      ],
+      "originalBytes": 69048,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/EvilEyeAnklet-1-e1765282574344.jpeg",
+      "products": [
+        {
+          "productId": 3187,
+          "slug": "evil-eye-anklet",
+          "imageId": 3188
+        }
+      ],
+      "originalBytes": 95671,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/FashionFrillMensSilver-Platedanklet247.jpeg",
+      "products": [
+        {
+          "productId": 3183,
+          "slug": "fashion-frill-silver-plated-anklet",
+          "imageId": 3185
+        }
+      ],
+      "originalBytes": 50225,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/FashionFrillMensSilver-Platedanklet-e1765282588224.jpeg",
+      "products": [
+        {
+          "productId": 3183,
+          "slug": "fashion-frill-silver-plated-anklet",
+          "imageId": 3184
+        }
+      ],
+      "originalBytes": 89680,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/InfinityLinkMensChain535.jpeg",
+      "products": [
+        {
+          "productId": 3162,
+          "slug": "infinity-link-mens-chain",
+          "imageId": 3169
+        }
+      ],
+      "originalBytes": 81280,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/InfinityLinkMensNecklace-1.jpeg",
+      "products": [
+        {
+          "productId": 3162,
+          "slug": "infinity-link-mens-chain",
+          "imageId": 3166
+        }
+      ],
+      "originalBytes": 67027,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/InfinityLinkMensNecklace-2.jpeg",
+      "products": [
+        {
+          "productId": 3162,
+          "slug": "infinity-link-mens-chain",
+          "imageId": 3164
+        }
+      ],
+      "originalBytes": 86114,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/InfinityLinkMensNecklac.jpeg",
+      "products": [
+        {
+          "productId": 3162,
+          "slug": "infinity-link-mens-chain",
+          "imageId": 3165
+        }
+      ],
+      "originalBytes": 68648,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/InfinityLinkMensNecklace.jpeg",
+      "products": [
+        {
+          "productId": 3162,
+          "slug": "infinity-link-mens-chain",
+          "imageId": 3167
+        }
+      ],
+      "originalBytes": 26131,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/JayShreeRamMenssOxidisedkada775.jpeg",
+      "products": [
+        {
+          "productId": 3155,
+          "slug": "jay-shree-ram-mens-s-oxidised-kada",
+          "imageId": 3159
+        }
+      ],
+      "originalBytes": 73840,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/JayShreeRamMenssOxidisedkad.jpeg",
+      "products": [
+        {
+          "productId": 3155,
+          "slug": "jay-shree-ram-mens-s-oxidised-kada",
+          "imageId": 3157
+        }
+      ],
+      "originalBytes": 75975,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/JayShreeRamMenssOxidisedkada-1.jpeg",
+      "products": [
+        {
+          "productId": 3155,
+          "slug": "jay-shree-ram-mens-s-oxidised-kada",
+          "imageId": 3158
+        }
+      ],
+      "originalBytes": 117050,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/JayShreeRamMenssOxidisedkada.jpeg",
+      "products": [
+        {
+          "productId": 3155,
+          "slug": "jay-shree-ram-mens-s-oxidised-kada",
+          "imageId": 3160
+        }
+      ],
+      "originalBytes": 89051,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/509ce0e4-feb0-4dc6-969d-bfe6b0de319e.png",
+      "products": [
+        {
+          "productId": 3146,
+          "slug": "jay-shree-shyam-menss-oxidised-kada",
+          "imageId": 3301
+        }
+      ],
+      "originalBytes": 752434,
+      "originalFormat": "png",
+      "overThreshold": true,
+      "width": 1024,
+      "height": 1024,
+      "optimizedBytes": 56416,
+      "optimizedFormat": "webp",
+      "optimizationReason": "opaque image, WebP smaller than JPEG at matched quality",
+      "savingsBytes": 696018,
+      "savingsPct": "92.5",
+      "localOutputPath": "catalog-cli\\optimized-images\\509ce0e4-feb0-4dc6-969d-bfe6b0de319e.webp"
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/JayShreeShyamMenssOxidisedkada.jpeg",
+      "products": [
+        {
+          "productId": 3146,
+          "slug": "jay-shree-shyam-menss-oxidised-kada",
+          "imageId": 3149
+        }
+      ],
+      "originalBytes": 68709,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/JayShreeShyamMenssOxidisedkad.jpeg",
+      "products": [
+        {
+          "productId": 3146,
+          "slug": "jay-shree-shyam-menss-oxidised-kada",
+          "imageId": 3148
+        }
+      ],
+      "originalBytes": 70567,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/JayShreeShyamMenssOxidisedkada-1.jpeg",
+      "products": [
+        {
+          "productId": 3146,
+          "slug": "jay-shree-shyam-menss-oxidised-kada",
+          "imageId": 3147
+        }
+      ],
+      "originalBytes": 78696,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/ChatGPTImageDec8202507_02_50P.jpeg",
+      "products": [
+        {
+          "productId": 3140,
+          "slug": "luxurious-silver-multi-colored-gemstones-emerald-cut-bracelet",
+          "imageId": 3239
+        }
+      ],
+      "originalBytes": 62644,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/LuxuriousSilverMultiColoredGemstonesEmeraldCutBracelet7383.6-e1765282676176.jpeg",
+      "products": [
+        {
+          "productId": 3140,
+          "slug": "luxurious-silver-multi-colored-gemstones-emerald-cut-bracelet",
+          "imageId": 3142
+        }
+      ],
+      "originalBytes": 54278,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/LuxuriousSilverMultiColoredGemstonesEmeraldCutBracelet7383-e1765282687251.jpeg",
+      "products": [
+        {
+          "productId": 3140,
+          "slug": "luxurious-silver-multi-colored-gemstones-emerald-cut-bracelet",
+          "imageId": 3141
+        }
+      ],
+      "originalBytes": 60762,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/MensSilverBracelet-1.jpeg",
+      "products": [
+        {
+          "productId": 3133,
+          "slug": "men-s-silver-bracelet",
+          "imageId": 3137
+        }
+      ],
+      "originalBytes": 56144,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/MensSilverBracelet.jpeg",
+      "products": [
+        {
+          "productId": 3133,
+          "slug": "men-s-silver-bracelet",
+          "imageId": 3138
+        }
+      ],
+      "originalBytes": 36685,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/MensSilverBracele.jpeg",
+      "products": [
+        {
+          "productId": 3133,
+          "slug": "men-s-silver-bracelet",
+          "imageId": 3136
+        }
+      ],
+      "originalBytes": 92775,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/MensSilverBracelet-3.jpeg",
+      "products": [
+        {
+          "productId": 3133,
+          "slug": "men-s-silver-bracelet",
+          "imageId": 3134
+        }
+      ],
+      "originalBytes": 76497,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/MensSilverBracelet-2.jpeg",
+      "products": [
+        {
+          "productId": 3133,
+          "slug": "men-s-silver-bracelet",
+          "imageId": 3135
+        }
+      ],
+      "originalBytes": 80278,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/OxidisedPayal-e1765282705565.jpeg",
+      "products": [
+        {
+          "productId": 3128,
+          "slug": "oxidised-payal",
+          "imageId": 3130
+        }
+      ],
+      "originalBytes": 73073,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/OxidisedPayal36097-.jpeg",
+      "products": [
+        {
+          "productId": 3128,
+          "slug": "oxidised-payal",
+          "imageId": 3131
+        }
+      ],
+      "originalBytes": 65524,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/OxidisedPayal-1-e1765282715897.jpeg",
+      "products": [
+        {
+          "productId": 3128,
+          "slug": "oxidised-payal",
+          "imageId": 3129
+        }
+      ],
+      "originalBytes": 83910,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/MensCubanNeckpiece2745.jpeg",
+      "products": [
+        {
+          "productId": 3121,
+          "slug": "mens-cuban-neckpiece",
+          "imageId": 3123
+        }
+      ],
+      "originalBytes": 102919,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/MensCubanNeckpiece-2.jpeg",
+      "products": [
+        {
+          "productId": 3121,
+          "slug": "mens-cuban-neckpiece",
+          "imageId": 3122
+        }
+      ],
+      "originalBytes": 95870,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/MensCubanNeckpiece.jpeg",
+      "products": [
+        {
+          "productId": 3121,
+          "slug": "mens-cuban-neckpiece",
+          "imageId": 3125
+        }
+      ],
+      "originalBytes": 83421,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/MensCubanNeckpiece-1.jpeg",
+      "products": [
+        {
+          "productId": 3121,
+          "slug": "mens-cuban-neckpiece",
+          "imageId": 3124
+        }
+      ],
+      "originalBytes": 92589,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/MensCubanNeckpiec.jpeg",
+      "products": [
+        {
+          "productId": 3121,
+          "slug": "mens-cuban-neckpiece",
+          "imageId": 3126
+        }
+      ],
+      "originalBytes": 97692,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/OxidizedSilverHerringboneChain1420.jpeg",
+      "products": [
+        {
+          "productId": 3115,
+          "slug": "oxidized-silver-herringbone-chain",
+          "imageId": 3118
+        }
+      ],
+      "originalBytes": 91479,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/OxidizedSilverHerringboneChain-1.jpeg",
+      "products": [
+        {
+          "productId": 3115,
+          "slug": "oxidized-silver-herringbone-chain",
+          "imageId": 3117
+        }
+      ],
+      "originalBytes": 99068,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/OxidizedSilverHerringboneChai.jpeg",
+      "products": [
+        {
+          "productId": 3115,
+          "slug": "oxidized-silver-herringbone-chain",
+          "imageId": 3116
+        }
+      ],
+      "originalBytes": 74752,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/OxidizedSilverHerringboneChain.jpeg",
+      "products": [
+        {
+          "productId": 3115,
+          "slug": "oxidized-silver-herringbone-chain",
+          "imageId": 3119
+        }
+      ],
+      "originalBytes": 63653,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/PureSilverStripChain1419-e1765282738671.jpeg",
+      "products": [
+        {
+          "productId": 3109,
+          "slug": "pure-silver-strip-chain",
+          "imageId": 3113
+        }
+      ],
+      "originalBytes": 61587,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/PureSilverStripChain-e1765282751468.jpeg",
+      "products": [
+        {
+          "productId": 3109,
+          "slug": "pure-silver-strip-chain",
+          "imageId": 3112
+        }
+      ],
+      "originalBytes": 61295,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/PureSilverStripChain-1-e1765282762522.jpeg",
+      "products": [
+        {
+          "productId": 3109,
+          "slug": "pure-silver-strip-chain",
+          "imageId": 3111
+        }
+      ],
+      "originalBytes": 76053,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/PureSilverStripChai.jpeg",
+      "products": [
+        {
+          "productId": 3109,
+          "slug": "pure-silver-strip-chain",
+          "imageId": 3110
+        }
+      ],
+      "originalBytes": 60576,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/RoseGoldCrystalBracelet8941.jpeg",
+      "products": [
+        {
+          "productId": 3102,
+          "slug": "rose-gold-crystal-bracelet",
+          "imageId": 3107
+        }
+      ],
+      "originalBytes": 37552,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/RoseGoldCrystalBracelet.jpeg",
+      "products": [
+        {
+          "productId": 3102,
+          "slug": "rose-gold-crystal-bracelet",
+          "imageId": 3106
+        }
+      ],
+      "originalBytes": 43607,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/RoseGoldCrystalBracele-e1765282779648.jpeg",
+      "products": [
+        {
+          "productId": 3102,
+          "slug": "rose-gold-crystal-bracelet",
+          "imageId": 3105
+        }
+      ],
+      "originalBytes": 46712,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/RoseGoldCrystalBracelet-1-e1765282790840.jpeg",
+      "products": [
+        {
+          "productId": 3102,
+          "slug": "rose-gold-crystal-bracelet",
+          "imageId": 3104
+        }
+      ],
+      "originalBytes": 49809,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/RoseGoldCrystalBracelet894-e1765282802599.jpeg",
+      "products": [
+        {
+          "productId": 3102,
+          "slug": "rose-gold-crystal-bracelet",
+          "imageId": 3103
+        }
+      ],
+      "originalBytes": 92858,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/RudrakshaMala-1.jpeg",
+      "products": [
+        {
+          "productId": 3095,
+          "slug": "rudraksha-mala",
+          "imageId": 3097
+        }
+      ],
+      "originalBytes": 71571,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/RudrakshaMala.jpeg",
+      "products": [
+        {
+          "productId": 3095,
+          "slug": "rudraksha-mala",
+          "imageId": 3099
+        }
+      ],
+      "originalBytes": 103280,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/RudrakshaMal.jpeg",
+      "products": [
+        {
+          "productId": 3095,
+          "slug": "rudraksha-mala",
+          "imageId": 3100
+        }
+      ],
+      "originalBytes": 88544,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/RudrakshaMala-2.jpeg",
+      "products": [
+        {
+          "productId": 3095,
+          "slug": "rudraksha-mala",
+          "imageId": 3096
+        }
+      ],
+      "originalBytes": 92846,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/RudrakshaMala901.jpeg",
+      "products": [
+        {
+          "productId": 3095,
+          "slug": "rudraksha-mala",
+          "imageId": 3098
+        }
+      ],
+      "originalBytes": 77410,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverBracelet846.jpeg",
+      "products": [
+        {
+          "productId": 3090,
+          "slug": "silver-bracelet",
+          "imageId": 3092
+        }
+      ],
+      "originalBytes": 45788,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverBracelet-e1765282832873.jpeg",
+      "products": [
+        {
+          "productId": 3090,
+          "slug": "silver-bracelet",
+          "imageId": 3091
+        }
+      ],
+      "originalBytes": 37618,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverBracele-e1765282818286.jpeg",
+      "products": [
+        {
+          "productId": 3090,
+          "slug": "silver-bracelet",
+          "imageId": 3093
+        }
+      ],
+      "originalBytes": 51686,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverChokerDesignDimaondNacklaceSet787.jpeg",
+      "products": [
+        {
+          "productId": 3083,
+          "slug": "silver-plated-choker-style-necklace-set",
+          "imageId": 3086
+        }
+      ],
+      "originalBytes": 68647,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverChokerDesignDimaondNacklaceSet-1.jpeg",
+      "products": [
+        {
+          "productId": 3083,
+          "slug": "silver-plated-choker-style-necklace-set",
+          "imageId": 3085
+        }
+      ],
+      "originalBytes": 63258,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverChokerDesignDimaondNacklaceSet-2.jpeg",
+      "products": [
+        {
+          "productId": 3083,
+          "slug": "silver-plated-choker-style-necklace-set",
+          "imageId": 3084
+        }
+      ],
+      "originalBytes": 59559,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverChokerDesignDimaondNacklaceSe.jpeg",
+      "products": [
+        {
+          "productId": 3083,
+          "slug": "silver-plated-choker-style-necklace-set",
+          "imageId": 3087
+        }
+      ],
+      "originalBytes": 36687,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverChokerDesignDimaondNacklaceSet.jpeg",
+      "products": [
+        {
+          "productId": 3083,
+          "slug": "silver-plated-choker-style-necklace-set",
+          "imageId": 3088
+        }
+      ],
+      "originalBytes": 19790,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverDiamondNecklaceset-1.jpeg",
+      "products": [
+        {
+          "productId": 3077,
+          "slug": "elegant-silver-necklace-set",
+          "imageId": 3079
+        }
+      ],
+      "originalBytes": 69412,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverDiamondNecklacese.jpeg",
+      "products": [
+        {
+          "productId": 3077,
+          "slug": "elegant-silver-necklace-set",
+          "imageId": 3081
+        }
+      ],
+      "originalBytes": 68406,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverDiamondNecklaceset2067.jpeg",
+      "products": [
+        {
+          "productId": 3077,
+          "slug": "elegant-silver-necklace-set",
+          "imageId": 3078
+        }
+      ],
+      "originalBytes": 70625,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverDiamondNecklaceset.jpeg",
+      "products": [
+        {
+          "productId": 3077,
+          "slug": "elegant-silver-necklace-set",
+          "imageId": 3080
+        }
+      ],
+      "originalBytes": 48834,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverGlamirabracelet-e1765282862963.jpeg",
+      "products": [
+        {
+          "productId": 3070,
+          "slug": "silver-glamira-bracelet",
+          "imageId": 3074
+        }
+      ],
+      "originalBytes": 58434,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverGlamirabracelet471-e1765282851459.jpeg",
+      "products": [
+        {
+          "productId": 3070,
+          "slug": "silver-glamira-bracelet",
+          "imageId": 3075
+        }
+      ],
+      "originalBytes": 43355,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverGlamirabracelet-1-e1765282872801.jpeg",
+      "products": [
+        {
+          "productId": 3070,
+          "slug": "silver-glamira-bracelet",
+          "imageId": 3073
+        }
+      ],
+      "originalBytes": 65227,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverGlamirabracelet-3-e1765282893681.jpeg",
+      "products": [
+        {
+          "productId": 3070,
+          "slug": "silver-glamira-bracelet",
+          "imageId": 3071
+        }
+      ],
+      "originalBytes": 94873,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SilverGlamirabracelet-2-e1765282883613.jpeg",
+      "products": [
+        {
+          "productId": 3070,
+          "slug": "silver-glamira-bracelet",
+          "imageId": 3072
+        }
+      ],
+      "originalBytes": 66337,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SnakechainAnklet-e1765282903305.jpeg",
+      "products": [
+        {
+          "productId": 3065,
+          "slug": "snake-chain-anklet",
+          "imageId": 3068
+        }
+      ],
+      "originalBytes": 71273,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SnakechainAnkle-e1765282914896.jpeg",
+      "products": [
+        {
+          "productId": 3065,
+          "slug": "snake-chain-anklet",
+          "imageId": 3067
+        }
+      ],
+      "originalBytes": 55303,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SnakechainAnklet148-e1765282927227.jpeg",
+      "products": [
+        {
+          "productId": 3065,
+          "slug": "snake-chain-anklet",
+          "imageId": 3066
+        }
+      ],
+      "originalBytes": 61031,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/StainlessSteelSilverPlatedFancyBracelet-e1765282938121.jpeg",
+      "products": [
+        {
+          "productId": 3060,
+          "slug": "centurion-silver-bracelet",
+          "imageId": 3063
+        }
+      ],
+      "originalBytes": 38934,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/StainlessSteelSilverPlatedFancyBracelet879-e1765282956752.jpeg",
+      "products": [
+        {
+          "productId": 3060,
+          "slug": "centurion-silver-bracelet",
+          "imageId": 3062
+        }
+      ],
+      "originalBytes": 89399,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/StainlessSteelSilverPlatedFancyBracele.jpeg",
+      "products": [
+        {
+          "productId": 3060,
+          "slug": "centurion-silver-bracelet",
+          "imageId": 3061
+        }
+      ],
+      "originalBytes": 66946,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SterlingSilverEmeraldGreenMotifAnklet259.jpeg",
+      "products": [
+        {
+          "productId": 3055,
+          "slug": "sterling-silver-emerald-green-motif-anklet",
+          "imageId": 3058
+        }
+      ],
+      "originalBytes": 25074,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SterlingSilverEmeraldGreenMotifAnklet.jpeg",
+      "products": [
+        {
+          "productId": 3055,
+          "slug": "sterling-silver-emerald-green-motif-anklet",
+          "imageId": 3057
+        }
+      ],
+      "originalBytes": 20826,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/SterlingSilverEmeraldGreenMotifAnkle.jpeg",
+      "products": [
+        {
+          "productId": 3055,
+          "slug": "sterling-silver-emerald-green-motif-anklet",
+          "imageId": 3056
+        }
+      ],
+      "originalBytes": 33694,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/sterlingsilverFigarolinkchainbracele-e1765282994931.jpeg",
+      "products": [
+        {
+          "productId": 3047,
+          "slug": "cuban-link-bracelet",
+          "imageId": 3048
+        }
+      ],
+      "originalBytes": 29832,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/sterlingsilverFigarolinkchainbracelet941-e1765282971803.jpeg",
+      "products": [
+        {
+          "productId": 3047,
+          "slug": "cuban-link-bracelet",
+          "imageId": 3052
+        }
+      ],
+      "originalBytes": 85739,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/sterlingsilverFigarolinkchainbracelet.jpeg",
+      "products": [
+        {
+          "productId": 3047,
+          "slug": "cuban-link-bracelet",
+          "imageId": 3051
+        }
+      ],
+      "originalBytes": 74088,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/sterlingsilverFigarolinkchainbracelet-1.jpeg",
+      "products": [
+        {
+          "productId": 3047,
+          "slug": "cuban-link-bracelet",
+          "imageId": 3050
+        }
+      ],
+      "originalBytes": 33927,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/sterlingsilverFigarolinkchainbracelet-2-e1765282984227.jpeg",
+      "products": [
+        {
+          "productId": 3047,
+          "slug": "cuban-link-bracelet",
+          "imageId": 3049
+        }
+      ],
+      "originalBytes": 80261,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/StoneStuddedBracelet1099.jpeg",
+      "products": [
+        {
+          "productId": 3042,
+          "slug": "stone-studded-bracelet",
+          "imageId": 3043
+        }
+      ],
+      "originalBytes": 41432,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/StoneStuddedBracelet-e1765283023446.jpeg",
+      "products": [
+        {
+          "productId": 3042,
+          "slug": "stone-studded-bracelet",
+          "imageId": 3044
+        }
+      ],
+      "originalBytes": 57622,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/StoneStuddedBracele-e1765283004529.jpeg",
+      "products": [
+        {
+          "productId": 3042,
+          "slug": "stone-studded-bracelet",
+          "imageId": 3045
+        }
+      ],
+      "originalBytes": 35173,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/BlackMetalOxidisedSilverpayal.jpeg",
+      "products": [
+        {
+          "productId": 3035,
+          "slug": "black-metal-oxidised-silver-payal",
+          "imageId": 3039
+        }
+      ],
+      "originalBytes": 76927,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/BlackMetalOxidisedSilverpayal-1.jpeg",
+      "products": [
+        {
+          "productId": 3035,
+          "slug": "black-metal-oxidised-silver-payal",
+          "imageId": 3037
+        }
+      ],
+      "originalBytes": 93636,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/BlackMetalOxidisedSilverpaya.jpeg",
+      "products": [
+        {
+          "productId": 3035,
+          "slug": "black-metal-oxidised-silver-payal",
+          "imageId": 3038
+        }
+      ],
+      "originalBytes": 68622,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/BlackMetalOxidisedSilverpayal43146-e1765283049459.jpeg",
+      "products": [
+        {
+          "productId": 3035,
+          "slug": "black-metal-oxidised-silver-payal",
+          "imageId": 3040
+        }
+      ],
+      "originalBytes": 71330,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/vintageplatinumdiamondbracelet614.jpeg",
+      "products": [
+        {
+          "productId": 3030,
+          "slug": "vintage-platinum-cubic-zirconia-bracelet",
+          "imageId": 3033
+        }
+      ],
+      "originalBytes": 48891,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/vintageplatinumdiamondbracelet.jpeg",
+      "products": [
+        {
+          "productId": 3030,
+          "slug": "vintage-platinum-cubic-zirconia-bracelet",
+          "imageId": 3032
+        }
+      ],
+      "originalBytes": 51289,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/vintageplatinumdiamondbracele.jpeg",
+      "products": [
+        {
+          "productId": 3030,
+          "slug": "vintage-platinum-cubic-zirconia-bracelet",
+          "imageId": 3031
+        }
+      ],
+      "originalBytes": 41106,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/RosegoldViperBracelet1158.jpeg",
+      "products": [
+        {
+          "productId": 3025,
+          "slug": "rose-gold-viper-bracelet",
+          "imageId": 3026
+        }
+      ],
+      "originalBytes": 51198,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/RosegoldViperBracele-e1765283096896.jpeg",
+      "products": [
+        {
+          "productId": 3025,
+          "slug": "rose-gold-viper-bracelet",
+          "imageId": 3027
+        }
+      ],
+      "originalBytes": 65960,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/RosegoldViperBracelet-e1765283085362.jpeg",
+      "products": [
+        {
+          "productId": 3025,
+          "slug": "rose-gold-viper-bracelet",
+          "imageId": 3028
+        }
+      ],
+      "originalBytes": 68461,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/womensSterlingSilverPandoraBracelet5760-e1765200688660.jpeg",
+      "products": [
+        {
+          "productId": 2986,
+          "slug": "women-s-sterling-silver-pandora-bracelet",
+          "imageId": 2997
+        }
+      ],
+      "originalBytes": 36057,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/womensSterlingSilverPandoraBracelet.jpeg",
+      "products": [
+        {
+          "productId": 2986,
+          "slug": "women-s-sterling-silver-pandora-bracelet",
+          "imageId": 2998
+        }
+      ],
+      "originalBytes": 33966,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/womensSterlingSilverPandoraBracelet576-e1765200820898.jpeg",
+      "products": [
+        {
+          "productId": 2986,
+          "slug": "women-s-sterling-silver-pandora-bracelet",
+          "imageId": 2999
+        }
+      ],
+      "originalBytes": 30405,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    },
+    {
+      "url": "https://cms.agelements.in/wp-content/uploads/2025/12/womensSterlingSilverPandoraBracele-e1765283132453.jpeg",
+      "products": [
+        {
+          "productId": 2986,
+          "slug": "women-s-sterling-silver-pandora-bracelet",
+          "imageId": 2996
+        }
+      ],
+      "originalBytes": 32897,
+      "originalFormat": "jpeg",
+      "overThreshold": false
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Product } from '@/types/product';
-import Image from 'next/image';
+import { ProductImage } from '@/components/shared/ProductImage';
 import { trackRecommendationClick } from '@/lib/analytics';
 
 interface ProductCarouselProps {
@@ -27,12 +27,12 @@ export function ProductCarousel({ title, products, analyticsSource }: ProductCar
               onClick={() => analyticsSource && trackRecommendationClick(analyticsSource, product)}
             >
               <div className="aspect-[4/5] bg-surface-lavender rounded-xl overflow-hidden mb-4 relative shadow-[0px_4px_20px_rgba(35,33,58,0.05)]">
-                <Image 
+                <ProductImage
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500" 
-                  alt={product.name} 
-                  src={product.images?.[0]?.src || 'https://lh3.googleusercontent.com/aida-public/AB6AXuDUJcDFZ4gfxtgf5QZ4A3vCMYjs1GNnlSvqwfSOFoUudjcqTEFGwyItsyiomIUMhVYrv8zbpUSghtF9q1KKoc05XwxQFeuo5Sjas05jBNlpzK487FACTxY_qeNUFAxWuMANmTPUhuZSFcUoWkUrCE8DKXvnxlU6TKwOq6yoSV1S_2mqi8HMXJZHR8FFCCoouBwu5a_a9ZmgvYm_LiGhKoM5OZGcuA2XONxOC-52soC1NTKIGl--7f8k3w'} 
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  alt={product.name}
+                  src={product.images?.[0]?.src}
                 />
                 {product.salePrice && <div className="absolute top-2 left-2 bg-primary text-pearl-white px-2 py-1 rounded font-label-sm text-[12px] font-semibold uppercase tracking-widest">Sale</div>}
                 {product.isNewArrival && !product.salePrice && <div className="absolute top-2 left-2 bg-surface-lavender text-primary px-2 py-1 rounded font-label-sm text-[12px] font-semibold uppercase tracking-widest">New</div>}

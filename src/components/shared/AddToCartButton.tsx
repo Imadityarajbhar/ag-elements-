@@ -7,10 +7,10 @@ import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/store/cart';
 import { trackAddToCart } from '@/lib/analytics';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
-import Image from 'next/image';
 import { toast } from 'sonner';
 import { mapWooCommerceError } from '@/lib/error-mapper';
 import { PriceDisplay } from '@/components/shared/PriceDisplay';
+import { ProductImage } from '@/components/shared/ProductImage';
 
 export function AddToCartButton({ product, compact = false }: { product: Product, compact?: boolean }) {
   // Selector, not whole-store destructuring — addItem is a stable reference,
@@ -370,9 +370,7 @@ export function ProductGallery({ product }: { product: Product }) {
   }, [isVariable, product.variations, product.attributes, searchParams]);
 
   const activeImage = activeVariation?.image?.src;
-  const fallbackImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuDUJcDFZ4gfxtgf5QZ4A3vCMYjs1GNnlSvqwfSOFoUudjcqTEFGwyItsyiomIUMhVYrv8zbpUSghtF9q1KKoc05XwxQFeuo5Sjas05jBNlpzK487FACTxY_qeNUFAxWuMANmTPUhuZSFcUoWkUrCE8DKXvnxlU6TKwOq6yoSV1S_2mqi8HMXJZHR8FFCCoouBwu5a_a9ZmgvYm_LiGhKoM5OZGcuA2XONxOC-52soC1NTKIGl--7f8k3w";
-  
-  const mainImage = activeImage || product.images[0]?.src || fallbackImage;
+  const mainImage = activeImage || product.images[0]?.src;
 
   const baseThumbnails = product.images.length > 0 
     ? product.images 
@@ -400,12 +398,12 @@ export function ProductGallery({ product }: { product: Product }) {
             onClick={() => setDisplayImage(thumb.src)}
             className={`relative w-full aspect-[4/5] bg-surface-lavender rounded overflow-hidden transition-all ${displayImage === thumb.src ? 'ring-2 ring-primary opacity-100' : 'ring-1 ring-outline-variant/30 opacity-60 hover:opacity-100'}`}
           >
-            <Image fill sizes="100px" className="object-cover" alt={thumb.alt} src={thumb.src} />
+            <ProductImage fill sizes="100px" className="object-cover" alt={thumb.alt} src={thumb.src} />
           </button>
         ))}
       </div>
       <div className="relative w-full flex-1 rounded bg-surface-container-lowest overflow-hidden shadow-[0px_4px_20px_rgba(35,33,58,0.05)] aspect-[4/5] md:aspect-auto md:min-h-[600px] md:h-full">
-        <Image priority fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" alt={product.name} src={displayImage} />
+        <ProductImage priority fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" alt={product.name} src={displayImage} />
       </div>
       <div className="flex md:hidden gap-4 w-full overflow-x-auto hide-scrollbar snap-x py-2">
         {thumbnails.map((thumb) => (
@@ -414,7 +412,7 @@ export function ProductGallery({ product }: { product: Product }) {
             onClick={() => setDisplayImage(thumb.src)}
             className={`relative snap-start min-w-[80px] aspect-[4/5] bg-surface-lavender rounded overflow-hidden ${displayImage === thumb.src ? 'ring-2 ring-primary opacity-100' : 'ring-1 ring-outline-variant/30 opacity-60'}`}
           >
-            <Image fill sizes="80px" className="object-cover" alt={thumb.alt} src={thumb.src} />
+            <ProductImage fill sizes="80px" className="object-cover" alt={thumb.alt} src={thumb.src} />
           </button>
         ))}
       </div>

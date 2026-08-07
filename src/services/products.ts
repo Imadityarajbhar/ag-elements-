@@ -26,17 +26,20 @@ export function mapWcProduct(wcProd: WooCommerceProduct): Product {
     description: wcProd.description?.replace(/(<([^>]+)>)/gi, '') || '', // Strip HTML
     shortDescription: wcProd.short_description?.replace(/(<([^>]+)>)/gi, '') || undefined,
     sku: wcProd.sku || '',
-    images: wcProd.images && wcProd.images.length > 0 
-      ? wcProd.images.map((img: any) => ({
-          id: img.id?.toString() || Math.random().toString(),
-          src: img.src,
-          alt: img.alt || wcProd.name,
-        }))
-      : [{
-          id: 'fallback',
-          src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDUJcDFZ4gfxtgf5QZ4A3vCMYjs1GNnlSvqwfSOFoUudjcqTEFGwyItsyiomIUMhVYrv8zbpUSghtF9q1KKoc05XwxQFeuo5Sjas05jBNlpzK487FACTxY_qeNUFAxWuMANmTPUhuZSFcUoWkUrCE8DKXvnxlU6TKwOq6yoSV1S_2mqi8HMXJZHR8FFCCoouBwu5a_a9ZmgvYm_LiGhKoM5OZGcuA2XONxOC-52soC1NTKIGl--7f8k3w',
-          alt: wcProd.name,
-        }],
+    // No synthetic external-URL fallback for a product with zero WooCommerce
+    // images — ProductImage (src/components/shared/ProductImage.tsx) already
+    // renders a local placeholder for an empty/undefined src, so substituting
+    // an unrelated third-party stock photo here just adds a network
+    // dependency without adding real information.
+    images: (wcProd.images || []).map((img: any, i: number) => ({
+      // WooCommerce's REST API always returns a numeric `id` for a real
+      // media-library image; `src` is the deterministic fallback for the
+      // rare payload that omits it, rather than a value that changes on
+      // every request (which defeats React's key-based reconciliation).
+      id: img.id?.toString() || img.src || `image-${i}`,
+      src: img.src,
+      alt: img.alt || wcProd.name,
+    })),
     categories: wcProd.categories?.map((cat: any) => ({
       id: cat.id.toString(),
       name: cat.name,

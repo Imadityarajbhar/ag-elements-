@@ -4,7 +4,7 @@ import { Loader2, AlertCircle, ArrowLeft, Receipt, Truck, Tag } from 'lucide-rea
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
+import { ProductImage } from '@/components/shared/ProductImage';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 
@@ -270,7 +270,7 @@ export default function OrderDetailPage() {
             <div key={item.id} className="flex gap-4 p-4 sm:p-6">
               <div className="relative w-16 h-20 sm:w-20 sm:h-24 bg-surface-lavender rounded-lg overflow-hidden shrink-0">
                 {item.image && (
-                  <Image fill sizes="80px" src={item.image} alt={item.name} className="object-cover" />
+                  <ProductImage fill sizes="80px" src={item.image} alt={item.name} className="object-cover" />
                 )}
               </div>
               <div className="flex-1 min-w-0">

@@ -29,6 +29,13 @@ interface GraphMediaItem {
   timestamp: string;
 }
 
+// media_url/thumbnail_url are Meta-signed CDN links, not permanent asset URLs —
+// Meta does not guarantee how long they stay valid, so this cache window has
+// to stay well inside that (unknown, but observed short) lifetime. 3600s was
+// long enough for visitors to be served an already-expired link; 300s trades
+// a bit more Graph API traffic for that no longer happening in practice.
+const REELS_REVALIDATE_SECONDS = 300;
+
 export async function getInstagramReels(limit = 6): Promise<InstagramReel[]> {
   const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN;
   const businessAccountId = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
@@ -39,7 +46,7 @@ export async function getInstagramReels(limit = 6): Promise<InstagramReel[]> {
 
   try {
     const url = `https://graph.instagram.com/${GRAPH_API_VERSION}/${businessAccountId}/media?fields=${MEDIA_FIELDS}&limit=25&access_token=${accessToken}`;
-    const res = await fetch(url, { next: { revalidate: 3600, tags: ['instagram-reels'] } });
+    const res = await fetch(url, { next: { revalidate: REELS_REVALIDATE_SECONDS, tags: ['instagram-reels'] } });
 
     if (!res.ok) {
       console.error(`Failed to fetch Instagram media: ${res.status} ${res.statusText}`);

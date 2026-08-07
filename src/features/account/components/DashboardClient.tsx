@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { useAuthStore } from '@/store/authStore';
 import { useWishlistStore } from '@/store/wishlistStore';
-import Image from 'next/image';
+import { ProductImage } from '@/components/shared/ProductImage';
 
 interface DashboardProps {
   initialData: any;
@@ -115,7 +115,7 @@ export default function DashboardClient({ initialData }: DashboardProps) {
                   <Link href={`/product/${item.slug}`} key={item.id} className="block group">
                     <div className="relative aspect-square rounded-lg overflow-hidden bg-surface-lavender mb-2">
                       {item.images?.[0]?.src && (
-                        <Image src={item.images[0].src} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform" />
+                        <ProductImage src={item.images[0].src} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform" />
                       )}
                     </div>
                     <p className="font-body-sm text-xs truncate text-charcoal-navy">{item.name}</p>
@@ -139,7 +139,7 @@ export default function DashboardClient({ initialData }: DashboardProps) {
                   <Link href={`/product/${item.slug}`} key={item.id} className="block group">
                     <div className="relative aspect-square rounded-lg overflow-hidden bg-surface-lavender mb-2">
                       {item.images?.[0]?.src && (
-                        <Image src={item.images[0].src} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform" />
+                        <ProductImage src={item.images[0].src} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform" />
                       )}
                     </div>
                     <p className="font-body-sm text-xs truncate text-charcoal-navy">{item.name}</p>
@@ -163,7 +163,7 @@ export default function DashboardClient({ initialData }: DashboardProps) {
                   <Link href={`/product/${item.slug}`} key={item.id} className="block group">
                     <div className="relative aspect-square rounded-lg overflow-hidden bg-surface-lavender mb-2">
                       {item.images?.[0]?.src && (
-                        <Image src={item.images[0].src} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform" />
+                        <ProductImage src={item.images[0].src} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform" />
                       )}
                     </div>
                     <p className="font-body-sm text-xs truncate text-charcoal-navy">{item.name}</p>

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Product } from "@/types/product";
 import { AddToCartButton } from "./AddToCartButton";
-import Image from "next/image";
+import { ProductImage } from "@/components/shared/ProductImage";
 
 export function StickyAddToCart({ product }: { product: Product }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,7 +32,7 @@ export function StickyAddToCart({ product }: { product: Product }) {
         <div className="hidden sm:flex items-center gap-4 flex-1">
           {product.images?.[0] && (
             <div className="w-12 h-12 relative bg-surface-container-lowest rounded overflow-hidden flex-shrink-0 border border-outline-variant/30">
-              <Image fill sizes="48px" src={product.images[0].src} alt={product.name} className="object-cover" />
+              <ProductImage fill sizes="48px" src={product.images[0].src} alt={product.name} className="object-cover" />
             </div>
           )}
           <div className="flex flex-col">

@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Plain CommonJS Node tooling scripts, not part of the Next.js app —
+    // the TypeScript rule set (no-require-imports, etc.) doesn't apply to
+    // how these are written.
+    "catalog-cli/**",
   ]),
 ]);
 

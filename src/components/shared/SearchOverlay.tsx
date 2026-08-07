@@ -3,7 +3,7 @@ import { Search, X, Loader2, Frown, Grid, Tag, ArrowRight } from 'lucide-react';
 
 import { useState, useEffect, useRef, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import { ProductImage } from "@/components/shared/ProductImage";
 import { useUIStore } from "@/store/uiStore";
 import { useDebounce } from "@/hooks/useDebounce";
 import { getSearchSuggestions, SearchSuggestions } from "@/services/search";
@@ -257,8 +257,8 @@ export function SearchOverlay() {
                         className="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-container transition-colors text-left group"
                       >
                         <div className="relative w-14 h-14 rounded-md overflow-hidden bg-surface-container shrink-0">
-                          <Image
-                            src={product.images[0]?.src || '/placeholder.png'}
+                          <ProductImage
+                            src={product.images[0]?.src}
                             alt={product.name}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -345,8 +345,8 @@ export function SearchOverlay() {
                           className={`flex items-center gap-4 p-2 rounded-lg transition-colors text-left group ${isHighlighted ? 'bg-surface-container' : 'hover:bg-surface-container'}`}
                         >
                           <div className="relative w-16 h-16 rounded-md overflow-hidden bg-surface-container shrink-0">
-                            <Image
-                              src={product.images[0]?.src || '/placeholder.png'}
+                            <ProductImage
+                              src={product.images[0]?.src}
                               alt={product.name}
                               fill
                               className="object-cover group-hover:scale-105 transition-transform duration-500"

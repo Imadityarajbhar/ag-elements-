@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 import { Product } from '@/types/product';
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { ProductImage } from '@/components/shared/ProductImage';
 import { mapWooCommerceError } from '@/lib/error-mapper';
 import { toast } from 'sonner';
 
@@ -103,9 +103,7 @@ export function CartDrawer() {
                 return (
                   <div key={item.key} className={`flex gap-4 ${isSyncing ? 'opacity-50 pointer-events-none' : ''}`}>
                     <div className="relative w-24 aspect-[4/5] bg-surface-container-low overflow-hidden">
-                      {item.images?.[0]?.src && (
-                        <Image fill sizes="64px" src={item.images[0].src} alt={item.name} className="object-cover" />
-                      )}
+                      <ProductImage fill sizes="64px" src={item.images?.[0]?.src} alt={item.name} className="object-cover" />
                     </div>
                     <div className="flex flex-1 flex-col justify-between">
                       <div>

@@ -8,6 +8,7 @@ import Link from "next/link";
 import Script from "next/script";
 import { useAuthStore } from "@/store/authStore";
 import { useCartStore } from "@/store/cart";
+import { ProductImage } from "@/components/shared/ProductImage";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { TrustBadges } from "@/components/shared/TrustBadges";
@@ -57,7 +58,7 @@ const OrderSummaryContent = ({ items, totals, subtotalRaw, discountRaw, shipping
           <div key={item.key} className="flex gap-4 items-center">
             <div className="relative w-16 h-16 bg-surface-dim rounded overflow-hidden flex-shrink-0 border border-outline-variant/30">
               {item.images?.[0]?.src && (
-                <Image fill sizes="64px" src={item.images[0].src} alt={item.name} className="object-cover" />
+                <ProductImage fill sizes="64px" src={item.images[0].src} alt={item.name} className="object-cover" />
               )}
               <div className="absolute -top-2 -right-2 bg-charcoal-navy text-pearl-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full z-10">
                 {item.quantity}

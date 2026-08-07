@@ -3,13 +3,13 @@ import { Flame, Loader2 } from 'lucide-react';
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Product } from '@/types/product';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/shared/Badge';
 import { PriceDisplay } from '@/components/shared/PriceDisplay';
 import { useCartStore } from '@/store/cart';
 import { WishlistButton } from '@/components/shared/WishlistButton';
+import { ProductImage } from '@/components/shared/ProductImage';
 
 interface ProductCardProps {
   product: Product;
@@ -61,15 +61,13 @@ export function ProductCard({ product }: ProductCardProps) {
           <WishlistButton product={product} className="bg-pearl-white/80 backdrop-blur-md p-1.5 rounded-full shadow-sm hover:bg-pearl-white" iconClassName="text-[20px]" />
         </div>
 
-        {product.images?.[0] && (
-          <Image
-            fill
-            sizes="(max-width: 768px) 50vw, 25vw"
-            src={product.images[0].src}
-            alt={product.images[0].alt || product.name}
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        )}
+        <ProductImage
+          fill
+          sizes="(max-width: 768px) 50vw, 25vw"
+          src={product.images?.[0]?.src}
+          alt={product.images?.[0]?.alt || product.name}
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
         
         {/* Quick Add Button on Hover (hidden on mobile) */}
         <Button

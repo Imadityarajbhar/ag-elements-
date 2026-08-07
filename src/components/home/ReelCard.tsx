@@ -7,11 +7,22 @@ import { Play } from "lucide-react";
 import { fadeUp } from "@/lib/motion/variants";
 import type { InstagramReel } from "@/services/instagram";
 
+// Meta's media_url/thumbnail_url are signed, time-limited CDN links (see
+// src/services/instagram.ts) — even with a short cache window, a link can
+// still expire mid-window. One retry (a forced <video> reload) absorbs a
+// transient network hiccup; a link that's genuinely expired fails again
+// immediately, at which point we stop and fall back to a static tile rather
+// than show a permanently broken player.
+const MAX_VIDEO_RETRIES = 1;
+
 export function ReelCard({ reel }: { reel: InstagramReel }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [posterFailed, setPosterFailed] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
+  const [videoRetries, setVideoRetries] = useState(0);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -35,7 +46,7 @@ export function ReelCard({ reel }: { reel: InstagramReel }) {
   // render triggered by setIsLoaded and silently no-op on first entry.
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    if (!video || videoFailed) return;
     if (isVisible) {
       video.play().catch(() => {
         // Browser autoplay policies can still reject the first attempt;
@@ -44,7 +55,18 @@ export function ReelCard({ reel }: { reel: InstagramReel }) {
     } else {
       video.pause();
     }
-  }, [isVisible, isLoaded]);
+  }, [isVisible, isLoaded, videoFailed]);
+
+  const handleVideoError = () => {
+    if (videoRetries < MAX_VIDEO_RETRIES && videoRef.current) {
+      setVideoRetries((r) => r + 1);
+      videoRef.current.load();
+    } else {
+      setVideoFailed(true);
+    }
+  };
+
+  const showStaticFallback = videoFailed;
 
   return (
     <motion.div
@@ -61,11 +83,21 @@ export function ReelCard({ reel }: { reel: InstagramReel }) {
         aria-label={reel.caption ? `Watch reel on Instagram: ${reel.caption}` : "Watch reel on Instagram"}
         className="group relative block w-[220px] tablet:w-[260px] aspect-[9/16] rounded-xl overflow-hidden snap-center shrink-0 shadow-sm hover:shadow-xl transition-shadow duration-500 bg-surface-variant"
       >
-        {isLoaded && (
+        {!isLoaded && <div className="absolute inset-0 animate-pulse bg-surface-container" />}
+
+        {isLoaded && showStaticFallback && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-ag-purple/15 to-surface-variant text-charcoal-navy/70 px-4 text-center">
+            <Play className="text-3xl" />
+            <span className="font-label-sm uppercase tracking-widest text-[11px] font-semibold">View on Instagram</span>
+          </div>
+        )}
+
+        {isLoaded && !showStaticFallback && (
           <video
             ref={videoRef}
             src={reel.videoUrl}
-            poster={reel.thumbnailUrl}
+            poster={posterFailed ? undefined : reel.thumbnailUrl}
+            onError={handleVideoError}
             muted
             loop
             playsInline
@@ -73,6 +105,21 @@ export function ReelCard({ reel }: { reel: InstagramReel }) {
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
         )}
+
+        {/* Invisible probe — <video poster> failures don't emit an error event
+            on the video element itself, so a real <img> is used purely to
+            detect a dead thumbnail URL and stop pointing the poster at it. */}
+        {isLoaded && !posterFailed && !showStaticFallback && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={reel.thumbnailUrl}
+            alt=""
+            aria-hidden="true"
+            className="hidden"
+            onError={() => setPosterFailed(true)}
+          />
+        )}
+
         <div className="absolute inset-0 bg-charcoal-navy/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <div className="flex items-center gap-2 text-pearl-white">
             <Play className="text-3xl" fill="currentColor" />
