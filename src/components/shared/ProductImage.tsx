@@ -20,8 +20,12 @@ type ProductImageProps = Omit<ImageProps, "src" | "onError"> & {
  * missing, or when the browser fails to load it (404/403/timeout/etc).
  */
 export function ProductImage({ src, alt, ...rest }: ProductImageProps) {
-  const [failed, setFailed] = useState(false);
-  const usingFallback = failed || !src;
+  // Scoped to the src it was recorded against — not a bare boolean — so that
+  // swapping to a *different* src (e.g. clicking a gallery thumbnail) always
+  // gets a fresh attempt instead of permanently inheriting an earlier src's
+  // failure on this same mounted instance.
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
+  const usingFallback = !src || failedSrc === src;
 
   return (
     <Image
@@ -29,7 +33,7 @@ export function ProductImage({ src, alt, ...rest }: ProductImageProps) {
       src={usingFallback ? FALLBACK_SRC : src}
       alt={alt}
       unoptimized={usingFallback}
-      onError={() => setFailed(true)}
+      onError={() => setFailedSrc(src ?? null)}
     />
   );
 }

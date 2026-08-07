@@ -36,11 +36,40 @@ interface GraphMediaItem {
 // a bit more Graph API traffic for that no longer happening in practice.
 const REELS_REVALIDATE_SECONDS = 300;
 
+const LOG_PREFIX = '[instagram-reels]';
+
+// Meta's error body, e.g. { error: { message: "API access deactivated.",
+// type: "OAuthException", code: 200, fbtrace_id: "..." } }. Distinct Graph
+// error codes need distinct remediation — 190 is an expired/invalid token
+// (refresh it), 200 can mean the app's API access itself was deactivated in
+// the Meta Developer Dashboard (no token refresh fixes that) — so the code
+// is logged rather than collapsed into a generic "fetch failed" message.
+interface GraphErrorBody {
+  error?: { message?: string; type?: string; code?: number; fbtrace_id?: string };
+}
+
+// A "successful" cached response can still be stale beyond use: Next's fetch
+// cache keeps serving the last good payload indefinitely once revalidation
+// starts failing (confirmed in production — a 9-day-old cached response with
+// 100% expired signed media URLs was still being served as if live).
+// media_url/thumbnail_url are short-lived signed CDN links, so checking the
+// first reel's thumbnail is a reliable, cheap proxy for "is this whole batch
+// (signed together) still usable" without re-hitting the Graph API itself.
+async function isMediaStillReachable(url: string): Promise<boolean> {
+  try {
+    const res = await fetch(url, { method: 'HEAD', cache: 'no-store', signal: AbortSignal.timeout(3000) });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
 export async function getInstagramReels(limit = 6): Promise<InstagramReel[]> {
   const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN;
   const businessAccountId = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
 
   if (!accessToken || !businessAccountId) {
+    console.warn(`${LOG_PREFIX} not configured — INSTAGRAM_ACCESS_TOKEN/INSTAGRAM_BUSINESS_ACCOUNT_ID missing, falling back to static content`);
     return [];
   }
 
@@ -49,13 +78,22 @@ export async function getInstagramReels(limit = 6): Promise<InstagramReel[]> {
     const res = await fetch(url, { next: { revalidate: REELS_REVALIDATE_SECONDS, tags: ['instagram-reels'] } });
 
     if (!res.ok) {
-      console.error(`Failed to fetch Instagram media: ${res.status} ${res.statusText}`);
+      const graphError: GraphErrorBody['error'] = await res.json().then((body: GraphErrorBody) => body?.error).catch(() => undefined);
+
+      console.error(`${LOG_PREFIX} Graph API request failed`, {
+        httpStatus: res.status,
+        httpStatusText: res.statusText,
+        graphErrorCode: graphError?.code,
+        graphErrorType: graphError?.type,
+        graphErrorMessage: graphError?.message,
+        fbtraceId: graphError?.fbtrace_id,
+      });
       return [];
     }
 
     const json: { data?: GraphMediaItem[] } = await res.json();
 
-    return (json.data ?? [])
+    const reels = (json.data ?? [])
       .filter((item) => item.media_product_type === 'REELS' && item.media_url)
       .slice(0, limit)
       .map((item) => ({
@@ -65,8 +103,24 @@ export async function getInstagramReels(limit = 6): Promise<InstagramReel[]> {
         videoUrl: item.media_url!,
         caption: item.caption ?? null,
       }));
+
+    if (reels.length === 0) {
+      console.warn(`${LOG_PREFIX} Graph API call succeeded but returned zero REELS items`, {
+        totalItemsReturned: json.data?.length ?? 0,
+      });
+      return reels;
+    }
+
+    if (!(await isMediaStillReachable(reels[0].thumbnailUrl))) {
+      console.warn(`${LOG_PREFIX} cached reel data's signed media URLs appear expired — treating as unavailable so the homepage falls back to static content instead of dead media`, {
+        reelId: reels[0].id,
+      });
+      return [];
+    }
+
+    return reels;
   } catch (error) {
-    console.error('Failed to fetch Instagram reels', error);
+    console.error(`${LOG_PREFIX} Unexpected error calling Graph API`, error);
     return [];
   }
 }

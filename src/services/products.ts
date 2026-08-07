@@ -396,9 +396,17 @@ export async function getRelatedProducts(product: Product, limit: number = 8): P
     'collection', 'category', 'style', 'material', 'stone',
   ];
 
-  for (const basis of bases) {
-    if (merged.length >= limit) break;
-    const batch = await getRecommendations(product, limit, basis);
+  // Fetched concurrently — each getRecommendations() call is an independent
+  // WooCommerce round-trip (~500ms+ measured live), so awaiting them one at a
+  // time could add seconds to a single PDP load. Merged below in the same
+  // collection > category > style > material > stone priority order as
+  // before, so the resulting product list is unchanged; the only behavioral
+  // difference is that all 5 bases are now always requested, rather than the
+  // previous early-exit skipping later bases once earlier ones already filled
+  // the list.
+  const batches = await Promise.all(bases.map((basis) => getRecommendations(product, limit, basis)));
+
+  for (const batch of batches) {
     for (const p of batch) {
       if (!seen.has(p.id)) {
         seen.add(p.id);

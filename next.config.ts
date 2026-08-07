@@ -4,6 +4,15 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 31536000,
+    // Default deviceSizes is [640,750,828,1080,1200,1920,2048,3840]. 3840 is
+    // dropped: a full repo audit of every `sizes` prop in this app (see the
+    // image-pipeline audit) found no usage wider than `100vw` on mobile /
+    // `50vw` on desktop (the homepage hero is the single `100vw` case) — 2048
+    // already covers that comfortably. Trimmed to reduce the space of
+    // possible Vercel Image Optimization transformations now that the
+    // account's Hobby-plan quota has been exhausted (confirmed via live
+    // `402 OPTIMIZED_IMAGE_REQUEST_PAYMENT_REQUIRED` responses in production).
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     remotePatterns: [
       {
         protocol: 'https',
