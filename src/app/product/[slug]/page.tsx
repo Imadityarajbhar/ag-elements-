@@ -31,6 +31,19 @@ interface PDPProps {
   };
 }
 
+// This page reads no cookies/headers/searchParams and renders no per-user
+// state server-side (cart, wishlist, and auth are all client components
+// hydrated from localStorage/client store) — so the rendered HTML is
+// identical for every visitor of a given slug, making it a safe ISR
+// candidate. 60s matches the underlying data layer's own cache: both
+// getProductBySlug() and getProductReviews() (src/services/products.ts,
+// src/services/reviews.ts) already use `revalidate: 60` for this same
+// product, so the page-level cache can't outlive the freshest data it's
+// built from. (The recommendation-rail fetches use a longer 300s window,
+// which only means those rails can lag the primary product data by up to
+// 240s within a single cached render — unchanged from today's behavior.)
+export const revalidate = 60;
+
 export async function generateMetadata({ params }: PDPProps) {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
@@ -119,18 +132,6 @@ export default async function ProductDetailPage({ params }: PDPProps) {
   if (!product) {
     notFound();
   }
-
-  // We ensure there's at least one image
-  const mainImage = product.images[0]?.src || "https://lh3.googleusercontent.com/aida-public/AB6AXuDUJcDFZ4gfxtgf5QZ4A3vCMYjs1GNnlSvqwfSOFoUudjcqTEFGwyItsyiomIUMhVYrv8zbpUSghtF9q1KKoc05XwxQFeuo5Sjas05jBNlpzK487FACTxY_qeNUFAxWuMANmTPUhuZSFcUoWkUrCE8DKXvnxlU6TKwOq6yoSV1S_2mqi8HMXJZHR8FFCCoouBwu5a_a9ZmgvYm_LiGhKoM5OZGcuA2XONxOC-52soC1NTKIGl--7f8k3w";
-  
-  // Use images 1, 2, 3 for thumbnails, fallback to main if less
-  const thumbnails = product.images.length > 1 
-    ? product.images.slice(0, 3) 
-    : [
-        { id: '1', url: mainImage, alt: product.name },
-        { id: '2', url: mainImage, alt: product.name },
-        { id: '3', url: mainImage, alt: product.name },
-      ];
 
   // Only breadcrumb-link to a category that actually has a live collection page —
   // product.categories[0] can be any WooCommerce term (e.g. "Everyday", "Office")

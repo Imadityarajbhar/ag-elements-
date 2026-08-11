@@ -31,7 +31,10 @@ export function ProductCarousel({ title, products, viewAllLink, analyticsSource 
             className="flex-none w-[65vw] tablet:w-[280px] snap-start"
             onClick={() => analyticsSource && trackRecommendationClick(analyticsSource, product)}
           >
-            <ProductCard product={product} />
+            {/* Card wrapper above is w-[65vw] below `tablet:` (768px) and a
+                fixed 280px from `tablet:` up — matches the wrapper exactly,
+                overriding ProductCard's own grid-tuned default. */}
+            <ProductCard product={product} sizes="(max-width: 767px) 65vw, 280px" />
           </div>
         ))}
       </div>

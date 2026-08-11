@@ -19,11 +19,11 @@ export default function CollectionsPage() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
           <Link href="/shop" className="group block relative aspect-square overflow-hidden bg-surface-container-low">
-            <Image 
+            <Image
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmh4OpW1r7YzPjIfEdT1BO462detMA30qQ0ovpjJfRDdtLMzGz0vN6vYMyfvModHfmrwOuISlk6GHMJWEP214J4fsUtXxAtq3CGo4Y1Vv7pVvvRgyLgguGevDNJJ2XAGo9CNoo3uVTfkkNFhclK8cE1qUiGst7G-KI7Yrs5sbWH_NnEJjjta0Gs5VyLC2U0N8dFG8rMCpkVXPkC6RalzvK4vl_qicNS64ZEyYRMhG3NeVioGHtoU5meg" 
-              alt="Bridal Collection" 
+              src="/collections/bridal-collection.jpg"
+              alt="Bridal Collection"
               className="object-cover transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 z-10"></div>
@@ -33,11 +33,11 @@ export default function CollectionsPage() {
             </div>
           </Link>
           <Link href="/shop" className="group block relative aspect-square overflow-hidden bg-surface-container-low">
-            <Image 
+            <Image
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0wcqyhzKQg8UKFgDNhQnhCGQQnqNfSkF_4zhDOR9UcsUmrNGiaw9mCcIgKnVxTFQosbP34xsurfREUDxurC5kuAKqY3rsImOX_bqSHf-kVG78Dw2_OETX75uMSN-nXWvXLkJ4AOujr5CCeNaI6B_6Xa1o4HlZjxJi0OTuKeenrflWUb742c7sgVMAMIrcFpJrWFi5tdHXuigNYtYwrSfrRWCh3NEP6miVeIddCujoeCFBmqKTbNgg2A" 
-              alt="Everyday Essentials" 
+              src="/collections/everyday-stacking.jpg"
+              alt="Everyday Essentials"
               className="object-cover transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 z-10"></div>

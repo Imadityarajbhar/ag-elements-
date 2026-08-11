@@ -27,9 +27,15 @@ export function ProductCarousel({ title, products, analyticsSource }: ProductCar
               onClick={() => analyticsSource && trackRecommendationClick(analyticsSource, product)}
             >
               <div className="aspect-[4/5] bg-surface-lavender rounded-xl overflow-hidden mb-4 relative shadow-[0px_4px_20px_rgba(35,33,58,0.05)]">
+                {/* This is a horizontally-scrolling carousel with a fixed
+                    card width (min-w-[260px] md:min-w-[280px] on the parent),
+                    not a responsive grid — the card never gets wider than
+                    280px no matter the viewport, so a vw-based `sizes` (the
+                    prior value here) over-fetches on any viewport beyond
+                    ~1120px (25vw already exceeds 280px past that width). */}
                 <ProductImage
                   fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
+                  sizes="(max-width: 767px) 260px, 280px"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   alt={product.name}
                   src={product.images?.[0]?.src}

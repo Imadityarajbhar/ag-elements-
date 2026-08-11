@@ -111,9 +111,15 @@ function WishlistContent() {
               )}
               
               <Link href={`/product/${product.slug}`} className="block relative aspect-[4/5] bg-surface-lavender overflow-hidden">
+                {/* This grid is 1/2/3/4 columns at sm(390px, custom
+                    breakpoint)/lg(1024px)/xl(1440px, custom) — the previous
+                    single `768px` cutoff didn't match any of those, so it
+                    told the browser to fetch a full-viewport-width image
+                    for the entire 390-768px range where the grid is
+                    actually already 2 columns (~2x over-fetch there). */}
                 <ProductImage
                   fill
-                  sizes="(max-width: 768px) 100vw, 25vw"
+                  sizes="(max-width: 389px) 100vw, (max-width: 1023px) 50vw, (max-width: 1439px) 33vw, 25vw"
                   src={product.images?.[0]?.src}
                   alt={product.name}
                   className="object-cover group-hover:scale-105 transition-transform duration-500"

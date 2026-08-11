@@ -37,10 +37,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   });
 }
 
-export default async function CollectionPage({ 
+// No `export const revalidate` here, deliberately — same reasoning as
+// src/app/shop/page.tsx: this page reads `searchParams` (filters/sort/page),
+// which forces fully dynamic per-request rendering so each unique filtered
+// view of the collection resolves correctly. `generateStaticParams` above
+// only pre-renders the *slug* segment; it doesn't make the query-string-
+// dependent render static. The data layer (getPaginatedProducts,
+// revalidate: 300) is where caching actually happens.
+export default async function CollectionPage({
   params,
   searchParams
-}: { 
+}: {
   params: Promise<{ slug: string }>,
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {

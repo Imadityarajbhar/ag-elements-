@@ -28,6 +28,11 @@ interface ToastData {
   timeAgo: string;
 }
 
+interface SocialProofProduct {
+  name: string;
+  slug: string;
+}
+
 // Utility function to shuffle an array
 function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array];
@@ -38,73 +43,58 @@ function shuffleArray<T>(array: T[]): T[] {
   return shuffled;
 }
 
-export function SocialProofToast() {
+// `products` is fetched server-side once (see layout.tsx, getProducts() with
+// its existing 300s revalidate) and passed down as name+slug only — this
+// component no longer makes its own client-side request for the full
+// product catalog just to read two fields off each item.
+export function SocialProofToast({ products }: { products: SocialProofProduct[] }) {
   const [toast, setToast] = useState<ToastData | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    if (products.length === 0) {
+      // Nothing to reference — stay silent rather than showing fake toasts.
+      return;
+    }
+
     let active = true;
+    const shuffledProducts = shuffleArray(products);
+    let currentIndex = 0;
 
-    const startToasts = async () => {
-      try {
-        const res = await fetch('/api/products?per_page=100');
-        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-        const products = await res.json();
-        const validProducts = Array.isArray(products) && products.length > 0
-          ? products.map((p: any) => ({ name: p.name, slug: p.slug }))
-          : [];
+    const scheduleNextToast = () => {
+      const delay = Math.floor(Math.random() * 4000) + 2000; // 2s to 6s delay between toasts
 
-        if (validProducts.length === 0) {
-          // If no products were returned from the API, silently fail
-          // Do not show fake toasts.
-          return;
-        }
-
-        const shuffledProducts = shuffleArray(validProducts);
-        let currentIndex = 0;
-
+      setTimeout(() => {
         if (!active) return;
+        const currentProduct = shuffledProducts[currentIndex];
+        currentIndex = (currentIndex + 1) % shuffledProducts.length;
 
-        const scheduleNextToast = () => {
-          const delay = Math.floor(Math.random() * 4000) + 2000; // 2s to 6s delay between toasts
-          
-          setTimeout(() => {
-            if (!active) return;
-            const currentProduct = shuffledProducts[currentIndex];
-            currentIndex = (currentIndex + 1) % shuffledProducts.length;
-
-            const newToast = {
-              name: NAMES[Math.floor(Math.random() * NAMES.length)],
-              city: CITIES[Math.floor(Math.random() * CITIES.length)],
-              product: currentProduct.name,
-              slug: currentProduct.slug,
-              timeAgo: `${Math.floor(Math.random() * 59) + 1} mins ago`
-            };
-            
-            setToast(newToast);
-            setIsVisible(true);
-
-            setTimeout(() => {
-              if (!active) return;
-              setIsVisible(false);
-              scheduleNextToast();
-            }, 5000); // Visible for 5 seconds
-          }, delay);
+        const newToast = {
+          name: NAMES[Math.floor(Math.random() * NAMES.length)],
+          city: CITIES[Math.floor(Math.random() * CITIES.length)],
+          product: currentProduct.name,
+          slug: currentProduct.slug,
+          timeAgo: `${Math.floor(Math.random() * 59) + 1} mins ago`
         };
 
-        const initialTimer = setTimeout(() => {
+        setToast(newToast);
+        setIsVisible(true);
+
+        setTimeout(() => {
           if (!active) return;
+          setIsVisible(false);
           scheduleNextToast();
-        }, 3000); // 3 seconds after initial load
-      } catch (err) {
-        console.error("Failed to load products for social proof:", err);
-      }
+        }, 5000); // Visible for 5 seconds
+      }, delay);
     };
 
-    startToasts();
+    const initialTimer = setTimeout(() => {
+      if (!active) return;
+      scheduleNextToast();
+    }, 3000); // 3 seconds after initial load
 
     return () => { active = false; };
-  }, []);
+  }, [products]);
 
   return (
     <div 

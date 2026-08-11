@@ -13,9 +13,11 @@ import { ProductImage } from '@/components/shared/ProductImage';
 
 interface ProductCardProps {
   product: Product;
+  /** Overrides the default grid-tuned `sizes` for callers rendering this card in a different layout (e.g. a fixed-width carousel). */
+  sizes?: string;
 }
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product, sizes = "(max-width: 768px) 50vw, 25vw" }: ProductCardProps) {
   // Selector, not whole-store destructuring — see AddToCartButton for why:
   // this is what stops every card in a grid re-rendering on any cart change.
   const addItem = useCartStore((s) => s.addItem);
@@ -63,7 +65,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
         <ProductImage
           fill
-          sizes="(max-width: 768px) 50vw, 25vw"
+          sizes={sizes}
           src={product.images?.[0]?.src}
           alt={product.images?.[0]?.alt || product.name}
           className="object-cover transition-transform duration-500 group-hover:scale-105"

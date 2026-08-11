@@ -6,14 +6,20 @@ import { getInstagramReels } from '@/services/instagram';
 import { ReelCard } from './ReelCard';
 
 // Static placeholder tiles — used only as a graceful fallback for as long as
-// INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID aren't configured
-// (see src/services/instagram.ts), so the section never renders empty.
+// INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID aren't configured, or
+// the Graph API call fails (see src/services/instagram.ts), so the section
+// never renders empty. Points at real, already-approved brand photography
+// already live on the homepage (src/app/page.tsx) rather than the AI
+// prototyping-tool host these five tiles previously used — that host isn't a
+// production asset store, and this is the one path in the app confirmed
+// (via a live build) to actually be rendering right now, since the
+// configured Instagram token is currently rejected by the Graph API. Only 2
+// tiles rather than the original 5: there are only 2 suitable local images to
+// reuse without fabricating new photography — see the Phase 2 report for the
+// recommendation to replace this with real "shop the look" photography.
 const FALLBACK_POSTS = [
-  { id: 1, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBUJGvMSZgwIlLwahFRrdxRLmFixcgBdkuNq3df9UHJ-K8OUa4HoheieBXDpqxPjerp-dQPGsKjSf_agZAUvvC4MUShS8orWlerj4ZLkEcfstV4yii_FfGR2mMq_vHCdAF9Rw_CLrXow-CxkgL031EdkyyO1_53j78G2TEOBk7Cx0P7vSpDYY7aHY-zbcyrV0_bEccY9eRDJToErv7tsejp21p2y-pYcuRYJUGlpe-5ltfcYvCHjNoofA', url: HOMEPAGE_LINKS.instagram.posts[0].url },
-  { id: 2, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDYiRCc0SOXT-IyTldErTn73a7AMNwjKtfeA6qAjlNRKkflCEuJCYmv5G7MPkJOcEixO3y_InfY4EdHbRCSYjEmHnnLAIXVWP4fr35ncMCdzByzS2gbo4cva11sGetzCwvrIkkJihh-Ee0CFX-V0wak_hUweISm4jzCboLIGFMtX42uwgFxMeKHr5nnkLZ5hqABidyQMU1mt_g97E6wbxFQezC7ls_V8aXsczxyMxzKW5Wxbb5KY0xkNw', url: HOMEPAGE_LINKS.instagram.posts[1].url },
-  { id: 3, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBgYShAiK_WIPmW8XzCj504v1jLWuG1cfWTnZsg933i2ucADqVunBR1qG5SLt6vnry3FMYd5IjpuhbkkvpxbiBxVKdw1xPl-_cypjd1BUkgfnLWl5Z2bOp_Ch46lWO9hlVuedtU4st5dLRYuHi67StD9Fie2aQXNqIQLW4Bo1gwfo8_dl16zt-SlIi0eD1QdfaWRkmCg9NsIJWLg6avXY2r9HuoLEivcUOSNR8r0dkjK-reWSX-Jr0odA', url: HOMEPAGE_LINKS.instagram.posts[2].url },
-  { id: 4, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBVPG_NxUQQz2Jcu8HJfHRV12nWworIMPWOwMwvagcRprZYeT3xBcfW_m56h-jz47MSacfFos8eF5cUqojKD_4Ui0IXROEqeX_jdhGR2gWp899esWEZFiQiiHoYxF8Pxxfl5sjr2empr26C_Vav7rZEOb0atBAwUYdbrdxBr-jkdrLpGWtw8OwxHGYAcXHrUnDrOJd0bUINio6hgZvL8Cl5P1RP0njtEvhdkqjpAXHKOnMCoeIrxSGYSQ', url: HOMEPAGE_LINKS.instagram.posts[3].url },
-  { id: 5, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC0B8jnp9RnFqSKJf7RhfDW0RMWRFeKtE6Pro0qHEZ3-OqDgYMdAQFtklxD3iqkM2NvFC4vw8xci53SgwgchVm9OZ46OF6Jy8khtzYLDAPL55tZs2XykE-E_MGUfz3PGcQlTP44Pjr1lataW2LSyANIknycYTeucy2cOa_CZ-o-lyKLpmQJ8dUqXY7YK3kOE5YC_RZuxpoppp8sNHufLfXCSpms7cnyQiqQAqHLY7mi3zv9vf-U2yFu2g', url: HOMEPAGE_LINKS.instagram.posts[4].url },
+  { id: 1, image: '/collections/bridal-collection.jpg', url: HOMEPAGE_LINKS.instagram.posts[0].url },
+  { id: 2, image: '/collections/everyday-stacking.jpg', url: HOMEPAGE_LINKS.instagram.posts[1].url },
 ];
 
 export async function InstagramFeed() {
@@ -41,6 +47,7 @@ export async function InstagramFeed() {
                   src={post.image}
                   alt="Instagram post"
                   fill
+                  sizes="(max-width: 767px) 250px, 300px"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-charcoal-navy/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">

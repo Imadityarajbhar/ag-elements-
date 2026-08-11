@@ -261,6 +261,7 @@ export function SearchOverlay() {
                             src={product.images[0]?.src}
                             alt={product.name}
                             fill
+                            sizes="56px"
                             className="object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         </div>
@@ -349,6 +350,7 @@ export function SearchOverlay() {
                               src={product.images[0]?.src}
                               alt={product.name}
                               fill
+                              sizes="64px"
                               className="object-cover group-hover:scale-105 transition-transform duration-500"
                             />
                           </div>

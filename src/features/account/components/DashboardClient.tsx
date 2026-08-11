@@ -110,12 +110,18 @@ export default function DashboardClient({ initialData }: DashboardProps) {
               <Link href="/wishlist" className="text-ag-purple text-sm font-semibold hover:underline">View All ({wishlistItems.length})</Link>
             </div>
             {wishlistItems.length > 0 ? (
+              // `sizes` below reflects this grid's real breakpoints (`sm:` is
+              // this project's custom 390px, not Tailwind's default 640px —
+              // see --breakpoint-sm in globals.css) inside the max-w-[1440px]
+              // account layout, whose main column narrows to 2/3 width at
+              // `lg:` (1024px, default). Same grid shape repeats below for
+              // Recently Viewed and Recommended.
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {wishlistItems.slice(0, 4).map((item) => (
                   <Link href={`/product/${item.slug}`} key={item.id} className="block group">
                     <div className="relative aspect-square rounded-lg overflow-hidden bg-surface-lavender mb-2">
                       {item.images?.[0]?.src && (
-                        <ProductImage src={item.images[0].src} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform" />
+                        <ProductImage src={item.images[0].src} alt={item.name} fill sizes="(max-width: 389px) 45vw, (max-width: 1023px) 20vw, 190px" className="object-cover group-hover:scale-105 transition-transform" />
                       )}
                     </div>
                     <p className="font-body-sm text-xs truncate text-charcoal-navy">{item.name}</p>
@@ -139,7 +145,7 @@ export default function DashboardClient({ initialData }: DashboardProps) {
                   <Link href={`/product/${item.slug}`} key={item.id} className="block group">
                     <div className="relative aspect-square rounded-lg overflow-hidden bg-surface-lavender mb-2">
                       {item.images?.[0]?.src && (
-                        <ProductImage src={item.images[0].src} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform" />
+                        <ProductImage src={item.images[0].src} alt={item.name} fill sizes="(max-width: 389px) 45vw, (max-width: 1023px) 20vw, 190px" className="object-cover group-hover:scale-105 transition-transform" />
                       )}
                     </div>
                     <p className="font-body-sm text-xs truncate text-charcoal-navy">{item.name}</p>
@@ -163,7 +169,7 @@ export default function DashboardClient({ initialData }: DashboardProps) {
                   <Link href={`/product/${item.slug}`} key={item.id} className="block group">
                     <div className="relative aspect-square rounded-lg overflow-hidden bg-surface-lavender mb-2">
                       {item.images?.[0]?.src && (
-                        <ProductImage src={item.images[0].src} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform" />
+                        <ProductImage src={item.images[0].src} alt={item.name} fill sizes="(max-width: 389px) 45vw, (max-width: 1023px) 20vw, 190px" className="object-cover group-hover:scale-105 transition-transform" />
                       )}
                     </div>
                     <p className="font-body-sm text-xs truncate text-charcoal-navy">{item.name}</p>

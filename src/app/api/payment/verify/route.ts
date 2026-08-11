@@ -28,7 +28,13 @@ export async function POST(request: Request) {
       .update(razorpay_order_id + "|" + razorpay_payment_id)
       .digest('hex');
 
-    if (generated_signature !== razorpay_signature) {
+    const expectedBuf = Buffer.from(generated_signature, 'hex');
+    const actualBuf = Buffer.from(razorpay_signature, 'hex');
+    const signatureValid =
+      expectedBuf.length === actualBuf.length &&
+      crypto.timingSafeEqual(expectedBuf, actualBuf);
+
+    if (!signatureValid) {
       // Log failure note to WC
       try {
         await wcClient.fetch(`/orders/${wc_order_id}/notes`, {

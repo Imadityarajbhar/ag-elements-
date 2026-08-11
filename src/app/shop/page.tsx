@@ -11,6 +11,15 @@ export const metadata = getSeoMetadata({
   keywords: ["sterling silver jewelry", "shop jewelry online", "AG Elements"],
 });
 
+// No `export const revalidate` here, deliberately: this page reads
+// `searchParams` (filters/sort/page/search), which opts Next.js into fully
+// dynamic per-request rendering regardless of any revalidate value — every
+// unique filter/sort/pagination combination must resolve to its own correct
+// result set, and caching the rendered HTML by URL would risk serving one
+// visitor's query results to another under a mismatched cache key. The
+// underlying data fetch (getPaginatedProducts, revalidate: 300 per query)
+// already caches at the WooCommerce-request layer per unique query — that's
+// the safe caching boundary here, not the page itself.
 export default async function ShopPage({
   searchParams,
 }: {

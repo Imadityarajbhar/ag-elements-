@@ -42,14 +42,30 @@ metadata.verification = {
 import { AuthProvider } from "@/components/shared/AuthProvider";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { cookies } from "next/headers";
+import { getProducts } from "@/services/products";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   const organizationSchema = buildOrganizationSchema();
   const websiteSchema = buildWebsiteSchema();
+
+  // Computed here (server-side) instead of in AuthProvider/SocialProofToast
+  // themselves, since both need data only the server can see cheaply:
+  // `ag_auth_token` is httpOnly (unreadable via document.cookie), and the
+  // product list is already cached 300s via getProducts()'s own fetch
+  // options — fetching it here means the browser never has to make its own
+  // /api/account/profile or /api/products round trip just to mount these
+  // two sitewide providers.
+  const [cookieStore, socialProofSource] = await Promise.all([
+    cookies(),
+    getProducts('per_page=40&_fields=id,name,slug'),
+  ]);
+  const hasSession = Boolean(cookieStore.get('ag_auth_token')?.value);
+  const socialProofProducts = socialProofSource.map((p) => ({ name: p.name, slug: p.slug }));
 
   return (
     <html
@@ -71,7 +87,7 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning className="min-h-full flex flex-col font-sans text-foreground bg-background selection:bg-primary-fixed selection:text-on-primary-fixed">
-        <AuthProvider>
+        <AuthProvider hasSession={hasSession}>
           <Header />
           <main className="flex-grow">
             {children}
@@ -82,7 +98,7 @@ export default function RootLayout({
         <CartDrawer />
         <SearchOverlay />
         <WhatsAppButton />
-        <SocialProofToast />
+        <SocialProofToast products={socialProofProducts} />
         <AnalyticsProvider />
         <SpeedInsights />
       </body>

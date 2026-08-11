@@ -1,0 +1,313 @@
+{
+  "generatedAt": "2026-08-11T07:20:14.285Z",
+  "dryRun": true,
+  "backupFile": "catalog-cli\\backups\\DRYRUN-migration-backup-2026-08-11T07-20-14-279Z.json",
+  "results": [
+    {
+      "productId": 4446,
+      "slug": "elegant-butterfly-crystal-bracelet",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 4174,
+      "slug": "royal-tiger-designer-open-bracelet",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 4151,
+      "slug": "elegant-floral-crystal-open-bracelet",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 4082,
+      "slug": "luxury-panther-designer-bracelet",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 4379,
+      "slug": "ruby-royale-sterling-silver-mangalsutra",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 4374,
+      "slug": "midnight-charm-sterling-silver-mangalsutra",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 4369,
+      "slug": "butterfly-bliss-gold-plated-sterling-silver-mangalsutra",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 4364,
+      "slug": "aurora-glow-rose-gold-sterling-silver-mangalsutra",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 4359,
+      "slug": "roselle-bloom-rose-gold-plated-sterling-silver-mangalsutra",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 4334,
+      "slug": "starlisse-solitaire-sterling-silver-mangalsutra",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 4320,
+      "slug": "aurielle-rose-gold-plated-sterling-silver-mangalsutra",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 4233,
+      "slug": "celeste-rose-gold-mangalsutra-pendant-necklace",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 4075,
+      "slug": "elegant-solitaire-mangalsutra-necklace",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3916,
+      "slug": "silver-wave-ring",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3912,
+      "slug": "silver-cross-ring",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3906,
+      "slug": "silver-half-eternity-ring",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3902,
+      "slug": "cat-stud-earrings-with-cubic-zirconia-cz-crystals",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3897,
+      "slug": "rose-gold-t-bar-stud-earrings",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3891,
+      "slug": "rose-night-earrings",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3888,
+      "slug": "cubic-zirconia-classic-stud-earrings",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3885,
+      "slug": "white-halo-princess-cut-black-stone-stud-earrings",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3879,
+      "slug": "silver-wing-earrings",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3871,
+      "slug": "sterling-silver-stone-inlay-twist-frame-moreen-stud-post-earrings",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3869,
+      "slug": "rose-gold-crystal-necklace",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3860,
+      "slug": "golden-ocean-charm-necklace",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3854,
+      "slug": "rose-gold-butterfly-lariat-necklace",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3760,
+      "slug": "silver-bubble-ring",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3755,
+      "slug": "blue-stone-silver-ring",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3731,
+      "slug": "solitaire-ring-with-accent-stones-2",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3632,
+      "slug": "solitaire-ring-with-accent-stones",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3724,
+      "slug": "silver-black-enamel-stacking-ring",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3721,
+      "slug": "silver-cubic-zirconia-heart-stud-earrings-set",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3716,
+      "slug": "avon-opulent-pearl-glow-silver-necklace",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3711,
+      "slug": "rose-gold-blue-stone-necklace",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3705,
+      "slug": "silver-double-layer-chain-necklace",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3699,
+      "slug": "silver-love-charms-necklace",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3694,
+      "slug": "silver-chain-necklace-with-a-heart-pendant-and-pearls",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3688,
+      "slug": "silver-heart-pendant-necklace",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3683,
+      "slug": "crystal-halo-pendant-necklace",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3678,
+      "slug": "silver-necklace-with-multiple-heart-shaped-charms",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3674,
+      "slug": "sterling-silver-crystals-necklace",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3670,
+      "slug": "sterling-silver-rose-gold-double-chain-necklace-for-women",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3661,
+      "slug": "sterling-silver-heart-and-key-necklace",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3656,
+      "slug": "symbol-rose-gold-chain-necklace",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3652,
+      "slug": "silver-gold-accent-cross-chain",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3648,
+      "slug": "floral-wheel-silver-stud-earrings",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3645,
+      "slug": "crystal-solitaire-crystal-pav-flower-and-black-enamel-flower-silver-stud-earrings",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3641,
+      "slug": "clover-stud-earrings",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3636,
+      "slug": "minimal-cube-crystal-silver-chain-necklace",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3214,
+      "slug": "cubic-zirconia-silver-plated-dangle-drop-earrings",
+      "status": "dry-run",
+      "revalidate": null
+    },
+    {
+      "productId": 3146,
+      "slug": "jay-shree-shyam-menss-oxidised-kada",
+      "status": "dry-run",
+      "revalidate": null
+    }
+  ]
+}
