@@ -50,9 +50,6 @@ export default async function Home() {
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-charcoal-navy/80 via-charcoal-navy/25 to-transparent"></div>
 
         <div className="relative z-20 w-full max-w-[1440px] mx-auto text-center px-margin-mobile tablet:px-margin-desktop pb-16 tablet:pb-20 flex flex-col items-center">
-          <span className="font-label-md text-[14px] uppercase tracking-[0.2em] text-pearl-white/80 font-semibold mb-6 drop-shadow-md">
-            The New Collection
-          </span>
           <h1 className="font-display-lg text-[48px] tablet:text-[72px] leading-[1.1] text-pearl-white max-w-3xl mb-6 drop-shadow-2xl tracking-tight font-medium">
             Everyday Elegance, <br className="hidden tablet:block" /> Chosen for You.
           </h1>
