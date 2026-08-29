@@ -664,6 +664,8 @@ function CheckoutContent() {
                     </>
                   ) : paymentMethod === 'cod' && shippingRaw > 0 ? (
                     `Pay ₹${shippingRaw.toLocaleString('en-IN')} Online`
+                  ) : paymentMethod === 'cod' ? (
+                    `Proceed with Order`
                   ) : (
                     `Pay ₹${totalRaw.toLocaleString('en-IN')}`
                   )}
