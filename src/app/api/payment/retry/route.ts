@@ -34,7 +34,16 @@ export async function POST(request: Request) {
     }
 
     // 3. Convert total to paise
-    const totalInPaise = Math.round(parseFloat(wcOrder.total) * 100);
+    //
+    // A Cash-on-Delivery order only ever charges its shipping amount online
+    // (see api/payment/create-order) — retrying it must recharge that same
+    // shipping-only amount, never the full order total, or an abandoned COD
+    // shipping payment would get retried as a full-order charge by mistake.
+    const codShippingDueMeta = wcOrder.meta_data?.find((m) => m.key === '_cod_shipping_due_paise');
+    const isCodShippingPrepay = wcOrder.meta_data?.some((m) => m.key === '_cod_shipping_prepay' && m.value === 'yes');
+    const totalInPaise = isCodShippingPrepay && codShippingDueMeta
+      ? parseInt(codShippingDueMeta.value, 10)
+      : Math.round(parseFloat(wcOrder.total) * 100);
 
     // 4. Initialize Razorpay and Create New Order
     const razorpay = new Razorpay({
@@ -45,10 +54,11 @@ export async function POST(request: Request) {
     const rzpOrder = await razorpay.orders.create({
       amount: totalInPaise,
       currency: 'INR',
-      receipt: `order_rcptid_${wcOrder.id}_retry`,
+      receipt: `order_rcptid_${wcOrder.id}_retry${isCodShippingPrepay ? '_codship' : ''}`,
       notes: {
         wc_order_id: wcOrder.id.toString(),
-        source: 'headless_nextjs_retry'
+        source: 'headless_nextjs_retry',
+        ...(isCodShippingPrepay ? { purpose: 'cod_shipping_prepay' } : {})
       }
     });
 
@@ -57,7 +67,9 @@ export async function POST(request: Request) {
       await wcClient.fetch(`/orders/${wcOrder.id}/notes`, {
         method: 'POST',
         body: JSON.stringify({
-          note: `Payment Retry Initiated. New Razorpay Order Created: ${rzpOrder.id}`,
+          note: isCodShippingPrepay
+            ? `Cash on Delivery shipping payment retry initiated. New Razorpay Order Created: ${rzpOrder.id}`
+            : `Payment Retry Initiated. New Razorpay Order Created: ${rzpOrder.id}`,
           customer_note: false
         })
       });

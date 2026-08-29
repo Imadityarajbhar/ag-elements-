@@ -88,15 +88,26 @@ export async function POST(request: Request) {
     }
     
     // AMOUNT VALIDATION
+    //
+    // A Cash-on-Delivery order only ever has its shipping charge run through
+    // Razorpay (see api/payment/create-order) — the order's meta records that
+    // via _cod_shipping_prepay/_cod_shipping_due_paise. For that case the
+    // captured payment must match the shipping-only amount, never the order's
+    // full total, or every hybrid-COD payment would fail this check.
+    const codShippingDueMeta = wcOrderData.meta_data?.find((m) => m.key === '_cod_shipping_due_paise');
+    const isCodShippingPrepay = wcOrderData.meta_data?.some((m) => m.key === '_cod_shipping_prepay' && m.value === 'yes');
+
     if (payment && (event === 'payment.captured' || event === 'order.paid')) {
-      const expectedAmount = Math.round(parseFloat(wcOrderData.total) * 100);
+      const expectedAmount = isCodShippingPrepay && codShippingDueMeta
+        ? parseInt(codShippingDueMeta.value, 10)
+        : Math.round(parseFloat(wcOrderData.total) * 100);
       const actualAmount = payment.amount;
       if (actualAmount !== expectedAmount) {
         // Log mismatch and don't process as success
         await wcClient.fetch(`/orders/${wcOrderId}/notes`, {
           method: 'POST',
           body: JSON.stringify({
-            note: `WARNING: Webhook payment amount (${actualAmount / 100}) does not match order total (${wcOrderData.total}). Status not updated to processing.`,
+            note: `WARNING: Webhook payment amount (${actualAmount / 100}) does not match ${isCodShippingPrepay ? 'expected COD shipping charge' : 'order total'} (₹${(expectedAmount / 100).toFixed(2)}). Status not updated to processing.`,
             customer_note: false
           })
         });
@@ -111,7 +122,9 @@ export async function POST(request: Request) {
     if (event === 'payment.captured' || event === 'order.paid') {
       if (wcOrderData.status !== 'processing' && wcOrderData.status !== 'completed') {
         newStatus = 'processing';
-        noteText = `Payment Captured. Webhook updated status to Processing. Payment ID: ${payment?.id}`;
+        noteText = isCodShippingPrepay
+          ? `Cash on Delivery shipping charge captured online (Payment ID: ${payment?.id}). Order moved to Processing. Remaining amount due as cash on delivery.`
+          : `Payment Captured. Webhook updated status to Processing. Payment ID: ${payment?.id}`;
       }
     } else if (event === 'payment.failed') {
       if (wcOrderData.status === 'pending') {
@@ -134,7 +147,12 @@ export async function POST(request: Request) {
 
     if (payment?.id) metaUpdates.push({ key: '_razorpay_payment_id', value: payment.id });
     if (order?.id) metaUpdates.push({ key: '_razorpay_order_id', value: order.id });
-    
+
+    if (isCodShippingPrepay && newStatus === 'processing' && (event === 'payment.captured' || event === 'order.paid')) {
+      metaUpdates.push({ key: '_cod_shipping_paid', value: 'yes' });
+      if (payment?.id) metaUpdates.push({ key: '_razorpay_shipping_payment_id', value: payment.id });
+    }
+
     if (event === 'refund.processed') {
       const refund = payload.refund?.entity;
       metaUpdates.push({ key: '_razorpay_refund_id', value: refund?.id });

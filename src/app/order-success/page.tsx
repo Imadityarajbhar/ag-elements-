@@ -1,32 +1,59 @@
 "use client";
 import { CheckCircle2 } from 'lucide-react';
 
-import { useEffect, Suspense } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+
+interface CodDetails {
+  shippingRequired: boolean;
+  shippingDuePaise: number;
+  shippingPaid: boolean;
+  cashDuePaise: number;
+}
 
 function OrderSuccessContent() {
   const searchParams = useSearchParams();
   const orderId = searchParams.get("orderId") || "AG123456";
   const email = searchParams.get("email") || "your email";
 
+  const [paymentMethodTitle, setPaymentMethodTitle] = useState("Online Payment");
+  const [codDetails, setCodDetails] = useState<CodDetails | null>(null);
+
+  useEffect(() => {
+    if (!searchParams.get("orderId")) return;
+
+    const fetchStatus = async () => {
+      try {
+        const res = await fetch(`/api/payment/status?order_id=${orderId}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data.paymentMethodTitle) setPaymentMethodTitle(data.paymentMethodTitle);
+        if (data.codDetails) setCodDetails(data.codDetails);
+      } catch (error) {
+        console.error("Failed to load order details", error);
+      }
+    };
+    fetchStatus();
+  }, [orderId, searchParams]);
+
   return (
     <div className="min-h-screen bg-pearl-white flex flex-col items-center pt-16 tablet:pt-24 pb-32">
       <Link href="/" className="mb-12">
         <Image src="/brand/logo.png" alt="AG Elements" width={160} height={40} className="h-10 w-auto object-contain" />
       </Link>
-      
+
       <div className="max-w-2xl w-full mx-auto px-margin-mobile tablet:px-margin-desktop text-center">
         <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8">
           <CheckCircle2 className="text-[40px] text-primary" />
         </div>
-        
+
         <h1 className="font-headline-lg text-[40px] tablet:text-[48px] leading-[48px] tablet:leading-[56px] font-medium text-charcoal-navy mb-4">
           Thank you for your order!
         </h1>
-        
+
         <p className="font-body-lg text-[18px] text-on-surface-variant mb-12">
           We've received your order and are getting it ready to be shipped. We will send an email confirmation to <span className="font-medium text-charcoal-navy">{email}</span> shortly.
         </p>
@@ -44,12 +71,27 @@ function OrderSuccessContent() {
             </div>
             <div>
               <p className="text-on-surface-variant mb-1">Payment Method</p>
-              <p className="text-charcoal-navy font-medium">Online Payment</p>
+              <p className="text-charcoal-navy font-medium">{paymentMethodTitle}</p>
             </div>
             <div>
               <p className="text-on-surface-variant mb-1">Shipping Options</p>
               <p className="text-charcoal-navy font-medium">Standard Delivery</p>
             </div>
+            {codDetails && codDetails.cashDuePaise > 0 && (
+              <div className="col-span-2 pt-4 border-t border-outline-variant/30">
+                <p className="text-on-surface-variant mb-1">Cash Due at Delivery</p>
+                <p className="text-charcoal-navy font-medium text-[18px]">
+                  ₹{(codDetails.cashDuePaise / 100).toLocaleString('en-IN')}
+                </p>
+                {codDetails.shippingRequired && (
+                  <p className="text-on-surface-variant text-sm mt-1">
+                    {codDetails.shippingPaid
+                      ? "Your shipping charge has already been paid online."
+                      : "Your shipping charge is being confirmed — you'll receive an update shortly."}
+                  </p>
+                )}
+              </div>
+            )}
           </div>
         </div>
 

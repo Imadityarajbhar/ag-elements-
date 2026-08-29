@@ -15,7 +15,13 @@ export const PAYMENT_METHODS: PaymentMethodConfig[] = [
   {
     id: "cod",
     title: "Cash on Delivery",
-    description: "Pay with cash upon delivery.",
+    description: "Shipping charges are paid online now via Razorpay; the remaining amount is collected as cash when your order is delivered.",
+    enabled: true,
+  },
+  {
+    id: "wctr-sandboxpayment",
+    title: "SandBox Payment (Test Only)",
+    description: "",
     enabled: false,
   }
 ];

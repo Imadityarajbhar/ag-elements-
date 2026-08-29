@@ -15,6 +15,13 @@ import { TrustBadges } from "@/components/shared/TrustBadges";
 import { mapWooCommerceError } from "@/lib/error-mapper";
 import { PAYMENT_METHODS } from "@/config/payment-methods";
 
+function generateRequestId(): string {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID();
+  }
+  return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
 const INDIAN_STATES = [
   "Andaman and Nicobar Islands", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", 
   "Chandigarh", "Chhattisgarh", "Dadra and Nagar Haveli", "Daman and Diu", "Delhi", 
@@ -192,10 +199,25 @@ function CheckoutContent() {
   const [sameAsShipping, setSameAsShipping] = useState(true);
   const [paymentMethod, setPaymentMethod] = useState("");
   const [createAccount, setCreateAccount] = useState(false);
-  
+
   // Use cart from store for items and totals
   const items = cart?.items || [];
   const totals: any = cart?.totals || {};
+
+  // Stable identifier for "this checkout attempt" — lets the server tell a
+  // retried/double-submitted request apart from a genuinely different order,
+  // without relying on billing email or timing (see api/payment/create-order).
+  // Regenerated whenever the cart contents/total or the chosen payment method
+  // change, so a retry of the *same* attempt reuses it, but placing a
+  // different order (different cart, or switching payment method) never
+  // collides with a still-pending prior attempt.
+  const cartSignature = items.length > 0
+    ? `${items.map((i: any) => `${i.key}:${i.quantity}`).sort().join(',')}|${totals?.total_price || ''}`
+    : '';
+  const [checkoutRequestId, setCheckoutRequestId] = useState(() => generateRequestId());
+  useEffect(() => {
+    setCheckoutRequestId(generateRequestId());
+  }, [cartSignature, paymentMethod]);
   
   const backendMethods = checkoutData?.payment_methods || [];
   const paymentMethods = PAYMENT_METHODS.filter(m => m.enabled);
@@ -321,6 +343,7 @@ function CheckoutContent() {
       payment_method: paymentMethod,
       payment_data: [],
       customer_id: 0,
+      checkout_request_id: checkoutRequestId,
       ...(createAccount ? { create_account: true } : {})
     };
 
@@ -357,7 +380,7 @@ function CheckoutContent() {
           amount: data.amount,
           currency: data.currency,
           name: "AG Elements",
-          description: `Order #${data.wc_order_id}`,
+          description: paymentMethod === 'cod' ? `Shipping charge for Order #${data.wc_order_id} (Cash on Delivery)` : `Order #${data.wc_order_id}`,
           order_id: data.razorpay_order_id,
           handler: async function (response: any) {
              try {
@@ -576,7 +599,17 @@ function CheckoutContent() {
                         />
                         <span className="font-body-md font-semibold text-charcoal-navy">{method.title}</span>
                       </div>
-                      {paymentMethod === method.id && method.description && (
+                      {paymentMethod === method.id && method.id === 'cod' ? (
+                        <div className="mt-2 pl-7 font-sans text-sm text-on-surface-variant">
+                          {shippingRaw > 0 ? (
+                            <p>
+                              Pay <span className="font-semibold text-charcoal-navy">₹{shippingRaw.toLocaleString('en-IN')}</span> online now (shipping) · <span className="font-semibold text-charcoal-navy">₹{(totalRaw - shippingRaw).toLocaleString('en-IN')}</span> in cash on delivery.
+                            </p>
+                          ) : (
+                            <p>Free shipping — the full amount is collected as cash on delivery.</p>
+                          )}
+                        </div>
+                      ) : paymentMethod === method.id && method.description && (
                         <div className="mt-2 pl-7 font-sans text-sm text-on-surface-variant">
                           <p dangerouslySetInnerHTML={{ __html: method.description }} />
                         </div>
@@ -629,6 +662,8 @@ function CheckoutContent() {
                       <Loader2 className="animate-spin text-[20px]" />
                       Processing Payment...
                     </>
+                  ) : paymentMethod === 'cod' && shippingRaw > 0 ? (
+                    `Pay ₹${shippingRaw.toLocaleString('en-IN')} Online`
                   ) : (
                     `Pay ₹${totalRaw.toLocaleString('en-IN')}`
                   )}
